@@ -263,9 +263,11 @@
         .photo-frame { position: relative; display: inline-block; }
         .photo-frame img {
             width: 100%; max-width: 380px; border-radius: 6px;
-            display: block; filter: contrast(1.05) brightness(0.95);
+            display: block; 
+            filter: drop-shadow(0px 0px 10px rgba(0,0,0,1)) drop-shadow(0px 10px 20px rgba(255,215,0,0.15));
         }
         .photo-frame::after {
+            display: none;
             content: ''; position: absolute;
             inset: 12px -12px -12px 12px;
             border: 2px solid var(--yellow); border-radius: 6px; z-index: -1;
