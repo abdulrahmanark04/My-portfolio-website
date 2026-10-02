@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA RAHMAN | Structural Engineer</title>
+    <meta name="description" content="SA Rahman — Civil & Structural Engineer specializing in manual structural design, STAAD.Pro, AutoCAD, Revit, and RCDC.">
+    <meta property="og:title" content="SA RAHMAN | Structural Engineer">
+    <meta property="og:description" content="Civil & Structural Engineer — AutoCAD, Revit, STAAD.Pro, RCDC, V-Ray">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111111;
+            --yellow: #FFD700;
+            --white: #FFFFFF;
+            --grey: #999999;
+            --dim: #666666;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 3px; }
+
+        /* ===== PRELOADER (BANNER CUT) ===== */
+        .preloader {
+            position: fixed; inset: 0; z-index: 9999;
+            pointer-events: none; overflow: hidden;
+        }
+        .preloader-panel {
+            position: absolute; inset: 0;
+            background: #080808;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .panel-top {
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        }
+        .panel-bottom {
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        }
+        .preloader.split .panel-top { transform: translateY(-100%); }
+        .preloader.split .panel-bottom { transform: translateY(100%); }
+        
+        .preloader-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem; letter-spacing: 10px;
+            color: var(--white); text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .preloader-name span { color: var(--yellow); }
+
+
+
+        .laser-cut {
+            position: absolute; top: 50%; left: 0;
+            height: 3px; background: var(--yellow);
+            width: 0; transform: translateY(-50%);
+            box-shadow: 0 0 15px var(--yellow), 0 0 30px var(--yellow);
+            z-index: 10000;
+            transition: width 1s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .preloader.cutting .laser-cut { width: 100%; }
+        .preloader.split .laser-cut { opacity: 0; transition: opacity 0.3s; }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0;
+            height: 3px; background: var(--yellow);
+            z-index: 10001; width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ===== PARTICLE CANVAS ===== */
+        #particles {
+            position: fixed; inset: 0;
+            z-index: 0; pointer-events: none;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes photoReveal {
+            from { opacity: 0; transform: scale(0.9) translateX(40px); }
+            to { opacity: 1; transform: scale(1) translateX(0); }
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            0%, 100% { border-color: var(--yellow); }
+            50% { border-color: transparent; }
+        }
+        @keyframes cursorHide {
+            to { border-color: transparent; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-anim {
+            opacity: 0;
+            animation: fadeSlideUp 0.8s ease forwards;
+        }
+        .greeting { animation-delay: 0.2s; }
+        .hero-name-wrap { animation-delay: 0.5s; }
+        .hero-title { animation-delay: 1.8s; }
+        .hero-summary { animation-delay: 2.2s; }
+        .hero-buttons { animation-delay: 2.6s; }
+
+        .hero-right {
+            opacity: 0;
+            animation: photoReveal 1s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .typewriter-wrap { display: inline-block; overflow: hidden; }
+        .typewriter-text {
+            display: inline-block; overflow: hidden; white-space: nowrap;
+            border-right: 3px solid var(--yellow);
+            animation:
+                typing 1s steps(10, end) 0.6s forwards,
+                blink 0.5s step-end 1.6s 3,
+                cursorHide 0.1s ease 3.1s forwards;
+            width: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem; line-height: 1; letter-spacing: 4px;
+        }
+        .typewriter-text span { color: var(--yellow); }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 0 6%; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(5,5,5,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            animation: fadeIn 1s ease forwards;
+        }
+        .logo {
+            font-family: 'Amiri', serif; font-size: 1.3rem;
+            color: var(--yellow); font-weight: 700; direction: rtl;
+        }
+        nav { display: flex; gap: 2.5rem; }
+        nav a {
+            color: var(--grey); text-decoration: none;
+            font-size: 0.8rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 2px;
+            transition: color 0.3s; position: relative;
+        }
+        nav a:hover, nav a.active { color: var(--yellow); }
+        nav a.active::after {
+            content: ''; position: absolute;
+            bottom: -4px; left: 0; width: 100%;
+            height: 2px; background: var(--yellow);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; z-index: 1001; padding: 5px;
+        }
+        .hamburger span {
+            width: 24px; height: 2px; background: var(--white);
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-nav {
+            display: none; position: fixed; inset: 0; z-index: 999;
+            background: rgba(5,5,5,0.97); backdrop-filter: blur(20px);
+            flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav a {
+            color: var(--white); text-decoration: none;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem; letter-spacing: 4px;
+            transition: color 0.3s;
+        }
+        .mobile-nav a:hover { color: var(--yellow); }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 0 6%; position: relative; z-index: 1;
+        }
+        .hero-content {
+            display: flex; align-items: center; justify-content: space-between;
+            width: 100%; max-width: 1200px; margin: 0 auto; gap: 60px;
+        }
+        .hero-left { flex: 1.2; }
+        .greeting {
+            font-size: 0.85rem; color: var(--grey);
+            text-transform: uppercase; letter-spacing: 4px; margin-bottom: 12px;
+        }
+        .hero-name-wrap { margin-bottom: 8px; }
+        .hero-title {
+            font-size: 1.1rem; color: var(--grey); font-weight: 300;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 30px; padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-summary {
+            color: var(--grey); font-size: 0.95rem; line-height: 1.9;
+            max-width: 550px; margin-bottom: 40px;
+        }
+        .hero-summary strong { color: var(--white); font-weight: 600; }
+        .hero-buttons { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 14px 32px; background: var(--yellow); color: #000;
+            text-decoration: none; font-weight: 600; font-size: 0.85rem;
+            border-radius: 4px; text-transform: uppercase; letter-spacing: 1.5px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover { background: #fff; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 13px 30px; background: transparent; color: var(--white);
+            text-decoration: none; font-weight: 500; font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s;
+        }
+        .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+
+        .hero-right { flex: 0.8; }
+        .photo-frame { position: relative; display: inline-block; }
+        .photo-frame img {
+            width: 100%; max-width: 380px; border-radius: 6px;
+            display: block; filter: contrast(1.05) brightness(0.95);
+        }
+        .photo-frame::after {
+            content: ''; position: absolute;
+            inset: 12px -12px -12px 12px;
+            border: 2px solid var(--yellow); border-radius: 6px; z-index: -1;
+        }
+
+        /* ===== SECTION ===== */
+        .section { padding: 100px 6%; position: relative; z-index: 1; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-label {
+            font-size: 0.75rem; color: var(--yellow);
+            text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem; letter-spacing: 3px; color: var(--white);
+        }
+        .section-line { width: 60px; height: 2px; background: var(--yellow); margin: 20px auto 0; }
+
+        /* ===== STATS ===== */
+        .stats-bar {
+            display: flex; justify-content: center; gap: 80px;
+            padding: 60px 6%; position: relative; z-index: 1;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem; color: var(--yellow);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.8rem; color: var(--grey);
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 8px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 24px; max-width: 1200px; margin: 0 auto;
+        }
+        .skill-card {
+            background: var(--card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px; padding: 36px 24px; text-align: center;
+            transition: all 0.4s; position: relative; overflow: hidden;
+        }
+        .skill-card::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 3px; background: var(--yellow);
+            transform: scaleX(0); transition: transform 0.4s;
+        }
+        .skill-card:hover::before { transform: scaleX(1); }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,215,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .skill-icon { font-size: 2.2rem; color: var(--yellow); margin-bottom: 20px; }
+        .skill-card h3 {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+            letter-spacing: 2px; color: var(--white); margin-bottom: 12px;
+        }
+        .skill-card p { color: var(--dim); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ===== TIMELINE ===== */
+        .timeline { max-width: 700px; margin: 0 auto; position: relative; padding-left: 40px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 14px; top: 0;
+            width: 2px; height: 100%; background: rgba(255,215,0,0.2);
+        }
+        .timeline-item {
+            position: relative; margin-bottom: 40px;
+            padding-left: 30px;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -30px; top: 6px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--yellow); border: 3px solid var(--bg);
+        }
+        .timeline-year {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem; color: var(--yellow);
+            letter-spacing: 2px; margin-bottom: 4px;
+        }
+        .timeline-title {
+            font-size: 1.1rem; font-weight: 600;
+            color: var(--white); margin-bottom: 4px;
+        }
+        .timeline-sub { color: var(--dim); font-size: 0.9rem; }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px; max-width: 1200px; margin: 0 auto;
+        }
+        .project-card {
+            background: var(--card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px; padding: 36px; transition: all 0.4s;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,215,0,0.1);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+        }
+        .project-tag {
+            display: inline-block; font-size: 0.7rem; color: var(--yellow);
+            text-transform: uppercase; letter-spacing: 2px;
+            border: 1px solid rgba(255,215,0,0.3);
+            padding: 4px 12px; border-radius: 3px; margin-bottom: 16px;
+        }
+        .project-card h3 {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem;
+            letter-spacing: 1px; color: var(--white); margin-bottom: 14px;
+        }
+        .project-card p { color: var(--dim); font-size: 0.9rem; line-height: 1.8; }
+        .project-card ul { list-style: none; margin-top: 16px; }
+        .project-card ul li {
+            padding-left: 20px; position: relative;
+            color: var(--grey); font-size: 0.88rem;
+            margin-bottom: 10px; line-height: 1.6;
+        }
+        .project-card ul li::before { content: '▹'; position: absolute; left: 0; color: var(--yellow); }
+        .project-card ul li strong { color: var(--white); }
+
+        /* ===== CERTIFICATIONS ===== */
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px; max-width: 1200px; margin: 0 auto;
+        }
+        .cert-card {
+            background: var(--card); border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 8px; padding: 36px; transition: all 0.4s;
+        }
+        .cert-card:hover {
+            transform: translateY(-6px); border-color: rgba(255,215,0,0.1);
+        }
+        .cert-card h3 {
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
+            letter-spacing: 1px; color: var(--yellow); margin-bottom: 20px;
+        }
+        .cert-item {
+            padding-left: 20px; position: relative;
+            color: var(--grey); font-size: 0.9rem; margin-bottom: 14px; line-height: 1.5;
+        }
+        .cert-item::before {
+            content: '✓'; position: absolute; left: 0;
+            color: var(--yellow); font-weight: 700;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-text { color: var(--grey); font-size: 1rem; line-height: 1.8; margin-bottom: 40px; }
+        .contact-links { display: flex; flex-direction: column; gap: 18px; align-items: center; }
+        .contact-links a, .contact-links span {
+            color: var(--white); text-decoration: none;
+            font-size: 1.05rem; transition: color 0.3s;
+        }
+        .contact-links a:hover { color: var(--yellow); }
+        .contact-links i { color: var(--yellow); width: 28px; margin-right: 10px; }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--yellow); color: #000;
+            border: none; cursor: pointer; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: all 0.3s; z-index: 999;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: var(--white); transform: translateY(-3px); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center; padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--dim); font-size: 0.8rem;
+            position: relative; z-index: 1;
+        }
+        footer .footer-socials { margin-top: 12px; }
+        footer .footer-socials a {
+            color: var(--dim); margin: 0 10px;
+            font-size: 1.1rem; transition: color 0.3s;
+        }
+        footer .footer-socials a:hover { color: var(--yellow); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .hero-content { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-left { order: 2; }
+            .hero-right { order: 1; }
+            .typewriter-text { font-size: 4rem; }
+            .hero-summary { max-width: 100%; }
+            .hero-buttons { justify-content: center; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .photo-frame img { max-width: 280px; }
+            nav { display: none; }
+            .hamburger { display: flex; }
+            .stats-bar { gap: 40px; flex-wrap: wrap; }
+            .stat-number { font-size: 2.5rem; }
+        }
+        @media (max-width: 480px) {
+            .typewriter-text { font-size: 3rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.5rem; }
+            .stats-bar { gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-panel panel-top">
+            <div class="preloader-name">SA <span>RAHMAN</span></div>
+        </div>
+        <div class="preloader-panel panel-bottom">
+            <div class="preloader-name">SA <span>RAHMAN</span></div>
+        </div>
+        <div class="laser-cut" id="laserCut"></div>
+
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Particle Network -->
+    <canvas id="particles"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">حَسْبُنَا اللّٰهُ وَنِعْمَ الْوَكِيْلُ</div>
+        <nav id="desktopNav">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#certs">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section id="about" class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <p class="greeting hero-anim">Hello, I'm</p>
+                <div class="hero-name-wrap hero-anim">
+                    <div class="typewriter-wrap">
+                        <div class="typewriter-text">SA <span>RAHMAN</span></div>
+                    </div>
+                </div>
+                <p class="hero-title hero-anim">Civil & Structural Engineer</p>
+                <p class="hero-summary hero-anim">
+                    I'm a structural engineer who genuinely enjoys what I do — whether it's sitting down with a pen and solving a frame analysis by <strong>Kani's Method</strong>, or modeling an entire building in <strong>Revit</strong> and running it through <strong>STAAD.Pro</strong> for analysis. I work with <strong>AutoCAD</strong>, <strong>RCDC</strong>, <strong>V-Ray</strong>, and <strong>Enscape</strong> to handle everything from design calculations to photorealistic renders. I'm a fast learner — hand me any new software and I'll have it down in no time. At the end of the day, my goal is straightforward: build structures that are safe, cost-effective, and made to stand the test of time.
+                </p>
+                <div class="hero-buttons hero-anim">
+                    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                    <a href="https://www.linkedin.com/in/syedabdulrahman07/" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="photo-frame">
+                    <img src="profile.jpg" alt="SA Rahman">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar reveal">
+        <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="6">0</div>
+            <div class="stat-label">Months Training</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="7">0</div>
+            <div class="stat-label">Software Tools</div>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <div class="section-header reveal">
+            <p class="section-label">What I Do</p>
+            <h2 class="section-title">TECHNICAL ARSENAL</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-grid reveal-stagger">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-calculator"></i></div>
+                <h3>MANUAL DESIGN</h3>
+                <p>Limit State Method, Kani's Method, IS 456, SP-16 Charts</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>DRAFTING & BIM</h3>
+                <p>AutoCAD, Revit Architecture, 3D Massing & Modeling</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>ANALYSIS</h3>
+                <p>STAAD.Pro, RCDC Advanced Concrete Design & Detailing</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                <h3>RENDERING</h3>
+                <p>V-Ray 5.0, Enscape, PBR Materials, Photorealistic Output</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section id="education" class="section">
+        <div class="section-header reveal">
+            <p class="section-label">My Journey</p>
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline reveal">
+            <div class="timeline-item">
+                <div class="timeline-year">2024 — 2027 (Present)</div>
+                <div class="timeline-title">B.Tech in Civil Engineering</div>
+                <div class="timeline-sub">Jayaprakash Narayan College of Engineering, Mahabubnagar — Currently Pursuing</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2021 — 2024</div>
+                <div class="timeline-title">Diploma in Civil Engineering</div>
+                <div class="timeline-sub">Jayaprakash Narayan College of Engineering, Mahabubnagar</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-title">SSC</div>
+                <div class="timeline-sub">Akshara High School, Mahabubnagar</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+        <div class="section-header reveal">
+            <p class="section-label">My Work</p>
+            <h2 class="section-title">KEY PROJECTS</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid reveal-stagger">
+            <div class="project-card">
+                <span class="project-tag">B.Tech Minor Project — 2025-2026</span>
+                <h3>INDIRAMMA INDLU: PURE MANUAL STRUCTURAL DESIGN</h3>
+                <p>Complete manual structural analysis and design of a G+0 low-cost residential building — no automated software used.</p>
+                <ul>
+                    <li><strong>Frame Analysis</strong> — Fixed end moments, rotation & displacement via Kani's Method</li>
+                    <li><strong>Slab & Beam Design</strong> — Two-way slabs, continuous beams using Limit State Method</li>
+                    <li><strong>Column & Footing</strong> — Bi-axial/uni-axial columns, isolated footings with punching shear checks</li>
+                    <li><strong>Drafting</strong> — Full AutoCAD plans following G.O.Ms.No.168 setback rules</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">B.Tech Real-Time Project — 2024-2025</span>
+                <h3>BUILT TO WITHSTAND: DISASTER MANAGEMENT</h3>
+                <p>In-depth study on how civil engineering tackles earthquake and flood disasters. Covered resilient design principles, early warning systems, and RCC/steel behavior under extreme loads.</p>
+            </div>
+            <div class="project-card">
+                <span class="project-tag">Diploma Final Year — 2021-2024</span>
+                <h3>WATERSHED MANAGEMENT ANALYSIS</h3>
+                <p>Assessed environmental data to combat soil erosion and water scarcity. Proposed check dams and sustainable water distribution networks for rural development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs" class="section">
+        <div class="section-header reveal">
+            <p class="section-label">Credentials</p>
+            <h2 class="section-title">CERTIFICATIONS & TRAINING</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="cert-grid reveal-stagger">
+            <div class="cert-card">
+                <h3>BENTLEY INSTITUTE — STAAD.PRO</h3>
+                <div class="cert-item">Generating Dynamic & Static Seismic Loads</div>
+                <div class="cert-item">Generating Wind Loads (Intermediate)</div>
+                <div class="cert-item">Modeling Analytical Members & Plates (Finite Elements)</div>
+                <div class="cert-item">Designing Concrete Beams</div>
+                <div class="cert-item">Designing Concrete Columns</div>
+                <div class="cert-item">Designing Concrete Walls</div>
+                <div class="cert-item">Assigning Properties, Specifications & Supports</div>
+                <div class="cert-item">STAAD Advanced Concrete Design (RCDC)</div>
+            </div>
+            <div class="cert-card">
+                <h3>DRAFTING & RENDERING</h3>
+                <div class="cert-item"><strong>Revit Architecture with V-Ray & Enscape</strong><br>PTS CAD EXPERT — June 2026</div>
+                <h3 style="margin-top: 28px;">INDUSTRIAL TRAINING</h3>
+                <div class="cert-item"><strong>6 Months Civil Engineering Training</strong><br>Landmark Constructions — May 2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="section-header reveal">
+            <p class="section-label">Say Hello</p>
+            <h2 class="section-title">LET'S CONNECT</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="contact-section reveal">
+            <p class="contact-text">
+                Looking for opportunities where I can put my structural design skills and software knowledge to real use — at a firm that values precision, hard work, and fresh thinking.
+            </p>
+            <div class="contact-links">
+                <div><i class="fas fa-envelope"></i><a href="mailto:abdulrahman.ark04@gmail.com">abdulrahman.ark04@gmail.com</a></div>
+                <div><i class="fas fa-phone"></i><a href="tel:+919014548214">+91 9014548214</a></div>
+                <div><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/syedabdulrahman07/" target="_blank">linkedin.com/in/syedabdulrahman07</a></div>
+                <div><i class="fas fa-map-marker-alt"></i><span>Mahabubnagar, Telangana, India</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/syedabdulrahman07/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:abdulrahman.ark04@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+919014548214"><i class="fas fa-phone"></i></a>
+        </div>
+        <p style="margin-top: 12px;">&copy; 2026 SA Rahman. Built with Azure Cloud.</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Force scroll to top on load so preloader is always seen at top
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+        document.body.style.overflow = 'hidden'; // Hide scrollbar during preloader
+
+        // Audio Synthesis & Preloader Sequence (Automatic)
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            
+            // Try to play sound (Browsers may block this without interaction, but animation will continue)
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if(audioCtx.state === 'suspended') audioCtx.resume();
+                
+                // 1. LASER SOUND
+                const osc = audioCtx.createOscillator();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.8);
+                
+                const gainNode = audioCtx.createGain();
+                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 1);
+
+                // 2. HEAVY DOOR RUMBLE SOUND
+                setTimeout(() => {
+                    const bufferSize = audioCtx.sampleRate * 2;
+                    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                    const data = buffer.getChannelData(0);
+                    let lastOut = 0;
+                    for (let i = 0; i < bufferSize; i++) {
+                        let white = Math.random() * 2 - 1;
+                        data[i] = (lastOut + (0.02 * white)) / 1.02; // Brown noise
+                        lastOut = data[i];
+                        data[i] *= 3.5;
+                    }
+                    const noise = audioCtx.createBufferSource();
+                    noise.buffer = buffer;
+                    
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(100, audioCtx.currentTime);
+                    filter.frequency.linearRampToValueAtTime(300, audioCtx.currentTime + 1);
+                    
+                    const rumbleGain = audioCtx.createGain();
+                    rumbleGain.gain.setValueAtTime(0, audioCtx.currentTime);
+                    rumbleGain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 0.2);
+                    rumbleGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.5);
+                    
+                    noise.connect(filter);
+                    filter.connect(rumbleGain);
+                    rumbleGain.connect(audioCtx.destination);
+                    noise.start();
+                }, 1000);
+            } catch(e) {}
+
+            // Visual Sequence
+            // 1. Draw the laser line
+            setTimeout(() => {
+                preloader.classList.add('cutting');
+            }, 400);
+
+            // 2. Split the banner halves apart
+            setTimeout(() => {
+                preloader.classList.add('split');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 1400);
+            
+            // 3. Remove from DOM completely
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 2600);
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = progress + '%';
+        });
+
+        // Back to Top
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 600) btn.classList.add('visible');
+            else btn.classList.remove('visible');
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Active Nav Link Highlight
+        const sections = document.querySelectorAll('section, .stats-bar');
+        const navLinks = document.querySelectorAll('#desktopNav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 200;
+                if (window.scrollY >= top) current = sec.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+        // Stats Counter Animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.dataset.target;
+                        const duration = 1500;
+                        const start = performance.now();
+                        function update(now) {
+                            const elapsed = now - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            counter.textContent = Math.floor(eased * target) + '+';
+                            if (progress < 1) requestAnimationFrame(update);
+                        }
+                        requestAnimationFrame(update);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stats-bar').forEach(el => counterObserver.observe(el));
+
+        // Particle Network
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles, mouse = { x: null, y: null };
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.r = Math.random() * 1.5 + 0.5;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 215, 0, 0.5)';
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            const count = Math.floor((w * h) / 12000);
+            particles = [];
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+        }
+        init();
+        window.addEventListener('resize', init);
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(255, 215, 0, ${0.12 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+                if (mouse.x !== null) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 180) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(255, 215, 0, ${0.25 * (1 - dist / 180)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+
+</body>
+</html>
