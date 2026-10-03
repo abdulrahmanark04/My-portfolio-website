@@ -363,7 +363,7 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 28px; max-width: 1200px; margin: 0 auto;
         }
-        .project-card {
+        .project-card { display: flex; flex-direction: column;
             background: var(--card); border: 1px solid rgba(255,255,255,0.04);
             border-radius: 8px; padding: 36px; transition: all 0.4s;
         }
@@ -478,7 +478,38 @@
             .section-title { font-size: 2.5rem; }
             .stats-bar { gap: 30px; }
         }
-    </style>
+            /* ===== PDF VIEWER MODAL ===== */
+        .doc-modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+            z-index: 10000; display: none; align-items: center; justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        .doc-modal.active { display: flex; }
+        .doc-modal-content {
+            width: 90%; max-width: 1000px; height: 85vh;
+            background: #111; border-radius: 8px; position: relative;
+            border: 1px solid rgba(255,215,0,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+        .doc-modal-close {
+            position: absolute; top: -40px; right: 0;
+            color: var(--white); font-size: 2rem; cursor: pointer;
+            transition: color 0.3s; line-height: 1;
+        }
+        .doc-modal-close:hover { color: var(--yellow); }
+        .doc-iframe { width: 100%; height: 100%; border: none; border-radius: 8px; }
+
+        .view-doc-btn {
+            background: transparent; border: 1px solid var(--yellow);
+            color: var(--yellow); padding: 8px 16px; border-radius: 4px;
+            font-family: 'Inter', sans-serif; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            transition: all 0.3s; margin-top: auto; align-self: flex-end;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .view-doc-btn:hover { background: var(--yellow); color: #000; }
+        .project-actions { margin-top: auto; padding-top: 24px; text-align: right; }
+</style>
 </head>
 <body>
 
@@ -653,11 +684,13 @@
                 <span class="project-tag">B.Tech Real-Time Project — 2024-2025</span>
                 <h3>BUILT TO WITHSTAND: DISASTER MANAGEMENT</h3>
                 <p>In-depth study on how civil engineering tackles earthquake and flood disasters. Covered resilient design principles, early warning systems, and RCC/steel behavior under extreme loads.</p>
+                <div class="project-actions"><button class="view-doc-btn" onclick="openDoc('disaster_management.pdf')"><i class="fas fa-file-pdf"></i> View Documentation</button></div>
             </div>
             <div class="project-card">
                 <span class="project-tag">Diploma Final Year — 2021-2024</span>
                 <h3>WATERSHED MANAGEMENT ANALYSIS</h3>
                 <p>Assessed environmental data to combat soil erosion and water scarcity. Proposed check dams and sustainable water distribution networks for rural development.</p>
+                <div class="project-actions"><button class="view-doc-btn" onclick="openDoc('watershed_management.pdf')"><i class="fas fa-file-pdf"></i> View Documentation</button></div>
             </div>
         </div>
     </section>
@@ -964,5 +997,15 @@
         animate();
     </script>
 
+    <!-- Document Modal -->
+    <div id="docModal" class="doc-modal">
+        <div class="doc-modal-content">
+            <span class="doc-modal-close" onclick="closeDoc()">&times;</span>
+            <iframe id="docIframe" class="doc-iframe" src=""></iframe>
+        </div>
+    </div>
 </body>
 </html>
+
+
+
