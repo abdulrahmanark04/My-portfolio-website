@@ -411,7 +411,9 @@
         .cert-item {
             padding-left: 20px; position: relative;
             color: var(--grey); font-size: 0.9rem; margin-bottom: 14px; line-height: 1.5;
+            cursor: pointer; transition: color 0.3s;
         }
+        .cert-item:hover { color: var(--yellow); text-decoration: underline; }
         .cert-item::before {
             content: 'âœ“'; position: absolute; left: 0;
             color: var(--yellow); font-weight: 700;
@@ -703,23 +705,25 @@
             <h2 class="section-title">CERTIFICATIONS & TRAINING</h2>
             <div class="section-line"></div>
         </div>
-        <div class="cert-grid reveal-stagger">
+                <div class="cert-grid reveal-stagger">
             <div class="cert-card">
-                <h3>BENTLEY INSTITUTE â€” STAAD.PRO</h3>
-                <div class="cert-item">Generating Dynamic & Static Seismic Loads</div>
-                <div class="cert-item">Generating Wind Loads (Intermediate)</div>
-                <div class="cert-item">Modeling Analytical Members & Plates (Finite Elements)</div>
-                <div class="cert-item">Designing Concrete Beams</div>
-                <div class="cert-item">Designing Concrete Columns</div>
-                <div class="cert-item">Designing Concrete Walls</div>
-                <div class="cert-item">Assigning Properties, Specifications & Supports</div>
-                <div class="cert-item">STAAD Advanced Concrete Design (RCDC)</div>
+                <h3>BENTLEY INSTITUTE — STAAD.PRO</h3>
+                <div class="cert-item" onclick="openDoc('cert_dynamic.pdf')">Generating Dynamic Seismic Loads in STAAD.Pro</div>
+                <div class="cert-item" onclick="openDoc('cert_static.pdf')">Generating Static Seismic Loads in STAAD.Pro</div>
+                <div class="cert-item" onclick="openDoc('cert_wind.pdf')">Generating Wind Loads in STAAD.Pro</div>
+                <div class="cert-item" onclick="openDoc('cert_loads.pdf')">Modeling Loads in STAAD.Pro</div>
+                <div class="cert-item" onclick="openDoc('cert_analytical.pdf')">Modelling Analytical Member</div>
+                <div class="cert-item" onclick="openDoc('cert_plates.pdf')">Modelling Plates in STAAD.Pro</div>
+                <div class="cert-item" onclick="openDoc('cert_beam.pdf')">Designing Concrete Beams in STAAD Advanced</div>
+                <div class="cert-item" onclick="openDoc('cert_columns_walls.pdf')">Designing Concrete Columns and Walls</div>
+                <div class="cert-item" onclick="openDoc('cert_properties.pdf')">Assigning Properties to Analytical Members</div>
+                <div class="cert-item" onclick="openDoc('cert_specifications.pdf')">Assigning Specification and Supports</div>
             </div>
             <div class="cert-card">
                 <h3>DRAFTING & RENDERING</h3>
-                <div class="cert-item"><strong>Revit Architecture with V-Ray & Enscape</strong><br>PTS CAD EXPERT â€” June 2026</div>
+                <div class="cert-item" onclick="openDoc('cert_revit.pdf')"><strong>Revit Architecture with V-Ray & Enscape</strong><br>PTS CAD EXPERT — June 2026</div>
                 <h3 style="margin-top: 28px;">INDUSTRIAL TRAINING</h3>
-                <div class="cert-item"><strong>6 Months Civil Engineering Training</strong><br>Landmark Constructions â€” May 2024</div>
+                <div class="cert-item" onclick="openDoc('cert_training.pdf')"><strong>6 Months Civil Engineering Training</strong><br>Landmark Constructions — May 2024</div>
             </div>
         </div>
     </section>
@@ -1024,6 +1028,7 @@
     </div>
 </body>
 </html>
+
 
 
 
