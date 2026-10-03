@@ -389,7 +389,7 @@
             color: var(--grey); font-size: 0.88rem;
             margin-bottom: 10px; line-height: 1.6;
         }
-        .project-card ul li::before { content: '▹'; position: absolute; left: 0; color: var(--yellow); }
+        .project-card ul li::before { content: 'â–¹'; position: absolute; left: 0; color: var(--yellow); }
         .project-card ul li strong { color: var(--white); }
 
         /* ===== CERTIFICATIONS ===== */
@@ -415,7 +415,7 @@
         }
         .cert-item:hover { color: var(--yellow); text-decoration: underline; }
         .cert-item::before {
-            content: '✓'; position: absolute; left: 0;
+            content: 'âœ“'; position: absolute; left: 0;
             color: var(--yellow); font-weight: 700;
         }
 
@@ -535,7 +535,7 @@
 
     <!-- Header -->
     <header>
-        <div class="logo">حَسْبُنَا اللّٰهُ وَنِعْمَ الْوَكِيْلُ</div>
+        <div class="logo">Ø­ÙŽØ³Ù’Ø¨ÙÙ†ÙŽØ§ Ø§Ù„Ù„Ù‘Ù°Ù‡Ù ÙˆÙŽÙ†ÙØ¹Ù’Ù…ÙŽ Ø§Ù„Ù’ÙˆÙŽÙƒÙÙŠÙ’Ù„Ù</div>
         <nav id="desktopNav">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -1000,6 +1000,23 @@
             requestAnimationFrame(animate);
         }
         animate();
+            // Document Modal Logic
+        function openDoc(pdfPath) {
+            document.getElementById('docIframe').src = pdfPath;
+            document.getElementById('docModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDoc() {
+            document.getElementById('docModal').classList.remove('active');
+            document.getElementById('docIframe').src = "";
+            document.body.style.overflow = 'auto';
+        }
+        document.getElementById('docModal').addEventListener('click', function(e) {
+            if(e.target === this) closeDoc();
+        });
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'Escape') closeDoc();
+        });
     </script>
 
     <!-- Document Modal -->
