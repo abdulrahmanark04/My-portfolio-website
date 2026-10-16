@@ -2098,48 +2098,30 @@
 
         }
 
-        const docModalElement = document.getElementById('docModal');
-
-        function handleBackdropTap(e) {
-
-            if (e.target === docModalElement) {
-
-                closeDoc();
-
+        // Document-level backdrop tap/click detector
+        function checkBackdropClose(e) {
+            const modal = document.getElementById('docModal');
+            if (modal && modal.classList.contains('active')) {
+                if (e.target === modal) {
+                    closeDoc();
+                }
             }
-
         }
-
-        if (docModalElement) {
-
-            docModalElement.addEventListener('click', handleBackdropTap);
-
-            docModalElement.addEventListener('touchend', handleBackdropTap);
-
-        }
+        document.addEventListener('click', checkBackdropClose);
+        document.addEventListener('touchend', checkBackdropClose);
 
         document.addEventListener('keydown', function(e) {
-
             if(e.key === 'Escape') closeDoc();
-
         });
 
     </script>
 
-
-
     <!-- Document Modal -->
-
-    <div id="docModal" class="doc-modal">
-
+    <div id="docModal" class="doc-modal" onclick="if (event.target === this) closeDoc();" ontouchend="if (event.target === this) closeDoc();">
         <div class="doc-modal-content">
-
             <span class="doc-modal-close" onclick="closeDoc()">&times;</span>
-
             <iframe id="docIframe" class="doc-iframe" src=""></iframe>
-
         </div>
-
     </div>
 
 </body>
