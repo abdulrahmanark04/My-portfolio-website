@@ -37,6 +37,11 @@
             line-height: 1.38;
             -webkit-font-smoothing: antialiased;
             padding: 20px 10px;
+            cursor: pointer;
+        }
+
+        .resume-sheet, .cv-action-bar {
+            cursor: default;
         }
 
         /* Top Action Bar (Screen View) */
@@ -802,5 +807,19 @@
         </div>
     </main>
 
+    <!-- Tap/Click outside CV to close viewer -->
+    <script>
+        function checkAndClose(e) {
+            const insideSheet = e.target.closest('.resume-sheet');
+            const insideBar = e.target.closest('.cv-action-bar');
+            if (!insideSheet && !insideBar) {
+                if (window.parent && typeof window.parent.closeDoc === 'function') {
+                    window.parent.closeDoc();
+                }
+            }
+        }
+        document.addEventListener('click', checkAndClose);
+        document.addEventListener('touchend', checkAndClose);
+    </script>
 </body>
 </html>

@@ -988,6 +988,8 @@
 
             backdrop-filter: blur(10px);
 
+            cursor: pointer;
+
         }
 
         .doc-modal.active { display: flex; }
@@ -1001,6 +1003,8 @@
             border: 1px solid rgba(255,215,0,0.2);
 
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+
+            cursor: default;
 
         }
 
@@ -2094,11 +2098,25 @@
 
         }
 
-        document.getElementById('docModal').addEventListener('click', function(e) {
+        const docModalElement = document.getElementById('docModal');
 
-            if(e.target === this) closeDoc();
+        function handleBackdropTap(e) {
 
-        });
+            if (e.target === docModalElement) {
+
+                closeDoc();
+
+            }
+
+        }
+
+        if (docModalElement) {
+
+            docModalElement.addEventListener('click', handleBackdropTap);
+
+            docModalElement.addEventListener('touchend', handleBackdropTap);
+
+        }
 
         document.addEventListener('keydown', function(e) {
 
