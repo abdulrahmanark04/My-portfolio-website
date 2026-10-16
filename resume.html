@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Abdul Rahman - Curriculum Vitae</title>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;       /* Deep Slate */
+            --primary-light: #1e293b; 
+            --accent: #d97706;        /* Civil Gold / Amber */
+            --accent-gold: #fbbf24;
+            --text-main: #1e293b;
+            --text-muted: #475569;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --sidebar-bg: #f8fafc;
+            --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: #0b0f19;
+            color: var(--text-main);
+            line-height: 1.38;
+            -webkit-font-smoothing: antialiased;
+            padding: 20px 10px;
+        }
+
+        /* Top Action Bar (Screen View) */
+        .cv-action-bar {
+            max-width: 860px;
+            margin: 0 auto 16px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            color: #fff;
+        }
+        .cv-action-bar .brand-badge {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cv-action-bar .brand-badge span {
+            color: var(--accent-gold);
+        }
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        .action-btn {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-pdf {
+            background: var(--accent-gold);
+            color: #0f172a;
+        }
+        .btn-pdf:hover {
+            background: #f59e0b;
+            transform: translateY(-1px);
+        }
+        .btn-print {
+            background: rgba(255, 255, 255, 0.12);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-print:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Resume Sheet Container */
+        .resume-sheet {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header Band */
+        .cv-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 22px 28px 18px 28px;
+            position: relative;
+            border-bottom: 3.5px solid var(--accent);
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .name-title h1 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+        .name-title .target-role {
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-top: 3px;
+            letter-spacing: 0.3px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px 16px;
+            font-size: 0.74rem;
+            color: #cbd5e1;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: color 0.15s;
+        }
+        .contact-item i {
+            color: var(--accent-gold);
+            width: 13px;
+            text-align: center;
+            font-size: 0.76rem;
+        }
+        .contact-item:hover {
+            color: #ffffff;
+        }
+
+        /* Two Column Body */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+        }
+
+        /* Left Sidebar */
+        .cv-sidebar {
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Right Content Area */
+        .cv-main {
+            background: #ffffff;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 0.74rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1.5px solid #e2e8f0;
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5px;
+            left: 0;
+            width: 24px;
+            height: 1.5px;
+            background: var(--accent);
+        }
+        .section-title i {
+            color: var(--accent);
+            font-size: 0.76rem;
+        }
+
+        /* Sidebar Elements */
+        .sidebar-block {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .edu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+            margin-bottom: 4px;
+        }
+        .edu-degree {
+            font-size: 0.77rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .edu-inst {
+            font-size: 0.71rem;
+            font-weight: 500;
+            color: #475569;
+        }
+        .edu-meta {
+            font-size: 0.67rem;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1px;
+        }
+        .grade-badge {
+            background: #fef3c7;
+            color: #92400e;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.66rem;
+        }
+
+        .cert-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+            margin-bottom: 5px;
+        }
+        .cert-name {
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.2;
+        }
+        .cert-issuer {
+            font-size: 0.67rem;
+            color: #475569;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-group {
+            margin-bottom: 4px;
+        }
+        .skill-label {
+            font-size: 0.67rem;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 3px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+        .skill-tag {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            line-height: 1.2;
+        }
+        .skill-tag.highlight {
+            background: #0f172a;
+            color: var(--accent-gold);
+            border-color: #0f172a;
+        }
+
+        /* Main Content Elements */
+        .summary-text {
+            font-size: 0.74rem;
+            color: #334155;
+            line-height: 1.40;
+            text-align: justify;
+        }
+
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 6px;
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+        .timeline-title {
+            font-size: 0.80rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .timeline-subtitle {
+            font-size: 0.73rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .timeline-date {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #64748b;
+        }
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 2px;
+        }
+        .bullet-list li {
+            font-size: 0.72rem;
+            color: #334155;
+            line-height: 1.34;
+            position: relative;
+            padding-left: 11px;
+        }
+        .bullet-list li::before {
+            content: '▪';
+            color: var(--accent);
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: -1px;
+        }
+        .bullet-list li strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* Screen Responsive Rules */
+        @media (max-width: 768px) {
+            body {
+                padding: 8px 4px;
+            }
+            .cv-action-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+            .cv-sidebar {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-item {
+                grid-column: span 1 !important;
+            }
+        }
+
+        /* Precision 1-Page A4 Print Rules */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .cv-action-bar {
+                display: none !important;
+            }
+            .resume-sheet {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                border: none !important;
+            }
+            @page {
+                size: A4 portrait;
+                margin: 6mm 7mm;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .cv-header {
+                background: #0f172a !important;
+                color: #ffffff !important;
+                padding: 12px 18px 10px 18px !important;
+                border-bottom: 3px solid #d97706 !important;
+            }
+            .name-title h1 {
+                color: #ffffff !important;
+                font-size: 1.6rem !important;
+            }
+            .name-title .target-role {
+                color: #fbbf24 !important;
+                font-size: 0.82rem !important;
+                margin-top: 2px !important;
+            }
+            .contact-grid {
+                color: #cbd5e1 !important;
+                font-size: 0.70rem !important;
+                gap: 3px 12px !important;
+            }
+            .contact-item i {
+                color: #fbbf24 !important;
+            }
+            .cv-body {
+                grid-template-columns: 228px 1fr !important;
+                min-height: auto !important;
+            }
+            .cv-sidebar {
+                padding: 9px 11px !important;
+                gap: 8px !important;
+                background: #f8fafc !important;
+            }
+            .cv-main {
+                padding: 9px 13px !important;
+                gap: 7px !important;
+            }
+            .section-title {
+                font-size: 0.70rem !important;
+                margin-bottom: 3.5px !important;
+                padding-bottom: 1.5px !important;
+            }
+            .summary-text {
+                font-size: 0.70rem !important;
+                line-height: 1.32 !important;
+            }
+            .timeline-item {
+                margin-bottom: 4px !important;
+                gap: 1px !important;
+            }
+            .timeline-title {
+                font-size: 0.76rem !important;
+            }
+            .timeline-subtitle {
+                font-size: 0.70rem !important;
+            }
+            .bullet-list {
+                gap: 1px !important;
+            }
+            .bullet-list li {
+                font-size: 0.69rem !important;
+                line-height: 1.28 !important;
+                padding-left: 10px !important;
+            }
+            .skill-group {
+                margin-bottom: 3px !important;
+            }
+            .skill-label {
+                font-size: 0.64rem !important;
+                margin-bottom: 1.5px !important;
+            }
+            .skill-tags {
+                gap: 2px !important;
+            }
+            .skill-tag {
+                font-size: 0.61rem !important;
+                padding: 1.5px 4.5px !important;
+            }
+            .edu-item {
+                margin-bottom: 3px !important;
+            }
+            .edu-degree {
+                font-size: 0.73rem !important;
+            }
+            .edu-inst {
+                font-size: 0.67rem !important;
+            }
+            .cert-item {
+                margin-bottom: 3px !important;
+            }
+            .cert-name {
+                font-size: 0.69rem !important;
+            }
+            .cert-issuer {
+                font-size: 0.64rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Responsive Top Action Controls (Screen View) -->
+    <header class="cv-action-bar">
+        <div class="brand-badge">
+            <i class="fas fa-certificate" style="color: #fbbf24;"></i>
+            <span>SYED ABDUL RAHMAN</span> &bull; Structural Design &amp; BIM Engineering CV
+        </div>
+        <div class="action-btns">
+            <a href="Syed_Abdul_Rahman_Resume.pdf" download="Syed_Abdul_Rahman_Resume.pdf" class="action-btn btn-pdf" id="btnDownloadDirect">
+                <i class="fas fa-file-arrow-down"></i> Download PDF (A4)
+            </a>
+            <button type="button" class="action-btn btn-print" onclick="window.print()">
+                <i class="fas fa-print"></i> Print / Save PDF
+            </button>
+            <a href="resume.html" target="_blank" class="action-btn btn-print" title="Open Fullscreen in New Tab">
+                <i class="fas fa-arrow-up-right-from-square"></i> Full Screen
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Resume Sheet -->
+    <main class="resume-sheet" id="resumeSheet">
+        
+        <!-- Header -->
+        <header class="cv-header">
+            <div class="header-top">
+                <div class="name-title">
+                    <h1>SYED ABDUL RAHMAN</h1>
+                    <div class="target-role">Civil &amp; Structural Engineer &bull; Bentley STAAD.Pro | Revit BIM | RCDC</div>
+                </div>
+                <div class="contact-grid">
+                    <a href="mailto:abdulrahman.ark04@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> abdulrahman.ark04@gmail.com
+                    </a>
+                    <a href="tel:+919014548214" class="contact-item">
+                        <i class="fas fa-phone"></i> +91 90145 48214
+                    </a>
+                    <a href="https://www.syedabdulrahman-civil.me/" target="_blank" rel="noopener" class="contact-item">
+                        <i class="fas fa-globe"></i> syedabdulrahman-civil.me
+                    </a>
+                    <a href="https://linkedin.com/in/syedabdulrahman07" target="_blank" rel="noopener" class="contact-item">
+                        <i class="fab fa-linkedin"></i> in/syedabdulrahman07
+                    </a>
+                    <span class="contact-item" style="grid-column: span 2;">
+                        <i class="fas fa-location-dot"></i> Mahabubnagar, Telangana, India
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Body Layout -->
+        <div class="cv-body">
+
+            <!-- Left Sidebar (Education, Certifications, Skills, Focus Areas) -->
+            <aside class="cv-sidebar">
+                
+                <!-- Education -->
+                <section class="sidebar-block">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="edu-item">
+                        <div class="edu-degree">B.Tech in Civil Engineering</div>
+                        <div class="edu-inst">Jayaprakash Narayan College of Eng.</div>
+                        <div class="edu-meta">
+                            <span>2024 – 2027</span>
+                            <span class="grade-badge">Pursuing</span>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-degree">Diploma in Civil Engineering</div>
+                        <div class="edu-inst">State Board of Tech. Education (SBTET)</div>
+                        <div class="edu-meta">
+                            <span>2021 – 2024</span>
+                            <span class="grade-badge">7.71 CGPA (1st Class)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certifications (Bentley TOP, then Revit, then RCDC, then Site Training) -->
+                <section class="sidebar-block">
+                    <h2 class="section-title"><i class="fas fa-award"></i> Certifications</h2>
+                    
+                    <!-- 1. BENTLEY INSTITUTE (TOP) -->
+                    <div class="cert-item">
+                        <div class="cert-name">Bentley Institute &mdash; STAAD.Pro</div>
+                        <div class="cert-issuer">
+                            <span>Dynamic Seismic &amp; Wind Analysis</span>
+                            <strong style="color: #0f172a;">Certified</strong>
+                        </div>
+                    </div>
+
+                    <!-- 2. AUTODESK REVIT (THEN) -->
+                    <div class="cert-item">
+                        <div class="cert-name">Autodesk Revit Architecture + V-Ray &amp; Enscape</div>
+                        <div class="cert-issuer">
+                            <span>PTS CAD EXPERT (BIM Modeling)</span>
+                            <strong style="color: #0f172a;">Certified</strong>
+                        </div>
+                    </div>
+
+                    <!-- 3. BENTLEY RCDC (THEN) -->
+                    <div class="cert-item">
+                        <div class="cert-name">Bentley RCDC &mdash; Concrete Design &amp; Detailing</div>
+                        <div class="cert-issuer">
+                            <span>Automated BBS &amp; Member Detailing</span>
+                            <strong style="color: #0f172a;">Proficient</strong>
+                        </div>
+                    </div>
+
+                    <!-- 4. INDUSTRIAL SITE TRAINING -->
+                    <div class="cert-item">
+                        <div class="cert-name">Civil Engineering Industrial Training</div>
+                        <div class="cert-issuer">
+                            <span>Landmark Constructions (6 Mos)</span>
+                            <span>May 2024</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core Technical Skills -->
+                <section class="sidebar-block">
+                    <h2 class="section-title"><i class="fas fa-cubes"></i> Technical Skills</h2>
+                    
+                    <div class="skill-group">
+                        <div class="skill-label">Structural Software &amp; BIM</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag highlight">Bentley STAAD.Pro</span>
+                            <span class="skill-tag highlight">Bentley RCDC</span>
+                            <span class="skill-tag highlight">Autodesk Revit</span>
+                            <span class="skill-tag highlight">AutoCAD (2D/3D)</span>
+                            <span class="skill-tag">Enscape 3D</span>
+                            <span class="skill-tag">V-Ray Render</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-label">Codes &amp; Design Standards</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag highlight">IS 456:2000 (RCC)</span>
+                            <span class="skill-tag highlight">IS 1893 (Seismic)</span>
+                            <span class="skill-tag">IS 875 (Loads)</span>
+                            <span class="skill-tag">IS 13920 (Ductile)</span>
+                            <span class="skill-tag">SP 16 &amp; SP 34</span>
+                            <span class="skill-tag">Limit State Method</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-label">Engineering Execution</div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Bar Bending (BBS)</span>
+                            <span class="skill-tag">Structural GA Plans</span>
+                            <span class="skill-tag">Site Rebar Detailing</span>
+                            <span class="skill-tag">Quantity Surveying</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Professional Focus Areas -->
+                <section class="sidebar-block">
+                    <h2 class="section-title"><i class="fas fa-bullseye"></i> Focus Areas</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">RCC Framed Structures</span>
+                        <span class="skill-tag">Seismic Dynamic Analysis</span>
+                        <span class="skill-tag">BIM 3D Detailing</span>
+                        <span class="skill-tag">Bentley RCDC Automation</span>
+                        <span class="skill-tag">Site Quality Assurance</span>
+                    </div>
+                </section>
+
+            </aside>
+
+            <!-- Right Main Area (Summary, Experience, Projects) -->
+            <section class="cv-main">
+                
+                <!-- Humanized Professional Profile -->
+                <div class="main-block">
+                    <h2 class="section-title"><i class="fas fa-user-tie"></i> Profile Summary</h2>
+                    <p class="summary-text">
+                        Civil Engineering student focused on structural design, computer-aided drafting, and hands-on site execution. Comfortable working through manual frame analysis and load distributions, as well as computational modeling using <strong>Bentley STAAD.Pro</strong>, <strong>Bentley RCDC</strong>, and <strong>Autodesk Revit</strong>. Experienced working with Indian Standard Codes (IS 456, IS 1893, IS 875, IS 13920) through academic projects and 6 months of active on-site training at Landmark Constructions. Looking to contribute clean drafting, accurate structural modeling, and practical site understanding to an engineering team.
+                    </p>
+                </div>
+
+                <!-- Industrial Training & Site Experience -->
+                <div class="main-block">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Site Experience</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-title">Civil Engineering Industrial Trainee</span> &bull; 
+                                <span class="timeline-subtitle">Landmark Constructions &amp; Developers</span>
+                            </div>
+                            <span class="timeline-date">Dec 2023 – May 2024 (6 Mos)</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Inspected <strong>on-site rebar placement</strong> before concrete pours, verifying bar diameters, spacing, clear cover, and beam-column junction ties against approved structural drawings.</li>
+                            <li>Assisted site engineers during concrete pours, checking slump test values, casting test cubes, and tracking formwork striking schedules.</li>
+                            <li>Prepared practical <strong>Bar Bending Schedules (BBS)</strong> and assisted in material quantity takeoffs for ongoing residential construction.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Core Engineering Projects -->
+                <div class="main-block">
+                    <h2 class="section-title"><i class="fas fa-diagram-project"></i> Key Engineering Projects</h2>
+                    
+                    <!-- Structural Design Project -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-title">RCC Framed Residential Building: Design &amp; Detailing</span>
+                                <span class="timeline-subtitle">(Framed Structural Modeling)</span>
+                            </div>
+                            <span class="timeline-date">Jan 2026 – May 2026</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Planned the structural framing layout and calculated dead, live, and wind load paths as per IS 875 Parts 1 &amp; 2.</li>
+                            <li>Designed isolated footings, <strong>230×300mm columns</strong>, <strong>230×300mm continuous beams</strong>, and two-way slabs using Limit State Method (LSM) per IS 456:2000.</li>
+                            <li>Drafted complete structural general arrangement (GA) drawings and reinforcement schedules in AutoCAD, optimizing bar cut lengths to cut rebar waste by ~12%.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Seismic Resilient Analysis -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-title">Seismic Analysis &amp; Ductile Detailing in RCC Frames</span>
+                                <span class="timeline-subtitle">(Dynamic Structural Study)</span>
+                            </div>
+                            <span class="timeline-date">Jan 2025 – May 2025</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Studied frame behavior, lateral drift, and stress distribution in multi-story RCC frames under earthquake ground motions (IS 1893:2016).</li>
+                            <li>Applied <strong>IS 13920:2016 ductile detailing rules</strong> for confinement stirrups at beam-column joint regions to ensure ductility and prevent brittle shear failure.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Computational Modeling Project -->
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <div>
+                                <span class="timeline-title">3D Frame Modeling &amp; Automated Detailing</span>
+                                <span class="timeline-subtitle">(STAAD.Pro &amp; Bentley RCDC)</span>
+                            </div>
+                            <span class="timeline-date">Academic Capstone</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Built 3D building models in <strong>Bentley STAAD.Pro</strong>, defined member properties, boundary supports, and primary load combinations.</li>
+                            <li>Exported analysis results into <strong>Bentley RCDC</strong> to automatically generate section designs, shear stirrup schedules, and detailed Bar Bending Schedules (BBS).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CAD & BIM Workflow -->
+                <div class="main-block">
+                    <h2 class="section-title"><i class="fas fa-layer-group"></i> CAD &amp; BIM Workflow</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-title">Drawing &amp; Model Coordination</span>
+                            <span class="timeline-date">BIM &amp; CAD Integration</span>
+                        </div>
+                        <ul class="bullet-list">
+                            <li>Connected <strong>AutoCAD 2D drafting</strong> with <strong>Revit 3D architectural models</strong> and <strong>STAAD/RCDC analysis outputs</strong> to prepare clear, coordinated structural sheets for site use.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
