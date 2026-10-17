@@ -1,0 +1,1244 @@
+/* ==========================================================================
+   3D SKELETAL SPACE FRAME VIEWER (BENTLEY STAAD.PRO 2025 FEA)
+   ========================================================================== */
+
+.staad-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 12, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staad-modal-backdrop.active {
+    display: flex;
+    opacity: 1;
+}
+
+.staad-modal-window {
+    width: 95vw;
+    height: 92vh;
+    max-width: 1650px;
+    background: #090d16;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 215, 0, 0.12);
+    position: relative;
+}
+
+/* Modal Header */
+.staad-header {
+    height: 64px;
+    background: #0d1322;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    flex-shrink: 0;
+}
+
+.staad-header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.staad-header-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+}
+
+.staad-header-text h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.staad-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0, 229, 255, 0.12);
+    color: #00e5ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.staad-header-text p {
+    margin: 2px 0 0 0;
+    font-size: 0.78rem;
+    color: #8b9bb4;
+}
+
+.staad-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.staad-btn-action {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.2s ease;
+}
+
+.staad-btn-action:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.staad-btn-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.staad-btn-close:hover {
+    color: #ffffff;
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* Main Viewport Container */
+.staad-viewport-body {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, #101726 0%, #060911 100%);
+}
+
+#staad3dCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+}
+
+#staad3dCanvas:active {
+    cursor: grabbing;
+}
+
+/* Floating Top Control Ribbon (Story Filters) */
+.staad-controls-ribbon {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.staad-pill-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 5px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.staad-pill-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.staad-pill-btn.active {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Floating View Tools (Right Side) */
+.staad-view-tools {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.staad-tool-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.staad-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.staad-tool-btn.active {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.4);
+    color: #00e5ff;
+}
+
+/* Bottom Stats Ribbon / Legend */
+.staad-footer-legend {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.staad-legend-group {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.staad-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legend-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.dot-column { background: #ffb703; box-shadow: 0 0 8px rgba(255, 183, 3, 0.6); }
+.dot-beam { background: #00e5ff; box-shadow: 0 0 8px rgba(0, 229, 255, 0.5); }
+.dot-footing { background: #a855f7; box-shadow: 0 0 8px rgba(168, 85, 247, 0.5); }
+.dot-node { background: #ffffff; box-shadow: 0 0 6px #ffffff; }
+
+.staad-stats-card {
+    pointer-events: auto;
+    background: rgba(13, 19, 34, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.staad-stats-card strong {
+    color: #ffd700;
+}
+
+/* Floating Hover Tooltip */
+.staad-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(7, 11, 20, 0.95);
+    border: 1px solid #ffd700;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #ffffff;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    z-index: 100;
+    display: none;
+    max-width: 280px;
+    transform: translate(12px, 12px);
+    transition: opacity 0.15s ease;
+}
+
+.staad-tooltip-header {
+    font-weight: 700;
+    color: #ffd700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.staad-tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+.staad-tooltip-row span:last-child {
+    color: #ffffff;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .staad-controls-ribbon {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    .staad-view-tools {
+        top: auto;
+        bottom: 80px;
+        right: 10px;
+    }
+    .staad-footer-legend {
+        flex-direction: column;
+        gap: 8px;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* ==========================================================================
+   RCC REINFORCEMENT DETAILING & REBAR INSPECTOR MODAL
+   ========================================================================== */
+
+.staad-rebar-inspector {
+    position: absolute;
+    top: 76px;
+    right: 20px;
+    bottom: 60px;
+    width: 440px;
+    max-width: 90vw;
+    background: rgba(10, 15, 26, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    border-radius: 12px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 30px rgba(255, 215, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideInInspector 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staad-rebar-inspector.active {
+    display: flex;
+}
+
+@keyframes slideInInspector {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.rebar-inspector-header {
+    background: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.rebar-inspector-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rebar-icon-badge {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background: rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.rebar-inspector-title h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rebar-badge-pass {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.rebar-inspector-title p {
+    margin: 2px 0 0 0;
+    font-size: 0.74rem;
+    color: #94a3b8;
+}
+
+.rebar-inspector-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 2D Cross Section SVG Canvas */
+.rebar-svg-card {
+    background: #070a12;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.rebar-svg-card-title {
+    width: 100%;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffd700;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rebar-svg-wrapper {
+    width: 100%;
+    max-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tabular Reinforcement Specs */
+.rebar-spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+}
+
+.rebar-spec-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rebar-spec-table tr:last-child {
+    border-bottom: none;
+}
+
+.rebar-spec-table td {
+    padding: 7px 4px;
+}
+
+.rebar-spec-label {
+    color: #94a3b8;
+    width: 40%;
+}
+
+.rebar-spec-val {
+    color: #ffffff;
+    font-weight: 600;
+    text-align: right;
+}
+
+.rebar-spec-highlight {
+    color: #ffd700 !important;
+}
+
+/* Reinforcement Callout Chips */
+.rebar-chips-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rebar-chip-row {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rebar-chip-name {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.rebar-chip-val {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #00e5ff;
+}
+
+/* Footer RCDC Document Link */
+.rebar-inspector-footer {
+    padding: 12px 18px;
+    background: #0d1322;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.rebar-btn-doc {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.05));
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: all 0.2s ease;
+}
+
+.rebar-btn-doc:hover {
+    background: #ffd700;
+    color: #000000;
+}
+
+/* Detailing Mode Floating Indicator */
+.staad-rcc-mode-banner {
+    position: absolute;
+    top: 68px;
+    left: 20px;
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    z-index: 12;
+    backdrop-filter: blur(8px);
+}
+
+.staad-rcc-mode-banner.active {
+    display: flex;
+}
+
+/* ==========================================================================
+   ANALYSIS MODE SEGMENTED CONTROL (SOLID / RCC / MOMENT / SHEAR)
+   ========================================================================== */
+.staad-mode-segmented {
+    display: flex;
+    align-items: center;
+    background: rgba(13, 19, 34, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.staad-mode-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.staad-mode-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.staad-mode-btn.active#btnModeSolid {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.staad-mode-btn.active#btnModeRCC {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.4);
+    color: #00e5ff;
+    font-weight: 600;
+}
+
+.staad-mode-btn.active#btnModeMoment {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(239, 68, 68, 0.45);
+    color: #f87171;
+    font-weight: 600;
+}
+
+.staad-mode-btn.active#btnModeShear {
+    background: rgba(16, 185, 129, 0.18);
+    border-color: rgba(16, 185, 129, 0.45);
+    color: #34d399;
+    font-weight: 600;
+}
+
+/* Floating Banners for FEA Diagrams */
+.staad-analysis-banner {
+    position: absolute;
+    top: 68px;
+    left: 20px;
+    right: 20px;
+    max-width: 900px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 12;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.staad-analysis-banner.active {
+    display: flex;
+}
+
+.banner-moment {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+}
+
+.banner-shear {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: #a7f3d0;
+}
+
+/* Elevation Active HUD Banner */
+.staad-elevation-banner {
+    position: absolute;
+    top: 68px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    border-radius: 8px;
+    padding: 8px 18px;
+    display: none;
+    align-items: center;
+    gap: 14px;
+    z-index: 15;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.staad-elevation-banner.active {
+    display: flex;
+}
+
+.elevation-badge-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(245, 158, 11, 0.18);
+    color: #fbbf24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+}
+
+.elevation-badge-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.elevation-badge-text strong {
+    font-size: 0.85rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.elevation-badge-text span {
+    font-size: 0.72rem;
+    color: #94a3b8;
+}
+
+.staad-elevation-reset-btn {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(245, 158, 11, 0.1));
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    color: #fbbf24;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.staad-elevation-reset-btn:hover {
+    background: #fbbf24;
+    color: #0f172a;
+}
+
+/* ==========================================================================
+   2D FRAMING GRID MINIMAP (STAAD.PRO FRAME BENTS)
+   ========================================================================== */
+.staad-grid-minimap {
+    position: absolute;
+    bottom: 58px;
+    left: 20px;
+    width: 250px;
+    background: rgba(13, 19, 34, 0.92);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 14;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staad-grid-minimap.minimized {
+    width: 170px;
+}
+
+.staad-grid-minimap.minimized .staad-minimap-body {
+    display: none;
+}
+
+.staad-minimap-header {
+    height: 34px;
+    background: #090e1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.staad-minimap-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.staad-minimap-badge {
+    font-size: 0.58rem;
+    font-weight: 700;
+    background: rgba(0, 229, 255, 0.15);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    color: #00e5ff;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.staad-minimap-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.staad-minimap-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    font-size: 0.68rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.staad-minimap-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.staad-minimap-body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staad-grid-svg {
+    width: 100%;
+    height: 155px;
+    display: block;
+}
+
+/* Grid interactive elements in SVG */
+.grid-line {
+    stroke: rgba(255, 255, 255, 0.18);
+    stroke-width: 1;
+    stroke-dasharray: 2, 2;
+    transition: stroke 0.2s ease;
+}
+
+.grid-line.active {
+    stroke: #ffd700;
+    stroke-width: 2.2;
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 4px #ffd700);
+}
+
+.grid-beam-line {
+    stroke: rgba(0, 229, 255, 0.45);
+    stroke-width: 1.5;
+}
+
+.grid-col-rect {
+    fill: #ffb703;
+    stroke: #ffffff;
+    stroke-width: 0.5;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.grid-col-rect:hover {
+    fill: #ffd700;
+    filter: drop-shadow(0 0 6px #ffd700);
+}
+
+.grid-bubble {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.grid-bubble circle {
+    fill: #090e1a;
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 1;
+    transition: all 0.2s ease;
+}
+
+.grid-bubble text {
+    fill: #94a3b8;
+    font-size: 9px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: central;
+    transition: all 0.2s ease;
+}
+
+.grid-bubble:hover circle {
+    stroke: #ffd700;
+    fill: rgba(255, 215, 0, 0.2);
+}
+
+.grid-bubble:hover text {
+    fill: #ffd700;
+}
+
+.grid-bubble.active circle {
+    fill: #ffd700;
+    stroke: #ffffff;
+}
+
+.grid-bubble.active text {
+    fill: #000000;
+    font-weight: 900;
+}
+
+.staad-minimap-hint {
+    margin-top: 6px;
+    font-size: 0.65rem;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.staad-view-group-title {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #64748b;
+    padding: 2px 6px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   FLOATING COMPONENT QUICK-ACTION BAR (MOBILE TOUCH & SINGLE-CLICK)
+   ========================================================================== */
+.staad-selection-bar {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(25px);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 16px;
+    background: rgba(13, 19, 34, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    border-radius: 40px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.15);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.staad-selection-bar.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.staad-selection-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.staad-selection-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.staad-selection-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.staad-selection-dim {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.staad-selection-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.staad-selection-btn {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.25), rgba(0, 229, 255, 0.08));
+    border: 1px solid #00e5ff;
+    color: #00e5ff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.25);
+}
+
+.staad-selection-btn:hover {
+    background: rgba(0, 229, 255, 0.35);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+.staad-selection-close {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.staad-selection-close:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+/* Jump Pill Hover States */
+.staad-jump-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    filter: brightness(1.25);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE REFINEMENTS (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .staad-header {
+        height: auto;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .staad-header-badge {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95rem;
+    }
+
+    .staad-header-text h3 {
+        font-size: 0.82rem;
+        gap: 6px;
+    }
+
+    .staad-header-text p {
+        display: none; /* Hide long subtitle on mobile to preserve 3D canvas area */
+    }
+
+    .staad-header-actions {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    .staad-mode-segmented {
+        flex: 1;
+        justify-content: space-between;
+        padding: 2px;
+    }
+
+    .staad-mode-btn {
+        padding: 5px 6px;
+        font-size: 0.68rem;
+        gap: 3px;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .staad-btn-action {
+        padding: 5px 9px;
+        font-size: 0.72rem;
+    }
+
+    .staad-btn-close {
+        width: 30px;
+        height: 30px;
+    }
+
+    .staad-controls-ribbon {
+        top: 6px;
+        left: 6px;
+        right: 6px;
+        padding: 4px 8px;
+        gap: 4px;
+        overflow-x: auto;
+    }
+
+    .staad-view-tools {
+        top: 60px;
+        right: 8px;
+        width: 38px;
+        padding: 4px;
+        gap: 3px;
+    }
+
+    .staad-view-group-title {
+        display: none;
+    }
+
+    .staad-tool-btn {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        justify-content: center;
+        font-size: 0;
+    }
+
+    .staad-tool-btn i {
+        font-size: 0.82rem;
+        margin: 0;
+    }
+
+    .staad-grid-minimap {
+        bottom: 60px;
+        left: 8px;
+    }
+
+    .staad-grid-minimap.minimized {
+        width: 130px;
+    }
+
+    .staad-rebar-inspector {
+        top: 55px;
+        left: 8px;
+        right: 8px;
+        bottom: 12px;
+        width: auto;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .staad-selection-bar {
+        bottom: 12px;
+        width: calc(100% - 24px);
+        max-width: 380px;
+        flex-direction: column;
+        border-radius: 16px;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    .staad-selection-info {
+        justify-content: center;
+    }
+
+    .staad-selection-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .staad-selection-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 6px 10px;
+        font-size: 0.74rem;
+    }
+
+    .staad-footer-legend {
+        display: none; /* Hide footer legend on phone screens to prevent touch occlusion */
+    }
+
+    .staad-analysis-banner,
+    .staad-rcc-mode-banner,
+    .staad-elevation-banner {
+        top: 48px;
+        left: 8px;
+        right: 8px;
+        font-size: 0.72rem;
+        padding: 5px 10px;
+    }
+}
+

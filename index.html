@@ -27,6 +27,8 @@
     <title>SA RAHMAN | Structural Engineer</title>
 
     <meta name="description" content="SA Rahman — Civil & Structural Engineer specializing in manual structural design, STAAD.Pro, AutoCAD, Revit, and RCDC.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
 
     <meta property="og:title" content="SA RAHMAN | Structural Engineer">
 
@@ -39,6 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Amiri:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="vault_viewer.css">
+    <link rel="stylesheet" href="staad_viewer.css?v=20261017_adv">
 
     <style>
 
@@ -80,11 +85,21 @@
 
         /* ===== CUSTOM SCROLLBAR ===== */
 
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
 
-        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-track { background: rgba(8, 12, 20, 0.95); border-left: 1px solid rgba(255, 255, 255, 0.05); }
 
-        ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { 
+            background: var(--yellow); 
+            border-radius: 6px; 
+            border: 2px solid #0a0d14; 
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        ::-webkit-scrollbar-thumb:hover { 
+            background: #f59e0b; 
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.6); 
+        }
 
 
 
@@ -800,6 +815,267 @@
 
         .project-card ul li strong { color: var(--white); }
 
+        /* ===== FEATURED EXECUTIVE PROJECT CARD ===== */
+        .featured-project-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(145deg, #0e1422, #080c14) !important;
+            border: 1px solid rgba(234, 179, 8, 0.3) !important;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(234, 179, 8, 0.08);
+            position: relative;
+            padding: 40px !important;
+        }
+
+        .featured-project-card:hover {
+            border-color: rgba(234, 179, 8, 0.55) !important;
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8), 0 0 35px rgba(234, 179, 8, 0.16);
+        }
+
+        .featured-badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            color: #4ade80;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            margin-bottom: 18px;
+            width: fit-content;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+            animation: livePulse 1.8s infinite;
+        }
+
+        @keyframes livePulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .featured-project-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        /* Metric Ribbon */
+        .project-stat-ribbon {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin: 18px 0 22px 0;
+            padding: 16px 20px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .project-stat-ribbon {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-pill {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-pill-label {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .stat-pill-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #facc15;
+            letter-spacing: 0.3px;
+        }
+
+        .featured-summary-lead {
+            color: #cbd5e1 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.75 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .featured-project-card ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 24px;
+            list-style: none;
+            margin: 16px 0 26px 0;
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {
+            .featured-project-card ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .featured-project-card ul li {
+            padding-left: 22px;
+            position: relative;
+            color: #94a3b8;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .featured-project-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #facc15;
+            font-weight: 700;
+        }
+
+        .featured-project-card ul li strong {
+            color: #f1f5f9;
+        }
+
+        /* ===== SMART DUAL-MODE CURSOR ===== */
+        @media (pointer: fine) {
+            /* When custom cursor is active, hide the native OS arrow on site elements so there is NEVER an arrow inside the ring */
+            body.custom-cursor-active,
+            body.custom-cursor-active *:not(iframe):not(.vault-pdf-frame):not(.doc-iframe) {
+                cursor: none !important;
+            }
+
+            /* Native controls inside embedded PDF iframes */
+            iframe, .vault-pdf-frame, .doc-iframe {
+                cursor: auto !important;
+                pointer-events: auto !important;
+            }
+
+            /* Fullscreen rules */
+            :fullscreen, :fullscreen *:not(iframe):not(.vault-pdf-frame):not(.doc-iframe),
+            :-webkit-full-screen, :-webkit-full-screen *:not(iframe):not(.vault-pdf-frame):not(.doc-iframe) {
+                cursor: none !important;
+            }
+
+            #cadCanvas,
+            :fullscreen #cadCanvas,
+            :-webkit-full-screen #cadCanvas {
+                cursor: crosshair !important;
+            }
+
+            .custom-cursor-dot {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 6px;
+                height: 6px;
+                background: #facc15;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 10000000;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+                transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s, opacity 0.25s ease;
+                box-shadow: 0 0 8px rgba(250, 204, 21, 0.6);
+            }
+
+            .custom-cursor-ring {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 32px;
+                height: 32px;
+                border: 1.5px solid rgba(250, 204, 21, 0.65);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999999;
+                opacity: 0;
+                transform: translate(-50%, -50%);
+                transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                            height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                            background-color 0.25s, 
+                            border-color 0.25s, 
+                            border-radius 0.2s,
+                            opacity 0.25s ease;
+            }
+
+            .custom-cursor-dot.active,
+            .custom-cursor-ring.active {
+                opacity: 1;
+            }
+
+            .custom-cursor-ring.hovering {
+                width: 52px;
+                height: 52px;
+                background: rgba(250, 204, 21, 0.12);
+                border-color: #facc15;
+                box-shadow: 0 0 18px rgba(250, 204, 21, 0.35);
+            }
+
+            .custom-cursor-dot.hovering {
+                width: 8px;
+                height: 8px;
+                background: #ffffff;
+            }
+
+            /* AutoCAD Reticle Crosshair in CAD View */
+            .custom-cursor-ring.cad-mode {
+                width: 36px !important;
+                height: 36px !important;
+                border: 1.5px solid #38bdf8 !important;
+                border-radius: 2px !important;
+                background: rgba(56, 189, 248, 0.08) !important;
+                box-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
+            }
+
+            .custom-cursor-ring.cad-mode::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -14px;
+                right: -14px;
+                height: 1px;
+                background: #38bdf8;
+                pointer-events: none;
+                transform: translateY(-50%);
+            }
+
+            .custom-cursor-ring.cad-mode::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: -14px;
+                bottom: -14px;
+                width: 1px;
+                background: #38bdf8;
+                pointer-events: none;
+                transform: translateX(-50%);
+            }
+
+            .custom-cursor-dot.cad-mode {
+                width: 4px !important;
+                height: 4px !important;
+                background: #38bdf8 !important;
+                box-shadow: 0 0 6px #38bdf8 !important;
+            }
+        }
+
 
 
         /* ===== CERTIFICATIONS ===== */
@@ -995,17 +1271,11 @@
         .doc-modal.active { display: flex; }
 
         .doc-modal-content {
-
-            width: 90%; max-width: 1000px; height: 85vh;
-
+            width: 95%; max-width: 1400px; height: 92vh;
             background: #111; border-radius: 8px; position: relative;
-
-            border: 1px solid rgba(255,215,0,0.2);
-
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-
+            border: 1px solid rgba(255,215,0,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
             cursor: default;
-
         }
 
         .doc-modal-close {
@@ -1094,6 +1364,9 @@
 
 <body>
 
+    <!-- Smart Dual-Mode Custom Cursor Elements -->
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+    <div class="custom-cursor-ring" id="customCursorRing"></div>
 
 
     <!-- Preloader -->
@@ -1418,13 +1691,81 @@
 
         <div class="projects-grid reveal-stagger">
 
+            <!-- FLAGSHIP: B.Tech Major Project Stage 1 -->
+            <div class="project-card featured-project-card">
+                <div class="featured-badge-live">
+                    <span class="pulse-dot"></span> Active / Stage 1 Complete &bull; B.Tech Final Year Major Project
+                </div>
+                <h3>G+2 RESIDENTIAL RCC BUILDING: 3D STAAD.PRO ANALYSIS &amp; BENTLEY RCDC DESIGN</h3>
+                
+                <!-- 4-Stat Metric Ribbon -->
+                <div class="project-stat-ribbon">
+                    <div class="stat-pill">
+                        <span class="stat-pill-label">Plot Footprint</span>
+                        <span class="stat-pill-val">33' &times; 65' (2,145 sq. ft.)</span>
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-pill-label">Configuration</span>
+                        <span class="stat-pill-val">G+2 (Height &lt; 10m)</span>
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-pill-label">3D FEA Engine</span>
+                        <span class="stat-pill-val">Bentley STAAD.Pro 2025</span>
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-pill-label">Design Standard</span>
+                        <span class="stat-pill-val">IS 456:2000 &bull; SP 34 (Zone II)</span>
+                    </div>
+                </div>
+
+                <p class="featured-summary-lead">End-to-end computational engineering execution of an East-facing multi-storey residential space frame in Mahabubnagar, Telangana (Seismic Zone II, Z = 0.10). The project delivers a rigorous, site-constructable pipeline from statutory setback compliance (Telangana G.O. Ms. No. 168) and empirical geotechnical soil testing, to 3D space frame finite element analysis and automated limit state concrete detailing without rebar congestion.</p>
+
+                <ul>
+                    <li><strong>Statutory Planning (G.O. Ms. No. 168)</strong> &mdash; 33' &times; 65' East-facing plot engineered strictly within the 10.0m height ceiling (G+2) with mandatory 1.5m front and 1.0m rear/side ventilation setbacks.</li>
+                    <li><strong>Empirical Geotechnical SBC</strong> &mdash; Physical laboratory soil testing establishing site-specific Safe Bearing Capacity for isolated reinforced concrete pad footings.</li>
+                    <li><strong>3D FEA Analysis (STAAD.Pro 2025)</strong> &mdash; Complete 3D skeletal space frame modeled and analyzed under Dead Loads (IS 875 Part 1), Live Loads (IS 875 Part 2), and Lateral Seismic Forces for Zone II (IS 1893:2016, Z = 0.10).</li>
+                    <li><strong>Automated Limit State Detailing (Bentley RCDC 2021)</strong> &mdash; Full concrete design and constructable detailing per IS 456:2000 &amp; SP 34 across columns, beams, and slabs with automated BBS and BOQ extraction.</li>
+                </ul>
+
+                <div class="project-actions" style="display: flex; flex-direction: column; gap: 12px; margin-top: 14px;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button type="button" class="vault-cta-btn" onclick="openVault('project-4-1')">
+                            <i class="fas fa-folder-tree"></i> <span>Explore Project Vault (320+ Files &amp; Live CAD Viewer)</span>
+                        </button>
+                        <button type="button" class="view-doc-btn" onclick="open3DViewer()" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(255, 215, 0, 0.05)); border: 1px solid rgba(255, 215, 0, 0.5); color: #ffd700; font-weight: 700; box-shadow: 0 4px 16px rgba(255, 215, 0, 0.1);">
+                            <i class="fas fa-cube"></i> Launch 3D Structural FEA &amp; RCC Model
+                        </button>
+                        <button type="button" class="view-doc-btn" onclick="openDoc('project_stage_1.pdf')">
+                            <i class="fas fa-file-pdf"></i> View Stage 1 Documentation
+                        </button>
+                    </div>
+
+                    <!-- Direct Mode Jump Sub-bar -->
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding-left: 2px;">
+                        <span style="font-size: 0.72rem; color: #8b9bb4; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px;"><i class="fas fa-bolt" style="color: #ffd700;"></i> Direct Mode Jump:</span>
+                        <button type="button" class="staad-jump-pill" onclick="open3DViewer('solid')" style="background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.35); color: #ffd700; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
+                            <i class="fas fa-cube"></i> Solid 3D
+                        </button>
+                        <button type="button" class="staad-jump-pill" onclick="open3DViewer('rcc')" style="background: rgba(0, 229, 255, 0.1); border: 1px solid rgba(0, 229, 255, 0.35); color: #00e5ff; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
+                            <i class="fas fa-shield-halved"></i> RCC Rebar
+                        </button>
+                        <button type="button" class="staad-jump-pill" onclick="open3DViewer('moment')" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.35); color: #f87171; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
+                            <i class="fas fa-wave-square"></i> Moment Mz
+                        </button>
+                        <button type="button" class="staad-jump-pill" onclick="open3DViewer('shear')" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
+                            <i class="fas fa-chart-area"></i> Shear Fy
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
 
-                <span class="project-tag">B.Tech Minor Project — 2025-2026</span>
+                <span class="project-tag">B.Tech Minor Project &mdash; 2025-2026</span>
 
                 <h3>INDIRAMMA INDLU: PURE MANUAL STRUCTURAL DESIGN</h3>
 
-                <p>Complete manual structural analysis and design of a G+0 low-cost residential building — no automated software used.</p>
+                <p>Complete first-principles manual structural analysis and design of a G+0 RCC residential building &mdash; no automated software used.</p>
 
                 <ul>
 
@@ -1438,7 +1779,14 @@
 
                 </ul>
 
-                <div class="project-actions"><button class="view-doc-btn" onclick="openDoc('indiramma_indlu.pdf')"><i class="fas fa-file-pdf"></i> View Documentation</button></div>
+                <div class="project-actions" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+                    <button type="button" class="vault-cta-btn" onclick="openVault('project-3-2')" style="font-size: 0.8rem; padding: 10px 16px;">
+                        <i class="fas fa-folder-tree"></i> <span>Explore Project Vault (600+ Files &amp; Live CAD Viewer)</span>
+                    </button>
+                    <button type="button" class="view-doc-btn" onclick="openDoc('indiramma_indlu.pdf')">
+                        <i class="fas fa-file-pdf"></i> View Documentation
+                    </button>
+                </div>
 
             </div>
 
@@ -1624,108 +1972,61 @@
 
             
 
-            // Try to play sound (Browsers may block this without interaction, but animation will continue)
-
+            // Try to play sound (Gracefully handles browser autoplay policies)
             try {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    const audioCtx = new AudioContextClass();
+                    if (audioCtx.state === 'running') {
+                        // 1. LASER SOUND
+                        const osc = audioCtx.createOscillator();
+                        osc.type = 'sawtooth';
+                        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                        osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.8);
+                        const gainNode = audioCtx.createGain();
+                        gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                        gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+                        osc.connect(gainNode);
+                        gainNode.connect(audioCtx.destination);
+                        osc.start();
+                        osc.stop(audioCtx.currentTime + 1);
 
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-                if(audioCtx.state === 'suspended') audioCtx.resume();
-
-                
-
-                // 1. LASER SOUND
-
-                const osc = audioCtx.createOscillator();
-
-                osc.type = 'sawtooth';
-
-                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-
-                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.8);
-
-                
-
-                const gainNode = audioCtx.createGain();
-
-                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-
-                gainNode.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
-
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
-
-                
-
-                osc.connect(gainNode);
-
-                gainNode.connect(audioCtx.destination);
-
-                osc.start();
-
-                osc.stop(audioCtx.currentTime + 1);
-
-
-
-                // 2. HEAVY DOOR RUMBLE SOUND
-
-                setTimeout(() => {
-
-                    const bufferSize = audioCtx.sampleRate * 2;
-
-                    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-
-                    const data = buffer.getChannelData(0);
-
-                    let lastOut = 0;
-
-                    for (let i = 0; i < bufferSize; i++) {
-
-                        let white = Math.random() * 2 - 1;
-
-                        data[i] = (lastOut + (0.02 * white)) / 1.02; // Brown noise
-
-                        lastOut = data[i];
-
-                        data[i] *= 3.5;
-
+                        // 2. HEAVY DOOR RUMBLE SOUND
+                        setTimeout(() => {
+                            try {
+                                if (audioCtx.state !== 'running') return;
+                                const bufferSize = audioCtx.sampleRate * 2;
+                                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                                const data = buffer.getChannelData(0);
+                                let lastOut = 0;
+                                for (let i = 0; i < bufferSize; i++) {
+                                    let white = Math.random() * 2 - 1;
+                                    data[i] = (lastOut + (0.02 * white)) / 1.02;
+                                    lastOut = data[i];
+                                    data[i] *= 3.5;
+                                }
+                                const noise = audioCtx.createBufferSource();
+                                noise.buffer = buffer;
+                                const filter = audioCtx.createBiquadFilter();
+                                filter.type = 'lowpass';
+                                filter.frequency.setValueAtTime(100, audioCtx.currentTime);
+                                filter.frequency.linearRampToValueAtTime(300, audioCtx.currentTime + 1);
+                                const rumbleGain = audioCtx.createGain();
+                                rumbleGain.gain.setValueAtTime(0, audioCtx.currentTime);
+                                rumbleGain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 0.2);
+                                rumbleGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.5);
+                                noise.connect(filter);
+                                filter.connect(rumbleGain);
+                                rumbleGain.connect(audioCtx.destination);
+                                noise.start();
+                            } catch(e) {}
+                        }, 1000);
+                    } else {
+                        // If browser suspended audio context, close quietly without triggering warning
+                        audioCtx.close().catch(() => {});
                     }
-
-                    const noise = audioCtx.createBufferSource();
-
-                    noise.buffer = buffer;
-
-                    
-
-                    const filter = audioCtx.createBiquadFilter();
-
-                    filter.type = 'lowpass';
-
-                    filter.frequency.setValueAtTime(100, audioCtx.currentTime);
-
-                    filter.frequency.linearRampToValueAtTime(300, audioCtx.currentTime + 1);
-
-                    
-
-                    const rumbleGain = audioCtx.createGain();
-
-                    rumbleGain.gain.setValueAtTime(0, audioCtx.currentTime);
-
-                    rumbleGain.gain.linearRampToValueAtTime(0.4, audioCtx.currentTime + 0.2);
-
-                    rumbleGain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 1.5);
-
-                    
-
-                    noise.connect(filter);
-
-                    filter.connect(rumbleGain);
-
-                    rumbleGain.connect(audioCtx.destination);
-
-                    noise.start();
-
-                }, 1000);
-
+                }
             } catch(e) {}
 
 
@@ -2124,6 +2425,383 @@
         </div>
     </div>
 
+    <!-- ======================================================== -->
+    <!-- PROJECT 4-1 VAULT & UNIVERSAL IN-BROWSER VIEWER MODAL   -->
+    <!-- ======================================================== -->
+    <div id="vaultModal" class="vault-modal" onclick="if (event.target === this) closeVault();">
+        <div class="vault-window">
+            
+            <!-- Vault Header Bar -->
+            <div class="vault-header">
+                <div class="vault-brand">
+                    <div class="vault-icon-badge">
+                        <i class="fas fa-folder-tree"></i>
+                    </div>
+                    <div class="vault-title-group">
+                        <h3 id="vaultProjectTitle">
+                            PROJECT 4-1 VAULT 
+                            <span class="vault-stage-tag" id="vaultStageTag"><i class="fas fa-circle-check"></i> Stage 1 Complete</span>
+                        </h3>
+                        <div class="vault-meta" id="vaultMetaText">
+                            G+2 Multi-Storey RCC Structure &bull; <span id="vaultTotalCount">320 Files (160 MB)</span> &bull; IS 456:2000 Limit State &bull; Seismic Zone II (Z = 0.10) &bull; SP 34 Detailing
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Multi-Project Switcher -->
+                <div class="vault-project-switcher">
+                    <button type="button" class="vault-proj-btn active" data-project="project-4-1" onclick="switchVaultProject('project-4-1')">
+                        <i class="fas fa-building"></i> <span>Major Project 4-1</span>
+                    </button>
+                    <button type="button" class="vault-proj-btn" data-project="project-3-2" onclick="switchVaultProject('project-3-2')">
+                        <i class="fas fa-house-chimney"></i> <span>Minor Project 3-2</span>
+                    </button>
+                </div>
+
+                <div class="vault-controls">
+                    <div class="vault-search-box">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <input type="text" id="vaultSearch" class="vault-search-input" placeholder="Search deliverables... e.g. BBS, Column, Beam, DXF, Slab">
+                    </div>
+                    <div class="vault-filter-pills">
+                        <button type="button" class="vault-pill active" data-filter="all">All</button>
+                        <button type="button" class="vault-pill" data-filter="cad" id="pillCad"><i class="fas fa-drafting-compass"></i> CAD (58)</button>
+                        <button type="button" class="vault-pill" data-filter="excel" id="pillExcel"><i class="fas fa-file-excel"></i> Excel (12)</button>
+                        <button type="button" class="vault-pill" data-filter="pdf" id="pillPdf"><i class="fas fa-file-pdf"></i> PDF (135)</button>
+                        <button type="button" class="vault-pill" data-filter="word" id="pillWord"><i class="fas fa-file-word"></i> Docs (2)</button>
+                        <button type="button" class="vault-pill" data-filter="code" id="pillCode"><i class="fas fa-code"></i> Code (2)</button>
+                    </div>
+                </div>
+
+                <div class="vault-header-actions">
+                    <button type="button" class="vault-icon-btn" onclick="toggleVaultFullscreen()" title="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button type="button" class="vault-icon-btn vault-close-btn" onclick="closeVault()" title="Close Vault (Esc)">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vault Body (Split Pane) -->
+            <div class="vault-body">
+                
+                <!-- Left Sidebar: Folder Tree / Files -->
+                <div class="vault-sidebar">
+                    <div class="vault-sidebar-header">
+                        <span><i class="fas fa-sitemap"></i> Project Structure</span>
+                        <span style="font-size: 0.68rem; color: var(--vault-gold);"><i class="fas fa-cloud-arrow-down"></i> In-Browser Access</span>
+                    </div>
+                    <div id="vaultTreeContainer" class="vault-tree-container">
+                        <!-- Populated dynamically by vault_viewer.js -->
+                    </div>
+                </div>
+
+                <!-- Right Viewport: Universal In-Browser Viewer -->
+                <div class="vault-viewport" id="vaultContentArea">
+                    
+                    <!-- Viewport Breadcrumb & Actions Bar -->
+                    <div class="viewport-action-bar">
+                        <div id="vaultBreadcrumb" class="viewport-breadcrumbs">
+                            <span>MY PROJECT 4-1</span> <i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i> <span class="active-file">Select a deliverable</span>
+                        </div>
+                        <div class="viewport-actions">
+                            <span id="vaultFileSizeBadge" style="font-size: 0.72rem; color: var(--vault-text-muted); background: var(--vault-surface-2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--vault-border-light);"></span>
+                            <button id="vaultDownloadBtn" type="button" class="btn-viewport-action btn-download-primary" onclick="window.vaultTriggerDownloadCurrent()">
+                                <i class="fas fa-download"></i> Download File
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stage 1: CAD DXF Vector Viewport -->
+                    <div id="dxfStage" class="viewport-stage">
+                        <div class="cad-canvas-container">
+                            <canvas id="cadCanvas"></canvas>
+                            <div class="cad-meta-overlay">
+                                <strong id="cadEntityCount">Vector AutoCAD Viewport</strong>
+                                <span>Pan: Drag | Zoom: Scroll Wheel / Buttons</span>
+                            </div>
+                            <div class="cad-controls-overlay">
+                                <button type="button" class="cad-btn" onclick="cadZoomIn()"><i class="fas fa-plus"></i> Zoom In</button>
+                                <button type="button" class="cad-btn" onclick="cadZoomOut()"><i class="fas fa-minus"></i> Zoom Out</button>
+                                <button type="button" class="cad-btn" onclick="cadResetView()"><i class="fas fa-compress"></i> Fit View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2: Excel Spreadsheet Viewport (SheetJS) -->
+                    <div id="excelStage" class="viewport-stage">
+                        <div id="excelSheetTabs" class="excel-sheet-tabs"></div>
+                        <div id="excelTableContainer" class="excel-table-container"></div>
+                    </div>
+
+                    <!-- Stage 3: Word Document Viewport -->
+                    <div id="wordStage" class="viewport-stage">
+                        <div id="wordContent"></div>
+                    </div>
+
+                    <!-- Stage 4: PDF Viewport (Native Browser Controls) -->
+                    <div id="pdfStage" class="viewport-stage" style="padding: 0; background: #1b1b1b; display: flex; flex-direction: column; width: 100%; height: 100%;">
+                        <iframe id="pdfFrame" class="vault-pdf-frame" src="" style="width: 100%; height: 100%; border: none; flex: 1;"></iframe>
+                    </div>
+
+                    <!-- Stage 5: Code & Scripts Viewport (Prism.js) -->
+                    <div id="codeStage" class="viewport-stage" style="flex-direction: column;">
+                        <div id="code3dBanner" style="display: none; background: rgba(255, 215, 0, 0.12); border-bottom: 1px solid rgba(255, 215, 0, 0.3); padding: 8px 18px; justify-content: space-between; align-items: center; flex-shrink: 0; width: 100%;">
+                            <span id="code3dBannerTitle" style="font-size: 0.8rem; color: #ffd700;"><i class="fas fa-cube"></i> <strong>Bentley STAAD.Pro 2025 Structural Space Frame</strong> (100 Joints, 188 Members)</span>
+                            <button type="button" id="code3dBannerBtn" onclick="window.open3DViewer()" style="background: #ffd700; color: #000; border: none; font-weight: 700; font-size: 0.75rem; padding: 6px 14px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);">
+                                <i class="fas fa-cube"></i> Launch Interactive 3D Model View
+                            </button>
+                        </div>
+                        <pre class="code-pre" style="flex: 1; margin: 0;"><code id="codeContent" class="language-clike"></code></pre>
+                    </div>
+
+                    <!-- Stage 6: Image Viewport -->
+                    <div id="imageStage" class="viewport-stage">
+                        <img id="imageViewerEl" class="viewer-img" src="" alt="Deliverable Preview">
+                    </div>
+
+                    <!-- Stage 7: Binary / DWG / Asset Card -->
+                    <div id="binaryStage" class="viewport-stage">
+                        <div class="binary-card">
+                            <i id="binaryIcon" class="binary-card-icon fas fa-file"></i>
+                            <h4 id="binaryTitle">File Name</h4>
+                            <p id="binaryDesc">Asset details</p>
+                            <div class="binary-card-meta">
+                                <div><strong style="color: #fff;">Format:</strong> <span id="binaryType">DWG</span></div>
+                                <div><strong style="color: #fff;">Size:</strong> <span id="binarySize">3.95 MB</span></div>
+                                <div><strong style="color: #fff;">Folder:</strong> <span id="binaryFolder">CAD</span></div>
+                            </div>
+                            <button id="binaryDownloadBtn" type="button" class="btn-viewport-action btn-download-primary" onclick="window.vaultTriggerDownloadCurrent()" style="padding: 10px 24px; font-size: 0.85rem;">
+                                <i class="fas fa-download"></i> Download Asset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading Overlay -->
+                    <div id="vaultLoadingOverlay" class="vault-loading-overlay">
+                        <div class="vault-spinner"></div>
+                        <div id="vaultLoadingText">Loading Deliverable...</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Passcode Dialer Modal -->
+    <div id="vaultSecurityModal" class="vault-sec-modal-backdrop">
+        <div class="vault-sec-modal">
+            <button type="button" class="vault-sec-close" onclick="vaultCloseSecurityModal()">&times;</button>
+            <div class="vault-sec-header">
+                <div class="vault-sec-icon-wrap">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <h3>Project Asset Verification</h3>
+                <p>Protected Open-Source Academic Archive. Enter the security passcode to authorize download.</p>
+            </div>
+
+            <div class="vault-sec-body">
+                <div class="vault-sec-file-chip">
+                    <i class="fas fa-file-code"></i>
+                    <span id="vaultSecFileName">asset_file.dwg</span>
+                </div>
+
+                <!-- PIN Display -->
+                <div class="vault-sec-pin-wrap">
+                    <div class="vault-sec-pin-display" id="vaultSecPinDisplay">
+                        <span class="vault-sec-pin-placeholder">Enter Passcode</span>
+                    </div>
+                </div>
+
+                <div id="vaultSecErrorMsg" class="vault-sec-error"></div>
+
+                <!-- Dialer Keypad -->
+                <div class="vault-sec-keypad">
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('1')">1</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('2')">2</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('3')">3</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('4')">4</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('5')">5</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('6')">6</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('7')">7</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('8')">8</button>
+                    <button type="button" class="vault-key-btn" onclick="vaultDialDigit('9')">9</button>
+                    <button type="button" class="vault-key-btn vault-key-clear" onclick="vaultDialClear()">CLR</button>
+                    <button type="button" class="vault-key-btn vault-key-zero" onclick="vaultDialDigit('0')">0</button>
+                    <button type="button" class="vault-key-btn vault-key-del" onclick="vaultDialBackspace()"><i class="fas fa-delete-left"></i></button>
+                </div>
+
+                <div class="vault-sec-actions">
+                    <button type="button" class="vault-sec-btn-cancel" onclick="vaultCloseSecurityModal()">Cancel</button>
+                    <button type="button" class="vault-sec-btn-submit" onclick="vaultVerifyPasscode()">
+                        <i class="fas fa-download"></i> Authorize & Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third-Party Client-Side Parsers -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dxf-parser@1.1.2/dist/dxf-parser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="vault_manifest.js"></script>
+    <script src="vault_previews.js"></script>
+    <script src="vault_viewer.js"></script>
+
+    <!-- 3D STAAD.Pro Space Frame Viewer Scripts -->
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="staad_model_data.js?v=20261017_adv"></script>
+    <script src="staad_viewer.js?v=20261017_adv"></script>
+
+    <!-- Smart Dual-Mode Custom Cursor Logic -->
+    <script>
+    (function initSmartDualCursor() {
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+
+        const dot = document.getElementById('customCursorDot');
+        const ring = document.getElementById('customCursorRing');
+        if (!dot || !ring) return;
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+        let isHovering = false;
+        let isCadMode = false;
+        let isVisible = false;
+
+        document.body.classList.add('custom-cursor-active');
+
+        // Keep cursor elements inside top-layer when entering Fullscreen
+        document.addEventListener('fullscreenchange', () => {
+            const fsEl = document.fullscreenElement;
+            if (fsEl && fsEl !== document.documentElement) {
+                fsEl.appendChild(dot);
+                fsEl.appendChild(ring);
+            } else {
+                document.body.appendChild(dot);
+                document.body.appendChild(ring);
+            }
+        });
+
+        // Fast mousemove tracking
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            const target = e.target;
+
+            // If over an iframe (like the PDF viewer), let native browser cursor operate without interference
+            const inIframe = target && (target.tagName === 'IFRAME' || target.closest('iframe') || target.closest('#pdfStage') || target.closest('.doc-modal-content'));
+            if (inIframe) {
+                if (isVisible) {
+                    isVisible = false;
+                    dot.classList.remove('active');
+                    ring.classList.remove('active');
+                }
+                return;
+            }
+
+            if (!isVisible) {
+                isVisible = true;
+                dot.classList.add('active');
+                ring.classList.add('active');
+            }
+
+            // Dot moves instantly with mouse
+            dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
+            // Detect CAD Stage / Canvas hover
+            const inCad = target && (
+                target.closest('#cadStage') || 
+                target.closest('#cadCanvas') || 
+                target.closest('.cad-canvas-container')
+            );
+
+            if (inCad && !isCadMode) {
+                isCadMode = true;
+                ring.classList.add('cad-mode');
+                dot.classList.add('cad-mode');
+            } else if (!inCad && isCadMode) {
+                isCadMode = false;
+                ring.classList.remove('cad-mode');
+                dot.classList.remove('cad-mode');
+            }
+
+            // Detect interactive elements for hover scale (outside CAD mode)
+            if (!isCadMode) {
+                const isInteractive = target && (
+                    target.closest('a') ||
+                    target.closest('button') ||
+                    target.closest('[role="button"]') ||
+                    target.closest('.vault-item') ||
+                    target.closest('.vault-key-btn') ||
+                    target.closest('.vault-proj-btn') ||
+                    target.closest('.vault-pill') ||
+                    target.closest('.project-card') ||
+                    target.closest('.cert-card') ||
+                    target.closest('.modal-card') ||
+                    target.closest('input') ||
+                    target.closest('select') ||
+                    target.closest('textarea')
+                );
+
+                if (isInteractive && !isHovering) {
+                    isHovering = true;
+                    ring.classList.add('hovering');
+                    dot.classList.add('hovering');
+                } else if (!isInteractive && isHovering) {
+                    isHovering = false;
+                    ring.classList.remove('hovering');
+                    dot.classList.remove('hovering');
+                }
+            } else {
+                if (isHovering) {
+                    isHovering = false;
+                    ring.classList.remove('hovering');
+                    dot.classList.remove('hovering');
+                }
+            }
+        }, { passive: true });
+
+        // Mousedown / Mouseup for feedback
+        window.addEventListener('mousedown', () => {
+            ring.classList.add('clicking');
+        });
+        window.addEventListener('mouseup', () => {
+            ring.classList.remove('clicking');
+        });
+
+        // Hide when mouse leaves window
+        document.addEventListener('mouseleave', () => {
+            isVisible = false;
+            dot.classList.remove('active');
+            ring.classList.remove('active');
+        });
+        document.addEventListener('mouseenter', () => {
+            isVisible = true;
+            dot.classList.add('active');
+            ring.classList.add('active');
+        });
+
+        // High refresh rate 60/120fps ring lerp loop (brisk 0.35 factor ensures zero dragging or cursor doubling)
+        function renderRing() {
+            if (isVisible) {
+                const factor = isCadMode ? 0.85 : 0.35;
+                ringX += (mouseX - ringX) * factor;
+                ringY += (mouseY - ringY) * factor;
+                ring.style.transform = `translate3d(${ringX.toFixed(2)}px, ${ringY.toFixed(2)}px, 0) translate(-50%, -50%)`;
+            }
+            requestAnimationFrame(renderRing);
+        }
+        requestAnimationFrame(renderRing);
+    })();
+    </script>
 </body>
 
 </html>
