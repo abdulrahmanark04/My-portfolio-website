@@ -54,11 +54,11 @@
     const OFFSET_X = 9.2206 / 2.0;
     const OFFSET_Z = 16.6882 / 2.0;
 
-    // Colors
-    const COLOR_COLUMN = 0xffb703;
-    const COLOR_BEAM = 0x00e5ff;
-    const COLOR_FOOTING = 0x8b5cf6;
-    const COLOR_SLAB = 0x0284c7;
+    // Colors (High-Contrast, Vivid Structural Engineering Palette)
+    const COLOR_COLUMN = 0xf59e0b; // Rich Amber Gold
+    const COLOR_BEAM = 0x06b6d4;   // Vibrant Electric Cyan
+    const COLOR_FOOTING = 0xa855f7;// Vivid Royal Purple
+    const COLOR_SLAB = 0x38bdf8;   // Crisp Azure Blue
     const COLOR_NODE = 0xffffff;
     const COLOR_HIGHLIGHT = 0xff0055;
     const COLOR_SELECTED = 0xffd700;
@@ -70,28 +70,34 @@
     function initMaterials() {
         matColumn = new THREE.MeshStandardMaterial({
             color: COLOR_COLUMN,
-            roughness: 0.35,
-            metalness: 0.25
+            roughness: 0.42,
+            metalness: 0.08,
+            emissive: 0x78350f,
+            emissiveIntensity: 0.12
         });
 
         matBeam = new THREE.MeshStandardMaterial({
             color: COLOR_BEAM,
-            roughness: 0.4,
-            metalness: 0.2
+            roughness: 0.38,
+            metalness: 0.08,
+            emissive: 0x083344,
+            emissiveIntensity: 0.12
         });
 
         matFooting = new THREE.MeshStandardMaterial({
             color: COLOR_FOOTING,
-            roughness: 0.6,
-            metalness: 0.1
+            roughness: 0.48,
+            metalness: 0.08,
+            emissive: 0x3b0764,
+            emissiveIntensity: 0.08
         });
 
         matSlab = new THREE.MeshStandardMaterial({
             color: COLOR_SLAB,
             transparent: true,
-            opacity: 0.35,
-            roughness: 0.35,
-            metalness: 0.15,
+            opacity: 0.42,
+            roughness: 0.25,
+            metalness: 0.10,
             depthWrite: false
         });
 
@@ -99,36 +105,36 @@
             color: COLOR_NODE
         });
 
-        // 3D Rebar Materials
+        // 3D Rebar Materials - Elevated emissive vibrancy for illuminated steel reinforcement
         matRebarTop = new THREE.MeshStandardMaterial({
-            color: 0xf43f5e, // Crimson Red Top Rebar
-            roughness: 0.3,
-            metalness: 0.8,
-            emissive: 0x9f1239,
-            emissiveIntensity: 0.3
+            color: 0xf43f5e, // Vivid Crimson Red Top Rebar
+            roughness: 0.25,
+            metalness: 0.85,
+            emissive: 0xe11d48,
+            emissiveIntensity: 0.42
         });
 
         matRebarBot = new THREE.MeshStandardMaterial({
-            color: 0x00e5ff, // Cyan Blue Bottom Rebar
-            roughness: 0.3,
-            metalness: 0.8,
-            emissive: 0x0284c7,
-            emissiveIntensity: 0.3
+            color: 0x06b6d4, // Vivid Cyan Blue Bottom Rebar
+            roughness: 0.25,
+            metalness: 0.85,
+            emissive: 0x0891b2,
+            emissiveIntensity: 0.42
         });
 
         matRebarGold = new THREE.MeshStandardMaterial({
-            color: 0xffd700, // Gold Column Corner Bars / Main Mesh
-            roughness: 0.3,
-            metalness: 0.8,
-            emissive: 0xb45309,
-            emissiveIntensity: 0.3
+            color: 0xfbbf24, // High-Yield Gold Main Column Longitudinal Steel
+            roughness: 0.25,
+            metalness: 0.85,
+            emissive: 0xd97706,
+            emissiveIntensity: 0.42
         });
 
         matRebarTies = new THREE.LineBasicMaterial({
-            color: 0xffd700, // Golden Shear Stirrups & Lateral Ties
+            color: 0xfde047, // Bright Golden Shear Stirrups & Lateral Ties
             linewidth: 2,
             transparent: true,
-            opacity: 0.95
+            opacity: 1.0
         });
 
         // Architectural PBR Materials for Realistic 3D Simulation
@@ -897,9 +903,10 @@
         const mat = new THREE.MeshBasicMaterial({
             vertexColors: true,
             transparent: true,
-            opacity: 0.82,
+            opacity: 0.88,
             side: THREE.DoubleSide,
-            depthWrite: false
+            depthWrite: false,
+            fog: false
         });
 
         const mesh = new THREE.Mesh(geom, mat);
@@ -912,7 +919,8 @@
             color: 0xffffff,
             linewidth: 2,
             transparent: true,
-            opacity: 0.95
+            opacity: 1.0,
+            fog: false
         }));
         line.renderOrder = 4;
         group.add(line);
@@ -975,9 +983,10 @@
         const mat = new THREE.MeshBasicMaterial({
             color: 0x10b981,
             transparent: true,
-            opacity: 0.78,
+            opacity: 0.85,
             side: THREE.DoubleSide,
-            depthWrite: false
+            depthWrite: false,
+            fog: false
         });
 
         const mesh = new THREE.Mesh(geom, mat);
@@ -986,10 +995,11 @@
 
         const lineGeom = new THREE.BufferGeometry().setFromPoints(crestPoints);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
-            color: 0x34d399,
+            color: 0x6ee7b7,
             linewidth: 2,
             transparent: true,
-            opacity: 0.95
+            opacity: 1.0,
+            fog: false
         }));
         line.renderOrder = 4;
         group.add(line);
@@ -1052,9 +1062,10 @@
         const mat = new THREE.MeshBasicMaterial({
             color: 0xf59e0b, // Amber gold
             transparent: true,
-            opacity: 0.78,
+            opacity: 0.85,
             side: THREE.DoubleSide,
-            depthWrite: false
+            depthWrite: false,
+            fog: false
         });
 
         const mesh = new THREE.Mesh(geom, mat);
@@ -1066,7 +1077,8 @@
             color: 0xfef08a,
             linewidth: 2,
             transparent: true,
-            opacity: 0.95
+            opacity: 1.0,
+            fog: false
         }));
         line.renderOrder = 4;
         group.add(line);
@@ -1104,9 +1116,10 @@
         const mat = new THREE.MeshBasicMaterial({
             color: 0x10b981,
             transparent: true,
-            opacity: 0.78,
+            opacity: 0.85,
             side: THREE.DoubleSide,
-            depthWrite: false
+            depthWrite: false,
+            fog: false
         });
 
         const mesh = new THREE.Mesh(geom, mat);
@@ -1118,10 +1131,11 @@
             new THREE.Vector3(0, yTop, zCrest)
         ]);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
-            color: 0x34d399,
+            color: 0x6ee7b7,
             linewidth: 2,
             transparent: true,
-            opacity: 0.95
+            opacity: 1.0,
+            fog: false
         }));
         line.renderOrder = 4;
         group.add(line);
@@ -1511,7 +1525,7 @@
             c.height = 512;
             const ctx = c.getContext('2d');
             if (!ctx) return null;
-            ctx.fillStyle = '#d49b6a';
+            ctx.fillStyle = '#f6eee3';
             ctx.fillRect(0, 0, 512, 512);
 
             // Fine plaster grain
@@ -1524,7 +1538,7 @@
             }
 
             // Subtle horizontal architectural plaster grooves
-            ctx.strokeStyle = 'rgba(60, 35, 15, 0.22)';
+            ctx.strokeStyle = 'rgba(120, 80, 45, 0.16)';
             ctx.lineWidth = 2;
             for (let y = 64; y < 512; y += 64) {
                 ctx.beginPath();
@@ -1865,15 +1879,15 @@
         // MATERIALS PALETTE (WARM LUXURY JAIPUR SANDSTONE & CASHMERE INTERIOR)
         // -------------------------------------------------------------
         const wallSandstone = new THREE.MeshStandardMaterial({
-            color: 0xe6b88a,
+            color: 0xfffcf5, // Luminous natural sandstone/travertine
             map: stuccoTex,
             bumpMap: stuccoTex,
             bumpScale: 0.015,
-            roughness: 0.78,
-            metalness: 0.04
+            roughness: 0.68,
+            metalness: 0.03
         });
-        const wallAccentSlate = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.60, metalness: 0.20 });
-        const wallAccentRoyalBlue = new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.65, metalness: 0.15 });
+        const wallAccentSlate = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.50, metalness: 0.20 });
+        const wallAccentRoyalBlue = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.55, metalness: 0.15 });
         const wallInternalMat = new THREE.MeshStandardMaterial({
             color: 0xf5eee4, // Warm Cashmere Ivory / Linen (Asian Paints Royale Luxury Emulsion)
             map: interiorWallTex,
@@ -1883,7 +1897,7 @@
             metalness: 0.01
         });
         const teakCladMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, map: woodTex, roughness: 0.50, metalness: 0.10 });
-        const slabFasciaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.35, metalness: 0.05 });
+        const slabFasciaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25, metalness: 0.05 });
         const darkFrameMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.40, metalness: 0.70 });
         const goldBrassMat = new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.20, metalness: 0.85 });
         const steelMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.35, metalness: 0.30 });
@@ -1971,24 +1985,24 @@
 
         const windowGlassMat = new THREE.MeshStandardMaterial({
             color: 0x38bdf8,
-            roughness: 0.1,
-            metalness: 0.85,
+            roughness: 0.04,
+            metalness: 0.90,
             transparent: true,
-            opacity: 0.35
+            opacity: 0.40
         });
         const railingGlassMat = new THREE.MeshStandardMaterial({
-            color: 0xbae6fd,
-            roughness: 0.1,
-            metalness: 0.80,
+            color: 0x7dd3fc,
+            roughness: 0.04,
+            metalness: 0.90,
             transparent: true,
-            opacity: 0.45
+            opacity: 0.48
         });
         const stairGlassMat = new THREE.MeshStandardMaterial({
             color: 0x38bdf8,
-            roughness: 0.15,
-            metalness: 0.85,
+            roughness: 0.05,
+            metalness: 0.90,
             transparent: true,
-            opacity: 0.38
+            opacity: 0.42
         });
 
         // -------------------------------------------------------------
@@ -3068,21 +3082,21 @@
 
             // Exact Reference Photo Palette (Calibrated for ACES Filmic Tone Mapping)
             const babyBluePaint = new THREE.MeshStandardMaterial({
-                color: 0x488ec9, // Authentic powder baby-blue under sun
-                roughness: 0.32,
-                metalness: 0.10,
-                envMapIntensity: 0.25
+                color: 0x3b82f6, // Rich authentic baby-blue automotive finish
+                roughness: 0.20,
+                metalness: 0.25,
+                envMapIntensity: 0.85
             });
             const bumperWhiteMat = new THREE.MeshStandardMaterial({
                 color: 0xf8fafc,
-                roughness: 0.28,
-                metalness: 0.04
+                roughness: 0.20,
+                metalness: 0.05
             });
             const glassSlateMat = new THREE.MeshStandardMaterial({
                 color: 0x1e293b, // Deep smoked slate-gray concept glass
-                roughness: 0.14,
-                metalness: 0.40,
-                envMapIntensity: 0.50
+                roughness: 0.08,
+                metalness: 0.85,
+                envMapIntensity: 0.90
             });
             const silverTrimMat = new THREE.MeshStandardMaterial({
                 color: 0xcbd5e1,
@@ -4109,16 +4123,16 @@
         gridHelper.position.y = -0.55;
         scene.add(gridHelper);
 
-        // Lighting (Clean, Crisp Architectural Sunlight & Ambient Sky Fill - ZERO shadow artifacts!)
-        ambientLight = new THREE.HemisphereLight(0xfffaf0, 0x334155, 0.85);
+        // Lighting (Clean, Crisp Architectural Sunlight & Ambient Sky Fill)
+        ambientLight = new THREE.HemisphereLight(0xffffff, 0x475569, 0.95);
         scene.add(ambientLight);
 
-        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.05);
+        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.35);
         dirLight1.position.set(22, 38, 24);
         dirLight1.castShadow = false;
         scene.add(dirLight1);
 
-        dirLight2 = new THREE.DirectionalLight(0x93c5fd, 0.50);
+        dirLight2 = new THREE.DirectionalLight(0xe2e8f0, 0.55);
         dirLight2.position.set(-22, 20, -20);
         scene.add(dirLight2);
 
@@ -4133,45 +4147,45 @@
         container = document.getElementById('staadViewportContainer');
         if (!canvas || !container) return;
 
-        // Scene
+        // Scene (High contrast, fog-free engineering & architectural clarity)
         scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x070b14);
-        scene.fog = new THREE.FogExp2(0x070b14, 0.015);
+        scene.background = new THREE.Color(0x090e1a);
+        scene.fog = null;
 
         // Camera
         const aspect = container.clientWidth / container.clientHeight;
         camera = new THREE.PerspectiveCamera(45, aspect, 0.5, 500);
         setCameraView('iso');
 
-        // Replace renderer setup in initThree() (around line 1705):
+        // High-Quality, Power-Efficient WebGL Renderer
         renderer = new THREE.WebGLRenderer({
             canvas: canvas,
-            antialias: window.devicePixelRatio < 2,
+            antialias: true, // Always true for razor-sharp edges and zero jaggies
             alpha: false,
             powerPreference: 'high-performance',
-            logarithmicDepthBuffer: false // Fixes massive GPU shader overhead!
+            logarithmicDepthBuffer: false
         });
         renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1 : 1.5));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.25 : 1.75));
         renderer.shadowMap.enabled = false;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.05;
+        renderer.toneMappingExposure = 1.28; // Bright, rich, vivid dynamic range
         renderer.outputEncoding = THREE.sRGBEncoding;
 
         // Generate a procedural Sky/Studio Environment Map so glass, brass, chrome & marble reflect realistically
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
         pmremGenerator.compileEquirectangularShader();
         const envScene = new THREE.Scene();
-        envScene.background = new THREE.Color(0x1e293b);
+        envScene.background = new THREE.Color(0x38bdf8);
         const skyDome = new THREE.Mesh(
             new THREE.SphereGeometry(100, 32, 16),
-            new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.BackSide })
+            new THREE.MeshBasicMaterial({ color: 0x7dd3fc, side: THREE.BackSide })
         );
         envScene.add(skyDome);
-        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 2.5);
+        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 3.2);
         envLight1.position.set(20, 40, 20);
         envScene.add(envLight1);
-        const envLight2 = new THREE.HemisphereLight(0xe0f2fe, 0x334155, 1.5);
+        const envLight2 = new THREE.HemisphereLight(0xf0f9ff, 0x64748b, 2.2);
         envScene.add(envLight2);
         scene.environment = pmremGenerator.fromScene(envScene, 0.04).texture;
         pmremGenerator.dispose();
@@ -5457,44 +5471,38 @@
         // Scene atmosphere & lights
         if (scene) {
             if (analysisMode === 'realistic') {
-                scene.background.setHex(0x131d31);
-                if (scene.fog) {
-                    scene.fog.color.setHex(0x131d31);
-                    scene.fog.density = 0.007;
-                }
+                scene.background.setHex(0x0e172a); // Deep refined twilight navy
+                scene.fog = null; // Clean, high-contrast, crystal-clear architectural rendering
                 if (gridHelper) gridHelper.visible = false;
                 if (ambientLight) {
-                    ambientLight.intensity = 0.85;
-                    ambientLight.color.setHex(0xfffaf0);
+                    ambientLight.intensity = 1.05;
+                    ambientLight.color.setHex(0xfffbeb);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 1.05;
-                    dirLight1.color.setHex(0xfffaf0);
+                    dirLight1.intensity = 1.55;
+                    dirLight1.color.setHex(0xfff8ee);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.50;
-                    dirLight2.color.setHex(0x93c5fd);
+                    dirLight2.intensity = 0.65;
+                    dirLight2.color.setHex(0xcfd8dc);
                 }
             } else {
-                scene.background.setHex(0x070b14);
-                if (scene.fog) {
-                    scene.fog.color.setHex(0x070b14);
-                    scene.fog.density = 0.015;
-                }
+                scene.background.setHex(0x090e1a); // Deep engineering dark viewport
+                scene.fog = null; // Zero fog washing out structural members and diagrams
                 if (gridHelper) gridHelper.visible = true;
                 if (ambientLight) {
-                    ambientLight.intensity = 0.70;
+                    ambientLight.intensity = 0.95;
                     ambientLight.color.setHex(0xffffff);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 0.95;
+                    dirLight1.intensity = 1.35;
                     dirLight1.color.setHex(0xfffaf0);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.50;
-                    dirLight2.color.setHex(0x00e5ff);
+                    dirLight2.intensity = 0.55;
+                    dirLight2.color.setHex(0xe2e8f0); // Crisp cool fill (NOT cyan which contaminates yellow columns!)
                 }
             }
         }
