@@ -173,7 +173,11 @@
                 defaultDoc = vaultData.files.find(f => f.name.includes('PROJECT STAGE 1 DOCUMENTATION.pdf') || f.name.includes('FINAL PLAN.dwg')) || vaultData.files[0];
             }
             if (defaultDoc) {
-                selectFile(defaultDoc);
+                try {
+                    selectFile(defaultDoc);
+                } catch (selErr) {
+                    console.warn('Initial file selection caught:', selErr);
+                }
             }
         } catch (err) {
             console.error('Error loading vault manifest:', err);
@@ -195,7 +199,9 @@
         if (!vaultData || !vaultData.files) return;
         const counts = { cad: 0, excel: 0, pdf: 0, word: 0, code: 0 };
         vaultData.files.forEach(f => {
-            if (counts[f.category] !== undefined) counts[f.category]++;
+            const ext = (f.ext || f.extension || (f.name && f.name.includes('.') ? f.name.split('.').pop() : '')).toLowerCase();
+            const cat = f.category || (['dxf', 'dwg'].includes(ext) ? 'cad' : ['xls', 'xlsx', 'csv'].includes(ext) ? 'excel' : ['doc', 'docx'].includes(ext) ? 'word' : ext === 'pdf' ? 'pdf' : ['std', 'py', 'js', 'json', 'lsp'].includes(ext) ? 'code' : 'other');
+            if (counts[cat] !== undefined) counts[cat]++;
         });
         const cadPill = document.getElementById('pillCad');
         if (cadPill) cadPill.innerHTML = `<i class="fas fa-drafting-compass"></i> CAD (${counts.cad})`;
@@ -352,9 +358,23 @@
             };
         }
 
+        const fileExt = (file.ext || file.extension || (file.name && file.name.includes('.') ? file.name.split('.').pop() : '')).toLowerCase();
+        file.ext = fileExt;
+        if (!file.category) {
+            if (['dxf', 'dwg'].includes(fileExt)) file.category = 'cad';
+            else if (['xls', 'xlsx', 'csv'].includes(fileExt)) file.category = 'excel';
+            else if (['doc', 'docx'].includes(fileExt)) file.category = 'word';
+            else if (fileExt === 'pdf') file.category = 'pdf';
+            else if (['jpg', 'jpeg', 'png', 'svg', 'webp', 'ico'].includes(fileExt)) file.category = 'image';
+            else if (['std', 'py', 'js', 'json', 'lsp'].includes(fileExt)) file.category = 'code';
+            else if (fileExt === 'rvt') file.category = 'bim';
+            else if (['ppt', 'pptx'].includes(fileExt)) file.category = 'presentation';
+            else file.category = 'other';
+        }
+
         const sizeBadge = document.getElementById('vaultFileSizeBadge');
         if (sizeBadge) {
-            sizeBadge.textContent = `${file.ext.toUpperCase()} • ${file.size}`;
+            sizeBadge.textContent = `${(fileExt || 'FILE').toUpperCase()} • ${file.size || ''}`;
         }
 
         // Route to appropriate viewer engine
