@@ -28,6 +28,7 @@
     let ambientLight = null;
     let dirLight1 = null;
     let dirLight2 = null;
+    let dirLight3 = null;
 
     // Materials cache for realistic architectural rendering
     let matWallStucco, matWallInterior, matWallAccent, matPlinthStone, matGroundPaver;
@@ -69,35 +70,35 @@
 
     function initMaterials() {
         matColumn = new THREE.MeshStandardMaterial({
-            color: COLOR_COLUMN,
-            roughness: 0.42,
-            metalness: 0.08,
-            emissive: 0x78350f,
-            emissiveIntensity: 0.12
+            color: COLOR_COLUMN, // Rich Amber Gold
+            roughness: 0.28,
+            metalness: 0.15,
+            emissive: 0x92400e,
+            emissiveIntensity: 0.22
         });
 
         matBeam = new THREE.MeshStandardMaterial({
-            color: COLOR_BEAM,
-            roughness: 0.38,
-            metalness: 0.08,
-            emissive: 0x083344,
-            emissiveIntensity: 0.12
+            color: COLOR_BEAM, // Vibrant Electric Cyan
+            roughness: 0.26,
+            metalness: 0.15,
+            emissive: 0x0891b2,
+            emissiveIntensity: 0.20
         });
 
         matFooting = new THREE.MeshStandardMaterial({
-            color: COLOR_FOOTING,
-            roughness: 0.48,
-            metalness: 0.08,
-            emissive: 0x3b0764,
-            emissiveIntensity: 0.08
+            color: COLOR_FOOTING, // Deep Royal Purple
+            roughness: 0.35,
+            metalness: 0.15,
+            emissive: 0x6b21a8,
+            emissiveIntensity: 0.18
         });
 
         matSlab = new THREE.MeshStandardMaterial({
             color: COLOR_SLAB,
             transparent: true,
-            opacity: 0.42,
-            roughness: 0.25,
-            metalness: 0.10,
+            opacity: 0.38,
+            roughness: 0.15,
+            metalness: 0.25,
             depthWrite: false
         });
 
@@ -105,35 +106,35 @@
             color: COLOR_NODE
         });
 
-        // 3D Rebar Materials - Elevated emissive vibrancy for illuminated steel reinforcement
+        // 3D Rebar Materials - High-contrast illuminated steel reinforcement
         matRebarTop = new THREE.MeshStandardMaterial({
             color: 0xf43f5e, // Vivid Crimson Red Top Rebar
-            roughness: 0.25,
-            metalness: 0.85,
+            roughness: 0.20,
+            metalness: 0.80,
             emissive: 0xe11d48,
-            emissiveIntensity: 0.42
+            emissiveIntensity: 0.65
         });
 
         matRebarBot = new THREE.MeshStandardMaterial({
             color: 0x06b6d4, // Vivid Cyan Blue Bottom Rebar
-            roughness: 0.25,
-            metalness: 0.85,
+            roughness: 0.20,
+            metalness: 0.80,
             emissive: 0x0891b2,
-            emissiveIntensity: 0.42
+            emissiveIntensity: 0.65
         });
 
         matRebarGold = new THREE.MeshStandardMaterial({
             color: 0xfbbf24, // High-Yield Gold Main Column Longitudinal Steel
-            roughness: 0.25,
-            metalness: 0.85,
+            roughness: 0.20,
+            metalness: 0.80,
             emissive: 0xd97706,
-            emissiveIntensity: 0.42
+            emissiveIntensity: 0.65
         });
 
         matRebarTies = new THREE.LineBasicMaterial({
-            color: 0xfde047, // Bright Golden Shear Stirrups & Lateral Ties
+            color: 0xfef08a, // Brilliant neon yellow-gold ties
             linewidth: 2,
-            transparent: true,
+            transparent: false,
             opacity: 1.0
         });
 
@@ -838,9 +839,9 @@
         const colors = [];
         const crestPoints = [];
 
-        const colCrimson = new THREE.Color(0xef4444);
-        const colCyan = new THREE.Color(0x06b6d4);
-        const ribbonW = 0.04; // 40mm volumetric ribbon in local X
+        const colCrimson = new THREE.Color(0xff2255); // Vivid Fiery Crimson (Hogging / Tension Top)
+        const colCyan = new THREE.Color(0x00d4ff);    // Brilliant Electric Cyan (Sagging / Tension Bottom)
+        const ribbonW = 0.06; // 60mm volumetric ribbon in local X (high visibility & depth)
 
         for (let i = 0; i <= N; i++) {
             const s = i / N;
@@ -903,7 +904,7 @@
         const mat = new THREE.MeshBasicMaterial({
             vertexColors: true,
             transparent: true,
-            opacity: 0.88,
+            opacity: 0.94,
             side: THREE.DoubleSide,
             depthWrite: false,
             fog: false
@@ -913,12 +914,12 @@
         mesh.renderOrder = 3;
         group.add(mesh);
 
-        // Sharp neon crest outline
+        // Sharp neon white crest outline
         const lineGeom = new THREE.BufferGeometry().setFromPoints(crestPoints);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
             color: 0xffffff,
             linewidth: 2,
-            transparent: true,
+            transparent: false,
             opacity: 1.0,
             fog: false
         }));
@@ -942,7 +943,7 @@
 
         const positions = [];
         const crestPoints = [];
-        const ribbonW = 0.04;
+        const ribbonW = 0.06;
 
         for (let i = 0; i <= N; i++) {
             const s = i / N;
@@ -981,9 +982,9 @@
         geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
         const mat = new THREE.MeshBasicMaterial({
-            color: 0x10b981,
+            color: 0x00e676, // Radiant Neon Spring Emerald
             transparent: true,
-            opacity: 0.85,
+            opacity: 0.92,
             side: THREE.DoubleSide,
             depthWrite: false,
             fog: false
@@ -995,9 +996,9 @@
 
         const lineGeom = new THREE.BufferGeometry().setFromPoints(crestPoints);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
-            color: 0x6ee7b7,
+            color: 0xffffff,
             linewidth: 2,
-            transparent: true,
+            transparent: false,
             opacity: 1.0,
             fog: false
         }));
@@ -1021,7 +1022,7 @@
 
         const positions = [];
         const crestPoints = [];
-        const ribbonW = 0.04; // along local X
+        const ribbonW = 0.06; // along local X
 
         for (let i = 0; i <= N; i++) {
             const s = i / N;
@@ -1060,9 +1061,9 @@
         geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
         const mat = new THREE.MeshBasicMaterial({
-            color: 0xf59e0b, // Amber gold
+            color: 0xfbbf24, // Bright Amber Gold
             transparent: true,
-            opacity: 0.85,
+            opacity: 0.94,
             side: THREE.DoubleSide,
             depthWrite: false,
             fog: false
@@ -1074,9 +1075,9 @@
 
         const lineGeom = new THREE.BufferGeometry().setFromPoints(crestPoints);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
-            color: 0xfef08a,
+            color: 0xffffff,
             linewidth: 2,
-            transparent: true,
+            transparent: false,
             opacity: 1.0,
             fog: false
         }));
@@ -1096,7 +1097,7 @@
         const zCrest = vCol * kV;
         const yBot = -height / 2.0;
         const yTop = height / 2.0;
-        const ribbonW = 0.04;
+        const ribbonW = 0.06;
 
         const xF = -ribbonW / 2.0;
         const xB = ribbonW / 2.0;
@@ -1114,9 +1115,9 @@
         geom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
         const mat = new THREE.MeshBasicMaterial({
-            color: 0x10b981,
+            color: 0x00e676, // Radiant Neon Spring Emerald
             transparent: true,
-            opacity: 0.85,
+            opacity: 0.92,
             side: THREE.DoubleSide,
             depthWrite: false,
             fog: false
@@ -1131,9 +1132,9 @@
             new THREE.Vector3(0, yTop, zCrest)
         ]);
         const line = new THREE.Line(lineGeom, new THREE.LineBasicMaterial({
-            color: 0x6ee7b7,
+            color: 0xffffff,
             linewidth: 2,
-            transparent: true,
+            transparent: false,
             opacity: 1.0,
             fog: false
         }));
@@ -1865,6 +1866,25 @@
             return tex;
         }
 
+        // 7. Procedural Ground Contact Shadow Texture (Zero-CPU Baked Ambient Occlusion)
+        function createContactShadowTexture() {
+            if (typeof document === 'undefined') return null;
+            const c = document.createElement('canvas');
+            c.width = 512;
+            c.height = 512;
+            const ctx = c.getContext('2d');
+            if (!ctx) return null;
+            const grad = ctx.createRadialGradient(256, 256, 40, 256, 256, 256);
+            grad.addColorStop(0, 'rgba(0, 0, 0, 0.70)');
+            grad.addColorStop(0.35, 'rgba(0, 0, 0, 0.35)');
+            grad.addColorStop(0.70, 'rgba(0, 0, 0, 0.10)');
+            grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 512, 512);
+            const tex = new THREE.CanvasTexture(c);
+            return tex;
+        }
+
         // Texture instances
         const calacattaMarbleTex = createCalacattaMarbleTexture();
         const stuccoTex = createStuccoTexture();
@@ -1874,16 +1894,17 @@
         const paverGoldTex = createPaverTileTexture('#c29b74', 'rgba(67,40,16,0.40)');
         const rugTex = createWovenRugTexture();
         const interiorWallTex = createInteriorPaintTexture();
+        const contactShadowTex = createContactShadowTexture();
 
         // -------------------------------------------------------------
         // MATERIALS PALETTE (WARM LUXURY JAIPUR SANDSTONE & CASHMERE INTERIOR)
         // -------------------------------------------------------------
         const wallSandstone = new THREE.MeshStandardMaterial({
-            color: 0xfffcf5, // Luminous natural sandstone/travertine
+            color: 0xfffbf0, // Warm luminous natural sandstone / travertine
             map: stuccoTex,
             bumpMap: stuccoTex,
             bumpScale: 0.015,
-            roughness: 0.68,
+            roughness: 0.58, // Satin architectural sheen that catches sunlight
             metalness: 0.03
         });
         const wallAccentSlate = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.50, metalness: 0.20 });
@@ -1898,7 +1919,7 @@
         });
         const teakCladMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, map: woodTex, roughness: 0.50, metalness: 0.10 });
         const slabFasciaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25, metalness: 0.05 });
-        const darkFrameMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.40, metalness: 0.70 });
+        const darkFrameMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.30, metalness: 0.85 });
         const goldBrassMat = new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.20, metalness: 0.85 });
         const steelMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.35, metalness: 0.30 });
         const teakDoorMat = new THREE.MeshStandardMaterial({
@@ -1985,24 +2006,24 @@
 
         const windowGlassMat = new THREE.MeshStandardMaterial({
             color: 0x38bdf8,
-            roughness: 0.04,
-            metalness: 0.90,
+            roughness: 0.03,
+            metalness: 0.92,
             transparent: true,
-            opacity: 0.40
+            opacity: 0.45
         });
         const railingGlassMat = new THREE.MeshStandardMaterial({
-            color: 0x7dd3fc,
-            roughness: 0.04,
-            metalness: 0.90,
+            color: 0x67e8f9,
+            roughness: 0.03,
+            metalness: 0.92,
             transparent: true,
-            opacity: 0.48
+            opacity: 0.45
         });
         const stairGlassMat = new THREE.MeshStandardMaterial({
             color: 0x38bdf8,
-            roughness: 0.05,
-            metalness: 0.90,
+            roughness: 0.03,
+            metalness: 0.92,
             transparent: true,
-            opacity: 0.42
+            opacity: 0.50
         });
 
         // -------------------------------------------------------------
@@ -3064,13 +3085,48 @@
         const Y_MUMTY = 13.6252;
         const Y_LIFT = 14.1252;
 
-        const roadMat = new THREE.MeshStandardMaterial({ color: 0x181e28, roughness: 0.92 });
-        const curbMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.7 });
+        const roadMat = new THREE.MeshStandardMaterial({
+            color: 0x161b24, // Deep rich asphalt charcoal
+            roughness: 0.88,
+            metalness: 0.05
+        });
+        const curbMat = new THREE.MeshStandardMaterial({
+            color: 0xe2e8f0, // Crisp precast white concrete curb
+            roughness: 0.50,
+            metalness: 0.05
+        });
         createBox(36.0, 0.25, 14.0, 0, Y_PLINTH - 0.20, 17.5, roadMat, storyGroups.site);
         for (let rx = -15; rx <= 15; rx += 4.5) {
             createBox(2.5, 0.02, 0.25, rx, Y_PLINTH - 0.06, 17.5, slabFasciaMat, storyGroups.site);
         }
         createBox(36.0, 0.20, 1.0, 0, Y_PLINTH - 0.08, 10.5, curbMat, storyGroups.site);
+
+        // Ground Contact Shadows (Zero-CPU Baked Ambient Occlusion Grounding)
+        if (contactShadowTex) {
+            // Building Footprint Contact Shadow
+            const bldShadowG = new THREE.PlaneGeometry(24, 30);
+            bldShadowG.rotateX(-Math.PI / 2);
+            const bldShadowM = new THREE.Mesh(bldShadowG, new THREE.MeshBasicMaterial({
+                map: contactShadowTex,
+                transparent: true,
+                opacity: 0.70,
+                depthWrite: false
+            }));
+            bldShadowM.position.set(0, Y_PLINTH - 0.078, 0.5);
+            storyGroups.site.add(bldShadowM);
+
+            // Car Contact Shadow (Under wheels and chassis)
+            const carShadowG = new THREE.PlaneGeometry(3.2, 5.4);
+            carShadowG.rotateX(-Math.PI / 2);
+            const carShadowM = new THREE.Mesh(carShadowG, new THREE.MeshBasicMaterial({
+                map: contactShadowTex,
+                transparent: true,
+                opacity: 0.80,
+                depthWrite: false
+            }));
+            carShadowM.position.set(1.5, Y_PLINTH - 0.078, 14.25);
+            storyGroups.site.add(carShadowM);
+        }
 
         // =============================================================
         // SCULPTED RETRO BABY-BLUE CONCEPT CAR (ON FRONT ROAD)
@@ -4123,18 +4179,27 @@
         gridHelper.position.y = -0.55;
         scene.add(gridHelper);
 
-        // Lighting (Clean, Crisp Architectural Sunlight & Ambient Sky Fill)
-        ambientLight = new THREE.HemisphereLight(0xffffff, 0x475569, 0.95);
+        // Lighting (Clean, Crisp 3-Point Architectural Studio Lighting with Zero GPU Overhead)
+        ambientLight = new THREE.HemisphereLight(0xffffff, 0x334155, 1.10);
         scene.add(ambientLight);
 
-        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.35);
-        dirLight1.position.set(22, 38, 24);
+        // Key Sun / Studio Light (Warm South-East high angle)
+        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.85);
+        dirLight1.position.set(24, 40, 24);
         dirLight1.castShadow = false;
         scene.add(dirLight1);
 
-        dirLight2 = new THREE.DirectionalLight(0xe2e8f0, 0.55);
-        dirLight2.position.set(-22, 20, -20);
+        // Fill Light (Soft cool North-West low angle)
+        dirLight2 = new THREE.DirectionalLight(0xe2e8f0, 0.75);
+        dirLight2.position.set(-24, 18, -20);
         scene.add(dirLight2);
+
+        // Crisp Rim / Back Accent Light (High rear-North angle)
+        // Grazes top edges of parapets, beams, columns, and railings with sharp silhouette pop
+        dirLight3 = new THREE.DirectionalLight(0xffffff, 1.15);
+        dirLight3.position.set(0, 32, -32);
+        dirLight3.castShadow = false;
+        scene.add(dirLight3);
 
         // 6. Realistic Architectural 3D Simulation Model (Lazy-loaded on first demand in staadViewerSetAnalysisMode)
         // architecturalModel is instantiated when Realistic 3D mode is activated.
@@ -4169,24 +4234,29 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.25 : 1.75));
         renderer.shadowMap.enabled = false;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.28; // Bright, rich, vivid dynamic range
+        renderer.toneMappingExposure = 1.38; // Rich, vivid, crystal-clear dynamic range
         renderer.outputEncoding = THREE.sRGBEncoding;
 
-        // Generate a procedural Sky/Studio Environment Map so glass, brass, chrome & marble reflect realistically
+        // Generate a Balanced Neutral Studio Environment Map
+        // Uses clean silver-white sky, soft warm key highlight, and subtle dark slate ground bounce
+        // so materials reflect realistically with brilliant specular shine WITHOUT any artificial cyan tint!
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
         pmremGenerator.compileEquirectangularShader();
         const envScene = new THREE.Scene();
-        envScene.background = new THREE.Color(0x38bdf8);
+        envScene.background = new THREE.Color(0xf1f5f9);
         const skyDome = new THREE.Mesh(
             new THREE.SphereGeometry(100, 32, 16),
-            new THREE.MeshBasicMaterial({ color: 0x7dd3fc, side: THREE.BackSide })
+            new THREE.MeshBasicMaterial({ color: 0xf8fafc, side: THREE.BackSide })
         );
         envScene.add(skyDome);
-        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 3.2);
-        envLight1.position.set(20, 40, 20);
+        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 2.8);
+        envLight1.position.set(24, 40, 24);
         envScene.add(envLight1);
-        const envLight2 = new THREE.HemisphereLight(0xf0f9ff, 0x64748b, 2.2);
+        const envLight2 = new THREE.DirectionalLight(0xe0f2fe, 1.4);
+        envLight2.position.set(-20, 20, -20);
         envScene.add(envLight2);
+        const envLight3 = new THREE.HemisphereLight(0xffffff, 0x1e293b, 1.8);
+        envScene.add(envLight3);
         scene.environment = pmremGenerator.fromScene(envScene, 0.04).texture;
         pmremGenerator.dispose();
 
@@ -5471,39 +5541,51 @@
         // Scene atmosphere & lights
         if (scene) {
             if (analysisMode === 'realistic') {
-                scene.background.setHex(0x0e172a); // Deep refined twilight navy
+                scene.background.setHex(0x0a1120); // Deep architectural obsidian-navy
                 scene.fog = null; // Clean, high-contrast, crystal-clear architectural rendering
                 if (gridHelper) gridHelper.visible = false;
                 if (ambientLight) {
-                    ambientLight.intensity = 1.05;
+                    ambientLight.intensity = 1.15;
                     ambientLight.color.setHex(0xfffbeb);
+                    ambientLight.groundColor.setHex(0x1e293b);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 1.55;
+                    dirLight1.intensity = 2.05;
                     dirLight1.color.setHex(0xfff8ee);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.65;
-                    dirLight2.color.setHex(0xcfd8dc);
+                    dirLight2.intensity = 0.85;
+                    dirLight2.color.setHex(0xe2e8f0);
                 }
+                if (dirLight3) {
+                    dirLight3.intensity = 1.25;
+                    dirLight3.color.setHex(0xffffff);
+                }
+                if (renderer) renderer.toneMappingExposure = 1.48;
             } else {
                 scene.background.setHex(0x090e1a); // Deep engineering dark viewport
                 scene.fog = null; // Zero fog washing out structural members and diagrams
                 if (gridHelper) gridHelper.visible = true;
                 if (ambientLight) {
-                    ambientLight.intensity = 0.95;
+                    ambientLight.intensity = 1.05;
                     ambientLight.color.setHex(0xffffff);
+                    ambientLight.groundColor.setHex(0x334155);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 1.35;
+                    dirLight1.intensity = 1.75;
                     dirLight1.color.setHex(0xfffaf0);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.55;
-                    dirLight2.color.setHex(0xe2e8f0); // Crisp cool fill (NOT cyan which contaminates yellow columns!)
+                    dirLight2.intensity = 0.70;
+                    dirLight2.color.setHex(0xe2e8f0); // Crisp cool fill
                 }
+                if (dirLight3) {
+                    dirLight3.intensity = 1.05;
+                    dirLight3.color.setHex(0xffffff);
+                }
+                if (renderer) renderer.toneMappingExposure = 1.35;
             }
         }
 
@@ -5579,11 +5661,11 @@
                     m.material.depthWrite = true;
                 } else if (analysisMode === 'rcc') {
                     m.material.transparent = true;
-                    m.material.opacity = 0.28;
+                    m.material.opacity = 0.18; // Crisp crystalline transparent glass concrete (NOT milky haze!)
                     m.material.depthWrite = false;
                 } else { // moment or shear
                     m.material.transparent = true;
-                    m.material.opacity = 0.12; // faint ghost structure
+                    m.material.opacity = 0.10; // Faint structural silhouette
                     m.material.depthWrite = false;
                 }
                 m.material.needsUpdate = true;
@@ -5620,11 +5702,11 @@
                     f.material.depthWrite = true;
                 } else if (analysisMode === 'rcc') {
                     f.material.transparent = true;
-                    f.material.opacity = 0.35;
+                    f.material.opacity = 0.22;
                     f.material.depthWrite = false;
                 } else {
                     f.material.transparent = true;
-                    f.material.opacity = 0.15;
+                    f.material.opacity = 0.12;
                     f.material.depthWrite = false;
                 }
                 f.material.needsUpdate = true;
