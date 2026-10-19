@@ -2308,7 +2308,9 @@
             const w = 0.60;
             const h = 0.60;
             const frameT = 0.055;
-            const frameD = 0.26; // Projects 1.5cm proud of 0.23m exterior walls on both faces
+            const frameD = 0.24; // Spans full 230mm wall thickness
+            const chajjaDepth = 0.28; // 280mm architectural sunshade for ventilator
+            const chajjaW = w + 0.20;
 
             const louverMat = new THREE.MeshStandardMaterial({
                 color: 0x94a3b8,
@@ -2330,6 +2332,12 @@
                     const louver = createBox(w - frameT * 2, 0.015, 0.06, 0, lv, 0.03, louverMat, ventGrp);
                     louver.rotation.x = 0.45;
                 }
+                // Architectural White Weather Chajja & Sill (Exterior side)
+                const extDir = (z >= 0) ? 1 : -1;
+                createBox(w + 0.10, 0.04, 0.28, 0, -h / 2 - 0.02, extDir * 0.03, slabFasciaMat, ventGrp);
+                createBox(chajjaW, 0.05, chajjaDepth, 0, h / 2 + 0.035, extDir * (chajjaDepth / 2 - 0.04), slabFasciaMat, ventGrp);
+                createBox(0.04, h + 0.08, chajjaDepth * 0.6, -w / 2 - 0.03, 0, extDir * 0.06, slabFasciaMat, ventGrp);
+                createBox(0.04, h + 0.08, chajjaDepth * 0.6, w / 2 + 0.03, 0, extDir * 0.06, slabFasciaMat, ventGrp);
             } else {
                 createBox(frameD, frameT, w, 0, h / 2 - frameT / 2, 0, darkFrameMat, ventGrp);
                 createBox(frameD, frameT, w, 0, -h / 2 + frameT / 2, 0, darkFrameMat, ventGrp);
@@ -2340,6 +2348,11 @@
                     const louver = createBox(0.06, 0.015, w - frameT * 2, 0.03, lv, 0, louverMat, ventGrp);
                     louver.rotation.z = 0.45;
                 }
+                const extDir = (x >= 0) ? 1 : -1;
+                createBox(0.28, 0.04, w + 0.10, extDir * 0.03, -h / 2 - 0.02, 0, slabFasciaMat, ventGrp);
+                createBox(chajjaDepth, 0.05, chajjaW, extDir * (chajjaDepth / 2 - 0.04), h / 2 + 0.035, 0, slabFasciaMat, ventGrp);
+                createBox(chajjaDepth * 0.6, h + 0.08, 0.04, extDir * 0.06, 0, -w / 2 - 0.03, slabFasciaMat, ventGrp);
+                createBox(chajjaDepth * 0.6, h + 0.08, 0.04, extDir * 0.06, 0, w / 2 + 0.03, slabFasciaMat, ventGrp);
             }
             (parent || archGroup).add(ventGrp);
             return ventGrp;
@@ -3441,6 +3454,7 @@
         // Left Exterior Wall (X = -4.61m) with REAL PHYSICAL CUTOUTS for all windows (Zero solid blockage!)
         createExteriorWallWithWindows(-4.61, Y_PLINTH, gHouseH, 0.23, -8.34, 1.71, [
             { zCenter: -6.00, width: 1.40, height: 1.30, sillH: 0.90 },
+            { zCenter: -3.62, width: 0.60, height: 0.60, sillH: gHouseH - 0.85 },
             { zCenter: -1.83, width: 1.20, height: 1.20, sillH: 0.95 },
             { zCenter: 0.53, width: 1.20, height: 1.20, sillH: 0.95 }
         ], wallSandstone, storyGroups.ground);
@@ -3450,7 +3464,7 @@
         createBox(1.40, 0.90, 0.23, -3.20, Y_PLINTH + 0.45, -8.34, wallSandstone, storyGroups.ground);
         if (gHouseH - 2.20 > 0.01) createBox(1.40, gHouseH - 2.20, 0.23, -3.20, Y_PLINTH + 2.20 + (gHouseH - 2.20) / 2, -8.34, wallSandstone, storyGroups.ground);
         createWindow(1.40, 1.30, -3.20, Y_PLINTH + 1.55, -8.34, 'Z', storyGroups.ground);
-        createBox(5.74, gHouseH, 0.23, 0.37, gHouseY, -8.34, wallSandstone, storyGroups.ground);
+        createBox(3.61, gHouseH, 0.23, -0.695, gHouseY, -8.34, wallSandstone, storyGroups.ground);
 
         // Ground Floor Internal Partitions:
         createWallWithDoor(3.92, gHouseH, 0.12, -2.65, gHouseY, -0.65, 'X', 2.30, 0.90, 2.10, internalDoorMat, 0.45, wallInternalMat, storyGroups.ground);
@@ -3566,6 +3580,7 @@
             { zCenter: -6.80, width: 1.40, height: 1.30, sillH: 0.90 },
             { zCenter: -4.00, width: 1.20, height: 1.20, sillH: 0.95 },
             { zCenter: -1.00, width: 1.40, height: 1.30, sillH: 0.90 },
+            { zCenter: 1.44, width: 0.60, height: 0.60, sillH: f1H - 0.85 },
             { zCenter: 3.10, width: 1.20, height: 1.20, sillH: 0.95 },
             { zCenter: 5.20, width: 1.20, height: 1.20, sillH: 0.95 }
         ], wallSandstone, storyGroups.first);
@@ -3575,7 +3590,7 @@
         createBox(1.40, 0.90, 0.23, -3.20, Y_FLOOR1 + 0.45, -8.34, wallSandstone, storyGroups.first);
         if (f1H - 2.20 > 0.01) createBox(1.40, f1H - 2.20, 0.23, -3.20, Y_FLOOR1 + 2.20 + (f1H - 2.20) / 2, -8.34, wallSandstone, storyGroups.first);
         createWindow(1.40, 1.30, -3.20, Y_FLOOR1 + 1.55, -8.34, 'Z', storyGroups.first);
-        createBox(5.74, f1H, 0.23, 0.37, f1Y, -8.34, wallSandstone, storyGroups.first);
+        createBox(3.61, f1H, 0.23, -0.695, f1Y, -8.34, wallSandstone, storyGroups.first);
 
         // First Floor Interior Partitions:
         createBox(3.92, f1H, 0.23, -2.65, f1Y, 6.21, wallSandstone, storyGroups.first);
@@ -3813,7 +3828,7 @@
         createBox(1.40, 0.90, 0.23, -3.20, Y_FLOOR2 + 0.45, -8.34, wallSandstone, storyGroups.second);
         if (f2H - 2.20 > 0.01) createBox(1.40, f2H - 2.20, 0.23, -3.20, Y_FLOOR2 + 2.20 + (f2H - 2.20) / 2, -8.34, wallSandstone, storyGroups.second);
         createWindow(1.40, 1.30, -3.20, Y_FLOOR2 + 1.55, -8.34, 'Z', storyGroups.second);
-        createBox(5.74, f2H, 0.23, 0.37, f2Y, -8.34, wallSandstone, storyGroups.second);
+        createBox(3.61, f2H, 0.23, -0.695, f2Y, -8.34, wallSandstone, storyGroups.second);
 
         // =============================================================
         // 5. ROOF LEVEL: TERRACE, MUMTY WITH TILED GABLE ROOF, LMR SPANNING C3-C6!
