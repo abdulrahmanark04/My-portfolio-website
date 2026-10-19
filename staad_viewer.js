@@ -71,34 +71,34 @@
     function initMaterials() {
         matColumn = new THREE.MeshStandardMaterial({
             color: COLOR_COLUMN, // Rich Amber Gold
-            roughness: 0.28,
-            metalness: 0.15,
-            emissive: 0x92400e,
-            emissiveIntensity: 0.22
+            roughness: 0.35,
+            metalness: 0.20,
+            emissive: 0x78350f, // Subtle warm amber depth
+            emissiveIntensity: 0.12
         });
 
         matBeam = new THREE.MeshStandardMaterial({
             color: COLOR_BEAM, // Vibrant Electric Cyan
-            roughness: 0.26,
-            metalness: 0.15,
-            emissive: 0x0891b2,
-            emissiveIntensity: 0.20
+            roughness: 0.32,
+            metalness: 0.20,
+            emissive: 0x083344,
+            emissiveIntensity: 0.12
         });
 
         matFooting = new THREE.MeshStandardMaterial({
             color: COLOR_FOOTING, // Deep Royal Purple
-            roughness: 0.35,
+            roughness: 0.38,
             metalness: 0.15,
-            emissive: 0x6b21a8,
-            emissiveIntensity: 0.18
+            emissive: 0x3b0764,
+            emissiveIntensity: 0.10
         });
 
         matSlab = new THREE.MeshStandardMaterial({
-            color: COLOR_SLAB,
+            color: 0x0284c7, // Rich Azure Tinted Glass
             transparent: true,
-            opacity: 0.38,
-            roughness: 0.15,
-            metalness: 0.25,
+            opacity: 0.35,
+            roughness: 0.20,
+            metalness: 0.20,
             depthWrite: false
         });
 
@@ -106,36 +106,36 @@
             color: COLOR_NODE
         });
 
-        // 3D Rebar Materials - High-contrast illuminated steel reinforcement
+        // 3D Rebar Materials - Saturated, high-contrast steel (never blown out white)
         matRebarTop = new THREE.MeshStandardMaterial({
             color: 0xf43f5e, // Vivid Crimson Red Top Rebar
-            roughness: 0.20,
-            metalness: 0.80,
+            roughness: 0.25,
+            metalness: 0.70,
             emissive: 0xe11d48,
-            emissiveIntensity: 0.65
+            emissiveIntensity: 0.40
         });
 
         matRebarBot = new THREE.MeshStandardMaterial({
             color: 0x06b6d4, // Vivid Cyan Blue Bottom Rebar
-            roughness: 0.20,
-            metalness: 0.80,
+            roughness: 0.25,
+            metalness: 0.70,
             emissive: 0x0891b2,
-            emissiveIntensity: 0.65
+            emissiveIntensity: 0.40
         });
 
         matRebarGold = new THREE.MeshStandardMaterial({
             color: 0xfbbf24, // High-Yield Gold Main Column Longitudinal Steel
-            roughness: 0.20,
-            metalness: 0.80,
+            roughness: 0.25,
+            metalness: 0.70,
             emissive: 0xd97706,
-            emissiveIntensity: 0.65
+            emissiveIntensity: 0.40
         });
 
         matRebarTies = new THREE.LineBasicMaterial({
-            color: 0xfef08a, // Brilliant neon yellow-gold ties
+            color: 0xfacc15, // Golden shear stirrups
             linewidth: 2,
             transparent: false,
-            opacity: 1.0
+            opacity: 0.95
         });
 
         // Architectural PBR Materials for Realistic 3D Simulation
@@ -2342,52 +2342,53 @@
             const isZ = (orient === 'Z');
             const w = 0.60;
             const h = 0.60;
-            const frameT = 0.055;
-            const frameD = 0.24; // Spans full 230mm wall thickness
-            const chajjaDepth = 0.28; // 280mm architectural sunshade for ventilator
-            const chajjaW = w + 0.20;
+            const frameT = 0.05;
+            const frameD = 0.24; // Spans full wall thickness
 
-            const louverMat = new THREE.MeshStandardMaterial({
-                color: 0x94a3b8,
-                roughness: 0.35,
-                metalness: 0.50
+            // Crisp white architectural louver blade material (strictly per Image 3 reference)
+            const louverBladeMat = new THREE.MeshStandardMaterial({
+                color: 0xffffff, // Crisp pure white / silver aluminum blades
+                roughness: 0.25,
+                metalness: 0.35
             });
-            const darkAcousticMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+            const darkAcousticMat = new THREE.MeshBasicMaterial({ color: 0x090e1a });
 
             if (isZ) {
+                // Wall along X (ventilator faces North/South, normal along Z)
                 // Outer dark architectural frame
                 createBox(w, frameT, frameD, 0, h / 2 - frameT / 2, 0, darkFrameMat, ventGrp);
                 createBox(w, frameT, frameD, 0, -h / 2 + frameT / 2, 0, darkFrameMat, ventGrp);
                 createBox(frameT, h, frameD, -w / 2 + frameT / 2, 0, 0, darkFrameMat, ventGrp);
                 createBox(frameT, h, frameD, w / 2 - frameT / 2, 0, 0, darkFrameMat, ventGrp);
+
                 // Center acoustic dark mesh backing
                 createBox(w - frameT * 2, h - frameT * 2, 0.02, 0, 0, 0, darkAcousticMat, ventGrp);
-                // Angled horizontal privacy louvers
-                for (let lv = -h / 2 + 0.09; lv <= h / 2 - 0.09; lv += 0.105) {
-                    const louver = createBox(w - frameT * 2, 0.015, 0.06, 0, lv, 0.03, louverMat, ventGrp);
-                    louver.rotation.x = 0.45;
-                }
-                // Architectural White Weather Chajja & Sill (Exterior side)
-                const extDir = (z >= 0) ? 1 : -1;
-                createBox(w + 0.10, 0.04, 0.28, 0, -h / 2 - 0.02, extDir * 0.03, slabFasciaMat, ventGrp);
-                createBox(chajjaW, 0.05, chajjaDepth, 0, h / 2 + 0.035, extDir * (chajjaDepth / 2 - 0.04), slabFasciaMat, ventGrp);
-                createBox(0.04, h + 0.08, chajjaDepth * 0.6, -w / 2 - 0.03, 0, extDir * 0.06, slabFasciaMat, ventGrp);
-                createBox(0.04, h + 0.08, chajjaDepth * 0.6, w / 2 + 0.03, 0, extDir * 0.06, slabFasciaMat, ventGrp);
+
+                // Modern horizontal architectural louvers on BOTH exterior and interior faces (Image 3 style)
+                [-frameD / 2 + 0.035, frameD / 2 - 0.035].forEach(zPos => {
+                    for (let lv = -h / 2 + 0.09; lv <= h / 2 - 0.09; lv += 0.105) {
+                        const louver = createBox(w - frameT * 2, 0.018, 0.05, 0, lv, zPos, louverBladeMat, ventGrp);
+                        louver.rotation.x = 0.40;
+                    }
+                });
             } else {
+                // Wall along Z (ventilator faces East/West, normal along X)
+                // Outer dark architectural frame
                 createBox(frameD, frameT, w, 0, h / 2 - frameT / 2, 0, darkFrameMat, ventGrp);
                 createBox(frameD, frameT, w, 0, -h / 2 + frameT / 2, 0, darkFrameMat, ventGrp);
                 createBox(frameD, h, frameT, 0, 0, -w / 2 + frameT / 2, darkFrameMat, ventGrp);
                 createBox(frameD, h, frameT, 0, 0, w / 2 - frameT / 2, darkFrameMat, ventGrp);
+
+                // Center acoustic dark mesh backing
                 createBox(0.02, h - frameT * 2, w - frameT * 2, 0, 0, 0, darkAcousticMat, ventGrp);
-                for (let lv = -h / 2 + 0.09; lv <= h / 2 - 0.09; lv += 0.105) {
-                    const louver = createBox(0.06, 0.015, w - frameT * 2, 0.03, lv, 0, louverMat, ventGrp);
-                    louver.rotation.z = 0.45;
-                }
-                const extDir = (x >= 0) ? 1 : -1;
-                createBox(0.28, 0.04, w + 0.10, extDir * 0.03, -h / 2 - 0.02, 0, slabFasciaMat, ventGrp);
-                createBox(chajjaDepth, 0.05, chajjaW, extDir * (chajjaDepth / 2 - 0.04), h / 2 + 0.035, 0, slabFasciaMat, ventGrp);
-                createBox(chajjaDepth * 0.6, h + 0.08, 0.04, extDir * 0.06, 0, -w / 2 - 0.03, slabFasciaMat, ventGrp);
-                createBox(chajjaDepth * 0.6, h + 0.08, 0.04, extDir * 0.06, 0, w / 2 + 0.03, slabFasciaMat, ventGrp);
+
+                // Modern horizontal architectural louvers on BOTH exterior and interior faces (Image 3 style)
+                [-frameD / 2 + 0.035, frameD / 2 - 0.035].forEach(xPos => {
+                    for (let lv = -h / 2 + 0.09; lv <= h / 2 - 0.09; lv += 0.105) {
+                        const louver = createBox(0.05, 0.018, w - frameT * 2, xPos, lv, 0, louverBladeMat, ventGrp);
+                        louver.rotation.z = 0.40;
+                    }
+                });
             }
             (parent || archGroup).add(ventGrp);
             return ventGrp;
@@ -3726,7 +3727,7 @@
         createKitchenCounter(-2.65, Y_FLOOR1 + 0.035, 5.50, storyGroups.first);
         createDiningFurniture(-2.65, Y_FLOOR1 + 0.035, 3.14, storyGroups.first);
         // First Floor Front Bed 1: Headboard flush against South wall (-2.91m), wardrobe on East wall (-0.69m) clear of door!
-        createLuxuryBed(-2.65, Y_FLOOR1 + 0.035, -1.81, 'N', storyGroups.first);
+        createLuxuryBed(-2.65, Y_FLOOR1 + 0.035, -1.81, 'S', storyGroups.first);
         createWardrobe(-0.965, Y_FLOOR1 + 0.035, -1.20, 1.70, 0.55, 'Z', 'NEG_X', storyGroups.first);
 
         // First Floor Front Bed 2: Rotated 180 degrees per user request (orient: 'W')
@@ -4180,23 +4181,23 @@
         scene.add(gridHelper);
 
         // Lighting (Clean, Crisp 3-Point Architectural Studio Lighting with Zero GPU Overhead)
-        ambientLight = new THREE.HemisphereLight(0xffffff, 0x334155, 1.10);
+        ambientLight = new THREE.HemisphereLight(0xffffff, 0x1e293b, 0.45);
         scene.add(ambientLight);
 
         // Key Sun / Studio Light (Warm South-East high angle)
-        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.85);
+        dirLight1 = new THREE.DirectionalLight(0xfffaf0, 1.25);
         dirLight1.position.set(24, 40, 24);
         dirLight1.castShadow = false;
         scene.add(dirLight1);
 
         // Fill Light (Soft cool North-West low angle)
-        dirLight2 = new THREE.DirectionalLight(0xe2e8f0, 0.75);
+        dirLight2 = new THREE.DirectionalLight(0xe2e8f0, 0.40);
         dirLight2.position.set(-24, 18, -20);
         scene.add(dirLight2);
 
         // Crisp Rim / Back Accent Light (High rear-North angle)
         // Grazes top edges of parapets, beams, columns, and railings with sharp silhouette pop
-        dirLight3 = new THREE.DirectionalLight(0xffffff, 1.15);
+        dirLight3 = new THREE.DirectionalLight(0xffffff, 0.55);
         dirLight3.position.set(0, 32, -32);
         dirLight3.castShadow = false;
         scene.add(dirLight3);
@@ -4234,28 +4235,27 @@
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.25 : 1.75));
         renderer.shadowMap.enabled = false;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.38; // Rich, vivid, crystal-clear dynamic range
+        renderer.toneMappingExposure = 1.04; // Natural calibrated dynamic range (zero white blowout)
         renderer.outputEncoding = THREE.sRGBEncoding;
 
-        // Generate a Balanced Neutral Studio Environment Map
-        // Uses clean silver-white sky, soft warm key highlight, and subtle dark slate ground bounce
-        // so materials reflect realistically with brilliant specular shine WITHOUT any artificial cyan tint!
+        // Generate a Balanced Subtle Studio Environment Map
+        // Provides realistic specular reflection highlights without washing out or bleaching colors!
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
         pmremGenerator.compileEquirectangularShader();
         const envScene = new THREE.Scene();
-        envScene.background = new THREE.Color(0xf1f5f9);
+        envScene.background = new THREE.Color(0xdde3ea);
         const skyDome = new THREE.Mesh(
             new THREE.SphereGeometry(100, 32, 16),
-            new THREE.MeshBasicMaterial({ color: 0xf8fafc, side: THREE.BackSide })
+            new THREE.MeshBasicMaterial({ color: 0xe2e8f0, side: THREE.BackSide })
         );
         envScene.add(skyDome);
-        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 2.8);
+        const envLight1 = new THREE.DirectionalLight(0xfffbeb, 1.0);
         envLight1.position.set(24, 40, 24);
         envScene.add(envLight1);
-        const envLight2 = new THREE.DirectionalLight(0xe0f2fe, 1.4);
+        const envLight2 = new THREE.DirectionalLight(0xe0f2fe, 0.5);
         envLight2.position.set(-20, 20, -20);
         envScene.add(envLight2);
-        const envLight3 = new THREE.HemisphereLight(0xffffff, 0x1e293b, 1.8);
+        const envLight3 = new THREE.HemisphereLight(0xffffff, 0x1e293b, 0.7);
         envScene.add(envLight3);
         scene.environment = pmremGenerator.fromScene(envScene, 0.04).texture;
         pmremGenerator.dispose();
@@ -5545,47 +5545,47 @@
                 scene.fog = null; // Clean, high-contrast, crystal-clear architectural rendering
                 if (gridHelper) gridHelper.visible = false;
                 if (ambientLight) {
-                    ambientLight.intensity = 1.15;
+                    ambientLight.intensity = 0.55;
                     ambientLight.color.setHex(0xfffbeb);
                     ambientLight.groundColor.setHex(0x1e293b);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 2.05;
+                    dirLight1.intensity = 1.35;
                     dirLight1.color.setHex(0xfff8ee);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.85;
+                    dirLight2.intensity = 0.50;
                     dirLight2.color.setHex(0xe2e8f0);
                 }
                 if (dirLight3) {
-                    dirLight3.intensity = 1.25;
+                    dirLight3.intensity = 0.65;
                     dirLight3.color.setHex(0xffffff);
                 }
-                if (renderer) renderer.toneMappingExposure = 1.48;
+                if (renderer) renderer.toneMappingExposure = 1.08;
             } else {
                 scene.background.setHex(0x090e1a); // Deep engineering dark viewport
                 scene.fog = null; // Zero fog washing out structural members and diagrams
                 if (gridHelper) gridHelper.visible = true;
                 if (ambientLight) {
-                    ambientLight.intensity = 1.05;
+                    ambientLight.intensity = 0.45;
                     ambientLight.color.setHex(0xffffff);
-                    ambientLight.groundColor.setHex(0x334155);
+                    ambientLight.groundColor.setHex(0x1e293b);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 1.75;
+                    dirLight1.intensity = 1.20;
                     dirLight1.color.setHex(0xfffaf0);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.70;
+                    dirLight2.intensity = 0.38;
                     dirLight2.color.setHex(0xe2e8f0); // Crisp cool fill
                 }
                 if (dirLight3) {
-                    dirLight3.intensity = 1.05;
+                    dirLight3.intensity = 0.55;
                     dirLight3.color.setHex(0xffffff);
                 }
-                if (renderer) renderer.toneMappingExposure = 1.35;
+                if (renderer) renderer.toneMappingExposure = 1.02;
             }
         }
 
