@@ -4,8 +4,8 @@
       "id": "project-4-1",
       "projectTitle": "G+2 Multi-Storey RCC Space Frame: 3D Computational Analysis & RCDC Structural Design",
       "projectCode": "B.Tech Final Year Major Project (Stage 1 Complete)",
-      "projectSubtitle": "IS 456:2000 Limit State \u2022 Seismic Zone II (Z = 0.10) \u2022 SP 34 Detailing",
-      "totalFiles": 321,
+      "projectSubtitle": "IS 456:2000 Limit State • Seismic Zone II (Z = 0.10) • SP 34 Detailing",
+      "totalFiles": 286,
       "totalSize": "160.08 MB",
       "totalSizeBytes": 167851127,
       "tree": {
@@ -18,16 +18,6 @@
             "type": "folder",
             "relPath": "CAD",
             "children": [
-              {
-                "name": "FINAL PLAN.bak",
-                "type": "file",
-                "path": "vault/project-4-1/CAD/FINAL PLAN.bak",
-                "relPath": "CAD/FINAL PLAN.bak",
-                "ext": "bak",
-                "category": "archive",
-                "size": "435.2 KB",
-                "sizeBytes": 445623
-              },
               {
                 "name": "FINAL PLAN.dwg",
                 "type": "file",
@@ -174,36 +164,6 @@
                         "category": "image",
                         "size": "421.6 KB",
                         "sizeBytes": 431669
-                      },
-                      {
-                        "name": "~$OJECT STAGE 1 DOCUMENTATION.docx",
-                        "type": "file",
-                        "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~$OJECT STAGE 1 DOCUMENTATION.docx",
-                        "relPath": "MP Initiation/DOC/MAIN/~$OJECT STAGE 1 DOCUMENTATION.docx",
-                        "ext": "docx",
-                        "category": "word",
-                        "size": "162 B",
-                        "sizeBytes": 162
-                      },
-                      {
-                        "name": "~WRL0005.tmp",
-                        "type": "file",
-                        "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~WRL0005.tmp",
-                        "relPath": "MP Initiation/DOC/MAIN/~WRL0005.tmp",
-                        "ext": "tmp",
-                        "category": "other",
-                        "size": "1.70 MB",
-                        "sizeBytes": 1781302
-                      },
-                      {
-                        "name": "~WRL0284.tmp",
-                        "type": "file",
-                        "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~WRL0284.tmp",
-                        "relPath": "MP Initiation/DOC/MAIN/~WRL0284.tmp",
-                        "ext": "tmp",
-                        "category": "other",
-                        "size": "3.64 MB",
-                        "sizeBytes": 3821115
                       }
                     ]
                   }
@@ -344,16 +304,6 @@
                             "category": "pdf",
                             "size": "11.8 KB",
                             "sizeBytes": 12069
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM @ LIFT MACHINE ROOM/PRINT/plot.log",
-                            "relPath": "RCDC/BEAMS @ MUMTY LEVEL/BEAM @ LIFT MACHINE ROOM/PRINT/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.6 KB",
-                            "sizeBytes": 1665
                           }
                         ]
                       },
@@ -465,16 +415,6 @@
                             "category": "pdf",
                             "size": "11.9 KB",
                             "sizeBytes": 12226
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty/PRINT/plot.log",
-                            "relPath": "RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty/PRINT/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "2.0 KB",
-                            "sizeBytes": 2011
                           }
                         ]
                       },
@@ -489,26 +429,6 @@
                         "sizeBytes": 45897
                       }
                     ]
-                  },
-                  {
-                    "name": "BEAM DESIGN.bak",
-                    "type": "file",
-                    "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM DESIGN.bak",
-                    "relPath": "RCDC/BEAMS @ MUMTY LEVEL/BEAM DESIGN.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "3.73 MB",
-                    "sizeBytes": 3912199
-                  },
-                  {
-                    "name": "MASTER DESIGN DRAWINGS.bak",
-                    "type": "file",
-                    "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/MASTER DESIGN DRAWINGS.bak",
-                    "relPath": "RCDC/BEAMS @ MUMTY LEVEL/MASTER DESIGN DRAWINGS.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "3.77 MB",
-                    "sizeBytes": 3955471
                   },
                   {
                     "name": "MASTER DESIGN DRAWINGS.dwg",
@@ -939,56 +859,6 @@
                                 "sizeBytes": 1030936
                               }
                             ]
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (2).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (2).zip",
-                            "relPath": "RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (2).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "734.9 KB",
-                            "sizeBytes": 752511
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (3).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (3).zip",
-                            "relPath": "RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (3).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "987.2 KB",
-                            "sizeBytes": 1010894
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (4).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (4).zip",
-                            "relPath": "RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (4).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "1.20 MB",
-                            "sizeBytes": 1253297
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (5).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (5).zip",
-                            "relPath": "RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (5).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "1.30 MB",
-                            "sizeBytes": 1362856
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/plot.log",
-                            "relPath": "RCDC/COLUMN/PRINTS/DOC COLUMNS/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "2.2 KB",
-                            "sizeBytes": 2276
                           }
                         ]
                       },
@@ -1031,16 +901,6 @@
                         "category": "image",
                         "size": "74.3 KB",
                         "sizeBytes": 76076
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/plot.log",
-                        "relPath": "RCDC/COLUMN/PRINTS/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "3.9 KB",
-                        "sizeBytes": 3948
                       }
                     ]
                   },
@@ -1461,76 +1321,6 @@
                             "category": "pdf",
                             "size": "15.8 KB",
                             "sizeBytes": 16200
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (10).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (10).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (10).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "730.2 KB",
-                            "sizeBytes": 747719
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (11).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (11).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (11).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "720.1 KB",
-                            "sizeBytes": 737384
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (12).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (12).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (12).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "710.9 KB",
-                            "sizeBytes": 727970
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (7).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (7).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (7).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "726.1 KB",
-                            "sizeBytes": 743483
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (8).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (8).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (8).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "718.3 KB",
-                            "sizeBytes": 735584
-                          },
-                          {
-                            "name": "ilovepdf_pages-to-jpg (9).zip",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (9).zip",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (9).zip",
-                            "ext": "zip",
-                            "category": "archive",
-                            "size": "352.7 KB",
-                            "sizeBytes": 361160
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/plot.log",
-                            "relPath": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "2.2 KB",
-                            "sizeBytes": 2279
                           }
                         ]
                       },
@@ -1563,16 +1353,6 @@
                         "category": "pdf",
                         "size": "11.7 KB",
                         "sizeBytes": 11959
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/plot.log",
-                        "relPath": "RCDC/FOOTINGS/PRINTS/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "1.1 KB",
-                        "sizeBytes": 1139
                       }
                     ]
                   },
@@ -1689,16 +1469,6 @@
                             "category": "pdf",
                             "size": "13.9 KB",
                             "sizeBytes": 14213
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 1/PRINT/plot.log",
-                            "relPath": "RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 1/PRINT/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "3.2 KB",
-                            "sizeBytes": 3265
                           }
                         ]
                       },
@@ -1810,16 +1580,6 @@
                             "category": "pdf",
                             "size": "13.9 KB",
                             "sizeBytes": 14227
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2/PRINT/plot.log",
-                            "relPath": "RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2/PRINT/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "2.7 KB",
-                            "sizeBytes": 2728
                           }
                         ]
                       },
@@ -1931,16 +1691,6 @@
                             "category": "pdf",
                             "size": "14.6 KB",
                             "sizeBytes": 14926
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF/PRINT/plot.log",
-                            "relPath": "RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF/PRINT/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "2.1 KB",
-                            "sizeBytes": 2190
                           }
                         ]
                       },
@@ -2446,46 +2196,6 @@
                         "category": "pdf",
                         "size": "15.3 KB",
                         "sizeBytes": 15627
-                      },
-                      {
-                        "name": "BEAM ELEVATION 2.zip",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION 2.zip",
-                        "relPath": "RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION 2.zip",
-                        "ext": "zip",
-                        "category": "archive",
-                        "size": "1.04 MB",
-                        "sizeBytes": 1095034
-                      },
-                      {
-                        "name": "BEAM ELEVATION.zip",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION.zip",
-                        "relPath": "RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION.zip",
-                        "ext": "zip",
-                        "category": "archive",
-                        "size": "616.6 KB",
-                        "sizeBytes": 631398
-                      },
-                      {
-                        "name": "pdf24_renderPdf.zip",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/pdf24_renderPdf.zip",
-                        "relPath": "RCDC/MAIN FLOOR BEAMS/DOC BEAM/pdf24_renderPdf.zip",
-                        "ext": "zip",
-                        "category": "archive",
-                        "size": "1007.8 KB",
-                        "sizeBytes": 1032007
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/plot.log",
-                        "relPath": "RCDC/MAIN FLOOR BEAMS/DOC BEAM/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "3.0 KB",
-                        "sizeBytes": 3036
                       }
                     ]
                   }
@@ -2587,16 +2297,6 @@
                         "category": "pdf",
                         "size": "13.9 KB",
                         "sizeBytes": 14201
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-4-1/RCDC/PLINTH BEAM/PRINT/plot.log",
-                        "relPath": "RCDC/PLINTH BEAM/PRINT/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "3.5 KB",
-                        "sizeBytes": 3623
                       }
                     ]
                   },
@@ -2753,16 +2453,6 @@
                             "category": "pdf",
                             "size": "17.6 KB",
                             "sizeBytes": 17984
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F1/PRINTS/plot.log",
-                            "relPath": "RCDC/SLAB/SLAB @F1/PRINTS/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.9 KB",
-                            "sizeBytes": 1899
                           }
                         ]
                       },
@@ -2914,16 +2604,6 @@
                             "category": "pdf",
                             "size": "17.6 KB",
                             "sizeBytes": 17984
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @MR/PRINTS/plot.log",
-                            "relPath": "RCDC/SLAB/SLAB @MR/PRINTS/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.1 KB",
-                            "sizeBytes": 1140
                           }
                         ]
                       },
@@ -2960,15 +2640,15 @@
                     ]
                   },
                   {
-                    "name": "SLAN @F2",
+                    "name": "SLAB @F2",
                     "type": "folder",
-                    "relPath": "RCDC/SLAB/SLAN @F2",
+                    "relPath": "RCDC/SLAB/SLAB @F2",
                     "children": [
                       {
                         "name": "BBS FOR SLAB @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/BBS FOR SLAB @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/BBS FOR SLAB @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/BBS FOR SLAB @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/BBS FOR SLAB @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "733.4 KB",
@@ -2977,8 +2657,8 @@
                       {
                         "name": "BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "415.3 KB",
@@ -2987,13 +2667,13 @@
                       {
                         "name": "EXCEL",
                         "type": "folder",
-                        "relPath": "RCDC/SLAB/SLAN @F2/EXCEL",
+                        "relPath": "RCDC/SLAB/SLAB @F2/EXCEL",
                         "children": [
                           {
                             "name": "BBS FOR SLAB @F2.xls",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/EXCEL/BBS FOR SLAB @F2.xls",
-                            "relPath": "RCDC/SLAB/SLAN @F2/EXCEL/BBS FOR SLAB @F2.xls",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/EXCEL/BBS FOR SLAB @F2.xls",
+                            "relPath": "RCDC/SLAB/SLAB @F2/EXCEL/BBS FOR SLAB @F2.xls",
                             "ext": "xls",
                             "category": "excel",
                             "size": "60.0 KB",
@@ -3004,8 +2684,8 @@
                       {
                         "name": "GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "118.7 KB",
@@ -3014,13 +2694,13 @@
                       {
                         "name": "PRINTS",
                         "type": "folder",
-                        "relPath": "RCDC/SLAB/SLAN @F2/PRINTS",
+                        "relPath": "RCDC/SLAB/SLAB @F2/PRINTS",
                         "children": [
                           {
                             "name": "BBS FOR SLAB @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "42.2 KB",
@@ -3029,8 +2709,8 @@
                           {
                             "name": "BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "27.5 KB",
@@ -3039,8 +2719,8 @@
                           {
                             "name": "GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "17.0 KB",
@@ -3049,8 +2729,8 @@
                           {
                             "name": "SLAB LAYOUT @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "15.2 KB",
@@ -3059,8 +2739,8 @@
                           {
                             "name": "SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "15.9 KB",
@@ -3069,30 +2749,20 @@
                           {
                             "name": "SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
                             "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
+                            "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
+                            "relPath": "RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
                             "ext": "pdf",
                             "category": "pdf",
                             "size": "17.6 KB",
                             "sizeBytes": 18030
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/plot.log",
-                            "relPath": "RCDC/SLAB/SLAN @F2/PRINTS/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.1 KB",
-                            "sizeBytes": 1139
                           }
                         ]
                       },
                       {
                         "name": "SLAB LAYOUT @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB LAYOUT @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/SLAB LAYOUT @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB LAYOUT @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/SLAB LAYOUT @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "115.4 KB",
@@ -3101,8 +2771,8 @@
                       {
                         "name": "SLAB SECTION 1-1 FOR SLAB @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "117.4 KB",
@@ -3111,8 +2781,8 @@
                       {
                         "name": "SLAB SECTION A-A FOR SLAB @F2.dxf",
                         "type": "file",
-                        "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
-                        "relPath": "RCDC/SLAB/SLAN @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
+                        "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
+                        "relPath": "RCDC/SLAB/SLAB @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
                         "ext": "dxf",
                         "category": "cad",
                         "size": "148.0 KB",
@@ -3138,44 +2808,34 @@
                     "sizeBytes": 116820
                   },
                   {
-                    "name": "STANCASE DESIGN.pdf",
+                    "name": "STAIRCASE DESIGN.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC/STAIRCASE/STANCASE DESIGN.pdf",
-                    "relPath": "RCDC/STAIRCASE/STANCASE DESIGN.pdf",
+                    "path": "vault/project-4-1/RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
+                    "relPath": "RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "12.9 KB",
                     "sizeBytes": 13194
-                  },
-                  {
-                    "name": "plot.log",
-                    "type": "file",
-                    "path": "vault/project-4-1/RCDC/STAIRCASE/plot.log",
-                    "relPath": "RCDC/STAIRCASE/plot.log",
-                    "ext": "log",
-                    "category": "code",
-                    "size": "167 B",
-                    "sizeBytes": 167
                   }
                 ]
               }
             ]
           },
           {
-            "name": "RCDC DESIGN SUMMERY",
+            "name": "RCDC DESIGN SUMMARY",
             "type": "folder",
-            "relPath": "RCDC DESIGN SUMMERY",
+            "relPath": "RCDC DESIGN SUMMARY",
             "children": [
               {
                 "name": "BEAM DESIGN",
                 "type": "folder",
-                "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+                "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN",
                 "children": [
                   {
                     "name": "BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "730.7 KB",
@@ -3184,8 +2844,8 @@
                   {
                     "name": "BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "729.5 KB",
@@ -3194,8 +2854,8 @@
                   {
                     "name": "BEAM DESIGN CALCULATIONS @LMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "242.3 KB",
@@ -3204,8 +2864,8 @@
                   {
                     "name": "BEAM DESIGN CALCULATIONS @MR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "721.9 KB",
@@ -3214,8 +2874,8 @@
                   {
                     "name": "BEAM DESIGN CALCULATIONS @PB.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "726.9 KB",
@@ -3224,8 +2884,8 @@
                   {
                     "name": "BEAM DESIGN CALCULATIONS @SMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "242.1 KB",
@@ -3234,8 +2894,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @FLOOR 1.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "361.7 KB",
@@ -3244,8 +2904,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @FLOOR 2.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "363.1 KB",
@@ -3254,8 +2914,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @LMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "177.0 KB",
@@ -3264,8 +2924,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @MR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "363.5 KB",
@@ -3274,8 +2934,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @PB.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "361.6 KB",
@@ -3284,8 +2944,8 @@
                   {
                     "name": "BEAM DESIGN SUMMARY @SMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "174.2 KB",
@@ -3294,8 +2954,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @FLOOR 1.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "156.9 KB",
@@ -3304,8 +2964,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @FLOOR 2.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "158.5 KB",
@@ -3314,8 +2974,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @LMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "159.0 KB",
@@ -3324,8 +2984,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @MR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "158.1 KB",
@@ -3334,8 +2994,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @PB.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "157.4 KB",
@@ -3344,8 +3004,8 @@
                   {
                     "name": "BEAM PROJECT SETTINGS @SMR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "158.4 KB",
@@ -3356,13 +3016,13 @@
               {
                 "name": "COLUMN DESIGN",
                 "type": "folder",
-                "relPath": "RCDC DESIGN SUMMERY/COLUMN DESIGN",
+                "relPath": "RCDC DESIGN SUMMARY/COLUMN DESIGN",
                 "children": [
                   {
                     "name": "COLUMN DESIGN CALCULATIONS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "1.70 MB",
@@ -3371,8 +3031,8 @@
                   {
                     "name": "COLUMN DESIGN SUMMARY.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "240.7 KB",
@@ -3381,8 +3041,8 @@
                   {
                     "name": "COLUMN PROJECT SETTINGS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "158.2 KB",
@@ -3393,13 +3053,13 @@
               {
                 "name": "FOOTINGS DESIGN",
                 "type": "folder",
-                "relPath": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN",
+                "relPath": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN",
                 "children": [
                   {
                     "name": "FOOTINGS DESIGN CALCULATIONS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "548.4 KB",
@@ -3408,8 +3068,8 @@
                   {
                     "name": "FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "250.8 KB",
@@ -3418,8 +3078,8 @@
                   {
                     "name": "FOOTINGS DESIGN SUMMARY.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "165.6 KB",
@@ -3428,8 +3088,8 @@
                   {
                     "name": "FOOTINGS PROJECT SETTINGS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "153.2 KB",
@@ -3440,13 +3100,13 @@
               {
                 "name": "SLAB DESIGN",
                 "type": "folder",
-                "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+                "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN",
                 "children": [
                   {
                     "name": "SLAB DESIGN CALCULATION @FLOOR 1.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "293.5 KB",
@@ -3455,8 +3115,8 @@
                   {
                     "name": "SLAB DESIGN CALCULATION @FLOOR 2.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "291.5 KB",
@@ -3465,38 +3125,38 @@
                   {
                     "name": "SLAB DESIGN CALCULATION @MR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "292.5 KB",
                     "sizeBytes": 299485
                   },
                   {
-                    "name": "SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+                    "name": "SLAB DESIGN SUMMARY @FLOOR 1.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "171.0 KB",
                     "sizeBytes": 175149
                   },
                   {
-                    "name": "SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+                    "name": "SLAB DESIGN SUMMARY @FLOOR 2.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "170.8 KB",
                     "sizeBytes": 174926
                   },
                   {
-                    "name": "SLAB DESIGN SUMMERY @MR.pdf",
+                    "name": "SLAB DESIGN SUMMARY @MR.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "170.3 KB",
@@ -3505,8 +3165,8 @@
                   {
                     "name": "SLAB PROJECT SETTINGS.pdf",
                     "type": "file",
-                    "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
-                    "relPath": "RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
+                    "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
+                    "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
                     "ext": "pdf",
                     "category": "pdf",
                     "size": "149.5 KB",
@@ -3854,31 +3514,12 @@
                 "category": "image",
                 "size": "53.3 KB",
                 "sizeBytes": 54563
-              },
-              {
-                "name": "plot.log",
-                "type": "file",
-                "path": "vault/project-4-1/images/plot.log",
-                "relPath": "images/plot.log",
-                "ext": "log",
-                "category": "code",
-                "size": "128 B",
-                "sizeBytes": 128
               }
             ]
           }
         ]
       },
       "files": [
-        {
-          "name": "FINAL PLAN.bak",
-          "path": "vault/project-4-1/CAD/FINAL PLAN.bak",
-          "folder": "CAD",
-          "size": "435.2 KB",
-          "sizeBytes": 445623,
-          "ext": "bak",
-          "category": "archive"
-        },
         {
           "name": "FINAL PLAN.dwg",
           "path": "vault/project-4-1/CAD/FINAL PLAN.dwg",
@@ -3997,33 +3638,6 @@
           "category": "image"
         },
         {
-          "name": "~$OJECT STAGE 1 DOCUMENTATION.docx",
-          "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~$OJECT STAGE 1 DOCUMENTATION.docx",
-          "folder": "MP Initiation/DOC/MAIN",
-          "size": "162 B",
-          "sizeBytes": 162,
-          "ext": "docx",
-          "category": "word"
-        },
-        {
-          "name": "~WRL0005.tmp",
-          "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~WRL0005.tmp",
-          "folder": "MP Initiation/DOC/MAIN",
-          "size": "1.70 MB",
-          "sizeBytes": 1781302,
-          "ext": "tmp",
-          "category": "other"
-        },
-        {
-          "name": "~WRL0284.tmp",
-          "path": "vault/project-4-1/MP Initiation/DOC/MAIN/~WRL0284.tmp",
-          "folder": "MP Initiation/DOC/MAIN",
-          "size": "3.64 MB",
-          "sizeBytes": 3821115,
-          "ext": "tmp",
-          "category": "other"
-        },
-        {
           "name": "CM.pdf",
           "path": "vault/project-4-1/MP Initiation/DRAWINGS/CM.pdf",
           "folder": "MP Initiation/DRAWINGS",
@@ -4040,24 +3654,6 @@
           "sizeBytes": 904306,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "BEAM DESIGN.bak",
-          "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM DESIGN.bak",
-          "folder": "RCDC/BEAMS @ MUMTY LEVEL",
-          "size": "3.73 MB",
-          "sizeBytes": 3912199,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
-          "name": "MASTER DESIGN DRAWINGS.bak",
-          "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/MASTER DESIGN DRAWINGS.bak",
-          "folder": "RCDC/BEAMS @ MUMTY LEVEL",
-          "size": "3.77 MB",
-          "sizeBytes": 3955471,
-          "ext": "bak",
-          "category": "archive"
         },
         {
           "name": "MASTER DESIGN DRAWINGS.dwg",
@@ -4150,15 +3746,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM @ LIFT MACHINE ROOM/PRINT/plot.log",
-          "folder": "RCDC/BEAMS @ MUMTY LEVEL/BEAM @ LIFT MACHINE ROOM/PRINT",
-          "size": "1.6 KB",
-          "sizeBytes": 1665,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR BEAM @SMR.dxf",
           "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty/BBS FOR BEAM @SMR.dxf",
           "folder": "RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty",
@@ -4238,15 +3825,6 @@
           "sizeBytes": 12226,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty/PRINT/plot.log",
-          "folder": "RCDC/BEAMS @ MUMTY LEVEL/BEAM @Staircase Mumty/PRINT",
-          "size": "2.0 KB",
-          "sizeBytes": 2011,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "BBS FOR COLUMN 230X450mm.dxf",
@@ -4438,15 +4016,6 @@
           "category": "image"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/plot.log",
-          "folder": "RCDC/COLUMN/PRINTS",
-          "size": "3.9 KB",
-          "sizeBytes": 3948,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "COLUMN C-S C1-C2-C3.pdf",
           "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/COLUMN C-S C1-C2-C3.pdf",
           "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
@@ -4535,51 +4104,6 @@
           "sizeBytes": 23584,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (2).zip",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (2).zip",
-          "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
-          "size": "734.9 KB",
-          "sizeBytes": 752511,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (3).zip",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (3).zip",
-          "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
-          "size": "987.2 KB",
-          "sizeBytes": 1010894,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (4).zip",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (4).zip",
-          "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
-          "size": "1.20 MB",
-          "sizeBytes": 1253297,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (5).zip",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/ilovepdf_pages-to-jpg (5).zip",
-          "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
-          "size": "1.30 MB",
-          "sizeBytes": 1362856,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/COLUMN/PRINTS/DOC COLUMNS/plot.log",
-          "folder": "RCDC/COLUMN/PRINTS/DOC COLUMNS",
-          "size": "2.2 KB",
-          "sizeBytes": 2276,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "COLUMN C-S C1-C2-C3_page-0001.jpg",
@@ -4744,15 +4268,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/plot.log",
-          "folder": "RCDC/FOOTINGS/PRINTS",
-          "size": "1.1 KB",
-          "sizeBytes": 1139,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "F1.pdf",
           "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/F1.pdf",
           "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
@@ -4859,69 +4374,6 @@
           "sizeBytes": 16200,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (10).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (10).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "730.2 KB",
-          "sizeBytes": 747719,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (11).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (11).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "720.1 KB",
-          "sizeBytes": 737384,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (12).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (12).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "710.9 KB",
-          "sizeBytes": 727970,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (7).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (7).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "726.1 KB",
-          "sizeBytes": 743483,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (8).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (8).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "718.3 KB",
-          "sizeBytes": 735584,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "ilovepdf_pages-to-jpg (9).zip",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/ilovepdf_pages-to-jpg (9).zip",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "352.7 KB",
-          "sizeBytes": 361160,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/FOOTINGS/PRINTS/DOC FOOTINGS/plot.log",
-          "folder": "RCDC/FOOTINGS/PRINTS/DOC FOOTINGS",
-          "size": "2.2 KB",
-          "sizeBytes": 2279,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "F1_page-0001.jpg",
@@ -5113,15 +4565,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 1/PRINT/plot.log",
-          "folder": "RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 1/PRINT",
-          "size": "3.2 KB",
-          "sizeBytes": 3265,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR BEAM @FLOOR 2.dxf",
           "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2/BBS FOR BEAM @FLOOR 2.dxf",
           "folder": "RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2",
@@ -5203,15 +4646,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2/PRINT/plot.log",
-          "folder": "RCDC/MAIN FLOOR BEAMS/BEAM @FLOOR 2/PRINT",
-          "size": "2.7 KB",
-          "sizeBytes": 2728,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR BEAM @MR.dxf",
           "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF/BBS FOR BEAM @MR.dxf",
           "folder": "RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF",
@@ -5291,15 +4725,6 @@
           "sizeBytes": 14926,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF/PRINT/plot.log",
-          "folder": "RCDC/MAIN FLOOR BEAMS/BEAM @MAIN ROOF/PRINT",
-          "size": "2.1 KB",
-          "sizeBytes": 2190,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "BEAM B1-B2-B3.pdf",
@@ -5462,42 +4887,6 @@
           "sizeBytes": 15627,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "BEAM ELEVATION 2.zip",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION 2.zip",
-          "folder": "RCDC/MAIN FLOOR BEAMS/DOC BEAM",
-          "size": "1.04 MB",
-          "sizeBytes": 1095034,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "BEAM ELEVATION.zip",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/BEAM ELEVATION.zip",
-          "folder": "RCDC/MAIN FLOOR BEAMS/DOC BEAM",
-          "size": "616.6 KB",
-          "sizeBytes": 631398,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "pdf24_renderPdf.zip",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/pdf24_renderPdf.zip",
-          "folder": "RCDC/MAIN FLOOR BEAMS/DOC BEAM",
-          "size": "1007.8 KB",
-          "sizeBytes": 1032007,
-          "ext": "zip",
-          "category": "archive"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/MAIN FLOOR BEAMS/DOC BEAM/plot.log",
-          "folder": "RCDC/MAIN FLOOR BEAMS/DOC BEAM",
-          "size": "3.0 KB",
-          "sizeBytes": 3036,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "0.jpg",
@@ -5743,15 +5132,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/PLINTH BEAM/PRINT/plot.log",
-          "folder": "RCDC/PLINTH BEAM/PRINT",
-          "size": "3.5 KB",
-          "sizeBytes": 3623,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR SLAB @F1.dxf",
           "path": "vault/project-4-1/RCDC/SLAB/SLAB @F1/BBS FOR SLAB @F1.dxf",
           "folder": "RCDC/SLAB/SLAB @F1",
@@ -5887,15 +5267,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F1/PRINTS/plot.log",
-          "folder": "RCDC/SLAB/SLAB @F1/PRINTS",
-          "size": "1.9 KB",
-          "sizeBytes": 1899,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR SLAB @MR.dxf",
           "path": "vault/project-4-1/RCDC/SLAB/SLAB @MR/BBS FOR SLAB @MR.dxf",
           "folder": "RCDC/SLAB/SLAB @MR",
@@ -6013,18 +5384,9 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAB @MR/PRINTS/plot.log",
-          "folder": "RCDC/SLAB/SLAB @MR/PRINTS",
-          "size": "1.1 KB",
-          "sizeBytes": 1140,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BBS FOR SLAB @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/BBS FOR SLAB @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/BBS FOR SLAB @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "733.4 KB",
           "sizeBytes": 750976,
           "ext": "dxf",
@@ -6032,8 +5394,8 @@
         },
         {
           "name": "BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/BENTUP REINFORCEMENT FOR SLAB @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "415.3 KB",
           "sizeBytes": 425300,
           "ext": "dxf",
@@ -6041,8 +5403,8 @@
         },
         {
           "name": "GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/GENERAL ARRANGEMENT PLAN FOR SLAB @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "118.7 KB",
           "sizeBytes": 121545,
           "ext": "dxf",
@@ -6050,8 +5412,8 @@
         },
         {
           "name": "SLAB LAYOUT @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB LAYOUT @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB LAYOUT @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "115.4 KB",
           "sizeBytes": 118139,
           "ext": "dxf",
@@ -6059,8 +5421,8 @@
         },
         {
           "name": "SLAB SECTION 1-1 FOR SLAB @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB SECTION 1-1 FOR SLAB @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "117.4 KB",
           "sizeBytes": 120265,
           "ext": "dxf",
@@ -6068,8 +5430,8 @@
         },
         {
           "name": "SLAB SECTION A-A FOR SLAB @F2.dxf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
-          "folder": "RCDC/SLAB/SLAN @F2",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/SLAB SECTION A-A FOR SLAB @F2.dxf",
+          "folder": "RCDC/SLAB/SLAB @F2",
           "size": "148.0 KB",
           "sizeBytes": 151568,
           "ext": "dxf",
@@ -6077,8 +5439,8 @@
         },
         {
           "name": "BBS FOR SLAB @F2.xls",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/EXCEL/BBS FOR SLAB @F2.xls",
-          "folder": "RCDC/SLAB/SLAN @F2/EXCEL",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/EXCEL/BBS FOR SLAB @F2.xls",
+          "folder": "RCDC/SLAB/SLAB @F2/EXCEL",
           "size": "60.0 KB",
           "sizeBytes": 61440,
           "ext": "xls",
@@ -6086,8 +5448,8 @@
         },
         {
           "name": "BBS FOR SLAB @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/BBS FOR SLAB @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "42.2 KB",
           "sizeBytes": 43262,
           "ext": "pdf",
@@ -6095,8 +5457,8 @@
         },
         {
           "name": "BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/BENTUP REINFORCEMENT FOR SLAB @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "27.5 KB",
           "sizeBytes": 28125,
           "ext": "pdf",
@@ -6104,8 +5466,8 @@
         },
         {
           "name": "GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/GENERAL ARRANGEMENT PLAN FOR SLAB @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "17.0 KB",
           "sizeBytes": 17376,
           "ext": "pdf",
@@ -6113,8 +5475,8 @@
         },
         {
           "name": "SLAB LAYOUT @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB LAYOUT @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "15.2 KB",
           "sizeBytes": 15561,
           "ext": "pdf",
@@ -6122,8 +5484,8 @@
         },
         {
           "name": "SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION 1-1 FOR SLAB @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "15.9 KB",
           "sizeBytes": 16255,
           "ext": "pdf",
@@ -6131,21 +5493,12 @@
         },
         {
           "name": "SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
+          "path": "vault/project-4-1/RCDC/SLAB/SLAB @F2/PRINTS/SLAB SECTION A-A FOR SLAB @FLOOR 2.pdf",
+          "folder": "RCDC/SLAB/SLAB @F2/PRINTS",
           "size": "17.6 KB",
           "sizeBytes": 18030,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/SLAB/SLAN @F2/PRINTS/plot.log",
-          "folder": "RCDC/SLAB/SLAN @F2/PRINTS",
-          "size": "1.1 KB",
-          "sizeBytes": 1139,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "STAIRCASE DESIGN.dwg",
@@ -6157,8 +5510,8 @@
           "category": "cad"
         },
         {
-          "name": "STANCASE DESIGN.pdf",
-          "path": "vault/project-4-1/RCDC/STAIRCASE/STANCASE DESIGN.pdf",
+          "name": "STAIRCASE DESIGN.pdf",
+          "path": "vault/project-4-1/RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
           "folder": "RCDC/STAIRCASE",
           "size": "12.9 KB",
           "sizeBytes": 13194,
@@ -6166,18 +5519,9 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-4-1/RCDC/STAIRCASE/plot.log",
-          "folder": "RCDC/STAIRCASE",
-          "size": "167 B",
-          "sizeBytes": 167,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 1.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "730.7 KB",
           "sizeBytes": 748216,
           "ext": "pdf",
@@ -6185,8 +5529,8 @@
         },
         {
           "name": "BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @FLOOR 2.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "729.5 KB",
           "sizeBytes": 746978,
           "ext": "pdf",
@@ -6194,8 +5538,8 @@
         },
         {
           "name": "BEAM DESIGN CALCULATIONS @LMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @LMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "242.3 KB",
           "sizeBytes": 248106,
           "ext": "pdf",
@@ -6203,8 +5547,8 @@
         },
         {
           "name": "BEAM DESIGN CALCULATIONS @MR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @MR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "721.9 KB",
           "sizeBytes": 739219,
           "ext": "pdf",
@@ -6212,8 +5556,8 @@
         },
         {
           "name": "BEAM DESIGN CALCULATIONS @PB.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @PB.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "726.9 KB",
           "sizeBytes": 744320,
           "ext": "pdf",
@@ -6221,8 +5565,8 @@
         },
         {
           "name": "BEAM DESIGN CALCULATIONS @SMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN CALCULATIONS @SMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "242.1 KB",
           "sizeBytes": 247947,
           "ext": "pdf",
@@ -6230,8 +5574,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @FLOOR 1.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 1.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "361.7 KB",
           "sizeBytes": 370353,
           "ext": "pdf",
@@ -6239,8 +5583,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @FLOOR 2.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "363.1 KB",
           "sizeBytes": 371842,
           "ext": "pdf",
@@ -6248,8 +5592,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @LMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @LMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "177.0 KB",
           "sizeBytes": 181248,
           "ext": "pdf",
@@ -6257,8 +5601,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @MR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @MR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "363.5 KB",
           "sizeBytes": 372266,
           "ext": "pdf",
@@ -6266,8 +5610,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @PB.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @PB.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "361.6 KB",
           "sizeBytes": 370298,
           "ext": "pdf",
@@ -6275,8 +5619,8 @@
         },
         {
           "name": "BEAM DESIGN SUMMARY @SMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM DESIGN SUMMARY @SMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "174.2 KB",
           "sizeBytes": 178331,
           "ext": "pdf",
@@ -6284,8 +5628,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @FLOOR 1.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 1.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "156.9 KB",
           "sizeBytes": 160615,
           "ext": "pdf",
@@ -6293,8 +5637,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @FLOOR 2.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "158.5 KB",
           "sizeBytes": 162254,
           "ext": "pdf",
@@ -6302,8 +5646,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @LMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @LMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "159.0 KB",
           "sizeBytes": 162790,
           "ext": "pdf",
@@ -6311,8 +5655,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @MR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @MR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "158.1 KB",
           "sizeBytes": 161925,
           "ext": "pdf",
@@ -6320,8 +5664,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @PB.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @PB.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "157.4 KB",
           "sizeBytes": 161201,
           "ext": "pdf",
@@ -6329,8 +5673,8 @@
         },
         {
           "name": "BEAM PROJECT SETTINGS @SMR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/BEAM DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/BEAM DESIGN/BEAM PROJECT SETTINGS @SMR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/BEAM DESIGN",
           "size": "158.4 KB",
           "sizeBytes": 162158,
           "ext": "pdf",
@@ -6338,8 +5682,8 @@
         },
         {
           "name": "COLUMN DESIGN CALCULATIONS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/COLUMN DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN CALCULATIONS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/COLUMN DESIGN",
           "size": "1.70 MB",
           "sizeBytes": 1780890,
           "ext": "pdf",
@@ -6347,8 +5691,8 @@
         },
         {
           "name": "COLUMN DESIGN SUMMARY.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
-          "folder": "RCDC DESIGN SUMMERY/COLUMN DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN DESIGN SUMMARY.pdf",
+          "folder": "RCDC DESIGN SUMMARY/COLUMN DESIGN",
           "size": "240.7 KB",
           "sizeBytes": 246493,
           "ext": "pdf",
@@ -6356,8 +5700,8 @@
         },
         {
           "name": "COLUMN PROJECT SETTINGS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/COLUMN DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/COLUMN DESIGN/COLUMN PROJECT SETTINGS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/COLUMN DESIGN",
           "size": "158.2 KB",
           "sizeBytes": 162013,
           "ext": "pdf",
@@ -6365,8 +5709,8 @@
         },
         {
           "name": "FOOTINGS DESIGN CALCULATIONS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN CALCULATIONS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN",
           "size": "548.4 KB",
           "sizeBytes": 561521,
           "ext": "pdf",
@@ -6374,8 +5718,8 @@
         },
         {
           "name": "FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN PRESSURE CHECK FOR ALL LOAD COMBINATIONS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN",
           "size": "250.8 KB",
           "sizeBytes": 256800,
           "ext": "pdf",
@@ -6383,8 +5727,8 @@
         },
         {
           "name": "FOOTINGS DESIGN SUMMARY.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
-          "folder": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS DESIGN SUMMARY.pdf",
+          "folder": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN",
           "size": "165.6 KB",
           "sizeBytes": 169581,
           "ext": "pdf",
@@ -6392,8 +5736,8 @@
         },
         {
           "name": "FOOTINGS PROJECT SETTINGS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/FOOTINGS DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/FOOTINGS DESIGN/FOOTINGS PROJECT SETTINGS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/FOOTINGS DESIGN",
           "size": "153.2 KB",
           "sizeBytes": 156854,
           "ext": "pdf",
@@ -6401,8 +5745,8 @@
         },
         {
           "name": "SLAB DESIGN CALCULATION @FLOOR 1.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 1.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "293.5 KB",
           "sizeBytes": 300573,
           "ext": "pdf",
@@ -6410,8 +5754,8 @@
         },
         {
           "name": "SLAB DESIGN CALCULATION @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @FLOOR 2.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "291.5 KB",
           "sizeBytes": 298501,
           "ext": "pdf",
@@ -6419,35 +5763,35 @@
         },
         {
           "name": "SLAB DESIGN CALCULATION @MR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN CALCULATION @MR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "292.5 KB",
           "sizeBytes": 299485,
           "ext": "pdf",
           "category": "pdf"
         },
         {
-          "name": "SLAB DESIGN SUMMERY @FLOOR 1.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "name": "SLAB DESIGN SUMMARY @FLOOR 1.pdf",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "171.0 KB",
           "sizeBytes": 175149,
           "ext": "pdf",
           "category": "pdf"
         },
         {
-          "name": "SLAB DESIGN SUMMERY @FLOOR 2.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "name": "SLAB DESIGN SUMMARY @FLOOR 2.pdf",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "170.8 KB",
           "sizeBytes": 174926,
           "ext": "pdf",
           "category": "pdf"
         },
         {
-          "name": "SLAB DESIGN SUMMERY @MR.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "name": "SLAB DESIGN SUMMARY @MR.pdf",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "170.3 KB",
           "sizeBytes": 174394,
           "ext": "pdf",
@@ -6455,8 +5799,8 @@
         },
         {
           "name": "SLAB PROJECT SETTINGS.pdf",
-          "path": "vault/project-4-1/RCDC DESIGN SUMMERY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
-          "folder": "RCDC DESIGN SUMMERY/SLAB DESIGN",
+          "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB PROJECT SETTINGS.pdf",
+          "folder": "RCDC DESIGN SUMMARY/SLAB DESIGN",
           "size": "149.5 KB",
           "sizeBytes": 153125,
           "ext": "pdf",
@@ -6749,15 +6093,6 @@
           "sizeBytes": 54563,
           "ext": "png",
           "category": "image"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-4-1/images/plot.log",
-          "folder": "images",
-          "size": "128 B",
-          "sizeBytes": 128,
-          "ext": "log",
-          "category": "code"
         }
       ]
     },
@@ -6765,8 +6100,8 @@
       "id": "project-3-2",
       "projectTitle": "INDIRAMMA INDLU: PURE MANUAL STRUCTURAL DESIGN (G+0 RCC BUILDING)",
       "projectCode": "B.Tech Minor Project 2025-2026",
-      "projectSubtitle": "First-Principles Kani's Method \u2022 IS 456:2000 Limit State \u2022 220+ Files",
-      "totalFiles": 601,
+      "projectSubtitle": "First-Principles Kani's Method • IS 456:2000 Limit State • 220+ Files",
+      "totalFiles": 565,
       "totalSize": "244.33 MB",
       "totalSizeBytes": 256193562,
       "tree": {
@@ -7233,16 +6568,6 @@
                     "category": "pdf",
                     "size": "83.2 KB",
                     "sizeBytes": 85208
-                  },
-                  {
-                    "name": "plot.log",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/All Prints/plot.log",
-                    "relPath": "Indiramma Illu/All Prints/plot.log",
-                    "ext": "log",
-                    "category": "code",
-                    "size": "8.5 KB",
-                    "sizeBytes": 8678
                   }
                 ]
               },
@@ -7787,34 +7112,24 @@
                         "sizeBytes": 146102
                       },
                       {
-                        "name": "34- appindix.docx",
+                        "name": "34- appendix.docx",
                         "type": "file",
-                        "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appindix.docx",
-                        "relPath": "Indiramma Illu/Doc/INCOMPLETED/34- appindix.docx",
+                        "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appendix.docx",
+                        "relPath": "Indiramma Illu/Doc/INCOMPLETED/34- appendix.docx",
                         "ext": "docx",
                         "category": "word",
                         "size": "18.9 KB",
                         "sizeBytes": 19370
                       },
                       {
-                        "name": "34- appindix.pdf",
+                        "name": "34- appendix.pdf",
                         "type": "file",
-                        "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appindix.pdf",
-                        "relPath": "Indiramma Illu/Doc/INCOMPLETED/34- appindix.pdf",
+                        "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appendix.pdf",
+                        "relPath": "Indiramma Illu/Doc/INCOMPLETED/34- appendix.pdf",
                         "ext": "pdf",
                         "category": "pdf",
                         "size": "121.6 KB",
                         "sizeBytes": 124565
-                      },
-                      {
-                        "name": "~$.front.docx",
-                        "type": "file",
-                        "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/~$.front.docx",
-                        "relPath": "Indiramma Illu/Doc/INCOMPLETED/~$.front.docx",
-                        "ext": "docx",
-                        "category": "word",
-                        "size": "162 B",
-                        "sizeBytes": 162
                       }
                     ]
                   },
@@ -8001,16 +7316,6 @@
                     "category": "pdf",
                     "size": "75.1 KB",
                     "sizeBytes": 76912
-                  },
-                  {
-                    "name": "plot.log",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Footing/plot.log",
-                    "relPath": "Indiramma Illu/Footing/plot.log",
-                    "ext": "log",
-                    "category": "code",
-                    "size": "567 B",
-                    "sizeBytes": 567
                   }
                 ]
               },
@@ -8291,16 +7596,6 @@
                         "category": "pdf",
                         "size": "84.6 KB",
                         "sizeBytes": 86633
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Frames/plot.log",
-                        "relPath": "Indiramma Illu/Frame Analysis/Frames/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "141 B",
-                        "sizeBytes": 141
                       }
                     ]
                   },
@@ -8353,16 +7648,6 @@
                             "category": "pdf",
                             "size": "83.5 KB",
                             "sizeBytes": 85519
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A1-B1-C1/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/A1-B1-C1/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.5 KB",
-                            "sizeBytes": 1562
                           }
                         ]
                       },
@@ -8420,16 +7705,6 @@
                             "category": "pdf",
                             "size": "84.6 KB",
                             "sizeBytes": 86624
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A2-B2-C2/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/A2-B2-C2/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.1 KB",
-                            "sizeBytes": 1135
                           }
                         ]
                       },
@@ -8487,16 +7762,6 @@
                             "category": "pdf",
                             "size": "82.5 KB",
                             "sizeBytes": 84477
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A3-A2-A1/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/A3-A2-A1/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "3.9 KB",
-                            "sizeBytes": 3947
                           },
                           {
                             "name": "project 1 (Beam Layout)-Model.pdf",
@@ -8564,16 +7829,6 @@
                             "category": "pdf",
                             "size": "83.6 KB",
                             "sizeBytes": 85594
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A3-B3-C3/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/A3-B3-C3/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "1.1 KB",
-                            "sizeBytes": 1136
                           }
                         ]
                       },
@@ -8631,16 +7886,6 @@
                             "category": "pdf",
                             "size": "82.4 KB",
                             "sizeBytes": 84391
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/B1-B2-B3/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/B1-B2-B3/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "704 B",
-                            "sizeBytes": 704
                           }
                         ]
                       },
@@ -8698,16 +7943,6 @@
                             "category": "pdf",
                             "size": "82.4 KB",
                             "sizeBytes": 84402
-                          },
-                          {
-                            "name": "plot.log",
-                            "type": "file",
-                            "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/C1-C2-C3/plot.log",
-                            "relPath": "Indiramma Illu/Frame Analysis/Images/C1-C2-C3/plot.log",
-                            "ext": "log",
-                            "category": "code",
-                            "size": "989 B",
-                            "sizeBytes": 989
                           }
                         ]
                       }
@@ -8797,16 +8032,6 @@
                         "category": "pdf",
                         "size": "91.5 KB",
                         "sizeBytes": 93716
-                      },
-                      {
-                        "name": "plot.log",
-                        "type": "file",
-                        "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Loads on frames/plot.log",
-                        "relPath": "Indiramma Illu/Frame Analysis/Loads on frames/plot.log",
-                        "ext": "log",
-                        "category": "code",
-                        "size": "1.0 KB",
-                        "sizeBytes": 1036
                       }
                     ]
                   },
@@ -8829,16 +8054,6 @@
                     "category": "pdf",
                     "size": "111.6 KB",
                     "sizeBytes": 114289
-                  },
-                  {
-                    "name": "plot.log",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/plot.log",
-                    "relPath": "Indiramma Illu/Frame Analysis/plot.log",
-                    "ext": "log",
-                    "category": "code",
-                    "size": "952 B",
-                    "sizeBytes": 952
                   }
                 ]
               },
@@ -8928,16 +8143,6 @@
                     "sizeBytes": 227600
                   },
                   {
-                    "name": "INDLU PLAN 2.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 2.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN 2.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "60.4 KB",
-                    "sizeBytes": 61834
-                  },
-                  {
                     "name": "INDLU PLAN 2.dwg",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 2.dwg",
@@ -8946,16 +8151,6 @@
                     "category": "cad",
                     "size": "48.6 KB",
                     "sizeBytes": 49775
-                  },
-                  {
-                    "name": "INDLU PLAN 3.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 3.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN 3.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "49.4 KB",
-                    "sizeBytes": 50573
                   },
                   {
                     "name": "INDLU PLAN 3.dwg",
@@ -8968,16 +8163,6 @@
                     "sizeBytes": 53612
                   },
                   {
-                    "name": "INDLU PLAN 4.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 4.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN 4.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "167.7 KB",
-                    "sizeBytes": 171769
-                  },
-                  {
                     "name": "INDLU PLAN 4.dwg",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 4.dwg",
@@ -8988,16 +8173,6 @@
                     "sizeBytes": 147553
                   },
                   {
-                    "name": "INDLU PLAN 5.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 5.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN 5.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "113.0 KB",
-                    "sizeBytes": 115733
-                  },
-                  {
                     "name": "INDLU PLAN 5.dwg",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 5.dwg",
@@ -9006,16 +8181,6 @@
                     "category": "cad",
                     "size": "113.4 KB",
                     "sizeBytes": 116120
-                  },
-                  {
-                    "name": "INDLU PLAN 6.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 6.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN 6.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "246.1 KB",
-                    "sizeBytes": 252001
                   },
                   {
                     "name": "INDLU PLAN 6.dwg",
@@ -9098,16 +8263,6 @@
                     "sizeBytes": 101032
                   },
                   {
-                    "name": "INDLU PLAN.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN.bak",
-                    "relPath": "Indiramma Illu/Rough Work/INDLU PLAN.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "163.9 KB",
-                    "sizeBytes": 167834
-                  },
-                  {
                     "name": "INDLU PLAN.dwg",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN.dwg",
@@ -9128,146 +8283,6 @@
                     "sizeBytes": 101054
                   },
                   {
-                    "name": "Illu Model.0001.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0001.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0001.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "5.18 MB",
-                    "sizeBytes": 5431296
-                  },
-                  {
-                    "name": "Illu Model.0002.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0002.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0002.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "5.20 MB",
-                    "sizeBytes": 5447680
-                  },
-                  {
-                    "name": "Illu Model.0003.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0003.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0003.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "5.27 MB",
-                    "sizeBytes": 5525504
-                  },
-                  {
-                    "name": "Illu Model.0004.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0004.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0004.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.06 MB",
-                    "sizeBytes": 7401472
-                  },
-                  {
-                    "name": "Illu Model.0005.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0005.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0005.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.08 MB",
-                    "sizeBytes": 7421952
-                  },
-                  {
-                    "name": "Illu Model.0006.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0006.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0006.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.09 MB",
-                    "sizeBytes": 7430144
-                  },
-                  {
-                    "name": "Illu Model.0007.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0007.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0007.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.09 MB",
-                    "sizeBytes": 7434240
-                  },
-                  {
-                    "name": "Illu Model.0008.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0008.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0008.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.12 MB",
-                    "sizeBytes": 7467008
-                  },
-                  {
-                    "name": "Illu Model.0009.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0009.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0009.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.12 MB",
-                    "sizeBytes": 7467008
-                  },
-                  {
-                    "name": "Illu Model.0010.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0010.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0010.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.14 MB",
-                    "sizeBytes": 7487488
-                  },
-                  {
-                    "name": "Illu Model.0011.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0011.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0011.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.14 MB",
-                    "sizeBytes": 7487488
-                  },
-                  {
-                    "name": "Illu Model.0012.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0012.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0012.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.14 MB",
-                    "sizeBytes": 7491584
-                  },
-                  {
-                    "name": "Illu Model.0013.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0013.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0013.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.14 MB",
-                    "sizeBytes": 7491584
-                  },
-                  {
-                    "name": "Illu Model.0014.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0014.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Model.0014.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "7.14 MB",
-                    "sizeBytes": 7487488
-                  },
-                  {
                     "name": "Illu Model.rvt",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.rvt",
@@ -9278,16 +8293,6 @@
                     "sizeBytes": 7622656
                   },
                   {
-                    "name": "Illu Plan 1.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan 1.bak",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Plan 1.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "151.6 KB",
-                    "sizeBytes": 155222
-                  },
-                  {
                     "name": "Illu Plan 1.dwg",
                     "type": "file",
                     "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan 1.dwg",
@@ -9296,16 +8301,6 @@
                     "category": "cad",
                     "size": "138.1 KB",
                     "sizeBytes": 141432
-                  },
-                  {
-                    "name": "Illu Plan.bak",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan.bak",
-                    "relPath": "Indiramma Illu/Rough Work/Illu Plan.bak",
-                    "ext": "bak",
-                    "category": "archive",
-                    "size": "144.7 KB",
-                    "sizeBytes": 148123
                   },
                   {
                     "name": "Illu Plan.dwg",
@@ -9376,26 +8371,6 @@
                     "category": "pdf",
                     "size": "99.2 KB",
                     "sizeBytes": 101532
-                  },
-                  {
-                    "name": "plot.log",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/plot.log",
-                    "relPath": "Indiramma Illu/Rough Work/plot.log",
-                    "ext": "log",
-                    "category": "code",
-                    "size": "2.9 KB",
-                    "sizeBytes": 3016
-                  },
-                  {
-                    "name": "pts practice.0001.rvt",
-                    "type": "file",
-                    "path": "vault/project-3-2/Indiramma Illu/Rough Work/pts practice.0001.rvt",
-                    "relPath": "Indiramma Illu/Rough Work/pts practice.0001.rvt",
-                    "ext": "rvt",
-                    "category": "bim",
-                    "size": "5.93 MB",
-                    "sizeBytes": 6217728
                   },
                   {
                     "name": "pts practice.rvt",
@@ -9936,15 +8911,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/All Prints/plot.log",
-          "folder": "Indiramma Illu/All Prints",
-          "size": "8.5 KB",
-          "sizeBytes": 8678,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "Analysis of Building Frames (A1-A2-A3).pdf",
           "path": "vault/project-3-2/Indiramma Illu/Analysis Prints/Analysis of Building Frames (A1-A2-A3).pdf",
           "folder": "Indiramma Illu/Analysis Prints",
@@ -10404,8 +9370,8 @@
           "category": "pdf"
         },
         {
-          "name": "34- appindix.docx",
-          "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appindix.docx",
+          "name": "34- appendix.docx",
+          "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appendix.docx",
           "folder": "Indiramma Illu/Doc/INCOMPLETED",
           "size": "18.9 KB",
           "sizeBytes": 19370,
@@ -10413,22 +9379,13 @@
           "category": "word"
         },
         {
-          "name": "34- appindix.pdf",
-          "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appindix.pdf",
+          "name": "34- appendix.pdf",
+          "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/34- appendix.pdf",
           "folder": "Indiramma Illu/Doc/INCOMPLETED",
           "size": "121.6 KB",
           "sizeBytes": 124565,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "~$.front.docx",
-          "path": "vault/project-3-2/Indiramma Illu/Doc/INCOMPLETED/~$.front.docx",
-          "folder": "Indiramma Illu/Doc/INCOMPLETED",
-          "size": "162 B",
-          "sizeBytes": 162,
-          "ext": "docx",
-          "category": "word"
         },
         {
           "name": "END.docx",
@@ -10584,15 +9541,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Footing/plot.log",
-          "folder": "Indiramma Illu/Footing",
-          "size": "567 B",
-          "sizeBytes": 567,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BMD for All Frames.pdf",
           "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/BMD for All Frames.pdf",
           "folder": "Indiramma Illu/Frame Analysis",
@@ -10627,15 +9575,6 @@
           "sizeBytes": 114289,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis",
-          "size": "952 B",
-          "sizeBytes": 952,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "Analysis of Building Frames (A1-A2-A3).docx",
@@ -10836,15 +9775,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Frames/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Frames",
-          "size": "141 B",
-          "sizeBytes": 141,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BMD (A1-B1-C1).pdf",
           "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A1-B1-C1/BMD (A1-B1-C1).pdf",
           "folder": "Indiramma Illu/Frame Analysis/Images/A1-B1-C1",
@@ -10879,15 +9809,6 @@
           "sizeBytes": 85519,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A1-B1-C1/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/A1-B1-C1",
-          "size": "1.5 KB",
-          "sizeBytes": 1562,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "BMD (A2-B2-C2).pdf",
@@ -10935,15 +9856,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A2-B2-C2/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/A2-B2-C2",
-          "size": "1.1 KB",
-          "sizeBytes": 1135,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BMD (A1-A2-A3).pdf",
           "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A3-A2-A1/BMD (A1-A2-A3).pdf",
           "folder": "Indiramma Illu/Frame Analysis/Images/A3-A2-A1",
@@ -10987,15 +9899,6 @@
           "sizeBytes": 84477,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A3-A2-A1/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/A3-A2-A1",
-          "size": "3.9 KB",
-          "sizeBytes": 3947,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "project 1 (Beam Layout)-Model.pdf",
@@ -11052,15 +9955,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/A3-B3-C3/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/A3-B3-C3",
-          "size": "1.1 KB",
-          "sizeBytes": 1136,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BMD (B1-B2-B3).pdf",
           "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/B1-B2-B3/BMD (B1-B2-B3).pdf",
           "folder": "Indiramma Illu/Frame Analysis/Images/B1-B2-B3",
@@ -11106,15 +10000,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/B1-B2-B3/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/B1-B2-B3",
-          "size": "704 B",
-          "sizeBytes": 704,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "BMD (C1-C2-C3).pdf",
           "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/C1-C2-C3/BMD (C1-C2-C3).pdf",
           "folder": "Indiramma Illu/Frame Analysis/Images/C1-C2-C3",
@@ -11158,15 +10043,6 @@
           "sizeBytes": 84402,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Images/C1-C2-C3/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Images/C1-C2-C3",
-          "size": "989 B",
-          "sizeBytes": 989,
-          "ext": "log",
-          "category": "code"
         },
         {
           "name": "A1-A2-A3.pdf",
@@ -11241,15 +10117,6 @@
           "category": "pdf"
         },
         {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Frame Analysis/Loads on frames/plot.log",
-          "folder": "Indiramma Illu/Frame Analysis/Loads on frames",
-          "size": "1.0 KB",
-          "sizeBytes": 1036,
-          "ext": "log",
-          "category": "code"
-        },
-        {
           "name": "ABSTRACT.docx",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/ABSTRACT.docx",
           "folder": "Indiramma Illu/Rough Work",
@@ -11322,15 +10189,6 @@
           "category": "pdf"
         },
         {
-          "name": "INDLU PLAN 2.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 2.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "60.4 KB",
-          "sizeBytes": 61834,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
           "name": "INDLU PLAN 2.dwg",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 2.dwg",
           "folder": "Indiramma Illu/Rough Work",
@@ -11338,15 +10196,6 @@
           "sizeBytes": 49775,
           "ext": "dwg",
           "category": "cad"
-        },
-        {
-          "name": "INDLU PLAN 3.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 3.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "49.4 KB",
-          "sizeBytes": 50573,
-          "ext": "bak",
-          "category": "archive"
         },
         {
           "name": "INDLU PLAN 3.dwg",
@@ -11358,15 +10207,6 @@
           "category": "cad"
         },
         {
-          "name": "INDLU PLAN 4.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 4.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "167.7 KB",
-          "sizeBytes": 171769,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
           "name": "INDLU PLAN 4.dwg",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 4.dwg",
           "folder": "Indiramma Illu/Rough Work",
@@ -11376,15 +10216,6 @@
           "category": "cad"
         },
         {
-          "name": "INDLU PLAN 5.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 5.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "113.0 KB",
-          "sizeBytes": 115733,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
           "name": "INDLU PLAN 5.dwg",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 5.dwg",
           "folder": "Indiramma Illu/Rough Work",
@@ -11392,15 +10223,6 @@
           "sizeBytes": 116120,
           "ext": "dwg",
           "category": "cad"
-        },
-        {
-          "name": "INDLU PLAN 6.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN 6.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "246.1 KB",
-          "sizeBytes": 252001,
-          "ext": "bak",
-          "category": "archive"
         },
         {
           "name": "INDLU PLAN 6.dwg",
@@ -11475,15 +10297,6 @@
           "category": "pdf"
         },
         {
-          "name": "INDLU PLAN.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "163.9 KB",
-          "sizeBytes": 167834,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
           "name": "INDLU PLAN.dwg",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/INDLU PLAN.dwg",
           "folder": "Indiramma Illu/Rough Work",
@@ -11502,132 +10315,6 @@
           "category": "pdf"
         },
         {
-          "name": "Illu Model.0001.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0001.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "5.18 MB",
-          "sizeBytes": 5431296,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0002.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0002.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "5.20 MB",
-          "sizeBytes": 5447680,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0003.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0003.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "5.27 MB",
-          "sizeBytes": 5525504,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0004.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0004.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.06 MB",
-          "sizeBytes": 7401472,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0005.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0005.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.08 MB",
-          "sizeBytes": 7421952,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0006.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0006.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.09 MB",
-          "sizeBytes": 7430144,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0007.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0007.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.09 MB",
-          "sizeBytes": 7434240,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0008.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0008.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.12 MB",
-          "sizeBytes": 7467008,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0009.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0009.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.12 MB",
-          "sizeBytes": 7467008,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0010.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0010.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.14 MB",
-          "sizeBytes": 7487488,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0011.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0011.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.14 MB",
-          "sizeBytes": 7487488,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0012.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0012.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.14 MB",
-          "sizeBytes": 7491584,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0013.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0013.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.14 MB",
-          "sizeBytes": 7491584,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
-          "name": "Illu Model.0014.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.0014.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "7.14 MB",
-          "sizeBytes": 7487488,
-          "ext": "rvt",
-          "category": "bim"
-        },
-        {
           "name": "Illu Model.rvt",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Model.rvt",
           "folder": "Indiramma Illu/Rough Work",
@@ -11637,15 +10324,6 @@
           "category": "bim"
         },
         {
-          "name": "Illu Plan 1.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan 1.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "151.6 KB",
-          "sizeBytes": 155222,
-          "ext": "bak",
-          "category": "archive"
-        },
-        {
           "name": "Illu Plan 1.dwg",
           "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan 1.dwg",
           "folder": "Indiramma Illu/Rough Work",
@@ -11653,15 +10331,6 @@
           "sizeBytes": 141432,
           "ext": "dwg",
           "category": "cad"
-        },
-        {
-          "name": "Illu Plan.bak",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/Illu Plan.bak",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "144.7 KB",
-          "sizeBytes": 148123,
-          "ext": "bak",
-          "category": "archive"
         },
         {
           "name": "Illu Plan.dwg",
@@ -11725,24 +10394,6 @@
           "sizeBytes": 101532,
           "ext": "pdf",
           "category": "pdf"
-        },
-        {
-          "name": "plot.log",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/plot.log",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "2.9 KB",
-          "sizeBytes": 3016,
-          "ext": "log",
-          "category": "code"
-        },
-        {
-          "name": "pts practice.0001.rvt",
-          "path": "vault/project-3-2/Indiramma Illu/Rough Work/pts practice.0001.rvt",
-          "folder": "Indiramma Illu/Rough Work",
-          "size": "5.93 MB",
-          "sizeBytes": 6217728,
-          "ext": "rvt",
-          "category": "bim"
         },
         {
           "name": "pts practice.rvt",
@@ -12853,8 +11504,8 @@
         },
         {
           "name": "page_1.jpg",
-          "path": "vault/project-3-2/rendered_pages/34-_appindix/page_1.jpg",
-          "folder": "rendered_pages/34-_appindix",
+          "path": "vault/project-3-2/rendered_pages/34-_appendix/page_1.jpg",
+          "folder": "rendered_pages/34-_appendix",
           "size": "127.3 KB",
           "sizeBytes": 130382,
           "ext": "jpg",
@@ -12862,8 +11513,8 @@
         },
         {
           "name": "page_2.jpg",
-          "path": "vault/project-3-2/rendered_pages/34-_appindix/page_2.jpg",
-          "folder": "rendered_pages/34-_appindix",
+          "path": "vault/project-3-2/rendered_pages/34-_appendix/page_2.jpg",
+          "folder": "rendered_pages/34-_appendix",
           "size": "128.9 KB",
           "sizeBytes": 131999,
           "ext": "jpg",

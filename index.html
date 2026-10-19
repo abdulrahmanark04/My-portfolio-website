@@ -31,19 +31,20 @@
     <link rel="alternate icon" href="favicon.ico">
 
     <meta property="og:title" content="SA RAHMAN | Structural Engineer">
-
     <meta property="og:description" content="Civil & Structural Engineer — AutoCAD, Revit, STAAD.Pro, RCDC, V-Ray">
-
     <meta property="og:type" content="website">
-
+    <meta property="og:image" content="og-preview.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SA RAHMAN | Structural Engineer">
+    <meta name="twitter:description" content="Civil & Structural Engineer — AutoCAD, Revit, STAAD.Pro, RCDC, V-Ray">
+    <meta name="twitter:image" content="og-preview.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Amiri:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="vault_viewer.css">
-    <link rel="stylesheet" href="staad_viewer.css?v=20261017_adv">
+    <link rel="stylesheet" href="staad_viewer.css?v=20261019_v3">
 
     <style>
 
@@ -797,7 +798,7 @@
 
         }
 
-        .project-card p { color: var(--dim); font-size: 0.9rem; line-height: 1.8; }
+        .project-card p { color: var(--dim); font-size: 0.9rem; line-height: 1.8; text-align: justify; text-justify: inter-word; }
 
         .project-card ul { list-style: none; margin-top: 16px; }
 
@@ -808,6 +809,8 @@
             color: var(--grey); font-size: 0.88rem;
 
             margin-bottom: 10px; line-height: 1.6;
+
+            text-align: justify;
 
         }
 
@@ -915,6 +918,8 @@
             font-size: 0.95rem !important;
             line-height: 1.75 !important;
             margin-bottom: 20px !important;
+            text-align: justify !important;
+            text-justify: inter-word !important;
         }
 
         .featured-project-card ul {
@@ -924,6 +929,10 @@
             list-style: none;
             margin: 16px 0 26px 0;
             padding: 0;
+        }
+
+        .featured-project-card ul li {
+            text-align: justify;
         }
 
         @media (max-width: 768px) {
@@ -1524,21 +1533,13 @@
     <!-- Stats Bar -->
 
     <div class="stats-bar reveal">
-
         <div class="stat-item">
-
-            <div class="stat-number" data-target="3">0</div>
-
+            <div class="stat-number" data-target="4">0</div>
             <div class="stat-label">Projects</div>
-
         </div>
-
         <div class="stat-item">
-
-            <div class="stat-number" data-target="5">0</div>
-
+            <div class="stat-number" data-target="12">0</div>
             <div class="stat-label">Certifications</div>
-
         </div>
 
         <div class="stat-item">
@@ -1694,7 +1695,7 @@
             <!-- FLAGSHIP: B.Tech Major Project Stage 1 -->
             <div class="project-card featured-project-card">
                 <div class="featured-badge-live">
-                    <span class="pulse-dot"></span> Active / Stage 1 Complete &bull; B.Tech Final Year Major Project
+                    <span class="pulse-dot"></span> Active / Stage 1 & 2 Complete &bull; B.Tech Final Year Major Project
                 </div>
                 <h3>G+2 RESIDENTIAL RCC BUILDING: 3D STAAD.PRO ANALYSIS &amp; BENTLEY RCDC DESIGN</h3>
                 
@@ -1730,7 +1731,7 @@
                 <div class="project-actions" style="display: flex; flex-direction: column; gap: 12px; margin-top: 14px;">
                     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                         <button type="button" class="vault-cta-btn" onclick="openVault('project-4-1')">
-                            <i class="fas fa-folder-tree"></i> <span>Explore Project Vault (320+ Files &amp; Live CAD Viewer)</span>
+                            <i class="fas fa-folder-tree"></i> <span>Explore Project Vault (286 Deliverables &amp; Live CAD Viewer)</span>
                         </button>
                         <button type="button" class="view-doc-btn" onclick="open3DViewer()" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(255, 215, 0, 0.05)); border: 1px solid rgba(255, 215, 0, 0.5); color: #ffd700; font-weight: 700; box-shadow: 0 4px 16px rgba(255, 215, 0, 0.1);">
                             <i class="fas fa-cube"></i> Launch 3D Structural FEA &amp; RCC Model
@@ -1754,6 +1755,9 @@
                         </button>
                         <button type="button" class="staad-jump-pill" onclick="open3DViewer('shear')" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
                             <i class="fas fa-chart-area"></i> Shear Fy
+                        </button>
+                        <button type="button" class="staad-jump-pill" onclick="open3DViewer('realistic')" style="background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.45); color: #38bdf8; font-size: 0.75rem; padding: 4px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
+                            <i class="fas fa-city"></i> Realistic 3D
                         </button>
                     </div>
                 </div>
@@ -2308,71 +2312,41 @@
 
 
         function animate() {
-
-            ctx.clearRect(0, 0, w, h);
-
-            for (let i = 0; i < particles.length; i++) {
-
-                particles[i].update();
-
-                particles[i].draw();
-
-                for (let j = i + 1; j < particles.length; j++) {
-
-                    const dx = particles[i].x - particles[j].x;
-
-                    const dy = particles[i].y - particles[j].y;
-
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 120) {
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(particles[i].x, particles[i].y);
-
-                        ctx.lineTo(particles[j].x, particles[j].y);
-
-                        ctx.strokeStyle = `rgba(255, 215, 0, ${0.12 * (1 - dist / 120)})`;
-
-                        ctx.lineWidth = 0.5;
-
-                        ctx.stroke();
-
+            const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
+            if (!isModalActive) {
+                ctx.clearRect(0, 0, w, h);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(255, 215, 0, ${0.12 * (1 - dist / 120)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
                     }
-
-                }
-
-                if (mouse.x !== null) {
-
-                    const dx = particles[i].x - mouse.x;
-
-                    const dy = particles[i].y - mouse.y;
-
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 180) {
-
-                        ctx.beginPath();
-
-                        ctx.moveTo(particles[i].x, particles[i].y);
-
-                        ctx.lineTo(mouse.x, mouse.y);
-
-                        ctx.strokeStyle = `rgba(255, 215, 0, ${0.25 * (1 - dist / 180)})`;
-
-                        ctx.lineWidth = 0.8;
-
-                        ctx.stroke();
-
+                    if (mouse.x !== null) {
+                        const dx = particles[i].x - mouse.x;
+                        const dy = particles[i].y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 180) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(mouse.x, mouse.y);
+                            ctx.strokeStyle = `rgba(255, 215, 0, ${0.25 * (1 - dist / 180)})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.stroke();
+                        }
                     }
-
                 }
-
             }
-
             requestAnimationFrame(animate);
-
         }
 
         animate();
@@ -2439,11 +2413,11 @@
                     </div>
                     <div class="vault-title-group">
                         <h3 id="vaultProjectTitle">
-                            PROJECT 4-1 VAULT 
-                            <span class="vault-stage-tag" id="vaultStageTag"><i class="fas fa-circle-check"></i> Stage 1 Complete</span>
+                            PROJECT 4-2 VAULT 
+                            <span class="vault-stage-tag" id="vaultStageTag"><i class="fas fa-circle-check"></i> Stage 1 & 2 Complete</span>
                         </h3>
                         <div class="vault-meta" id="vaultMetaText">
-                            G+2 Multi-Storey RCC Structure &bull; <span id="vaultTotalCount">320 Files (160 MB)</span> &bull; IS 456:2000 Limit State &bull; Seismic Zone II (Z = 0.10) &bull; SP 34 Detailing
+                            G+2 Multi-Storey RCC Structure &bull; <span id="vaultTotalCount">286 Files (160 MB)</span> &bull; IS 456:2000 Limit State &bull; Seismic Zone II (Z = 0.10) &bull; SP 34 Detailing
                         </div>
                     </div>
                 </div>
@@ -2451,7 +2425,7 @@
                 <!-- Interactive Multi-Project Switcher -->
                 <div class="vault-project-switcher">
                     <button type="button" class="vault-proj-btn active" data-project="project-4-1" onclick="switchVaultProject('project-4-1')">
-                        <i class="fas fa-building"></i> <span>Major Project 4-1</span>
+                        <i class="fas fa-building"></i> <span>Major Project 4-2</span>
                     </button>
                     <button type="button" class="vault-proj-btn" data-project="project-3-2" onclick="switchVaultProject('project-3-2')">
                         <i class="fas fa-house-chimney"></i> <span>Minor Project 3-2</span>
@@ -2503,7 +2477,7 @@
                     <!-- Viewport Breadcrumb & Actions Bar -->
                     <div class="viewport-action-bar">
                         <div id="vaultBreadcrumb" class="viewport-breadcrumbs">
-                            <span>MY PROJECT 4-1</span> <i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i> <span class="active-file">Select a deliverable</span>
+                            <span>MAJOR PROJECT 4-2</span> <i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i> <span class="active-file">Select a deliverable</span>
                         </div>
                         <div class="viewport-actions">
                             <span id="vaultFileSizeBadge" style="font-size: 0.72rem; color: var(--vault-text-muted); background: var(--vault-surface-2); padding: 4px 8px; border-radius: 4px; border: 1px solid var(--vault-border-light);"></span>
@@ -2598,7 +2572,7 @@
                     <i class="fas fa-shield-halved"></i>
                 </div>
                 <h3>Project Asset Verification</h3>
-                <p>Protected Open-Source Academic Archive. Enter the security passcode to authorize download.</p>
+                <p>Protected Open-Source Academic Archive. Enter the security passcode (Hint: 0) to authorize download.</p>
             </div>
 
             <div class="vault-sec-body">
@@ -2655,8 +2629,8 @@
     <!-- 3D STAAD.Pro Space Frame Viewer Scripts -->
     <script src="three.min.js"></script>
     <script src="OrbitControls.js"></script>
-    <script src="staad_model_data.js?v=20261017_adv"></script>
-    <script src="staad_viewer.js?v=20261017_adv"></script>
+    <script src="staad_model_data.js?v=20261019_v3"></script>
+    <script src="staad_viewer.js?v=20261019_v3"></script>
 
     <!-- Smart Dual-Mode Custom Cursor Logic -->
     <script>
@@ -2718,6 +2692,7 @@
 
             // Detect CAD Stage / Canvas hover
             const inCad = target && (
+                target.closest('#dxfStage') || 
                 target.closest('#cadStage') || 
                 target.closest('#cadCanvas') || 
                 target.closest('.cad-canvas-container')
@@ -2792,10 +2767,14 @@
         // High refresh rate 60/120fps ring lerp loop (brisk 0.35 factor ensures zero dragging or cursor doubling)
         function renderRing() {
             if (isVisible) {
-                const factor = isCadMode ? 0.85 : 0.35;
-                ringX += (mouseX - ringX) * factor;
-                ringY += (mouseY - ringY) * factor;
-                ring.style.transform = `translate3d(${ringX.toFixed(2)}px, ${ringY.toFixed(2)}px, 0) translate(-50%, -50%)`;
+                const dx = mouseX - ringX;
+                const dy = mouseY - ringY;
+                if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+                    const factor = isCadMode ? 0.85 : 0.35;
+                    ringX += dx * factor;
+                    ringY += dy * factor;
+                    ring.style.transform = `translate3d(${ringX.toFixed(2)}px, ${ringY.toFixed(2)}px, 0) translate(-50%, -50%)`;
+                }
             }
             requestAnimationFrame(renderRing);
         }

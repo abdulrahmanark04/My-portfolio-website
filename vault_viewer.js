@@ -106,7 +106,7 @@
 
     window.switchVaultProject = async function (projectId) {
         currentProjectId = projectId || 'project-4-1';
-        showLoading(true, 'Indexing ' + (currentProjectId === 'project-3-2' ? 'Minor Project 3-2' : 'Major Project 4-1') + ' Deliverables...');
+        showLoading(true, 'Indexing ' + (currentProjectId === 'project-3-2' ? 'Minor Project 3-2' : 'Major Project 4-2') + ' Deliverables...');
         try {
             if (window.VAULT_MANIFESTS && window.VAULT_MANIFESTS[currentProjectId]) {
                 vaultData = window.VAULT_MANIFESTS[currentProjectId];
@@ -137,7 +137,7 @@
             if (titleEl) {
                 titleEl.innerHTML = currentProjectId === 'project-3-2'
                     ? `PROJECT 3-2 VAULT <span class="vault-stage-tag" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;"><i class="fas fa-circle-check"></i> Minor Project Complete</span>`
-                    : `PROJECT 4-1 VAULT <span class="vault-stage-tag"><i class="fas fa-circle-check"></i> Stage 1 Complete</span>`;
+                    : `PROJECT 4-2 VAULT <span class="vault-stage-tag"><i class="fas fa-circle-check"></i> Stage 1 & 2 Complete</span>`;
             }
 
             const metaEl = document.getElementById('vaultMetaText');
@@ -367,8 +367,13 @@
                     if (file.ext === 'dxf') {
                         renderDxfFile(file);
                     } else if (file.ext === 'dwg') {
-                        const companionDxf = file.path.replace(/\.dwg$/i, '.dxf');
-                        renderDxfFile(file, companionDxf);
+                        const companionDxfPath = file.path.replace(/\.dwg$/i, '.dxf');
+                        const hasCompanion = vaultData && vaultData.files && vaultData.files.some(f => f.path.toLowerCase() === companionDxfPath.toLowerCase());
+                        if (hasCompanion) {
+                            renderDxfFile(file, companionDxfPath);
+                        } else {
+                            renderDwgAsset(file);
+                        }
                     } else {
                         renderDwgAsset(file);
                     }
@@ -505,6 +510,10 @@
             resetCadView();
             drawCadCanvas();
         } catch (err) {
+            if (file.ext === 'dwg') {
+                renderDwgAsset(file);
+                return;
+            }
             if (err.name === 'AbortError' || err.message?.includes('aborted') || err.message?.includes('Failed to fetch')) {
                 // Ignore transient network aborts during rapid switching
                 showLoading(false);
