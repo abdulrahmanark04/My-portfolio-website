@@ -56,10 +56,10 @@
     const OFFSET_Z = 16.6882 / 2.0;
 
     // Colors (High-Contrast, Vivid Structural Engineering Palette)
-    const COLOR_COLUMN = 0xf59e0b; // Rich Amber Gold
-    const COLOR_BEAM = 0x06b6d4;   // Vibrant Electric Cyan
-    const COLOR_FOOTING = 0xa855f7;// Vivid Royal Purple
-    const COLOR_SLAB = 0x38bdf8;   // Crisp Azure Blue
+    const COLOR_COLUMN = 0xff9f0a; // Deep Vibrant Amber-Gold
+    const COLOR_BEAM = 0x00b4d8;   // Deep Electric Cerulean Cyan
+    const COLOR_FOOTING = 0x9333ea;// Royal Amethyst Purple
+    const COLOR_SLAB = 0x0284c7;   // Pure Sapphire Glass
     const COLOR_NODE = 0xffffff;
     const COLOR_HIGHLIGHT = 0xff0055;
     const COLOR_SELECTED = 0xffd700;
@@ -69,36 +69,38 @@
     let matRebarTop, matRebarBot, matRebarGold, matRebarTies;
 
     function initMaterials() {
+        // 1. Structural FEA Materials — Deep, high-saturation CAD pigments (Zero whitewash)
         matColumn = new THREE.MeshStandardMaterial({
-            color: COLOR_COLUMN, // Rich Amber Gold
-            roughness: 0.35,
-            metalness: 0.20,
-            emissive: 0x78350f, // Subtle warm amber depth
-            emissiveIntensity: 0.12
+            color: 0xff9f0a,          // Deep Vibrant Amber-Gold
+            roughness: 0.42,
+            metalness: 0.12,
+            emissive: 0x9a3412,       // Rich warm burnt-orange core
+            emissiveIntensity: 0.28,
+            envMapIntensity: 0.15     // Prevents bright sky dome from bleaching the gold!
         });
 
         matBeam = new THREE.MeshStandardMaterial({
-            color: COLOR_BEAM, // Vibrant Electric Cyan
-            roughness: 0.32,
-            metalness: 0.20,
-            emissive: 0x083344,
-            emissiveIntensity: 0.12
+            color: 0x00b4d8,          // Deep Electric Cerulean Cyan
+            roughness: 0.38,
+            metalness: 0.12,
+            emissive: 0x0369a1,       // Deep ocean-blue core
+            emissiveIntensity: 0.28,
+            envMapIntensity: 0.15     // Prevents icy-white blowout!
         });
 
         matFooting = new THREE.MeshStandardMaterial({
-            color: COLOR_FOOTING, // Deep Royal Purple
-            roughness: 0.38,
-            metalness: 0.15,
-            emissive: 0x3b0764,
-            emissiveIntensity: 0.10
+            color: 0x9333ea,          // Royal Amethyst Purple
+            roughness: 0.45,
+            metalness: 0.10,
+            emissive: 0x581c87,       // Deep violet core
+            emissiveIntensity: 0.25,
+            envMapIntensity: 0.15
         });
 
-        matSlab = new THREE.MeshStandardMaterial({
-            color: 0x0284c7, // Rich Azure Tinted Glass
+        matSlab = new THREE.MeshBasicMaterial({
+            color: 0x0284c7,          // Pure Sapphire Glass (BasicMaterial = 0 lighting/GPU overhead)
             transparent: true,
-            opacity: 0.35,
-            roughness: 0.20,
-            metalness: 0.20,
+            opacity: 0.28,
             depthWrite: false
         });
 
@@ -106,36 +108,29 @@
             color: COLOR_NODE
         });
 
-        // 3D Rebar Materials - Saturated, high-contrast steel (never blown out white)
-        matRebarTop = new THREE.MeshStandardMaterial({
-            color: 0xf43f5e, // Vivid Crimson Red Top Rebar
-            roughness: 0.25,
-            metalness: 0.70,
-            emissive: 0xe11d48,
-            emissiveIntensity: 0.40
+        // 2. 3D Rebar Materials — MeshLambertMaterial gives vivid 3D cylindrical shading 
+        // at 1/3rd the GPU fragment cost of MeshStandardMaterial and NEVER washes out white!
+        matRebarTop = new THREE.MeshLambertMaterial({
+            color: 0xff1e56,          // Intense Ruby Crimson (Top Tension Steel)
+            emissive: 0xbe123c,
+            emissiveIntensity: 0.35
         });
 
-        matRebarBot = new THREE.MeshStandardMaterial({
-            color: 0x06b6d4, // Vivid Cyan Blue Bottom Rebar
-            roughness: 0.25,
-            metalness: 0.70,
-            emissive: 0x0891b2,
-            emissiveIntensity: 0.40
+        matRebarBot = new THREE.MeshLambertMaterial({
+            color: 0x00f0ff,          // Electric Neon Cyan (Bottom Flexural Steel)
+            emissive: 0x0284c7,
+            emissiveIntensity: 0.35
         });
 
-        matRebarGold = new THREE.MeshStandardMaterial({
-            color: 0xfbbf24, // High-Yield Gold Main Column Longitudinal Steel
-            roughness: 0.25,
-            metalness: 0.70,
-            emissive: 0xd97706,
-            emissiveIntensity: 0.40
+        matRebarGold = new THREE.MeshLambertMaterial({
+            color: 0xffbe0b,          // Pure 24K Gold (Column Longitudinal Steel)
+            emissive: 0xb45309,
+            emissiveIntensity: 0.35
         });
 
         matRebarTies = new THREE.LineBasicMaterial({
-            color: 0xfacc15, // Golden shear stirrups
-            linewidth: 2,
-            transparent: false,
-            opacity: 0.95
+            color: 0xa3e635,          // High-Contrast Lime-Gold Stirrups (Pops against both Red & Gold bars!)
+            transparent: false
         });
 
         // Architectural PBR Materials for Realistic 3D Simulation
@@ -1210,6 +1205,18 @@
             mesh.add(shearDiag);
             mesh.userData.shearDiagram = shearDiag;
         }
+
+        // Crisp CAD edge outline for Solid 3D mode (makes colors pop with sharp definition)
+        const edgeGeom = new THREE.EdgesGeometry(mesh.geometry);
+        const edgeMat = new THREE.LineBasicMaterial({
+            color: isColumn ? 0x78350f : 0x083344,
+            transparent: true,
+            opacity: 0.55
+        });
+        const edgeLines = new THREE.LineSegments(edgeGeom, edgeMat);
+        edgeLines.name = 'cadEdgeOutline';
+        mesh.add(edgeLines);
+        mesh.userData.cadEdgeOutline = edgeLines;
 
         mesh.castShadow = false;
         mesh.receiveShadow = false;
@@ -4094,6 +4101,7 @@
                 j2: j2,
                 rcdc: m.rcdc,
                 origMat: mat,
+                cadEdgeOutline: mesh.userData.cadEdgeOutline,
                 rebarCage: mesh.userData.rebarCage,
                 momentDiagram: mesh.userData.momentDiagram,
                 shearDiagram: mesh.userData.shearDiagram
@@ -4370,7 +4378,22 @@
         return null;
     }
 
+    let lastRaycastTime = 0;
+    let isPointerDown = false;
+
+    // Track pointer drag so we never raycast while orbiting/panning
+    window.addEventListener('pointerdown', () => { isPointerDown = true; }, { passive: true });
+    window.addEventListener('pointerup', () => { isPointerDown = false; }, { passive: true });
+
     function onCanvasMouseMove(e) {
+        // 1. Never raycast while rotating/panning the camera
+        if (isPointerDown) return;
+
+        // 2. Throttle raycasting to max 20 checks/sec (50ms) instead of 120+/sec
+        const now = performance.now();
+        if (now - lastRaycastTime < 50) return;
+        lastRaycastTime = now;
+
         const hit = getIntersectedObject(e);
 
         if (hit && hit !== hoveredMesh) {
@@ -5659,18 +5682,27 @@
                     m.material.transparent = false;
                     m.material.opacity = 1.0;
                     m.material.depthWrite = true;
+                    m.material.emissiveIntensity = 0.28;
+                    m.material.envMapIntensity = 0.15;
                 } else if (analysisMode === 'rcc') {
                     m.material.transparent = true;
-                    m.material.opacity = 0.18; // Crisp crystalline transparent glass concrete (NOT milky haze!)
+                    m.material.opacity = 0.12;          // Smoked X-Ray glass shell
                     m.material.depthWrite = false;
+                    m.material.emissiveIntensity = 0.02; // Kill milky glow so rebars pop!
+                    m.material.envMapIntensity = 0.0;    // Zero white reflection on X-Ray shell
                 } else { // moment or shear
                     m.material.transparent = true;
-                    m.material.opacity = 0.10; // Faint structural silhouette
+                    m.material.opacity = 0.09;
                     m.material.depthWrite = false;
+                    m.material.emissiveIntensity = 0.0;
+                    m.material.envMapIntensity = 0.0;
                 }
                 m.material.needsUpdate = true;
             }
 
+            if (u.cadEdgeOutline) {
+                u.cadEdgeOutline.visible = (analysisMode === 'solid') && m.visible;
+            }
             if (u.rebarCage) {
                 u.rebarCage.visible = (analysisMode === 'rcc') && m.visible;
             }
@@ -5700,14 +5732,20 @@
                     f.material.transparent = false;
                     f.material.opacity = 1.0;
                     f.material.depthWrite = true;
+                    f.material.emissiveIntensity = 0.25;
+                    f.material.envMapIntensity = 0.15;
                 } else if (analysisMode === 'rcc') {
                     f.material.transparent = true;
-                    f.material.opacity = 0.22;
+                    f.material.opacity = 0.12;          // Smoked X-Ray glass shell
                     f.material.depthWrite = false;
+                    f.material.emissiveIntensity = 0.02; // Kill milky glow
+                    f.material.envMapIntensity = 0.0;    // Zero white reflection
                 } else {
                     f.material.transparent = true;
-                    f.material.opacity = 0.12;
+                    f.material.opacity = 0.09;
                     f.material.depthWrite = false;
+                    f.material.emissiveIntensity = 0.0;
+                    f.material.envMapIntensity = 0.0;
                 }
                 f.material.needsUpdate = true;
             }
