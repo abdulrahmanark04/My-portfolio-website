@@ -1550,8 +1550,8 @@
             ctx.fillRect(0, 0, 256, 256);
 
             for (let i = 0; i < 1500; i++) {
-                const x = Math.random() * 512;
-                const y = Math.random() * 512;
+                const x = Math.random() * 256;
+                const y = Math.random() * 256;
                 const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.08)' : 'rgba(120,95,70,0.09)';
                 ctx.fillStyle = v;
                 ctx.fillRect(x, y, 2, 2);
@@ -1560,10 +1560,10 @@
             // Refined horizontal architectural stone reveal grooves
             ctx.strokeStyle = 'rgba(95, 68, 42, 0.18)';
             ctx.lineWidth = 2.5;
-            for (let y = 64; y < 512; y += 64) {
+            for (let y = 64; y < 256; y += 64) {
                 ctx.beginPath();
                 ctx.moveTo(0, y);
-                ctx.lineTo(512, y);
+                ctx.lineTo(256, y);
                 ctx.stroke();
             }
 
@@ -1588,8 +1588,8 @@
             ctx.fillRect(0, 0, 256, 256);
 
             for (let i = 0; i < 1500; i++) {
-                const x = Math.random() * 512;
-                const y = Math.random() * 512;
+                const x = Math.random() * 256;
+                const y = Math.random() * 256;
                 const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.08)' : 'rgba(165,145,125,0.07)';
                 ctx.fillStyle = v;
                 ctx.fillRect(x, y, 1.5, 1.5);
@@ -4562,11 +4562,11 @@
 
         // 2. Build Joints / Nodes
         const nodeGeom = new THREE.SphereGeometry(0.08, 12, 12);
-        Object.values(joints).forEach(j => {
+        Object.entries(joints).forEach(([id, j]) => {
             const nodeMesh = new THREE.Mesh(nodeGeom, matNode.clone());
             nodeMesh.position.set(j.x - OFFSET_X, j.y, j.z - OFFSET_Z);
             nodeMesh.userData = {
-                jointId: j.id,
+                jointId: Number(id),
                 x: j.x,
                 y: j.y,
                 z: j.z
@@ -5955,7 +5955,12 @@
                 window.close3DViewer();
                 window.openVault('project-4-1');
                 setTimeout(() => {
-                    window.vaultSelectByPath(targetPath);
+                    const ok = window.vaultSelectByPath(targetPath);
+                    if (!ok && targetPath.includes('SUMMARY')) {
+                        window.vaultSelectByPath(targetPath.replace('SUMMARY', 'SUMMERY'));
+                    } else if (!ok && targetPath.includes('SUMMERY')) {
+                        window.vaultSelectByPath(targetPath.replace('SUMMERY', 'SUMMARY'));
+                    }
                 }, 300);
             } else if (window.openDoc) {
                 window.openDoc(targetPath);
