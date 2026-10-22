@@ -1500,6 +1500,8 @@
     // Fully restored to approved structural grid, column layout, and lift shaft,
     // with surgical resolution of all 5 user feedback points.
     // =========================================================================
+    const _archTexCache = {};
+
     function buildArchitecturalModel() {
         if (architecturalModel) {
             scene.remove(architecturalModel);
@@ -1537,17 +1539,17 @@
         // -------------------------------------------------------------
         // 1. Procedural Sandstone Stucco & Architectural Groove Texture + Bump Map
         function createStuccoTexture() {
+            if (_archTexCache['stucco']) return _archTexCache['stucco'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
-            c.width = 512;
-            c.height = 512;
+            c.width = 256;
+            c.height = 256;
             const ctx = c.getContext('2d');
             if (!ctx) return null;
-            ctx.fillStyle = '#ded1b8'; // Rich warm natural travertine / sandstone base
-            ctx.fillRect(0, 0, 512, 512);
+            ctx.fillStyle = '#ded1b8';
+            ctx.fillRect(0, 0, 256, 256);
 
-            // Fine plaster grain with subtle warm earth tones
-            for (let i = 0; i < 20000; i++) {
+            for (let i = 0; i < 1500; i++) {
                 const x = Math.random() * 512;
                 const y = Math.random() * 512;
                 const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.08)' : 'rgba(120,95,70,0.09)';
@@ -1574,17 +1576,17 @@
 
         // 1b. Procedural Warm Luxury Interior Wall Emulsion Paint Texture (Fine Eggshell Micro-Grain)
         function createInteriorPaintTexture() {
+            if (_archTexCache['interior']) return _archTexCache['interior'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
-            c.width = 512;
-            c.height = 512;
+            c.width = 256;
+            c.height = 256;
             const ctx = c.getContext('2d');
             if (!ctx) return null;
             ctx.fillStyle = '#f4ede2';
-            ctx.fillRect(0, 0, 512, 512);
+            ctx.fillRect(0, 0, 256, 256);
 
-            // Subtle luxury eggshell emulsion micro-grain
-            for (let i = 0; i < 22000; i++) {
+            for (let i = 0; i < 1500; i++) {
                 const x = Math.random() * 512;
                 const y = Math.random() * 512;
                 const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.08)' : 'rgba(165,145,125,0.07)';
@@ -6207,7 +6209,9 @@
                 openRebarInspector(currentInspectorData);
             }
         }
-        requestRender(10);
+        requestRender(90);
+        if (controls) controls.update();
+        if (renderer && scene && camera) renderer.render(scene, camera);
     };
 
     window.staadViewerToggleRccMode = function (forceState) {

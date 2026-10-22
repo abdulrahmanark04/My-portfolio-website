@@ -3228,7 +3228,9 @@
                 
         /* ===== BENTLEY CARD STRUCTURAL QUOTE PLAQUE ===== */
         .cert-quote-plaque {
-            margin-top: 24px;
+            grid-column: 1 / -1;
+            width: 100%;
+            margin-top: 18px;
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(10, 18, 32, 0.75) 100%);
             border: 1px solid rgba(255, 215, 0, 0.22);
             border-radius: 16px;
@@ -4032,13 +4034,11 @@
 
 
             .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 26px;
-            max-width: 1380px;
-            margin: 0 auto;
-            width: 100%;
-        }
+                display: grid;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 18px !important;
+                width: 100% !important;
+            }
 
 
 
@@ -4075,13 +4075,11 @@
 
 
             .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 26px;
-            max-width: 1380px;
-            margin: 0 auto;
-            width: 100%;
-        }
+                display: grid;
+                grid-template-columns: 1fr !important;
+                gap: 14px !important;
+                width: 100% !important;
+            }
 
 
 
@@ -5676,12 +5674,12 @@
 
             .secondary-projects-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 26px;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
             align-items: stretch;
-            max-width: 1380px;
+            max-width: 100% !important;
             margin: 0 auto;
-            width: 100%;
+            width: 100% !important;
         }
 
         }
@@ -5965,13 +5963,13 @@
         @media (max-width: 980px) {
 
             .certs-bento-container {
-            max-width: 1380px;
+            max-width: 100% !important;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            gap: 26px;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
             align-items: stretch;
-            width: 100%;
+            width: 100% !important;
         }
 
         }
@@ -7015,7 +7013,17 @@
 
         @media (max-width: 500px) {
             .stats-bar {
-                grid-template-columns: 1fr !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 14px !important;
+                padding: 18px 12px !important;
+                margin-bottom: 35px !important;
+            }
+            .stat-number {
+                font-size: 1.85rem !important;
+            }
+            .stat-label {
+                font-size: 0.68rem !important;
+                letter-spacing: 0.5px !important;
             }
         }
 
@@ -7076,6 +7084,62 @@
             letter-spacing: 0.08em !important;
             text-transform: uppercase !important;
             color: #94A3B8 !important;
+        }
+
+    
+        /* Low-Power Thermal & Battery Optimization for Mobile & Low-End GPUs */
+        @media (max-width: 768px) {
+            .timeline-card,
+            .contact-card,
+            .stats-bar,
+            .footer-nav-capsule,
+            .vault-cta-btn,
+            .photo-floating-chip,
+            .skill-card,
+            .cert-bento-card,
+            .project-bento-card {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+            .photo-stage-wrapper {
+                width: 100% !important;
+                max-width: 320px !important;
+                margin: 0 auto !important;
+                position: relative !important;
+            }
+            .photo-floating-chip.chip-top {
+                right: 10px !important;
+                top: 14px !important;
+                font-size: 0.74rem !important;
+                padding: 6px 12px !important;
+                z-index: 10 !important;
+            }
+            .photo-floating-chip.chip-bottom {
+                left: 10px !important;
+                bottom: 14px !important;
+                font-size: 0.74rem !important;
+                padding: 6px 12px !important;
+                z-index: 10 !important;
+            }
+            .photo-frame {
+                width: 100% !important;
+                max-width: 320px !important;
+                height: 428px !important;
+                margin: 0 auto !important;
+            }
+            .hero-status-capsule {
+                max-width: 95% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            .status-capsule-text {
+                font-size: 0.68rem !important;
+                letter-spacing: 0.05em !important;
+            }
+            .hero-title {
+                letter-spacing: 2px !important;
+                font-size: 1.02rem !important;
+            }
         }
 
     </style>
@@ -8464,39 +8528,7 @@
                     </div>
 
                 </div>
-                <!-- Structural Engineering Philosophy Plaque -->
-                <div class="cert-quote-plaque">
-                    <span class="corner-bracket corner-tl"></span>
-                    <span class="corner-bracket corner-tr"></span>
-                    <span class="corner-bracket corner-bl"></span>
-                    <span class="corner-bracket corner-br"></span>
-
-                    <div class="quote-watermark-icon">
-                        <i class="fas fa-quote-left"></i>
-                    </div>
-
-                    <div class="quote-header-line">
-                        <div class="quote-datum-tag">
-                            <i class="fas fa-drafting-compass"></i>
-                            <span>PHILOSOPHY // STRUCTURAL INTEGRITY &amp; TRUST</span>
-                        </div>
-                        <div class="quote-code-tag">IS 456 &bull; LIMIT STATE DESIGN</div>
-                    </div>
-
-                    <blockquote class="quote-main-text">
-                        &ldquo;Every beam carries a burden, every column stands with conviction, and every joint transfers trust. Structural engineering is where science meets human safety.&rdquo;
-                    </blockquote>
-
-                    <div class="quote-attribution-footer">
-                        <div class="quote-author-block">
-                            <span class="quote-author-name">STRUCTURAL ENGINEERING ETHOS</span>
-                            <span class="quote-author-desc">Core Guiding Principle in Computational &amp; Site Execution</span>
-                        </div>
-                        <div class="quote-cad-datum">
-                            <span>AXIS: EQUILIBRIUM &bull; SAFETY &bull; ENDURANCE</span>
-                        </div>
-                    </div>
-                </div>
+                
 
 
             </div>
@@ -8537,7 +8569,7 @@
 
                     <div class="cert-showcase-frame" onclick="openDoc('cert_revit.pdf')" title="Click to view full-resolution certificate & transcript">
 
-                        <img src="cert_revit_p1.png" alt="PTS CAD Expert Revit Architecture Certificate - Syed Abdul Rahman" class="cert-showcase-img" loading="lazy">
+                        <img src="cert_revit_p1.webp" alt="PTS CAD Expert Revit Architecture Certificate - Syed Abdul Rahman" class="cert-showcase-img" loading="lazy">
 
                         <div class="cert-showcase-badge">
 
@@ -8636,6 +8668,42 @@
             </div>
 
 
+
+        
+
+            <!-- Structural Engineering Philosophy Plaque -->
+                <div class="cert-quote-plaque">
+                    <span class="corner-bracket corner-tl"></span>
+                    <span class="corner-bracket corner-tr"></span>
+                    <span class="corner-bracket corner-bl"></span>
+                    <span class="corner-bracket corner-br"></span>
+
+                    <div class="quote-watermark-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+
+                    <div class="quote-header-line">
+                        <div class="quote-datum-tag">
+                            <i class="fas fa-drafting-compass"></i>
+                            <span>PHILOSOPHY // STRUCTURAL INTEGRITY &amp; TRUST</span>
+                        </div>
+                        <div class="quote-code-tag">IS 456 &bull; LIMIT STATE DESIGN</div>
+                    </div>
+
+                    <blockquote class="quote-main-text">
+                        &ldquo;Every beam carries a burden, every column stands with conviction, and every joint transfers trust. Structural engineering is where science meets human safety.&rdquo;
+                    </blockquote>
+
+                    <div class="quote-attribution-footer">
+                        <div class="quote-author-block">
+                            <span class="quote-author-name">STRUCTURAL ENGINEERING ETHOS</span>
+                            <span class="quote-author-desc">Core Guiding Principle in Computational &amp; Site Execution</span>
+                        </div>
+                        <div class="quote-cad-datum">
+                            <span>AXIS: EQUILIBRIUM &bull; SAFETY &bull; ENDURANCE</span>
+                        </div>
+                    </div>
+                </div>
 
         </div>
 
@@ -9025,26 +9093,12 @@
 
 
         window.addEventListener('scroll', () => {
-
-
-
             const scrollTop = document.documentElement.scrollTop;
-
-
-
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-
-
             const progress = (scrollTop / scrollHeight) * 100;
-
-
-
-            document.getElementById('scrollProgress').style.width = progress + '%';
-
-
-
-        });
+            const el = document.getElementById('scrollProgress');
+            if (el) el.style.width = progress + '%';
+        }, { passive: true });
 
 
 
@@ -9057,22 +9111,11 @@
 
 
         window.addEventListener('scroll', () => {
-
-
-
             const btn = document.getElementById('backToTop');
-
-
-
+            if (!btn) return;
             if (window.scrollY > 600) btn.classList.add('visible');
-
-
-
             else btn.classList.remove('visible');
-
-
-
-        });
+        }, { passive: true });
 
 
 
@@ -9394,11 +9437,10 @@
 
             // Count matched to screen size: authentic starlight field
 
-            const count = window.innerWidth < 768 
-
-                ? 35 
-
-                : Math.min(95, Math.max(50, Math.floor((bgW * bgH) / 13500)));
+            const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+            const count = isMobile 
+                ? 24 
+                : Math.min(85, Math.max(45, Math.floor((bgW * bgH) / 15000)));
 
             bgParticles = [];
 
@@ -9499,10 +9541,11 @@
 
 
             // Thermal Saver 2: Skip if any modal/viewer is open
-
             const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
-
             if (isModalActive) return;
+
+            // Thermal Saver 3: STOP canvas rendering when scrolled past hero! (0% CPU on page read)
+            if (window.scrollY > (window.innerHeight * 1.05)) return;
 
 
 
@@ -9576,8 +9619,9 @@
 
 
 
-            // PASS 2: Inter-Particle Connecting Lines (0.5px line width, exact original)
-
+            // PASS 2: Inter-Particle Connecting Lines (Desktop only; skipped on mobile for 60fps & 0% heat)
+            const isMobileDevice = window.innerWidth <= 768 || ('ontouchstart' in window);
+            if (!isMobileDevice) {
             const neighborOffsets = [[0, 0], [1, 0], [0, 1], [1, 1], [-1, 1]];
 
             bgCtx.lineWidth = 0.5;
@@ -9799,11 +9843,9 @@
                 }
 
                 bgCtx.strokeStyle = 'rgba(255, 215, 0, 0.10)';
-
                 bgCtx.stroke();
-
             }
-
+            } // End of !isMobileDevice desktop check
         }
 
         requestAnimationFrame(animateBgWeb);
