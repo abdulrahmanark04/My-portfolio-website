@@ -1571,6 +1571,7 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(3, 3);
+            _archTexCache['stucco'] = tex;
             return tex;
         }
 
@@ -1598,11 +1599,14 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(3.0, 3.0);
+            _archTexCache['interior'] = tex;
             return tex;
         }
 
         // 2. Procedural Teak Wood Grain Texture
         function createWoodTexture(baseHex, stripeHex) {
+            const cacheKey = 'wood_' + (baseHex || '') + '_' + (stripeHex || '');
+            if (_archTexCache[cacheKey]) return _archTexCache[cacheKey];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1629,11 +1633,13 @@
             const tex = new THREE.CanvasTexture(c);
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
+            _archTexCache[cacheKey] = tex;
             return tex;
         }
 
         // 3. Procedural Mangalore Corrugated Clay Roof Tile Texture
         function createMangaloreTileTexture() {
+            if (_archTexCache['mangalore']) return _archTexCache['mangalore'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1665,11 +1671,14 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(4, 3);
+            _archTexCache['mangalore'] = tex;
             return tex;
         }
 
         // 4. Procedural Heavy-Duty Architectural Paver Texture
         function createPaverTileTexture(baseHex, grooveHex) {
+            const cacheKey = 'paver_' + (baseHex || '') + '_' + (grooveHex || '');
+            if (_archTexCache[cacheKey]) return _archTexCache[cacheKey];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1705,11 +1714,13 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(4, 4);
+            _archTexCache[cacheKey] = tex;
             return tex;
         }
 
         // 5. Procedural Woven Fabric Area Rug Texture
         function createWovenRugTexture() {
+            if (_archTexCache['wovenRug']) return _archTexCache['wovenRug'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1737,11 +1748,13 @@
             const tex = new THREE.CanvasTexture(c);
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
+            _archTexCache[cacheKey] = tex;
             return tex;
         }
 
         // 6. Royal Italian Calacatta Marble (Mirror-polished luxury marble with veins & tile grid for interior living spaces)
         function createCalacattaMarbleTexture() {
+            if (_archTexCache['calacatta']) return _archTexCache['calacatta'];
             if (typeof document === 'undefined') return null;
             const canvas = document.createElement('canvas');
             canvas.width = 1024;
@@ -1882,11 +1895,13 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(2.0, 2.0);
+            _archTexCache['calacatta'] = tex;
             return tex;
         }
 
         // 7. Procedural Ground Contact Shadow Texture (Zero-CPU Baked Ambient Occlusion)
         function createContactShadowTexture() {
+            if (_archTexCache['contactShadow']) return _archTexCache['contactShadow'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1901,10 +1916,12 @@
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, 512, 512);
             const tex = new THREE.CanvasTexture(c);
+            _archTexCache['contactShadow'] = tex;
             return tex;
         }
         // 8. Procedural Architectural Warm Teak Wood Soffit Texture
         function createWoodSoffitTexture() {
+            if (_archTexCache['woodSoffit']) return _archTexCache['woodSoffit'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 512;
@@ -1955,6 +1972,7 @@
 
         // 9. Procedural Prestigious Architectural Signboard Texture (Ultra-HD 1024x512 Canvas)
         function createArchitecturalSignTexture() {
+            if (_archTexCache['archSign']) return _archTexCache['archSign'];
             if (typeof document === 'undefined') return null;
             const c = document.createElement('canvas');
             c.width = 1024;
@@ -2164,6 +2182,7 @@
             const tex = new THREE.CanvasTexture(c);
             tex.wrapS = THREE.ClampToEdgeWrapping;
             tex.wrapT = THREE.ClampToEdgeWrapping;
+            _archTexCache['archSign'] = tex;
             return tex;
         }
 
@@ -2391,26 +2410,34 @@
                 colBHex = '#c29b74';
             }
 
-            const c = document.createElement('canvas');
-            c.width = 128; c.height = 128;
-            const ctx = c.getContext('2d');
-            ctx.fillStyle = colAHex;
-            ctx.fillRect(0, 0, 64, 64); ctx.fillRect(64, 64, 64, 64);
-            ctx.fillStyle = colBHex;
-            ctx.fillRect(64, 0, 64, 64); ctx.fillRect(0, 64, 64, 64);
+            const repX = Math.max(1, Math.round(w / (tileSize * 2)));
+            const repY = Math.max(1, Math.round(d / (tileSize * 2)));
+            const cacheKey = `checker_${colAHex}_${colBHex}`;
 
-            // Architectural joint grooves
-            ctx.strokeStyle = 'rgba(15, 23, 42, 0.60)';
-            ctx.lineWidth = 3.5;
-            ctx.strokeRect(0, 0, 64, 64); ctx.strokeRect(64, 64, 64, 64);
-            ctx.strokeRect(0, 0, 128, 128);
+            if (!_archTexCache[cacheKey]) {
+                const c = document.createElement('canvas');
+                c.width = 128; c.height = 128;
+                const ctx = c.getContext('2d');
+                ctx.fillStyle = colAHex;
+                ctx.fillRect(0, 0, 64, 64); ctx.fillRect(64, 64, 64, 64);
+                ctx.fillStyle = colBHex;
+                ctx.fillRect(64, 0, 64, 64); ctx.fillRect(0, 64, 64, 64);
 
-            // Chamfered bevel highlight
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-            ctx.lineWidth = 1.5;
-            ctx.strokeRect(2, 2, 60, 60); ctx.strokeRect(66, 66, 60, 60);
+                // Architectural joint grooves
+                ctx.strokeStyle = 'rgba(15, 23, 42, 0.60)';
+                ctx.lineWidth = 3.5;
+                ctx.strokeRect(0, 0, 64, 64); ctx.strokeRect(64, 64, 64, 64);
+                ctx.strokeRect(0, 0, 128, 128);
 
-            const tex = new THREE.CanvasTexture(c);
+                // Chamfered bevel highlight
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+                ctx.lineWidth = 1.5;
+                ctx.strokeRect(2, 2, 60, 60); ctx.strokeRect(66, 66, 60, 60);
+
+                _archTexCache[cacheKey] = c;
+            }
+
+            const tex = new THREE.CanvasTexture(_archTexCache[cacheKey]);
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(Math.max(1, w / (tileSize * 2)), Math.max(1, d / (tileSize * 2)));
@@ -6209,7 +6236,7 @@
                 openRebarInspector(currentInspectorData);
             }
         }
-        requestRender(90);
+        requestRender(5);
         if (controls) controls.update();
         if (renderer && scene && camera) renderer.render(scene, camera);
     };

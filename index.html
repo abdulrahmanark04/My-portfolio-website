@@ -472,17 +472,19 @@
 
 
 
-        /* ===== ATMOSPHERIC GLOWS & VIGNETTE ===== */
+        /* ===== ATMOSPHERIC GLOWS (ZERO-BLUR SHADER OPTIMIZATION) ===== */
 
         .atmos-gold {
 
-            position: fixed; top: -180px; left: 18%;
+            position: fixed; top: -250px; left: 12%;
 
-            width: 700px; height: 520px;
+            width: 900px; height: 700px;
 
-            background: radial-gradient(circle, rgba(255, 190, 30, 0.09) 0%, rgba(255, 215, 0, 0.025) 50%, transparent 75%);
+            background: radial-gradient(circle, rgba(255, 190, 30, 0.065) 0%, rgba(255, 215, 0, 0.03) 30%, rgba(255, 215, 0, 0.01) 55%, transparent 75%);
 
-            filter: blur(90px); pointer-events: none; z-index: 0;
+            pointer-events: none; z-index: 0;
+
+            will-change: transform;
 
             animation: driftGold 14s ease-in-out infinite alternate;
 
@@ -492,13 +494,15 @@
 
         .atmos-depth {
 
-            position: fixed; top: 200px; right: 5%;
+            position: fixed; top: 120px; right: 0%;
 
-            width: 750px; height: 700px;
+            width: 950px; height: 900px;
 
-            background: radial-gradient(circle, rgba(12, 30, 55, 0.35) 0%, rgba(6, 16, 30, 0.15) 55%, transparent 80%);
+            background: radial-gradient(circle, rgba(12, 30, 55, 0.28) 0%, rgba(6, 16, 30, 0.14) 40%, rgba(6, 16, 30, 0.04) 65%, transparent 80%);
 
-            filter: blur(110px); pointer-events: none; z-index: 0;
+            pointer-events: none; z-index: 0;
+
+            will-change: transform;
 
             animation: driftDepth 18s ease-in-out infinite alternate;
 
@@ -508,13 +512,15 @@
 
         .atmos-bottom {
 
-            position: fixed; bottom: -100px; left: 40%;
+            position: fixed; bottom: -180px; left: 35%;
 
-            width: 600px; height: 400px;
+            width: 800px; height: 600px;
 
-            background: radial-gradient(circle, rgba(255, 200, 50, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 200, 50, 0.045) 0%, rgba(255, 200, 50, 0.015) 35%, transparent 70%);
 
-            filter: blur(100px); pointer-events: none; z-index: 0;
+            pointer-events: none; z-index: 0;
+
+            will-change: transform;
 
         }
 
@@ -9520,7 +9526,8 @@
 
         let bgAnimationId = null;
 
-
+        // Zero-GC Pre-allocated Spatial Hash Grid Pool
+        let spatialGrid = [];
 
         function animateBgWeb(timestamp) {
 
@@ -9579,9 +9586,14 @@
 
 
 
-            // Rebuild spatial grid for this frame
-
-            const grid = Array.from({ length: totalCells }, () => []);
+            // Zero-GC Spatial Hash Grid Reuse (Zero memory allocations per frame)
+            while (spatialGrid.length < totalCells) {
+                spatialGrid.push([]);
+            }
+            for (let i = 0; i < totalCells; i++) {
+                spatialGrid[i].length = 0;
+            }
+            const grid = spatialGrid;
 
             for (let i = 0; i < n; i++) {
 
@@ -9954,25 +9966,7 @@
 
 
 
-        // ========================================================
-
-        // 3. INTERACTIVE SPOTLIGHT ON CARDS
-
-        // ========================================================
-
-        document.querySelectorAll('.project-card, .skill-card, .featured-project-card, .tracer-card-inner').forEach(card => {
-
-            card.addEventListener('mousemove', e => {
-
-                const rect = card.getBoundingClientRect();
-
-                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-
-                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-
-            });
-
-        });
+        // (Consolidated into optimized RAF Universal Spotlight Engine at line 11320)
 
 
 
@@ -11332,14 +11326,47 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
                     card.insertBefore(spot, card.firstChild);
                 }
 
+                let rect = null;
+                let rafPending = false;
+                let lastX = 0, lastY = 0;
+
+                card.addEventListener('mouseenter', () => {
+                    rect = card.getBoundingClientRect();
+                }, { passive: true });
+
                 card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                    if (!rafPending) {
+                        rafPending = true;
+                        requestAnimationFrame(() => {
+                            if (!rect) rect = card.getBoundingClientRect();
+                            card.style.setProperty('--mouse-x', (lastX - rect.left) + 'px');
+                            card.style.setProperty('--mouse-y', (lastY - rect.top) + 'px');
+                            rafPending = false;
+                        });
+                    }
                 }, { passive: true });
             });
+
+            // Pause off-screen infinite CSS animations to drop background GPU/CPU draw calls to zero
+            if ('IntersectionObserver' in window) {
+                const animPauseObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const state = entry.isIntersecting ? 'running' : 'paused';
+                        entry.target.style.animationPlayState = state;
+                        entry.target.querySelectorAll('*').forEach(child => {
+                            if (getComputedStyle(child).animationName !== 'none') {
+                                child.style.animationPlayState = state;
+                            }
+                        });
+                    });
+                }, { rootMargin: '100px' });
+
+                document.querySelectorAll('.tracer-card-container, .photo-stage-wrapper, .hero-status-capsule, .featured-badge-live').forEach(el => {
+                    animPauseObserver.observe(el);
+                });
+            }
         }
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initCardSpotlights);
