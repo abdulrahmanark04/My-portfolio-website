@@ -1,0 +1,18 @@
+# Azure size protection
+*.exe
+*.tmp
+~*
+*.bak
+*.log
+downloads/
+demo structural lab/
+resume demo/
+launch_demo.bat
+launch_portfolio.bat
+sync_vault.py
+
+# Ignore unreferenced large CAD/RCDC binary files
+vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/MASTER DESIGN DRAWINGS.dxf
+*.rcdx
+*.rcbu
+*.rcps

@@ -850,7 +850,7 @@
         if (!canvas) return;
         const rect = canvas.parentElement.getBoundingClientRect();
         // High-DPI support: render at native device pixel ratio (capped at 2x for smooth 60fps)
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.25); // Throttled DPR for smooth, low-temp rendering
         canvas.style.width = rect.width + 'px';
         canvas.style.height = rect.height + 'px';
         canvas.width = Math.round(rect.width * dpr);
@@ -1009,7 +1009,7 @@
 
         window.addEventListener('mousemove', function (e) {
             if (!isPanning) return;
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.25); // Throttled DPR for smooth, low-temp rendering
             const dx = (e.clientX - panStart.x) * dpr;
             const dy = (e.clientY - panStart.y) * dpr;
             panStart = { x: e.clientX, y: e.clientY };
@@ -1026,7 +1026,7 @@
         canvas.addEventListener('wheel', function (e) {
             e.preventDefault();
             const rect = canvas.getBoundingClientRect();
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.25); // Throttled DPR for smooth, low-temp rendering
             const mouseX = (e.clientX - rect.left) * dpr;
             const mouseY = (e.clientY - rect.top) * dpr;
 

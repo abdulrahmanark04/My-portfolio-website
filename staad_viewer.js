@@ -268,16 +268,26 @@
         modal.className = 'staad-modal-backdrop';
         modal.innerHTML = `
             <div class="staad-modal-window">
+                <!-- Mobile Persistent Floating Exit Pill & Corner Close -->
+                <button type="button" class="staad-floating-exit-pill" onclick="window.close3DViewer()" aria-label="Exit 3D View and Return to Portfolio">
+                    <i class="fas fa-arrow-left"></i> <span>Back</span>
+                </button>
+                <button type="button" class="staad-floating-corner-close" onclick="window.close3DViewer()" aria-label="Close 3D Viewer">
+                    <i class="fas fa-times"></i>
+                </button>
                 <!-- Header -->
                 <div class="staad-header">
                     <div class="staad-header-title">
+                        <button type="button" class="staad-header-back-btn" onclick="window.close3DViewer()" title="Back to Portfolio">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
                         <div class="staad-header-badge">
                             <i class="fas fa-cube"></i>
                         </div>
                         <div class="staad-header-text">
                             <h3>
                                 3D SKELETAL SPACE FRAME
-                                <span class="staad-tag" id="staadHeaderTag">STAAD.Pro 2025 FEA</span>
+                                <span class="staad-tag" id="staadHeaderTag">STAAD.Pro & RCDC</span>
                             </h3>
                             <p id="staadHeaderSubtitle">G+2 Multi-Storey Residential Space Frame &bull; Mahabubnagar (Zone II, Z = 0.10) &bull; 100 Joints, 188 Members, 36 Slabs</p>
                         </div>
@@ -1533,21 +1543,21 @@
             c.height = 512;
             const ctx = c.getContext('2d');
             if (!ctx) return null;
-            ctx.fillStyle = '#f6eee3';
+            ctx.fillStyle = '#ded1b8'; // Rich warm natural travertine / sandstone base
             ctx.fillRect(0, 0, 512, 512);
 
-            // Fine plaster grain
-            for (let i = 0; i < 18000; i++) {
+            // Fine plaster grain with subtle warm earth tones
+            for (let i = 0; i < 20000; i++) {
                 const x = Math.random() * 512;
                 const y = Math.random() * 512;
-                const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+                const v = Math.random() > 0.5 ? 'rgba(255,255,255,0.08)' : 'rgba(120,95,70,0.09)';
                 ctx.fillStyle = v;
                 ctx.fillRect(x, y, 2, 2);
             }
 
-            // Subtle horizontal architectural plaster grooves
-            ctx.strokeStyle = 'rgba(120, 80, 45, 0.16)';
-            ctx.lineWidth = 2;
+            // Refined horizontal architectural stone reveal grooves
+            ctx.strokeStyle = 'rgba(95, 68, 42, 0.18)';
+            ctx.lineWidth = 2.5;
             for (let y = 64; y < 512; y += 64) {
                 ctx.beginPath();
                 ctx.moveTo(0, y);
@@ -1891,11 +1901,277 @@
             const tex = new THREE.CanvasTexture(c);
             return tex;
         }
+        // 8. Procedural Architectural Warm Teak Wood Soffit Texture
+        function createWoodSoffitTexture() {
+            if (typeof document === 'undefined') return null;
+            const c = document.createElement('canvas');
+            c.width = 512;
+            c.height = 512;
+            const ctx = c.getContext('2d');
+            if (!ctx) return null;
+            ctx.fillStyle = '#6b300c'; // Warm rich teak wood base
+            ctx.fillRect(0, 0, 512, 512);
+
+            // Shiplap timber plank lines (horizontal planks spaced at 32px)
+            const plankH = 32;
+            for (let y = 0; y < 512; y += plankH) {
+                const tint = (Math.random() - 0.5) * 20;
+                ctx.fillStyle = `rgba(${Math.max(0, 115 + tint)}, ${Math.max(0, 50 + tint * 0.6)}, ${Math.max(0, 12 + tint * 0.3)}, 0.28)`;
+                ctx.fillRect(0, y, 512, plankH);
+
+                for (let g = 0; g < 4; g++) {
+                    ctx.strokeStyle = 'rgba(25, 8, 2, 0.20)';
+                    ctx.lineWidth = 1 + Math.random();
+                    ctx.beginPath();
+                    const gy = y + Math.random() * plankH;
+                    ctx.moveTo(0, gy);
+                    ctx.lineTo(512, gy + (Math.random() - 0.5) * 4);
+                    ctx.stroke();
+                }
+
+                ctx.strokeStyle = 'rgba(15, 5, 2, 0.70)';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(512, y);
+                ctx.stroke();
+
+                ctx.strokeStyle = 'rgba(255, 215, 160, 0.22)';
+                ctx.lineWidth = 1.0;
+                ctx.beginPath();
+                ctx.moveTo(0, y + 2.5);
+                ctx.lineTo(512, y + 2.5);
+                ctx.stroke();
+            }
+
+            const tex = new THREE.CanvasTexture(c);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(2, 2);
+            return tex;
+        }
+
+        // 9. Procedural Prestigious Architectural Signboard Texture (Ultra-HD 1024x512 Canvas)
+        function createArchitecturalSignTexture() {
+            if (typeof document === 'undefined') return null;
+            const c = document.createElement('canvas');
+            c.width = 1024;
+            c.height = 512;
+            const ctx = c.getContext('2d');
+            if (!ctx) return null;
+
+            // 1. Brushed Dark Obsidian / Slate Metallic Background
+            const bgGrad = ctx.createLinearGradient(0, 0, 1024, 512);
+            bgGrad.addColorStop(0.0, '#0a0e17');
+            bgGrad.addColorStop(0.5, '#161f30');
+            bgGrad.addColorStop(1.0, '#0a0e17');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, 1024, 512);
+
+            // Fine brushed horizontal metal grain
+            for (let i = 0; i < 450; i++) {
+                const y = Math.random() * 512;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+                ctx.lineWidth = 1 + Math.random() * 1.5;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(1024, y);
+                ctx.stroke();
+            }
+
+            // 2. Double Burnished Gold Perimeter Frame with Corner Insets
+            const goldStroke = '#d4af37';
+            ctx.strokeStyle = goldStroke;
+            ctx.lineWidth = 5;
+            ctx.strokeRect(20, 20, 984, 472);
+
+            ctx.strokeStyle = 'rgba(212, 175, 55, 0.45)';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(32, 32, 960, 448);
+
+            // Ornate corner-bracket highlights
+            const corners = [
+                [20, 20, 1, 1], [1004, 20, -1, 1],
+                [20, 492, 1, -1], [1004, 492, -1, -1]
+            ];
+            corners.forEach(([cx, cy, sx, sy]) => {
+                ctx.fillStyle = goldStroke;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(cx + sx * 24, cy);
+                ctx.lineTo(cx, cy + sy * 24);
+                ctx.closePath();
+                ctx.fill();
+            });
+
+            // 3. Central Engineering & Architectural Crest (Emblem)
+            const emblemCx = 512;
+            const emblemCy = 125;
+            const emblemRad = 58;
+
+            const glowGrad = ctx.createRadialGradient(emblemCx, emblemCy, 10, emblemCx, emblemCy, emblemRad * 1.6);
+            glowGrad.addColorStop(0, 'rgba(245, 158, 11, 0.32)');
+            glowGrad.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
+            ctx.fillStyle = glowGrad;
+            ctx.beginPath();
+            ctx.arc(emblemCx, emblemCy, emblemRad * 1.6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.arc(emblemCx, emblemCy, emblemRad, 0, Math.PI * 2);
+            ctx.stroke();
+
+            for (let i = 0; i < 36; i++) {
+                const angle = (i * Math.PI * 2) / 36;
+                const len = (i % 3 === 0) ? 7 : 4;
+                const x1 = emblemCx + Math.cos(angle) * (emblemRad - 2);
+                const y1 = emblemCy + Math.sin(angle) * (emblemRad - 2);
+                const x2 = emblemCx + Math.cos(angle) * (emblemRad - 2 - len);
+                const y2 = emblemCy + Math.sin(angle) * (emblemRad - 2 - len);
+                ctx.strokeStyle = (i % 3 === 0) ? '#fbbf24' : 'rgba(245, 158, 11, 0.6)';
+                ctx.lineWidth = (i % 3 === 0) ? 2 : 1;
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+            }
+
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(emblemCx, emblemCy, emblemRad - 12, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.save();
+            ctx.translate(emblemCx, emblemCy);
+
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(0, -32);
+            ctx.lineTo(26, 0);
+            ctx.lineTo(0, 32);
+            ctx.lineTo(-26, 0);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.6)';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(-26, 0); ctx.lineTo(26, 0);
+            ctx.moveTo(0, -32); ctx.lineTo(0, 32);
+            ctx.stroke();
+
+            const compassGrad = ctx.createLinearGradient(-20, -32, 20, 32);
+            compassGrad.addColorStop(0, '#fffbeb');
+            compassGrad.addColorStop(0.5, '#f59e0b');
+            compassGrad.addColorStop(1, '#92400e');
+            ctx.strokeStyle = compassGrad;
+            ctx.lineWidth = 4;
+            ctx.lineCap = 'round';
+            ctx.fillStyle = '#fffbeb';
+            ctx.beginPath();
+            ctx.arc(0, -22, 5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(0, -22);
+            ctx.lineTo(-16, 26);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(0, -22);
+            ctx.lineTo(16, 26);
+            ctx.stroke();
+            ctx.strokeStyle = '#fef08a';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(0, -22, 34, 0.35 * Math.PI, 0.65 * Math.PI);
+            ctx.stroke();
+
+            ctx.restore();
+
+            // 4. Main Prominent Title: "SA RAHMAN"
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            const goldTextGrad = ctx.createLinearGradient(0, 215, 0, 280);
+            goldTextGrad.addColorStop(0.0, '#fffbeb');
+            goldTextGrad.addColorStop(0.25, '#fde68a');
+            goldTextGrad.addColorStop(0.60, '#f59e0b');
+            goldTextGrad.addColorStop(0.85, '#d97706');
+            goldTextGrad.addColorStop(1.0, '#92400e');
+
+            ctx.font = '900 52px "Outfit", "Segoe UI", system-ui, sans-serif';
+
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.90)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 5;
+            ctx.fillStyle = goldTextGrad;
+            ctx.fillText('SA RAHMAN', 512, 252);
+
+            ctx.shadowColor = 'transparent';
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetY = 0;
+
+            // 5. Tapered Gold Divider with Diamond Gem
+            const divY = 302;
+            const divGradL = ctx.createLinearGradient(200, divY, 512, divY);
+            divGradL.addColorStop(0, 'rgba(245, 158, 11, 0.0)');
+            divGradL.addColorStop(1, '#f59e0b');
+            ctx.strokeStyle = divGradL;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(200, divY);
+            ctx.lineTo(495, divY);
+            ctx.stroke();
+
+            const divGradR = ctx.createLinearGradient(512, divY, 824, divY);
+            divGradR.addColorStop(0, '#f59e0b');
+            divGradR.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
+            ctx.strokeStyle = divGradR;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(529, divY);
+            ctx.lineTo(824, divY);
+            ctx.stroke();
+
+            ctx.fillStyle = '#fbbf24';
+            ctx.beginPath();
+            ctx.moveTo(512, divY - 6);
+            ctx.lineTo(518, divY);
+            ctx.lineTo(512, divY + 6);
+            ctx.lineTo(506, divY);
+            ctx.closePath();
+            ctx.fill();
+
+            // 6. Subtitles
+            ctx.font = '700 24px "Outfit", "Segoe UI", sans-serif';
+            ctx.fillStyle = '#fef3c7';
+            ctx.fillText('STRUCTURAL DESIGN & CONSULTANCY', 512, 348);
+
+            ctx.font = '600 17px "Outfit", "Segoe UI", sans-serif';
+            ctx.fillStyle = '#94a3b8';
+            ctx.fillText('CIVIL & STRUCTURAL ENGINEERING  •  R.C.C. SPECIALIST', 512, 396);
+
+            ctx.font = '700 13px "Outfit", "Segoe UI", sans-serif';
+            ctx.fillStyle = '#d97706';
+            ctx.fillText('★   G+2 RESIDENTIAL PROJECT   ★', 512, 442);
+
+            const tex = new THREE.CanvasTexture(c);
+            tex.wrapS = THREE.ClampToEdgeWrapping;
+            tex.wrapT = THREE.ClampToEdgeWrapping;
+            return tex;
+        }
+
 
         // Texture instances
         const calacattaMarbleTex = createCalacattaMarbleTexture();
         const stuccoTex = createStuccoTexture();
         const woodTex = createWoodTexture('#78350f', 'rgba(30,10,0,0.32)');
+        const woodSoffitTex = createWoodSoffitTexture();
+        const archSignTex = createArchitecturalSignTexture();
         const roofTex = createMangaloreTileTexture();
         const paverSlateTex = createPaverTileTexture('#334155', 'rgba(15,23,42,0.50)');
         const paverGoldTex = createPaverTileTexture('#c29b74', 'rgba(67,40,16,0.40)');
@@ -1904,18 +2180,67 @@
         const contactShadowTex = createContactShadowTexture();
 
         // -------------------------------------------------------------
-        // MATERIALS PALETTE (WARM LUXURY JAIPUR SANDSTONE & CASHMERE INTERIOR)
+        // MATERIALS PALETTE (WARM LUXURY JAIPUR SANDSTONE, CHARCOAL BASALT & CASHMERE INTERIOR)
         // -------------------------------------------------------------
         const wallSandstone = new THREE.MeshStandardMaterial({
-            color: 0xfffbf0, // Warm luminous natural sandstone / travertine
+            color: 0xddd0b6, // Rich natural Jaipur Sandstone / Travertine (tangible warm stone character)
             map: stuccoTex,
             bumpMap: stuccoTex,
-            bumpScale: 0.015,
-            roughness: 0.58, // Satin architectural sheen that catches sunlight
-            metalness: 0.03
+            bumpScale: 0.018,
+            roughness: 0.74, // Diffuses light naturally without washing out to white
+            metalness: 0.02
         });
-        const wallAccentSlate = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.50, metalness: 0.20 });
-        const wallAccentRoyalBlue = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.55, metalness: 0.15 });
+        const matFacadeCharcoal = new THREE.MeshStandardMaterial({
+            color: 0x1e2430, // Deep Architectural Charcoal Basalt / Anthracite Slate
+            roughness: 0.45,
+            metalness: 0.25
+        });
+        const wallAccentSlate = matFacadeCharcoal;
+        const wallAccentRoyalBlue = matFacadeCharcoal; // Eliminates cartoonish royal blue
+        const parapetCopingMat = new THREE.MeshStandardMaterial({
+            color: 0x1e2633, // High-contrast Anthracite Slate coping
+            roughness: 0.38,
+            metalness: 0.25
+        });
+        const granitePlinthMat = new THREE.MeshStandardMaterial({
+            color: 0x181e28, // Dark Flamed Rustic Granite Podium Band
+            roughness: 0.50,
+            metalness: 0.20
+        });
+        const windowSillMat = new THREE.MeshStandardMaterial({
+            color: 0x181e28, // Dark Polished Granite Window Sill
+            roughness: 0.35,
+            metalness: 0.40
+        });
+        const teakSoffitMat = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            map: woodSoffitTex,
+            bumpMap: woodSoffitTex,
+            bumpScale: 0.010,
+            roughness: 0.42,
+            metalness: 0.08
+        });
+        const matSignBackplate = new THREE.MeshStandardMaterial({
+            color: 0x0f172a, // Brushed dark obsidian slate
+            roughness: 0.30,
+            metalness: 0.85
+        });
+        const matSignGoldTrim = new THREE.MeshStandardMaterial({
+            color: 0xd97706, // Champagne 24K Gold Brass
+            roughness: 0.20,
+            metalness: 0.90
+        });
+        const matSignCanvas = new THREE.MeshStandardMaterial({
+            map: archSignTex,
+            roughness: 0.25,
+            metalness: 0.65
+        });
+        const matLuminaireUnderside = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            emissive: 0xfef08a,
+            emissiveIntensity: 0.9,
+            roughness: 0.10
+        });
         const wallInternalMat = new THREE.MeshStandardMaterial({
             color: 0xf5eee4, // Warm Cashmere Ivory / Linen (Asian Paints Royale Luxury Emulsion)
             map: interiorWallTex,
@@ -1925,7 +2250,7 @@
             metalness: 0.01
         });
         const teakCladMat = new THREE.MeshStandardMaterial({ color: 0x854d0e, map: woodTex, roughness: 0.50, metalness: 0.10 });
-        const slabFasciaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25, metalness: 0.05 });
+        const slabFasciaMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.35, metalness: 0.05 });
         const darkFrameMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.30, metalness: 0.85 });
         const goldBrassMat = new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.20, metalness: 0.85 });
         const steelMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.35, metalness: 0.30 });
@@ -2012,25 +2337,25 @@
         const stairNosingMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.40, metalness: 0.10 });
 
         const windowGlassMat = new THREE.MeshStandardMaterial({
-            color: 0x38bdf8,
-            roughness: 0.03,
-            metalness: 0.92,
+            color: 0x162a3e, // Solar Low-E Blue-Grey Reflective Glazing
+            roughness: 0.06,
+            metalness: 0.94,
             transparent: true,
-            opacity: 0.45
+            opacity: 0.65
         });
         const railingGlassMat = new THREE.MeshStandardMaterial({
-            color: 0x67e8f9,
+            color: 0xdbeafe, // Crystal-clear low-iron tempered architectural safety glass
             roughness: 0.03,
-            metalness: 0.92,
+            metalness: 0.85,
             transparent: true,
-            opacity: 0.45
+            opacity: 0.35
         });
         const stairGlassMat = new THREE.MeshStandardMaterial({
-            color: 0x38bdf8,
-            roughness: 0.03,
-            metalness: 0.92,
+            color: 0x1a2e44, // Low-E Blue-Grey curtain wall glazing
+            roughness: 0.05,
+            metalness: 0.94,
             transparent: true,
-            opacity: 0.50
+            opacity: 0.65
         });
 
         // -------------------------------------------------------------
@@ -2320,11 +2645,11 @@
                 createBox(w - frameT * 2, h - frameT * 2, 0.02, 0, 0, 0, windowGlassMat, winGrp);
                 // Projecting Granite Window Sill & RCC Chajja (Sunshade)
                 const extDir = (z >= 0) ? 1 : -1;
-                createBox(w + 0.12, 0.045, 0.30, 0, -h / 2 - 0.02, extDir * 0.04, slabFasciaMat, winGrp);
+                createBox(w + 0.12, 0.045, 0.30, 0, -h / 2 - 0.02, extDir * 0.04, windowSillMat, winGrp);
                 createBox(chajjaW, 0.065, chajjaDepth, 0, h / 2 + 0.05, extDir * (chajjaDepth / 2 - 0.05), slabFasciaMat, winGrp);
                 // Chajja Side Fascia Fins (Box-Window look)
-                createBox(0.05, h + 0.12, chajjaDepth * 0.65, -w / 2 - 0.04, 0, extDir * 0.10, slabFasciaMat, winGrp);
-                createBox(0.05, h + 0.12, chajjaDepth * 0.65, w / 2 + 0.04, 0, extDir * 0.10, slabFasciaMat, winGrp);
+                createBox(0.05, h + 0.12, chajjaDepth * 0.65, -w / 2 - 0.04, 0, extDir * 0.10, matFacadeCharcoal, winGrp);
+                createBox(0.05, h + 0.12, chajjaDepth * 0.65, w / 2 + 0.04, 0, extDir * 0.10, matFacadeCharcoal, winGrp);
             } else {
                 createBox(frameD, frameT, w, 0, h / 2 - frameT / 2, 0, darkFrameMat, winGrp);
                 createBox(frameD, frameT, w, 0, -h / 2 + frameT / 2, 0, darkFrameMat, winGrp);
@@ -2334,10 +2659,10 @@
                 createBox(frameD * 0.6, 0.03, w - frameT * 2, 0, h * 0.18, 0, darkFrameMat, winGrp);
                 createBox(0.02, h - frameT * 2, w - frameT * 2, 0, 0, 0, windowGlassMat, winGrp);
                 const extDir = (x >= 0) ? 1 : -1;
-                createBox(0.30, 0.045, w + 0.12, extDir * 0.04, -h / 2 - 0.02, 0, slabFasciaMat, winGrp);
+                createBox(0.30, 0.045, w + 0.12, extDir * 0.04, -h / 2 - 0.02, 0, windowSillMat, winGrp);
                 createBox(chajjaDepth, 0.065, chajjaW, extDir * (chajjaDepth / 2 - 0.05), h / 2 + 0.05, 0, slabFasciaMat, winGrp);
-                createBox(chajjaDepth * 0.65, h + 0.12, 0.05, extDir * 0.10, 0, -w / 2 - 0.04, slabFasciaMat, winGrp);
-                createBox(chajjaDepth * 0.65, h + 0.12, 0.05, extDir * 0.10, 0, w / 2 + 0.04, slabFasciaMat, winGrp);
+                createBox(chajjaDepth * 0.65, h + 0.12, 0.05, extDir * 0.10, 0, -w / 2 - 0.04, matFacadeCharcoal, winGrp);
+                createBox(chajjaDepth * 0.65, h + 0.12, 0.05, extDir * 0.10, 0, w / 2 + 0.04, matFacadeCharcoal, winGrp);
             }
             (parent || archGroup).add(winGrp);
             return winGrp;
@@ -2789,11 +3114,11 @@
             const yMid = (yBase + yTarget) / 2;
             const flightSteps = 9;
 
-            // 1. Front Glass Curtain Wall (Z = 8.34m)
-            createBox(0.35, h, 0.23, -4.435, yMid, 8.34, wallAccentRoyalBlue, parent);
-            createBox(0.35, h, 0.23, -0.865, yMid, 8.34, wallAccentRoyalBlue, parent);
-            createBox(3.92, 0.20, 0.23, -2.65, yBase + 0.10, 8.34, wallAccentRoyalBlue, parent);
-            createBox(3.92, 0.20, 0.23, -2.65, yTarget - 0.10, 8.34, wallAccentRoyalBlue, parent);
+            // 1. Front Glass Curtain Wall (Z = 8.34m) - High-End Charcoal Basalt & Gold Anodized Fin
+            createBox(0.35, h, 0.23, -4.435, yMid, 8.34, matFacadeCharcoal, parent);
+            createBox(0.35, h, 0.23, -0.865, yMid, 8.34, matFacadeCharcoal, parent);
+            createBox(3.92, 0.20, 0.23, -2.65, yBase + 0.10, 8.34, matFacadeCharcoal, parent);
+            createBox(3.92, 0.20, 0.23, -2.65, yTarget - 0.10, 8.34, matFacadeCharcoal, parent);
 
             const glassW = 3.22;
             const glassH = h - 0.40;
@@ -2801,6 +3126,8 @@
             [-3.45, -2.65, -1.85].forEach(mx => {
                 createBox(0.05, glassH, 0.08, mx, yMid, 8.34, darkFrameMat, parent);
             });
+            // Champagne gold center accent fin on staircase curtain wall
+            createBox(0.03, glassH, 0.09, -2.65, yMid, 8.345, matSignGoldTrim, parent);
             [yBase + 0.20 + glassH / 3, yBase + 0.20 + (2 * glassH) / 3].forEach(ty => {
                 createBox(glassW, 0.05, 0.08, -2.65, ty, 8.34, darkFrameMat, parent);
             });
@@ -2815,8 +3142,13 @@
             createBox(0.23, 0.04, 2.13, -4.61, yLanding + 1.12, 7.275, wallSandstone, parent);
 
             const leftGlassH = h - 1.25;
-            createBox(0.02, leftGlassH, 1.80, -4.61, yLanding + 1.15 + leftGlassH / 2, 7.275, stairGlassMat, parent);
+            const leftGlassLen = 2.13; // Full span from Column A-1 (6.21m) to Front Column A-0 (8.34m) - ZERO GAP!
+            createBox(0.02, leftGlassH, leftGlassLen, -4.61, yLanding + 1.15 + leftGlassH / 2, 7.275, stairGlassMat, parent);
+            // End vertical mullions anchored flush into both columns + center mullion + top header channel
+            createBox(0.06, leftGlassH, 0.05, -4.61, yLanding + 1.15 + leftGlassH / 2, 6.22, darkFrameMat, parent);
             createBox(0.06, leftGlassH, 0.05, -4.61, yLanding + 1.15 + leftGlassH / 2, 7.275, darkFrameMat, parent);
+            createBox(0.06, leftGlassH, 0.05, -4.61, yLanding + 1.15 + leftGlassH / 2, 8.33, darkFrameMat, parent);
+            createBox(0.06, 0.05, leftGlassLen, -4.61, yLanding + 1.15 + leftGlassH, 7.275, darkFrameMat, parent);
 
             // 3. Flights (100% Monolithically Synchronized with Mid-Landing)
             // Mid-landing slab spans X in [-4.61m, -3.51m], width = 1.10m, center X = -4.06m
@@ -3492,8 +3824,8 @@
             createBox(0.23, colH - 0.20, 0.43, cp[0], Y_PLINTH + 0.20 + (colH - 0.20) / 2, cp[1], wallSandstone, storyGroups.ground);
         });
 
-        // 2. GROUND FLOOR: STILT PARKING + 2 BHK RESIDENTIAL APARTMENT
-        createBox(9.22, 0.20, 16.69, 0, Y_PLINTH - 0.10, 0, slabFasciaMat, storyGroups.ground);
+        // 2. GROUND FLOOR: STILT PARKING + 2 BHK RESIDENTIAL APARTMENT (Rustic Granite Podium Plinth)
+        createBox(9.22, 0.20, 16.69, 0, Y_PLINTH - 0.10, 0, granitePlinthMat, storyGroups.ground);
 
         // Heavy-Duty Interlocking Architectural Paver Tiles in Stilt Parking & Pathway
         createCheckeredFloor(-4.61, 4.61, 1.71, 8.34, Y_PLINTH, 0.60, paverCharcoalSlate, paverSandstoneGold, storyGroups.ground);
@@ -3611,6 +3943,9 @@
         createBox(9.22, 0.18, 14.55, 0, Y_FLOOR1 - 0.09, -1.065, slabFasciaMat, storyGroups.first);
         // 7' Front Balcony Slab (X = -0.69m to 4.61m, Z = 6.21m to 8.34m)
         createBox(5.30, 0.18, 2.13, 1.96, Y_FLOOR1 - 0.09, 7.275, slabFasciaMat, storyGroups.first);
+        // Architectural Warm Teak Wood Balcony Ceiling Soffits (Luxury Villa Hallmark)
+        createBox(5.26, 0.015, 2.09, 1.96, Y_FLOOR1 - 0.185, 7.275, teakSoffitMat, storyGroups.first);
+        createBox(1.33, 0.015, 13.14, 3.925, Y_FLOOR1 - 0.185, -0.38, teakSoffitMat, storyGroups.first);
 
         // 7' Front Balcony & 4'6" Side Balcony (Designer Outdoor Vitrified Tuscan Cotto & Sandstone Travertine Tiles)
         createCheckeredFloor(-0.69, 4.61, 6.21, 8.34, Y_FLOOR1, 0.60, balconyTileCotto, balconyTileTravertine, storyGroups.first);
@@ -3762,6 +4097,9 @@
         createBox(9.22, 0.18, 14.55, 0, Y_FLOOR2 - 0.09, -1.065, slabFasciaMat, storyGroups.second);
         // 7' Front Balcony Slab (X = -0.69m to 4.61m, Z = 6.21m to 8.34m)
         createBox(5.30, 0.18, 2.13, 1.96, Y_FLOOR2 - 0.09, 7.275, slabFasciaMat, storyGroups.second);
+        // Architectural Warm Teak Wood Balcony Ceiling Soffits (Luxury Villa Hallmark)
+        createBox(5.26, 0.015, 2.09, 1.96, Y_FLOOR2 - 0.185, 7.275, teakSoffitMat, storyGroups.second);
+        createBox(1.33, 0.015, 13.14, 3.925, Y_FLOOR2 - 0.185, -0.38, teakSoffitMat, storyGroups.second);
 
         // 7' Front Balcony & 4'6" Side Balcony (Designer Outdoor Vitrified Tuscan Cotto & Sandstone Travertine Tiles)
         createCheckeredFloor(-0.69, 4.61, 6.21, 8.34, Y_FLOOR2, 0.60, balconyTileCotto, balconyTileTravertine, storyGroups.second);
@@ -3924,16 +4262,34 @@
         const paraY = Y_TERRACE + paraH / 2;
         // North Rear Parapet (stops at X = 3.24m where LMR begins)
         createBox(7.75, paraH, 0.20, -0.635, paraY, -8.24, wallSandstone, storyGroups.terrace);
-        createBox(7.83, 0.06, 0.24, -0.635, Y_TERRACE + paraH + 0.03, -8.24, slabFasciaMat, storyGroups.terrace);
+        createBox(7.83, 0.06, 0.24, -0.635, Y_TERRACE + paraH + 0.03, -8.24, parapetCopingMat, storyGroups.terrace);
         // West Left Parapet (stops at Z = 6.21m where Staircase Mumty begins)
         createBox(0.20, paraH, 14.45, -4.51, paraY, -1.015, wallSandstone, storyGroups.terrace);
-        createBox(0.24, 0.06, 14.53, -4.51, Y_TERRACE + paraH + 0.03, -1.015, slabFasciaMat, storyGroups.terrace);
+        createBox(0.24, 0.06, 14.53, -4.51, Y_TERRACE + paraH + 0.03, -1.015, parapetCopingMat, storyGroups.terrace);
         // East Right Parapet (starts at Z = -3.35m where LMR ends, runs to Z = 8.24m)
         createBox(0.20, paraH, 11.59, 4.51, paraY, 2.445, wallSandstone, storyGroups.terrace);
-        createBox(0.24, 0.06, 11.67, 4.51, Y_TERRACE + paraH + 0.03, 2.445, slabFasciaMat, storyGroups.terrace);
+        createBox(0.24, 0.06, 11.67, 4.51, Y_TERRACE + paraH + 0.03, 2.445, parapetCopingMat, storyGroups.terrace);
         // South Front Parapet (from Mumty East wall X = -0.69m to East edge X = 4.51m)
         createBox(5.20, paraH, 0.20, 1.91, paraY, 8.24, wallSandstone, storyGroups.terrace);
-        createBox(5.30, 0.06, 0.24, 1.91, Y_TERRACE + paraH + 0.03, 8.24, slabFasciaMat, storyGroups.terrace);
+        createBox(5.30, 0.06, 0.24, 1.91, Y_TERRACE + paraH + 0.03, 8.24, parapetCopingMat, storyGroups.terrace);
+
+        
+        // -------------------------------------------------------------
+        // MODERN LUXURY ROOF PERGOLA TRELLIS (Warm Teak & Charcoal Architectural Crown)
+        // -------------------------------------------------------------
+        const pergolaY = Y_TERRACE + paraH + 1.85; // ~13.92m
+        // 4 Charcoal Longitudinal Runner Beams spanning over front terrace (Z: 6.35 to 8.15m)
+        [6.40, 7.00, 7.60, 8.20].forEach(pz => {
+            createBox(5.30, 0.08, 0.06, 1.96, pergolaY, pz, matFacadeCharcoal, storyGroups.terrace);
+        });
+        // 8 Warm Teak Wood Cross Louver Slats (Spanning across runner beams)
+        for (let px = -0.50; px <= 4.40; px += 0.70) {
+            createBox(0.05, 0.12, 2.05, px, pergolaY + 0.06, 7.30, teakSoffitMat, storyGroups.terrace);
+        }
+        // Supporting Slim Charcoal Upright Stanchions anchoring into front parapet & Mumty
+        [[-0.60, 8.20], [4.45, 8.20], [4.45, 6.40]].forEach(pt => {
+            createBox(0.06, 1.85, 0.06, pt[0], Y_TERRACE + paraH + 0.925, pt[1], matFacadeCharcoal, storyGroups.terrace);
+        });
 
         // Stair Mumty Room (With duplicate solid East wall removed so Terrace Door is open!)
         const mumtyH = Y_MUMTY - Y_TERRACE;
@@ -3943,6 +4299,69 @@
         createBox(3.92, mumtyH, 0.23, -2.65, mumtyY, 8.34, wallSandstone, storyGroups.headroom);
         createBox(3.92, mumtyH, 0.23, -2.65, mumtyY, 6.21, wallSandstone, storyGroups.headroom);
         createWallWithDoor(2.13, mumtyH, 0.23, -0.69, mumtyY, 7.275, 'Z', 0.50, 0.95, 2.10, teakDoorMat, 0.40, wallSandstone, storyGroups.headroom);
+
+        // -------------------------------------------------------------
+        // PRESTIGIOUS ARCHITECTURAL SIGNBOARD & 3D CORPORATE LOGO PLAQUE
+        // Located at the exact South facade wall of the Stair Mumty (Cursor location)
+        // -------------------------------------------------------------
+        // 1. Vertical Architectural Teak Wood Slat Feature Backdrop
+        const slatW = 3.40;
+        const slatH = mumtyH - 0.12;
+        createBox(slatW, slatH, 0.025, -2.65, mumtyY, 8.468, teakSoffitMat, storyGroups.headroom);
+        // Flanking vertical dark charcoal reveal trims
+        createBox(0.05, slatH, 0.035, -2.65 - slatW / 2 - 0.025, mumtyY, 8.472, matFacadeCharcoal, storyGroups.headroom);
+        createBox(0.05, slatH, 0.035, -2.65 + slatW / 2 + 0.025, mumtyY, 8.472, matFacadeCharcoal, storyGroups.headroom);
+
+        // 2. Heavy Floating Architectural Plaque
+        // Positioned in the upper half of the facade wall (Y = 12.72m) exactly at cursor mark
+        const signW = 2.40;
+        const signH = 1.05;
+        const signY = Y_TERRACE + mumtyH * 0.58; // 12.58m to 12.75m
+        const signZ = 8.50;
+
+        // Dark obsidian backplate
+        createBox(signW, signH, 0.035, -2.65, signY, signZ, matSignBackplate, storyGroups.headroom);
+
+        // High-definition Canvas Face with Gold Metallic Crest & Typography
+        createBox(signW - 0.04, signH - 0.04, 0.005, -2.65, signY, signZ + 0.020, matSignCanvas, storyGroups.headroom);
+
+        // Beveled Champagne 24K Gold Brass Perimeter Framing
+        const frameBezelT = 0.035;
+        const frameBezelD = 0.045;
+        createBox(signW + frameBezelT * 2, frameBezelT, frameBezelD, -2.65, signY + signH / 2 + frameBezelT / 2, signZ + 0.005, matSignGoldTrim, storyGroups.headroom);
+        createBox(signW + frameBezelT * 2, frameBezelT, frameBezelD, -2.65, signY - signH / 2 - frameBezelT / 2, signZ + 0.005, matSignGoldTrim, storyGroups.headroom);
+        createBox(frameBezelT, signH, frameBezelD, -2.65 - signW / 2 - frameBezelT / 2, signY, signZ + 0.005, matSignGoldTrim, storyGroups.headroom);
+        createBox(frameBezelT, signH, frameBezelD, -2.65 + signW / 2 + frameBezelT / 2, signY, signZ + 0.005, matSignGoldTrim, storyGroups.headroom);
+
+        // 4 Solid Brass Standoff Mounting Studs at the corners
+        const standoffOffsetX = signW / 2 - 0.12;
+        const standoffOffsetY = signH / 2 - 0.10;
+        [-standoffOffsetX, standoffOffsetX].forEach(sx => {
+            [-standoffOffsetY, standoffOffsetY].forEach(sy => {
+                const studG = new THREE.CylinderGeometry(0.022, 0.022, 0.04, 16);
+                studG.rotateX(Math.PI / 2);
+                const studM = new THREE.Mesh(studG, matSignGoldTrim);
+                studM.position.set(-2.65 + sx, signY + sy, signZ + 0.022);
+                storyGroups.headroom.add(studM);
+            });
+        });
+
+        // 3. Overhead Architectural Slim LED Downlight Luminaire (Picture / Wall-washer light)
+        const lumY = signY + signH / 2 + 0.22;
+        const lumZ = signZ + 0.08;
+        const lumW = 1.90;
+        // Luminaire housing
+        createBox(lumW, 0.04, 0.08, -2.65, lumY, lumZ, matFacadeCharcoal, storyGroups.headroom);
+        // Underside warm LED light emitter
+        createBox(lumW - 0.04, 0.01, 0.06, -2.65, lumY - 0.02, lumZ, matLuminaireUnderside, storyGroups.headroom);
+        // Brass endcaps
+        createBox(0.02, 0.045, 0.085, -2.65 - lumW / 2, lumY, lumZ, matSignGoldTrim, storyGroups.headroom);
+        createBox(0.02, 0.045, 0.085, -2.65 + lumW / 2, lumY, lumZ, matSignGoldTrim, storyGroups.headroom);
+        // Two cantilevered angled brass mounting brackets anchoring to the wall
+        [-0.65, 0.65].forEach(bx => {
+            const bracketArm = createBox(0.025, 0.025, 0.14, -2.65 + bx, lumY + 0.01, lumZ - 0.07, matSignGoldTrim, storyGroups.headroom);
+            bracketArm.rotation.x = -0.15;
+        });
 
         // Mangalore Clay Tiled Gable Roof
         const gableOverhang = 0.35;
@@ -4240,7 +4659,7 @@
             logarithmicDepthBuffer: false
         });
         renderer.setSize(container.clientWidth, container.clientHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.25 : 1.75));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.0 : 1.25));
         renderer.shadowMap.enabled = false;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.04; // Natural calibrated dynamic range (zero white blowout)
@@ -5404,7 +5823,7 @@
         animId = requestAnimationFrame(animate);
 
         // Power efficiency: If tab is hidden/backgrounded, skip rendering to prevent heating & lag
-        if (typeof document !== 'undefined' && document.hidden) return;
+        if (typeof document !== 'undefined' && (document.hidden || !document.hasFocus())) return;
 
         let moved = false;
         if (controls) {
@@ -5555,7 +5974,7 @@
                 headerTag.style.color = '#34d399';
                 headerTag.style.borderColor = 'rgba(16, 185, 129, 0.4)';
             } else {
-                headerTag.textContent = 'STAAD.Pro 2025 FEA';
+                headerTag.textContent = 'STAAD.Pro & RCDC';
                 headerTag.style.color = '#ffd700';
                 headerTag.style.borderColor = 'rgba(255, 215, 0, 0.4)';
             }
@@ -5568,24 +5987,24 @@
                 scene.fog = null; // Clean, high-contrast, crystal-clear architectural rendering
                 if (gridHelper) gridHelper.visible = false;
                 if (ambientLight) {
-                    ambientLight.intensity = 0.55;
-                    ambientLight.color.setHex(0xfffbeb);
+                    ambientLight.intensity = 0.38;
+                    ambientLight.color.setHex(0xffeedd);
                     ambientLight.groundColor.setHex(0x1e293b);
                 }
                 if (dirLight1) {
-                    dirLight1.intensity = 1.35;
-                    dirLight1.color.setHex(0xfff8ee);
+                    dirLight1.intensity = 1.08;
+                    dirLight1.color.setHex(0xfff3e0);
                     dirLight1.castShadow = false;
                 }
                 if (dirLight2) {
-                    dirLight2.intensity = 0.50;
-                    dirLight2.color.setHex(0xe2e8f0);
+                    dirLight2.intensity = 0.32;
+                    dirLight2.color.setHex(0xcfd8dc);
                 }
                 if (dirLight3) {
-                    dirLight3.intensity = 0.65;
+                    dirLight3.intensity = 0.40;
                     dirLight3.color.setHex(0xffffff);
                 }
-                if (renderer) renderer.toneMappingExposure = 1.08;
+                if (renderer) renderer.toneMappingExposure = 0.98;
             } else {
                 scene.background.setHex(0x090e1a); // Deep engineering dark viewport
                 scene.fog = null; // Zero fog washing out structural members and diagrams

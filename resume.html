@@ -323,6 +323,38 @@
             border-color: #0f172a;
         }
 
+        
+        /* Professional Declaration & Verification */
+        .cv-declaration {
+            margin-top: auto;
+            padding: 8px 12px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .cv-declaration .declaration-text {
+            font-size: 0.68rem;
+            color: #475569;
+            line-height: 1.32;
+            font-style: italic;
+        }
+        .cv-declaration .declaration-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.66rem;
+            color: #334155;
+            padding-top: 3px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .cv-declaration .signature-name {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
         /* Main Content Elements */
         .summary-text {
             font-size: 0.74rem;
@@ -431,7 +463,7 @@
             }
             @page {
                 size: A4 portrait;
-                margin: 6mm 7mm;
+                margin: 4.5mm 5.5mm;
             }
             * {
                 -webkit-print-color-adjust: exact !important;
@@ -529,6 +561,25 @@
             .cert-name {
                 font-size: 0.69rem !important;
             }
+
+            .cv-declaration {
+                margin-top: 8px !important;
+                padding: 6px 10px !important;
+                background: #f8fafc !important;
+                border: 1px dashed #cbd5e1 !important;
+                border-radius: 4px !important;
+            }
+            .cv-declaration .declaration-text {
+                font-size: 0.64rem !important;
+                line-height: 1.25 !important;
+                color: #475569 !important;
+            }
+            .cv-declaration .declaration-meta {
+                font-size: 0.63rem !important;
+                padding-top: 3px !important;
+                color: #334155 !important;
+            }
+
             .cert-issuer {
                 font-size: 0.64rem !important;
             }
@@ -541,7 +592,7 @@
     <header class="cv-action-bar">
         <div class="brand-badge">
             <i class="fas fa-certificate" style="color: #fbbf24;"></i>
-            <span>SYED ABDUL RAHMAN</span> &bull; Structural Design &amp; BIM Engineering CV
+            <span>SYED ABDUL RAHMAN</span> &bull; RCC Structural Design &amp; Civil Engineering CV
         </div>
         <div class="action-btns">
             <a href="Syed_Abdul_Rahman_Resume.pdf" download="Syed_Abdul_Rahman_Resume.pdf" class="action-btn btn-pdf" id="btnDownloadDirect">
@@ -564,7 +615,7 @@
             <div class="header-top">
                 <div class="name-title">
                     <h1>SYED ABDUL RAHMAN</h1>
-                    <div class="target-role">Civil &amp; Structural Engineer &bull; Bentley STAAD.Pro | Revit BIM | RCDC</div>
+                    <div class="target-role">Civil &amp; Structural Engineer &bull; STAAD.Pro | RCC Structural Design | AutoCAD &amp; Revit</div>
                 </div>
                 <div class="contact-grid">
                     <a href="mailto:abdulrahman.ark04@gmail.com" class="contact-item">
@@ -707,6 +758,17 @@
                     </div>
                 </section>
 
+            
+                <!-- Languages & Codes -->
+                <section class="cv-section">
+                    <h2 class="section-title"><i class="fas fa-language"></i> Communication</h2>
+                    <div class="lang-row">
+                        <span class="lang-pill">English (Fluent)</span>
+                        <span class="lang-pill">Hindi</span>
+                        <span class="lang-pill">Telugu</span>
+                        <span class="lang-pill">Urdu</span>
+                    </div>
+                </section>
             </aside>
 
             <!-- Right Main Area (Summary, Experience, Projects) -->
@@ -807,7 +869,9 @@
 
             </section>
         </div>
-    </main>
+    
+                </div>
+            </main>
 
     <!-- Tap/Click outside CV to close viewer -->
     <script>
