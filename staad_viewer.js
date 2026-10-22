@@ -1748,7 +1748,7 @@
             const tex = new THREE.CanvasTexture(c);
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
-            _archTexCache[cacheKey] = tex;
+            _archTexCache['wovenRug'] = tex;
             return tex;
         }
 
@@ -1967,6 +1967,7 @@
             tex.wrapS = THREE.RepeatWrapping;
             tex.wrapT = THREE.RepeatWrapping;
             tex.repeat.set(2, 2);
+            _archTexCache['woodSoffit'] = tex;
             return tex;
         }
 
@@ -4506,7 +4507,7 @@
         archGroup.add(storyGroups.terrace);
         archGroup.add(storyGroups.headroom);
 
-        scene.add(archGroup);
+        if (scene) scene.add(archGroup);
         architecturalModel = archGroup;
         return architecturalModel;
     }
@@ -6065,7 +6066,9 @@
             // Lazy load: build realistic model only on first demand!
             if (!architecturalModel) {
                 architecturalModel = buildArchitecturalModel();
-                scene.add(architecturalModel);
+                if (scene && architecturalModel && architecturalModel.parent !== scene) {
+                    scene.add(architecturalModel);
+                }
             }
             architecturalModel.visible = true;
 
