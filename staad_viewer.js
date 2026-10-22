@@ -325,6 +325,9 @@
 
                 <!-- 3D Viewport Body -->
                 <div class="staad-viewport-body" id="staadViewportContainer">
+                    <div class="staad-touch-hint" id="staadTouchHint">
+                        <i class="fas fa-hand-pointer"></i> <span>Drag to Orbit &bull; Pinch to Zoom</span>
+                    </div>
                     <canvas id="staad3dCanvas"></canvas>
 
                     <!-- Detailing Mode Active Banner -->
@@ -4720,8 +4723,8 @@
         // Controls
         controls = new THREE.OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
-        controls.rotateSpeed = 0.8;
+        controls.dampingFactor = 0.09;
+        controls.rotateSpeed = (window.innerWidth < 768) ? 0.58 : 0.85;
         controls.zoomSpeed = 1.0;
         controls.panSpeed = 0.8;
         controls.maxDistance = 80;
@@ -4738,6 +4741,10 @@
         canvas.addEventListener('mouseleave', onMouseLeave);
         canvas.addEventListener('click', onCanvasClick);
         canvas.addEventListener('dblclick', onCanvasDoubleClick);
+        canvas.addEventListener('pointerdown', () => {
+            const hint = document.getElementById('staadTouchHint');
+            if (hint) hint.classList.add('dismissed');
+        }, { passive: true, once: true });
 
         buildModel();
 

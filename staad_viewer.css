@@ -1357,3 +1357,35 @@
         padding-top: max(58px, calc(env(safe-area-inset-top) + 50px)) !important;
     }
 }
+
+/* Mobile 3D Orbit Touch Hint Shield */
+.staad-touch-hint {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 18, 32, 0.90);
+    border: 1px solid rgba(255, 215, 0, 0.45);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.15);
+    color: #f8fafc;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 7px 18px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 25;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.staad-touch-hint i { color: #ffd700; }
+.staad-touch-hint.dismissed {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+}
+@media (min-width: 900px) {
+    .staad-touch-hint { display: none !important; }
+}

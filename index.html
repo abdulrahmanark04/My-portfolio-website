@@ -4050,7 +4050,16 @@
 
 
 
-            .photo-frame img { max-width: 280px; }
+            /* Mobile portrait reframed: 100% full coverage, zero right clipping */
+            .photo-frame img,
+            #profileImg {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center top !important;
+                display: block !important;
+            }
 
 
 
@@ -7111,29 +7120,45 @@
             }
             .photo-stage-wrapper {
                 width: 100% !important;
-                max-width: 320px !important;
+                max-width: 295px !important;
                 margin: 0 auto !important;
                 position: relative !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                box-sizing: border-box !important;
+            }
+            .photo-stage-aura {
+                width: 100% !important;
+                max-width: 295px !important;
+                height: 395px !important;
+                overflow: hidden !important;
             }
             .photo-floating-chip.chip-top {
-                right: 10px !important;
-                top: 14px !important;
-                font-size: 0.74rem !important;
-                padding: 6px 12px !important;
+                right: 8px !important;
+                top: 12px !important;
+                font-size: 0.70rem !important;
+                padding: 5px 11px !important;
                 z-index: 10 !important;
+                max-width: calc(100% - 16px) !important;
             }
             .photo-floating-chip.chip-bottom {
-                left: 10px !important;
-                bottom: 14px !important;
-                font-size: 0.74rem !important;
-                padding: 6px 12px !important;
+                left: 8px !important;
+                bottom: 12px !important;
+                font-size: 0.70rem !important;
+                padding: 5px 11px !important;
                 z-index: 10 !important;
+                max-width: calc(100% - 16px) !important;
             }
             .photo-frame {
                 width: 100% !important;
-                max-width: 320px !important;
-                height: 428px !important;
+                max-width: 295px !important;
+                aspect-ratio: 3 / 4 !important;
+                height: auto !important;
                 margin: 0 auto !important;
+                border-radius: 18px !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
             }
             .hero-status-capsule {
                 max-width: 95% !important;
@@ -7150,6 +7175,135 @@
             }
         }
 
+    
+        /* ===== FLOATING QUICK-CONNECT & RESUME PILL ===== */
+        .floating-quick-connect {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: var(--font-tech, 'Plus Jakarta Sans', sans-serif);
+        }
+        .floating-quick-connect.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .quick-connect-btn {
+            background: linear-gradient(135deg, rgba(20, 24, 38, 0.94) 0%, rgba(8, 12, 22, 0.98) 100%);
+            border: 1.5px solid rgba(255, 215, 0, 0.45);
+            color: #ffd700;
+            padding: 10px 18px;
+            border-radius: 9999px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .quick-connect-btn:hover {
+            border-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 215, 0, 0.3);
+            color: #ffffff;
+        }
+        .quick-connect-btn .pulse-dot-gold {
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700;
+            animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .quick-connect-popover {
+            position: absolute;
+            bottom: calc(100% + 14px);
+            right: 0;
+            width: 280px;
+            background: rgba(10, 16, 28, 0.96);
+            border: 1.5px solid rgba(255, 215, 0, 0.35);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 215, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px) scale(0.95);
+            transform-origin: bottom right;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .quick-connect-popover.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        .popover-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+        }
+        .popover-header span {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #ffd700;
+            text-transform: uppercase;
+        }
+        .popover-header button {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+        .popover-header button:hover { color: #f8fafc; }
+        .popover-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .popover-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            color: #f1f5f9;
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .popover-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.4);
+            color: #ffd700;
+            transform: translateX(3px);
+        }
+        .popover-link i { font-size: 1rem; width: 18px; text-align: center; }
+        .popover-link.link-wa i { color: #25D366; }
+        .popover-link.link-call i { color: #38bdf8; }
+        .popover-link.link-resume i { color: #ffd700; }
+        .popover-link.link-mail i { color: #f43f5e; }
+        @media (max-width: 480px) {
+            .floating-quick-connect { bottom: 18px; right: 16px; }
+            .quick-connect-btn span { display: none; }
+            .quick-connect-btn { padding: 12px; border-radius: 50%; }
+            .quick-connect-popover { width: 250px; right: 0; }
+        }
     </style>
 
 
@@ -11354,6 +11508,76 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
         }
 
 </script>
+
+    <!-- Floating Quick-Connect & Resume Pill -->
+    <div class="floating-quick-connect" id="floatingQuickConnect">
+        <div class="quick-connect-popover" id="quickConnectPopover">
+            <div class="popover-header">
+                <span><i class="fas fa-bolt"></i> Quick Connect</span>
+                <button type="button" id="closeQuickConnect" aria-label="Close">&times;</button>
+            </div>
+            <div class="popover-links">
+                <a href="https://wa.me/919014548214?text=Hi%20Syed%2C%20I%20reviewed%20your%20structural%20engineering%20portfolio." target="_blank" rel="noopener" class="popover-link link-wa">
+                    <i class="fab fa-whatsapp"></i> <span>WhatsApp Direct</span>
+                </a>
+                <a href="tel:+919014548214" class="popover-link link-call">
+                    <i class="fas fa-phone-alt"></i> <span>Call Direct</span>
+                </a>
+                <a href="resume.html" target="_blank" class="popover-link link-resume">
+                    <i class="fas fa-file-invoice"></i> <span>View Resume PDF</span>
+                </a>
+                <a href="mailto:abdulrahman.ark04@gmail.com" class="popover-link link-mail">
+                    <i class="fas fa-envelope"></i> <span>Send Email</span>
+                </a>
+            </div>
+        </div>
+        <button type="button" class="quick-connect-btn" id="quickConnectTrigger" aria-label="Quick Connect & Resume">
+            <span class="pulse-dot-gold"></span>
+            <i class="fas fa-paper-plane"></i>
+            <span>Quick Connect</span>
+        </button>
+    </div>
+
+
+<script>
+// Floating Quick-Connect Lifecycle
+(function() {
+    const pill = document.getElementById('floatingQuickConnect');
+    const trigger = document.getElementById('quickConnectTrigger');
+    const popover = document.getElementById('quickConnectPopover');
+    const closeBtn = document.getElementById('closeQuickConnect');
+    if (!pill || !trigger || !popover) return;
+
+    let isVisible = false;
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > 380;
+        if (scrolled !== isVisible) {
+            isVisible = scrolled;
+            pill.classList.toggle('visible', isVisible);
+            if (!isVisible) popover.classList.remove('open');
+        }
+    }, { passive: true });
+
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        popover.classList.toggle('open');
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            popover.classList.remove('open');
+        });
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!popover.contains(e.target) && e.target !== trigger) {
+            popover.classList.remove('open');
+        }
+    });
+})();
+</script>
+
 </body>
 
 
