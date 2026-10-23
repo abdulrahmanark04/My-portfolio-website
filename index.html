@@ -9756,9 +9756,13 @@
 
 
         function recordActivity() {
-
             lastActivityTime = performance.now();
-
+            if (!bgAnimationId && typeof animateBgWeb === 'function' && document.hasFocus() && !document.hidden) {
+                const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
+                if (!isModalActive) {
+                    bgAnimationId = requestAnimationFrame(animateBgWeb);
+                }
+            }
         }
 
 
@@ -9827,11 +9831,7 @@
                 return;
             }
 
-            // Thermal & GPU Saver 3: STOP canvas loop when scrolled past hero! (0% GPU/CPU on page read)
-            if (window.scrollY > (window.innerHeight * 1.05)) {
-                bgAnimationId = null;
-                return;
-            }
+
 
             bgAnimationId = requestAnimationFrame(animateBgWeb);
 
