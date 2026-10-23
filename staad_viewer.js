@@ -361,12 +361,15 @@
                     </div>
 
                     <!-- Realistic Architectural Render Banner -->
-                    <div class="staad-analysis-banner banner-realistic" id="staadRealisticBanner">
-                        <i class="fas fa-city" style="font-size: 1.1rem; color: #38bdf8;"></i>
-                        <div>
-                            <strong>Realistic 3D Architectural Simulation Active:</strong>
-                            <span>Complete G+2 architectural model with masonry walls, teak main door, aluminum glazed windows, weather chajjas, glass balcony railings, plinth entrance staircase, compound wall, and overhead water tank.</span>
+                    <div class="staad-analysis-banner banner-realistic" id="staadRealisticBanner" style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                        <div style="display: flex; align-items: center; gap: 10px; flex: 1;">
+                            <i class="fas fa-city" style="font-size: 1.1rem; color: #38bdf8; flex-shrink: 0;"></i>
+                            <div>
+                                <strong>Realistic 3D Architectural Simulation Active:</strong>
+                                <span>Complete G+2 architectural model with masonry walls, teak main door, aluminum glazed windows, weather chajjas, glass balcony railings, plinth entrance staircase, compound wall, and overhead water tank.</span>
+                            </div>
                         </div>
+                        <button type="button" onclick="document.getElementById('staadRealisticBanner').classList.remove('active')" style="background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 1.3rem; padding: 0 6px; line-height: 1; flex-shrink: 0;" title="Dismiss">&times;</button>
                     </div>
 
                     <!-- Elevation Active HUD Banner -->
@@ -4781,29 +4784,29 @@
         if (!camera) return;
         currentView = view || 'iso';
         const isReal = (analysisMode === 'realistic');
-        const dist = isReal ? 25.5 : 25;
-        const targetY = isReal ? 6.2 : 6.0;
+        const targetY = isReal ? 5.8 : 6.0;
 
         switch (view) {
             case 'front': // Front (South) looking North (+Z to -Z)
-                camera.position.set(0, targetY, isReal ? 25.5 : dist);
+                camera.position.set(0, isReal ? 6.2 : targetY, isReal ? 26.0 : 25.0);
                 break;
             case 'rear': // Rear (North) looking South (-Z to +Z)
-                camera.position.set(0, targetY, isReal ? -25.5 : -dist);
+                camera.position.set(0, isReal ? 6.2 : targetY, isReal ? -26.0 : -25.0);
                 break;
             case 'left': // Left (West) looking East (-X to +X)
-                camera.position.set(isReal ? -26.5 : -dist, targetY, 0);
+                camera.position.set(isReal ? -27.0 : -25.0, isReal ? 6.2 : targetY, 0);
                 break;
             case 'right': // Right (East) looking West (+X to -X)
-                camera.position.set(isReal ? 26.5 : dist, targetY, 0);
+                camera.position.set(isReal ? 27.0 : 25.0, isReal ? 6.2 : targetY, 0);
                 break;
             case 'top': // Top (Plan) looking down (+Y down)
-                camera.position.set(0.001, (isReal ? 28 : dist + 8), 0);
+                camera.position.set(0.001, (isReal ? 28.0 : 33.0), 0);
                 break;
             case 'iso':
             default:
                 if (isReal) {
-                    camera.position.set(19, 16, 22);
+                    // Majestic towering elevation: eye-level architectural perspective looking up at 3-story G+2 structure
+                    camera.position.set(18.5, 11.5, 22.0);
                 } else {
                     camera.position.set(20, 18, 22);
                 }
@@ -5957,19 +5960,14 @@
                     animate();
                 }
                 onWindowResize();
-                setCameraView('iso');
 
-                if (initialMode === 'rcc' || initialMode === true) {
-                    window.staadViewerSetAnalysisMode('rcc');
-                } else if (initialMode === 'moment') {
-                    window.staadViewerSetAnalysisMode('moment');
-                } else if (initialMode === 'shear') {
-                    window.staadViewerSetAnalysisMode('shear');
-                } else if (initialMode === 'realistic') {
-                    window.staadViewerSetAnalysisMode('realistic');
-                } else {
-                    window.staadViewerSetAnalysisMode('solid');
-                }
+                const targetMode = (initialMode === 'rcc' || initialMode === true) ? 'rcc' :
+                                   (initialMode === 'moment') ? 'moment' :
+                                   (initialMode === 'shear') ? 'shear' :
+                                   (initialMode === 'realistic') ? 'realistic' : 'solid';
+
+                window.staadViewerSetAnalysisMode(targetMode);
+                setCameraView('iso');
             }, 50);
         }
     };
@@ -6048,7 +6046,17 @@
         if (rccBanner) rccBanner.classList.toggle('active', analysisMode === 'rcc');
         if (momentBanner) momentBanner.classList.toggle('active', analysisMode === 'moment');
         if (shearBanner) shearBanner.classList.toggle('active', analysisMode === 'shear');
-        if (realisticBanner) realisticBanner.classList.toggle('active', analysisMode === 'realistic');
+        if (realisticBanner) {
+            realisticBanner.classList.toggle('active', analysisMode === 'realistic');
+            if (analysisMode === 'realistic') {
+                clearTimeout(realisticBanner._dismissTimer);
+                realisticBanner._dismissTimer = setTimeout(() => {
+                    if (realisticBanner && analysisMode === 'realistic') {
+                        realisticBanner.classList.remove('active');
+                    }
+                }, 5000);
+            }
+        }
 
         // Header tag
         const headerTag = document.getElementById('staadHeaderTag');
@@ -6304,6 +6312,9 @@
             if (inspector && inspector.classList.contains('active')) {
                 openRebarInspector(currentInspectorData);
             }
+        }
+        if (!activeGridFilter) {
+            setCameraView(currentView || 'iso');
         }
         requestRender(5);
         if (controls) controls.update();
