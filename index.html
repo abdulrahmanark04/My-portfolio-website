@@ -3850,50 +3850,39 @@
 
 
         .back-to-top {
-
-
-
-            position: fixed; bottom: 30px; right: 30px;
-
-
-
-            width: 44px; height: 44px; border-radius: 50%;
-
-
-
-            background: var(--yellow); color: #000;
-
-
-
-            border: none; cursor: pointer; font-size: 1.2rem;
-
-
-
-            display: flex; align-items: center; justify-content: center;
-
-
-
-            opacity: 0; visibility: hidden;
-
-
-
-            transition: all 0.3s; z-index: 999;
-
-
-
+            position: fixed;
+            bottom: 82px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--yellow);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 998;
             box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-
-
-
         }
 
-
-
         .back-to-top.visible { opacity: 1; visibility: visible; }
-
-
-
         .back-to-top:hover { background: var(--white); transform: translateY(-3px); }
+
+        @media (max-width: 480px) {
+            .back-to-top {
+                bottom: 74px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.05rem;
+            }
+        }
 
 
 
@@ -6799,6 +6788,14 @@
 
         }
 
+        /* Zero-CPU Offscreen Animation Freezing */
+        .offscreen-paused,
+        .offscreen-paused *,
+        .offscreen-paused *::before,
+        .offscreen-paused *::after {
+            animation-play-state: paused !important;
+        }
+
 
 
     
@@ -9630,46 +9627,33 @@
 
         function animateBgWeb(timestamp) {
 
-            // Thermal & Snipping Tool Saver: STOP loop entirely if window lost focus or tab hidden
-
+            // Thermal & Battery Saver 1: STOP loop entirely if window lost focus or tab hidden
             if (!document.hasFocus() || document.hidden) {
-
                 bgAnimationId = null;
-
                 return;
-
             }
 
+            // Thermal & GPU Saver 2: Halt canvas loop completely if 3D viewer or any modal is open
+            const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
+            if (isModalActive) {
+                bgAnimationId = null;
+                return;
+            }
 
+            // Thermal & GPU Saver 3: STOP canvas loop when scrolled past hero! (0% GPU/CPU on page read)
+            if (window.scrollY > (window.innerHeight * 1.05)) {
+                bgAnimationId = null;
+                return;
+            }
 
             bgAnimationId = requestAnimationFrame(animateBgWeb);
 
-
-
-            // Thermal Saver 2: Skip if any modal/viewer is open
-            const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
-            if (isModalActive) return;
-
-            // Thermal Saver 3: STOP canvas rendering when scrolled past hero! (0% CPU on page read)
-            if (window.scrollY > (window.innerHeight * 1.05)) return;
-
-
-
-            // Dynamic Thermal Engine: 60 FPS during interaction, 30 FPS when idle
-
+            // 30 FPS Cap (33.3ms interval): perfectly fluid ambient gold particle motion with 50% less GPU composite load behind blur!
             const now = timestamp || performance.now();
-
-            const idleTime = now - lastActivityTime;
-
-            const frameInterval = idleTime < 1400 ? (1000 / 60) : (1000 / 30);
-
-
-
-            if (now - lastBgFrameTime < frameInterval) return;
-
-            lastBgFrameTime = now;
-
-
+            const elapsed = now - lastBgFrameTime;
+            const BG_FRAME_INTERVAL = 1000 / 30;
+            if (elapsed < BG_FRAME_INTERVAL) return;
+            lastBgFrameTime = now - (elapsed % BG_FRAME_INTERVAL);
 
             bgCtx.clearRect(0, 0, bgW, bgH);
 
@@ -10002,6 +9986,8 @@
         window.addEventListener('blur', freezeAllAnimations, { passive: true });
 
         window.addEventListener('focus', unfreezeAllAnimations, { passive: true });
+
+        window.addEventListener('scroll', unfreezeAllAnimations, { passive: true });
 
         document.addEventListener('visibilitychange', function() {
 
@@ -11578,6 +11564,22 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
 })();
 </script>
 
+<script>
+// Zero-CPU Offscreen Section Observer: freezes infinite CSS keyframes when scrolled out of view
+(function() {
+    if ('IntersectionObserver' in window) {
+        const sectionPerfObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                entry.target.classList.toggle('offscreen-paused', !entry.isIntersecting);
+            });
+        }, { rootMargin: '200px 0px' });
+
+        document.querySelectorAll('section, header, footer, .hero, .featured-project-card, .staad-workbench').forEach(el => {
+            sectionPerfObserver.observe(el);
+        });
+    }
+})();
+</script>
 </body>
 
 

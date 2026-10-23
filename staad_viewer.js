@@ -20,6 +20,12 @@
     let renderDemandCount = 10;
     function requestRender(frames = 3) {
         renderDemandCount = Math.max(renderDemandCount, frames);
+        if (isInitialized && !animId) {
+            const modal = typeof document !== 'undefined' ? document.getElementById('staad3dModal') : null;
+            if (modal && modal.classList.contains('active')) {
+                animId = requestAnimationFrame(animate);
+            }
+        }
     }
 
     let architecturalModel = null;
@@ -1504,6 +1510,18 @@
     // with surgical resolution of all 5 user feedback points.
     // =========================================================================
     const _archTexCache = {};
+
+    // Freeze static object matrices once after build to eliminate thousands of 4x4 matrix calculations per frame
+    function freezeStaticMatrices(rootObject) {
+        if (!rootObject) return;
+        rootObject.traverse((obj) => {
+            if (obj.isMesh || obj.isLine || obj.isLineSegments || obj.isPoints) {
+                obj.updateMatrix();
+                obj.updateMatrixWorld(true);
+                obj.matrixAutoUpdate = false;
+            }
+        });
+    }
 
     function buildArchitecturalModel() {
         if (architecturalModel) {
@@ -4510,6 +4528,8 @@
         archGroup.add(storyGroups.terrace);
         archGroup.add(storyGroups.headroom);
 
+        freezeStaticMatrices(archGroup);
+
         if (scene) scene.add(archGroup);
         architecturalModel = archGroup;
         return architecturalModel;
@@ -4662,6 +4682,8 @@
         dirLight3.castShadow = false;
         scene.add(dirLight3);
 
+        freezeStaticMatrices(scene);
+
         // 6. Realistic Architectural 3D Simulation Model (Lazy-loaded on first demand in staadViewerSetAnalysisMode)
         // architecturalModel is instantiated when Realistic 3D mode is activated.
     }
@@ -4731,6 +4753,8 @@
         controls.minDistance = 2;
         controls.target.set(0, 6.0, 0);
         controls.addEventListener('change', () => requestRender(2));
+        controls.addEventListener('start', () => { isOrbitDragging = true; requestRender(3); });
+        controls.addEventListener('end', () => { isOrbitDragging = false; requestRender(3); });
 
         // Tooltip element
         tooltipEl = document.getElementById('staadTooltip');
@@ -4741,6 +4765,8 @@
         canvas.addEventListener('mouseleave', onMouseLeave);
         canvas.addEventListener('click', onCanvasClick);
         canvas.addEventListener('dblclick', onCanvasDoubleClick);
+        canvas.addEventListener('wheel', () => requestRender(5), { passive: true });
+        canvas.addEventListener('touchmove', () => requestRender(2), { passive: true });
         canvas.addEventListener('pointerdown', () => {
             const hint = document.getElementById('staadTouchHint');
             if (hint) hint.classList.add('dismissed');
@@ -4835,19 +4861,19 @@
     }
 
     let lastRaycastTime = 0;
-    let isPointerDown = false;
+    let isOrbitDragging = false;
 
     // Track pointer drag so we never raycast while orbiting/panning
-    window.addEventListener('pointerdown', () => { isPointerDown = true; }, { passive: true });
-    window.addEventListener('pointerup', () => { isPointerDown = false; }, { passive: true });
+    window.addEventListener('pointerdown', () => { isOrbitDragging = true; }, { passive: true });
+    window.addEventListener('pointerup', () => { isOrbitDragging = false; }, { passive: true });
 
     function onCanvasMouseMove(e) {
         // 1. Never raycast while rotating/panning the camera
-        if (isPointerDown) return;
+        if (isOrbitDragging) return;
 
-        // 2. Throttle raycasting to max 20 checks/sec (50ms) instead of 120+/sec
+        // 2. Throttle raycasting to ~12 checks/sec (80ms) instead of 120+/sec
         const now = performance.now();
-        if (now - lastRaycastTime < 50) return;
+        if (now - lastRaycastTime < 80) return;
         lastRaycastTime = now;
 
         const hit = getIntersectedObject(e);
@@ -5855,12 +5881,16 @@
         }
     }
 
-    // Animation loop with thermal & battery optimization (renders on demand when stationary)
+    // Animation loop with true event-driven sleep (0.0% CPU/GPU when stationary)
     function animate() {
-        animId = requestAnimationFrame(animate);
-
-        // Power efficiency: If tab is hidden/backgrounded, skip rendering to prevent heating & lag
-        if (typeof document !== 'undefined' && (document.hidden || !document.hasFocus())) return;
+        // Power efficiency: If tab is hidden/backgrounded or modal closed, halt loop completely
+        if (typeof document !== 'undefined') {
+            const modal = document.getElementById('staad3dModal');
+            if (document.hidden || !document.hasFocus() || (modal && !modal.classList.contains('active'))) {
+                animId = null;
+                return;
+            }
+        }
 
         let moved = false;
         if (controls) {
@@ -5879,13 +5909,22 @@
         if (moved || renderDemandCount > 0) {
             renderer.render(scene, camera);
             if (renderDemandCount > 0) renderDemandCount--;
+            animId = requestAnimationFrame(animate);
+        } else {
+            // True Event-Driven Sleep: Halt requestAnimationFrame loop when stationary!
+            animId = null;
         }
     }
 
     if (typeof document !== 'undefined') {
         document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && isInitialized && !animId) {
-                animate();
+            if (!document.hidden && isInitialized) {
+                requestRender(5);
+            }
+        });
+        window.addEventListener('focus', () => {
+            if (isInitialized) {
+                requestRender(5);
             }
         });
     }
