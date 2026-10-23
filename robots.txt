@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /vault/
+Disallow: /resume.html
+
+Sitemap: https://www.syedabdulrahman-civil.me/sitemap.xml
