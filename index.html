@@ -7224,11 +7224,13 @@
             position: absolute;
             bottom: calc(100% + 14px);
             right: 0;
-            width: 280px;
-            background: rgba(10, 16, 28, 0.96);
-            border: 1.5px solid rgba(255, 215, 0, 0.35);
-            border-radius: 16px;
-            padding: 16px;
+            width: 310px;
+            background: rgba(10, 16, 28, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 215, 0, 0.38);
+            border-radius: 18px;
+            padding: 15px 16px;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 215, 0, 0.15);
             opacity: 0;
             pointer-events: none;
@@ -7245,7 +7247,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 11px;
             padding-bottom: 8px;
             border-bottom: 1px solid rgba(255, 215, 0, 0.15);
         }
@@ -7255,51 +7257,119 @@
             letter-spacing: 0.08em;
             color: #ffd700;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .popover-header button {
             background: none;
             border: none;
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             cursor: pointer;
-            padding: 2px 6px;
+            padding: 0 4px;
+            line-height: 1;
         }
         .popover-header button:hover { color: #f8fafc; }
-        .popover-links {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .popover-link {
+        
+        .popover-section-label {
+            font-size: 0.63rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
+            text-transform: uppercase;
+            margin: 4px 0 7px 2px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 9px 12px;
+            gap: 5px;
+        }
+        .popover-section-label i { color: #25D366; }
+
+        .inquiry-chip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 10px;
+            margin-bottom: 6px;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.18);
             border-radius: 10px;
             color: #f1f5f9;
             text-decoration: none;
-            font-size: 0.84rem;
+            font-size: 0.77rem;
             font-weight: 600;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .popover-link:hover {
-            background: rgba(255, 215, 0, 0.1);
-            border-color: rgba(255, 215, 0, 0.4);
-            color: #ffd700;
+        .inquiry-chip:hover {
+            background: rgba(37, 211, 102, 0.12);
+            border-color: rgba(37, 211, 102, 0.55);
+            color: #ffffff;
             transform: translateX(3px);
         }
-        .popover-link i { font-size: 1rem; width: 18px; text-align: center; }
-        .popover-link.link-wa i { color: #25D366; }
-        .popover-link.link-call i { color: #38bdf8; }
-        .popover-link.link-resume i { color: #ffd700; }
-        .popover-link.link-mail i { color: #f43f5e; }
+        .inquiry-chip-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .inquiry-chip-left i {
+            color: #ffd700;
+            font-size: 0.85rem;
+            width: 14px;
+            text-align: center;
+        }
+        .inquiry-chip .wa-tag {
+            font-size: 0.65rem;
+            color: #25D366;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 700;
+        }
+
+        .popover-divider {
+            height: 1px;
+            background: rgba(255, 215, 0, 0.12);
+            margin: 9px 0 8px 0;
+        }
+
+        .popover-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        .popover-action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 4px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 9px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.68rem;
+            font-weight: 600;
+            gap: 4px;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .popover-action-btn:hover {
+            background: rgba(255, 215, 0, 0.10);
+            border-color: rgba(255, 215, 0, 0.38);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        .popover-action-btn i { font-size: 0.95rem; }
+        .popover-action-btn.btn-call i { color: #38bdf8; }
+        .popover-action-btn.btn-resume i { color: #ffd700; }
+        .popover-action-btn.btn-mail i { color: #f43f5e; }
+
         @media (max-width: 480px) {
             .floating-quick-connect { bottom: 18px; right: 16px; }
             .quick-connect-btn span { display: none; }
             .quick-connect-btn { padding: 12px; border-radius: 50%; }
-            .quick-connect-popover { width: 250px; right: 0; }
+            .quick-connect-popover { width: 285px; right: 0; padding: 13px 14px; }
         }
     </style>
 
@@ -11499,21 +11569,52 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
     <div class="floating-quick-connect" id="floatingQuickConnect">
         <div class="quick-connect-popover" id="quickConnectPopover">
             <div class="popover-header">
-                <span><i class="fas fa-bolt"></i> Quick Connect</span>
+                <span><i class="fas fa-bolt"></i> Quick Connect &amp; Inquiry</span>
                 <button type="button" id="closeQuickConnect" aria-label="Close">&times;</button>
             </div>
-            <div class="popover-links">
-                <a href="https://wa.me/919014548214?text=Hi%20Syed%2C%20I%20reviewed%20your%20structural%20engineering%20portfolio." target="_blank" rel="noopener" class="popover-link link-wa">
-                    <i class="fab fa-whatsapp"></i> <span>WhatsApp Direct</span>
+            
+            <div class="popover-section-label">
+                <i class="fab fa-whatsapp"></i> <span>1-Tap WhatsApp Inquiries</span>
+            </div>
+
+            <a href="https://wa.me/919014548214?text=Hi%20Abdul%20Rahman%2C%20I%20reviewed%20your%20Structural%20Engineering%20portfolio%20and%203D%20STAAD%20models.%20I%20would%20like%20to%20discuss%20an%20opportunity%20for%20a%20Structural%20Engineer%20role." target="_blank" rel="noopener" class="inquiry-chip">
+                <div class="inquiry-chip-left">
+                    <i class="fas fa-building"></i>
+                    <span>Structural Role / Hiring</span>
+                </div>
+                <span class="wa-tag"><i class="fab fa-whatsapp"></i> Chat</span>
+            </a>
+
+            <a href="https://wa.me/919014548214?text=Hi%20Abdul%20Rahman%2C%20I%20have%20a%20building%20project%20requiring%20structural%20design%2C%20STAAD.Pro%20analysis%2C%20and%20AutoCAD%20detailing%20drawings.%20Can%20we%20connect%3F" target="_blank" rel="noopener" class="inquiry-chip">
+                <div class="inquiry-chip-left">
+                    <i class="fas fa-drafting-compass"></i>
+                    <span>Project Consultation</span>
+                </div>
+                <span class="wa-tag"><i class="fab fa-whatsapp"></i> Chat</span>
+            </a>
+
+            <a href="https://wa.me/919014548214?text=Hi%20Abdul%20Rahman%2C%20I%20came%20across%20your%20engineering%20portfolio%20and%20would%20like%20to%20connect%20with%20you." target="_blank" rel="noopener" class="inquiry-chip">
+                <div class="inquiry-chip-left">
+                    <i class="fas fa-comments"></i>
+                    <span>Direct Message</span>
+                </div>
+                <span class="wa-tag"><i class="fab fa-whatsapp"></i> Chat</span>
+            </a>
+
+            <div class="popover-divider"></div>
+
+            <div class="popover-actions-grid">
+                <a href="tel:+919014548214" class="popover-action-btn btn-call" title="Call Syed Abdul Rahman">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Direct Call</span>
                 </a>
-                <a href="tel:+919014548214" class="popover-link link-call">
-                    <i class="fas fa-phone-alt"></i> <span>Call Direct</span>
+                <a href="resume.html" target="_blank" class="popover-action-btn btn-resume" title="View Official Resume PDF">
+                    <i class="fas fa-file-invoice"></i>
+                    <span>Resume PDF</span>
                 </a>
-                <a href="resume.html" target="_blank" class="popover-link link-resume">
-                    <i class="fas fa-file-invoice"></i> <span>View Resume PDF</span>
-                </a>
-                <a href="mailto:abdulrahman.ark04@gmail.com" class="popover-link link-mail">
-                    <i class="fas fa-envelope"></i> <span>Send Email</span>
+                <a href="mailto:abdulrahman.ark04@gmail.com" class="popover-action-btn btn-mail" title="Send Email">
+                    <i class="fas fa-envelope"></i>
+                    <span>Send Email</span>
                 </a>
             </div>
         </div>
