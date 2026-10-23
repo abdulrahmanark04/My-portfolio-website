@@ -336,6 +336,23 @@
             border-color: #0f172a;
         }
 
+        /* Backward-compatible alias for language pills */
+        .lang-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+        .lang-pill {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1e293b;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 4px;
+            line-height: 1.2;
+        }
+
         
         /* Professional Declaration & Verification */
         .cv-declaration {
@@ -772,14 +789,14 @@
                 </section>
 
             
-                <!-- Languages & Codes -->
-                <section class="cv-section">
+                <!-- Languages & Communication -->
+                <section class="sidebar-block">
                     <h2 class="section-title"><i class="fas fa-language"></i> Communication</h2>
-                    <div class="lang-row">
-                        <span class="lang-pill">English (Fluent)</span>
-                        <span class="lang-pill">Hindi</span>
-                        <span class="lang-pill">Telugu</span>
-                        <span class="lang-pill">Urdu</span>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">English (Fluent)</span>
+                        <span class="skill-tag">Hindi</span>
+                        <span class="skill-tag">Telugu</span>
+                        <span class="skill-tag">Urdu</span>
                     </div>
                 </section>
             </aside>
