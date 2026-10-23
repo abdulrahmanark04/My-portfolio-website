@@ -1,0 +1,21 @@
+{
+  "name": "SA Rahman | Civil & Structural Engineer",
+  "short_name": "SA Rahman",
+  "description": "Executive Structural Engineering Portfolio & 3D FEA Simulation Dossier",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020306",
+  "theme_color": "#020306",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

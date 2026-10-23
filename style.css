@@ -7416,3 +7416,140 @@
             color: #ffffff;
             font-weight: 700;
         }
+
+
+/* ===== EXECUTIVE PRINT / PDF EXPORT STYLESHEET ===== */
+@media print {
+    *, *::before, *::after {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        color: #1e293b !important;
+    }
+
+    html, body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Hide ambient interactive fx, canvases, lasers, and floating elements */
+    #particles,
+    .cad-grid,
+    .atmos-gold,
+    .atmos-depth,
+    .atmos-bottom,
+    .vignette,
+    .scroll-progress,
+    .custom-cursor-dot,
+    .custom-cursor-ring,
+    #preloader,
+    .mobile-nav,
+    .hamburger,
+    header,
+    .back-to-top,
+    .quick-connect-pill,
+    .quick-connect-popover,
+    .photo-scan-laser,
+    .photo-hud-corner,
+    .photo-stage-aura,
+    .card-spotlight-layer,
+    .staad-modal-backdrop,
+    .doc-modal,
+    .vault-modal,
+    .engineering-seal {
+        display: none !important;
+    }
+
+    /* High-contrast structural cards */
+    .section {
+        padding: 24px 0 !important;
+        page-break-inside: avoid;
+    }
+
+    .section-title {
+        color: #0f172a !important;
+        font-size: 1.8rem !important;
+    }
+
+    .section-title .title-accent {
+        color: #b45309 !important;
+        font-weight: 800 !important;
+    }
+
+    .section-kicker {
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        color: #475569 !important;
+    }
+
+    .timeline-card,
+    .skill-card,
+    .featured-project-card,
+    .cert-bento-card,
+    .title-block-card,
+    .project-bento-card {
+        background: #f8fafc !important;
+        border: 1px solid #94a3b8 !important;
+        border-radius: 8px !important;
+        padding: 16px 20px !important;
+        margin-bottom: 16px !important;
+        page-break-inside: avoid;
+    }
+
+    .timeline-title,
+    .skill-card h3,
+    .project-card-top h3 {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+    }
+
+    .timeline-inst,
+    .timeline-affil,
+    .timeline-highlight p,
+    .featured-desc p {
+        color: #334155 !important;
+    }
+
+    .timeline-chips .timeline-chip,
+    .stat-pill,
+    .project-bento-tag,
+    .cert-skill-tag {
+        background: #f1f5f9 !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #334155 !important;
+        font-size: 8pt !important;
+        padding: 3px 8px !important;
+    }
+
+    .photo-frame {
+        border: 2px solid #cbd5e1 !important;
+        border-radius: 12px !important;
+        max-width: 200px !important;
+        margin: 0 auto 16px auto !important;
+    }
+
+    .photo-frame img {
+        border-radius: 10px !important;
+        max-width: 100% !important;
+    }
+
+    a {
+        text-decoration: underline !important;
+        color: #0369a1 !important;
+    }
+
+    /* Print header notice */
+    body::before {
+        content: "SYED ABDUL RAHMAN // CIVIL & STRUCTURAL ENGINEERING DOSSIER • https://www.syedabdulrahman-civil.me";
+        display: block;
+        text-align: center;
+        font-size: 8pt;
+        font-weight: 700;
+        color: #64748b;
+        border-bottom: 1px solid #cbd5e1;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+    }
+}
