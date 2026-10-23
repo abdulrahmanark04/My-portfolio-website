@@ -646,93 +646,7 @@
 
 
 
-        /* ===== CONIC GOLD BORDER TRACER ===== */
-
-        .tracer-card-container {
-
-            grid-column: 1 / -1;
-
-            position: relative;
-
-            border-radius: 22px;
-
-            padding: 2px;
-
-            overflow: hidden;
-
-            background: rgba(255, 215, 0, 0.12);
-
-            box-shadow: 
-
-                0 30px 70px rgba(0, 0, 0, 0.9),
-
-                0 0 50px rgba(255, 215, 0, 0.12),
-
-                0 0 100px rgba(10, 25, 50, 0.3);
-
-            margin-bottom: 14px;
-
-        }
-
-        .tracer-card-container::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: -50%; left: -50%;
-
-            width: 200%; height: 200%;
-
-            background: conic-gradient(
-
-                from 0deg,
-
-                transparent 0%,
-
-                transparent 55%,
-
-                rgba(255, 215, 0, 0.08) 65%,
-
-                rgba(245, 158, 11, 0.3) 78%,
-
-                rgba(255, 215, 0, 1) 90%,
-
-                #ffffff 95%,
-
-                rgba(255, 215, 0, 1) 98%,
-
-                transparent 100%
-
-            );
-
-            animation: spinTracer 5.5s linear infinite;
-
-            z-index: 0;
-
-        }
-
-        @keyframes spinTracer {
-
-            0% { transform: rotate(0deg); }
-
-            100% { transform: rotate(360deg); }
-
-        }
-
-        .tracer-card-inner {
-
-            position: relative;
-
-            background: linear-gradient(145deg, rgba(12, 20, 34, 0.96) 0%, rgba(6, 11, 20, 0.98) 55%, rgba(3, 6, 14, 0.99) 100%) !important;
-
-            border-radius: 20px;
-
-            z-index: 1;
-
-            overflow: hidden;
-
-        }
+        /* Legacy conic border removed in favor of cursor-following spotlight */
 
         .tracer-card-inner::before {
 
@@ -2514,65 +2428,41 @@
 
 
         /* ===== FEATURED EXECUTIVE PROJECT CARD (10/10 ROYAL MASTERPIECE) ===== */
-
         .tracer-card-container {
-
             grid-column: 1 / -1;
-
             position: relative;
-
+            padding: 2px;
             border-radius: 24px;
-
-            padding: 2.5px;
-
             overflow: hidden;
-
-            background: rgba(255, 215, 0, 0.15);
-
+            background: rgba(255, 215, 0, 0.22);
             box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 215, 0, 0.18), 0 0 90px rgba(10, 25, 50, 0.4);
-
             margin-bottom: 25px;
-
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
-
-
+        /* Tactile Cursor-Following Border Spotlight (0% spinning loop, 100% interactive luxury) */
         .tracer-card-container::before {
-
             content: '';
-
             position: absolute;
-
-            top: -50%; left: -50%;
-
-            width: 200%; height: 200%;
-
-            background: conic-gradient(
-
-                from 0deg,
-
-                transparent 0%,
-
-                transparent 55%,
-
-                rgba(255, 215, 0, 0.1) 68%,
-
-                rgba(245, 158, 11, 0.4) 80%,
-
-                rgba(255, 215, 0, 1) 92%,
-
-                #ffffff 96%,
-
-                rgba(255, 215, 0, 1) 98%,
-
-                transparent 100%
-
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 215, 0, 0.95) 0%,
+                rgba(245, 158, 11, 0.60) 25%,
+                rgba(56, 189, 248, 0.35) 50%,
+                transparent 72%
             );
-
-            animation: spinTracer 5.5s linear infinite;
-
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 0;
+            pointer-events: none;
+            animation: none !important;
+        }
 
+        .tracer-card-container:hover::before {
+            opacity: 1;
         }
 
 
@@ -7387,6 +7277,228 @@
             .quick-connect-btn { padding: 12px; border-radius: 50%; }
             .quick-connect-popover { width: 285px; right: 0; padding: 13px 14px; }
         }
+
+        /* ===== STAAD ARCHITECTURAL PLAN CHEST & DRAWER ===== */
+        .staad-master-stage {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1.5px solid rgba(255, 215, 0, 0.28);
+            background: rgba(6, 12, 22, 0.95);
+            margin: 18px 0 16px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .staad-master-stage:hover {
+            border-color: #ffd700;
+            box-shadow: 0 14px 40px rgba(255, 215, 0, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.6);
+            transform: translateY(-2px);
+        }
+        .staad-master-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background: #030712;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .staad-master-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.4s ease, opacity 0.25s ease;
+        }
+        .staad-master-stage:hover .staad-master-img {
+            transform: scale(1.02);
+        }
+        .staad-stage-overlay-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(10, 16, 28, 0.88);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffd700;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            transition: all 0.25s ease;
+        }
+        .staad-master-stage:hover .staad-stage-overlay-badge {
+            background: #ffd700;
+            color: #030712;
+            border-color: #ffd700;
+        }
+        .staad-stage-meta {
+            padding: 10px 14px;
+            background: rgba(15, 23, 42, 0.7);
+            border-top: 1px solid rgba(255, 215, 0, 0.12);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .staad-stage-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .staad-stage-mod-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #030712;
+            background: #ffd700;
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+        .staad-stage-title {
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+        .staad-stage-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* The Drawer Unit */
+        .staad-drawer-container {
+            background: rgba(10, 16, 28, 0.85);
+            border: 1px solid rgba(255, 215, 0, 0.18);
+            border-radius: 14px;
+            padding: 12px 14px 10px;
+            position: relative;
+        }
+        .staad-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 9px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .staad-drawer-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #ffd700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .staad-drawer-nav {
+            display: flex;
+            gap: 6px;
+        }
+        .drawer-nav-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .drawer-nav-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
+            transform: scale(1.08);
+        }
+
+        /* Horizontal Drawer Track */
+        .staad-drawer-track {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 215, 0, 0.4) transparent;
+        }
+        .staad-drawer-track::-webkit-scrollbar {
+            height: 4px;
+        }
+        .staad-drawer-track::-webkit-scrollbar-thumb {
+            background: rgba(255, 215, 0, 0.35);
+            border-radius: 4px;
+        }
+
+        .staad-drawer-item {
+            flex: 0 0 110px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 9px;
+            padding: 6px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+        .staad-drawer-item:hover,
+        .staad-drawer-item.active {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: #ffd700;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 215, 0, 0.2);
+        }
+        .drawer-item-thumb {
+            width: 100%;
+            height: 52px;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #020617;
+            margin-bottom: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .drawer-item-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        .drawer-item-mod {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: #ffd700;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .drawer-item-name {
+            font-size: 0.68rem;
+            color: #cbd5e1;
+            font-weight: 600;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .staad-drawer-item.active .drawer-item-name {
+            color: #ffffff;
+            font-weight: 700;
+        }
     </style>
 
 
@@ -8571,150 +8683,116 @@
 
 
 
-                <!-- Interactive 2-Column Competency Chip Grid -->
-
-                <div class="cert-competency-grid">
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_dynamic.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-bolt"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Dynamic Seismic Loads</span>
-
-                            <span class="chip-status">Response Spectrum &bull; STAAD.Pro <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                <!-- Architectural Plan Chest: Master Certificate Showcase Stage -->
+                <div class="staad-master-stage" id="staadMasterStage" title="Click to view full-resolution Bentley certificate">
+                    <div class="staad-master-img-wrap">
+                        <img src="cert_dynamic_p1.webp" alt="Dynamic Seismic Loads - Bentley Certificate" id="staadMasterImg" class="staad-master-img" loading="lazy">
+                        <div class="staad-stage-overlay-badge">
+                            <i class="fas fa-expand-alt"></i> <span>Inspect Verified Certificate (PDF)</span>
                         </div>
+                    </div>
+                    <div class="staad-stage-meta">
+                        <div class="staad-stage-title-wrap">
+                            <span class="staad-stage-mod-badge" id="staadStageMod">MODULE 01 / 10</span>
+                            <span class="staad-stage-title" id="staadStageTitle">Dynamic Seismic Loads</span>
+                        </div>
+                        <span class="staad-stage-code" id="staadStageCode">IS 1893:2016</span>
+                    </div>
+                </div>
 
+                <!-- Architectural Plan Chest: Sliding Drawer Tray -->
+                <div class="staad-drawer-container">
+                    <div class="staad-drawer-header">
+                        <div class="staad-drawer-label">
+                            <i class="fas fa-layer-group"></i> <span>BENTLEY CREDENTIALS DRAWER • 10 VERIFIED MODULES</span>
+                        </div>
+                        <div class="staad-drawer-nav">
+                            <button type="button" class="drawer-nav-btn" id="drawerPrevBtn" aria-label="Previous Module"><i class="fas fa-chevron-left"></i></button>
+                            <button type="button" class="drawer-nav-btn" id="drawerNextBtn" aria-label="Next Module"><i class="fas fa-chevron-right"></i></button>
+                        </div>
                     </div>
 
-                    <div class="cert-module-chip" onclick="openDoc('cert_static.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-wave-square"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Static Seismic Loads</span>
-
-                            <span class="chip-status">Equivalent Lateral Force <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                    <div class="staad-drawer-track" id="staadDrawerTrack">
+                        <div class="staad-drawer-item active" data-index="0" title="Module 01: Dynamic Seismic Loads">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_dynamic_p1.webp" alt="Dynamic Seismic Loads" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#01</span>
+                            <span class="drawer-item-name">Dynamic Seismic</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_wind.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-wind"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Wind Load Generation</span>
-
-                            <span class="chip-status">IS 875 Part 3 Analysis <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="1" title="Module 02: Static Seismic Loads">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_static_p1.webp" alt="Static Seismic Loads" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#02</span>
+                            <span class="drawer-item-name">Static Seismic</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_loads.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-weight-hanging"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Modeling Loads in STAAD</span>
-
-                            <span class="chip-status">Dead, Live &amp; Envelopes <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="2" title="Module 03: Wind Load Generation">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_wind_p1.webp" alt="Wind Load Generation" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#03</span>
+                            <span class="drawer-item-name">Wind Loads</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_analytical.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-network-wired"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Modelling Analytical Member</span>
-
-                            <span class="chip-status">3D Skeletal Space Frames <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="3" title="Module 04: Modeling Loads in STAAD">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_loads_p1.webp" alt="Modeling Loads in STAAD" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#04</span>
+                            <span class="drawer-item-name">Load Modeling</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_plates.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-border-all"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Modelling Plates &amp; Shells</span>
-
-                            <span class="chip-status">FEA Surface Discretization <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="4" title="Module 05: Modelling Analytical Member">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_analytical_p1.webp" alt="Modelling Analytical Member" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#05</span>
+                            <span class="drawer-item-name">Analytical Member</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_beam.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-ruler-horizontal"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Concrete Beam Design</span>
-
-                            <span class="chip-status">STAAD Advanced &bull; Limit State <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="5" title="Module 06: Modelling Plates & Shells">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_plates_p1.webp" alt="Modelling Plates & Shells" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#06</span>
+                            <span class="drawer-item-name">Plates &amp; Shells</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_columns_walls.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-monument"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Concrete Columns &amp; Walls</span>
-
-                            <span class="chip-status">Bi-axial &amp; Shear Detailing <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="6" title="Module 07: Concrete Beam Design">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_beam_p1.webp" alt="Concrete Beam Design" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#07</span>
+                            <span class="drawer-item-name">Beam Design</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_properties.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-shapes"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Analytical Properties</span>
-
-                            <span class="chip-status">Section Assignment &bull; FEA <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="7" title="Module 08: Concrete Columns & Walls">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_columns_walls_p1.webp" alt="Concrete Columns & Walls" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#08</span>
+                            <span class="drawer-item-name">Columns &amp; Walls</span>
                         </div>
 
-                    </div>
-
-                    <div class="cert-module-chip" onclick="openDoc('cert_specifications.pdf')" title="Click to view Bentley certificate">
-
-                        <div class="chip-icon"><i class="fas fa-sliders"></i></div>
-
-                        <div class="chip-info">
-
-                            <span class="chip-name">Specifications &amp; Supports</span>
-
-                            <span class="chip-status">Release &amp; Boundary Conditions <i class="fas fa-arrow-up-right-from-square"></i></span>
-
+                        <div class="staad-drawer-item" data-index="8" title="Module 09: Analytical Properties">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_properties_p1.webp" alt="Analytical Properties" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#09</span>
+                            <span class="drawer-item-name">FEA Properties</span>
                         </div>
 
+                        <div class="staad-drawer-item" data-index="9" title="Module 10: Specifications & Supports">
+                            <div class="drawer-item-thumb">
+                                <img src="cert_specifications_p1.webp" alt="Specifications & Supports" loading="lazy">
+                            </div>
+                            <span class="drawer-item-mod">#10</span>
+                            <span class="drawer-item-name">Specifications</span>
+                        </div>
                     </div>
-
                 </div>
                 
 
@@ -11488,7 +11566,7 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
         // ========================================================
         function initCardSpotlights() {
             const cards = document.querySelectorAll(
-                '.tracer-card-inner, .featured-project-card, .project-bento-card, .cockpit-launch-card, .skill-card, .cert-bento-card, .timeline-card'
+                '.tracer-card-container, .tracer-card-inner, .featured-project-card, .project-bento-card, .cockpit-launch-card, .skill-card, .cert-bento-card, .timeline-card'
             );
             
             cards.forEach(card => {
@@ -11696,6 +11774,77 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
             sectionPerfObserver.observe(el);
         });
     }
+})();
+</script>
+
+<script>
+// STAAD.Pro Architectural Plan Chest / Credentials Drawer Logic
+(function() {
+    const modules = [
+        { id: 1, name: 'Dynamic Seismic Loads', code: 'IS 1893:2016', img: 'cert_dynamic_p1.webp', pdf: 'cert_dynamic.pdf' },
+        { id: 2, name: 'Static Seismic Loads', code: 'Equivalent Lateral Force', img: 'cert_static_p1.webp', pdf: 'cert_static.pdf' },
+        { id: 3, name: 'Wind Load Generation', code: 'IS 875 Part 3', img: 'cert_wind_p1.webp', pdf: 'cert_wind.pdf' },
+        { id: 4, name: 'Modeling Loads in STAAD', code: 'Dead, Live & Envelopes', img: 'cert_loads_p1.webp', pdf: 'cert_loads.pdf' },
+        { id: 5, name: 'Modelling Analytical Member', code: '3D Space Frames', img: 'cert_analytical_p1.webp', pdf: 'cert_analytical.pdf' },
+        { id: 6, name: 'Modelling Plates & Shells', code: 'FEA Discretization', img: 'cert_plates_p1.webp', pdf: 'cert_plates.pdf' },
+        { id: 7, name: 'Concrete Beam Design', code: 'IS 456 Limit State', img: 'cert_beam_p1.webp', pdf: 'cert_beam.pdf' },
+        { id: 8, name: 'Concrete Columns & Walls', code: 'Bi-axial & Shear', img: 'cert_columns_walls_p1.webp', pdf: 'cert_columns_walls.pdf' },
+        { id: 9, name: 'Analytical Properties', code: 'Section Assignment • FEA', img: 'cert_properties_p1.webp', pdf: 'cert_properties.pdf' },
+        { id: 10, name: 'Specifications & Supports', code: 'Boundary Conditions', img: 'cert_specifications_p1.webp', pdf: 'cert_specifications.pdf' }
+    ];
+
+    let activeIndex = 0;
+    const stage = document.getElementById('staadMasterStage');
+    const stageImg = document.getElementById('staadMasterImg');
+    const stageMod = document.getElementById('staadStageMod');
+    const stageTitle = document.getElementById('staadStageTitle');
+    const stageCode = document.getElementById('staadStageCode');
+    const track = document.getElementById('staadDrawerTrack');
+    const prevBtn = document.getElementById('drawerPrevBtn');
+    const nextBtn = document.getElementById('drawerNextBtn');
+
+    if (!stage || !stageImg || !track) return;
+
+    function selectModule(index) {
+        activeIndex = (index + modules.length) % modules.length;
+        const mod = modules[activeIndex];
+        
+        stageImg.style.opacity = '0';
+        setTimeout(() => {
+            stageImg.src = mod.img;
+            stageImg.alt = mod.name + ' - Bentley Certificate';
+            stageMod.textContent = 'MODULE ' + (mod.id < 10 ? '0' + mod.id : mod.id) + ' / 10';
+            stageTitle.textContent = mod.name;
+            stageCode.textContent = mod.code;
+            stageImg.style.opacity = '1';
+        }, 120);
+
+        stage.onclick = () => openDoc(mod.pdf);
+
+        track.querySelectorAll('.staad-drawer-item').forEach((item, idx) => {
+            item.classList.toggle('active', idx === activeIndex);
+        });
+
+        // Center item in track
+        const activeItem = track.children[activeIndex];
+        if (activeItem) {
+            activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    }
+
+    track.querySelectorAll('.staad-drawer-item').forEach((item, idx) => {
+        item.addEventListener('mouseenter', () => selectModule(idx));
+        item.addEventListener('click', () => {
+            selectModule(idx);
+            openDoc(modules[idx].pdf);
+        });
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex + 1); });
+
+    // Initial stage click handler
+    stage.onclick = () => openDoc(modules[0].pdf);
 })();
 </script>
 </body>
