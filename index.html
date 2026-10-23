@@ -7279,16 +7279,24 @@
         }
 
         /* ===== STAAD ARCHITECTURAL PLAN CHEST & DRAWER ===== */
+        .featured-bentley-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
         .staad-master-stage {
             position: relative;
             border-radius: 14px;
             overflow: hidden;
             border: 1.5px solid rgba(255, 215, 0, 0.28);
             background: rgba(6, 12, 22, 0.95);
-            margin: 18px 0 16px 0;
+            margin: 14px 0 16px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
         }
         .staad-master-stage:hover {
             border-color: #ffd700;
@@ -7298,19 +7306,30 @@
         .staad-master-img-wrap {
             position: relative;
             width: 100%;
-            height: 220px;
+            flex: 1 1 auto;
+            min-height: 380px;
+            max-height: 490px;
             background: #030712;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            padding: 8px 12px;
         }
         .staad-master-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center top;
+            max-height: 470px;
+            object-fit: contain;
+            object-position: center;
             transition: transform 0.4s ease, opacity 0.25s ease;
+            filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8));
+        }
+        @media (max-width: 768px) {
+            .staad-master-img-wrap {
+                min-height: 240px;
+                max-height: 320px;
+            }
         }
         .staad-master-stage:hover .staad-master-img {
             transform: scale(1.02);
@@ -7380,6 +7399,7 @@
 
         /* The Drawer Unit */
         .staad-drawer-container {
+            margin-top: auto;
             background: rgba(10, 16, 28, 0.85);
             border: 1px solid rgba(255, 215, 0, 0.18);
             border-radius: 14px;
@@ -11210,11 +11230,11 @@
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
-    <script defer src="vault_manifest.js?v=20261023_v8"></script>
+    <script defer src="vault_manifest.js?v=20261023_v9"></script>
 
     <script defer src="vault_previews.js?v=20261023_v8"></script>
 
-    <script defer src="vault_viewer.js?v=20261023_v8"></script>
+    <script defer src="vault_viewer.js?v=20261023_v9"></script>
 
 
 
@@ -11800,43 +11820,52 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
 
     if (!stage || !stageImg || !track) return;
 
-    function selectModule(index) {
+    let switchTimer = null;
+    function selectModule(index, instant = false) {
         activeIndex = (index + modules.length) % modules.length;
         const mod = modules[activeIndex];
         
-        stageImg.style.opacity = '0';
-        setTimeout(() => {
+        track.querySelectorAll('.staad-drawer-item').forEach((item, idx) => {
+            item.classList.toggle('active', idx === activeIndex);
+        });
+
+        if (switchTimer) clearTimeout(switchTimer);
+
+        const updateContent = () => {
             stageImg.src = mod.img;
             stageImg.alt = mod.name + ' - Bentley Certificate';
             stageMod.textContent = 'MODULE ' + (mod.id < 10 ? '0' + mod.id : mod.id) + ' / 10';
             stageTitle.textContent = mod.name;
             stageCode.textContent = mod.code;
             stageImg.style.opacity = '1';
-        }, 120);
+            stage.onclick = () => openDoc(mod.pdf);
+        };
 
-        stage.onclick = () => openDoc(mod.pdf);
+        if (instant) {
+            updateContent();
+        } else {
+            stageImg.style.opacity = '0.35';
+            switchTimer = setTimeout(updateContent, 40);
+        }
 
-        track.querySelectorAll('.staad-drawer-item').forEach((item, idx) => {
-            item.classList.toggle('active', idx === activeIndex);
-        });
-
-        // Center item in track
-        const activeItem = track.children[activeIndex];
-        if (activeItem) {
-            activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        if (instant) {
+            const activeItem = track.children[activeIndex];
+            if (activeItem) {
+                activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
         }
     }
 
     track.querySelectorAll('.staad-drawer-item').forEach((item, idx) => {
-        item.addEventListener('mouseenter', () => selectModule(idx));
+        item.addEventListener('mouseenter', () => selectModule(idx, false));
         item.addEventListener('click', () => {
-            selectModule(idx);
+            selectModule(idx, true);
             openDoc(modules[idx].pdf);
         });
     });
 
-    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex - 1); });
-    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex + 1); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex - 1, true); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.stopPropagation(); selectModule(activeIndex + 1, true); });
 
     // Initial stage click handler
     stage.onclick = () => openDoc(modules[0].pdf);

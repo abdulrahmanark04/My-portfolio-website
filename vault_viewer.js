@@ -1453,40 +1453,18 @@
         return name.endsWith('.pdf') || name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.webp');
     }
 
-    async function executeDirectDownload(targetPath, targetName) {
-        let downloaded = false;
-        try {
-            const encodedPath = encodeURI(targetPath);
-            const resp = await fetch(encodedPath);
-            if (resp.ok) {
-                const blob = await resp.blob();
-                const blobUrl = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.style.display = 'none';
-                link.href = blobUrl;
-                link.setAttribute('download', targetName || 'download');
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(() => {
-                    window.URL.revokeObjectURL(blobUrl);
-                    link.remove();
-                }, 2000);
-                downloaded = true;
-            }
-        } catch (fetchErr) {
-            console.warn('Direct blob download fallback to standard link', fetchErr);
-        }
-
-        if (!downloaded) {
-            const link = document.createElement('a');
-            link.style.display = 'none';
-            link.href = encodeURI(targetPath);
-            link.setAttribute('download', targetName || 'download');
-            link.setAttribute('target', '_blank');
-            document.body.appendChild(link);
-            link.click();
-            setTimeout(() => link.remove(), 1000);
-        }
+    function executeDirectDownload(targetPath, targetName) {
+        if (!targetPath) return;
+        const link = document.createElement('a');
+        link.style.display = 'none';
+        const cleanName = targetName || (targetPath ? targetPath.split('/').pop() : 'download');
+        link.href = encodeURI(targetPath);
+        link.setAttribute('download', cleanName);
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+            if (link.parentNode) link.parentNode.removeChild(link);
+        }, 1000);
     }
 
     window.vaultTriggerSecureDownload = function (filePath, fileName) {

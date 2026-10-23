@@ -11480,9 +11480,9 @@
       "projectTitle": "INDIRAMMA INDLU: PURE MANUAL STRUCTURAL DESIGN (G+0 RCC BUILDING)",
       "projectCode": "B.Tech Minor Project 2025-2026",
       "projectSubtitle": "First-Principles Kani's Method • IS 456:2000 Limit State",
-      "totalFiles": 604,
-      "totalSize": "109.6 MB",
-      "totalSizeBytes": 114946964,
+      "totalFiles": 606,
+      "totalSize": "110.2 MB",
+      "totalSizeBytes": 115598907,
       "tree": {
         "name": "project-3-2",
         "type": "folder",
@@ -14850,6 +14850,38 @@
                     "path": "vault/project-3-2/Indiramma Illu/Slab Design/Design Of Slab (S4).pdf",
                     "relPath": "Indiramma Illu/Slab Design/Design Of Slab (S4).pdf",
                     "folder": "vault/project-3-2/Indiramma Illu/Slab Design"
+                  }
+                ]
+              },
+              {
+                "name": "CAD",
+                "type": "folder",
+                "path": "vault/project-3-2/Indiramma Illu/CAD",
+                "relPath": "Indiramma Illu/CAD",
+                "children": [
+                  {
+                    "name": "project 1 (Beam Layout)_1LATEST.dwg",
+                    "type": "file",
+                    "ext": "dwg",
+                    "extension": "dwg",
+                    "category": "cad",
+                    "size": "376.0 KB",
+                    "sizeBytes": 384990,
+                    "path": "vault/project-3-2/Indiramma Illu/CAD/project 1 (Beam Layout)_1LATEST.dwg",
+                    "relPath": "Indiramma Illu/CAD/project 1 (Beam Layout)_1LATEST.dwg",
+                    "folder": "vault/project-3-2/Indiramma Illu/CAD"
+                  },
+                  {
+                    "name": "project 1.dwg",
+                    "type": "file",
+                    "ext": "dwg",
+                    "extension": "dwg",
+                    "category": "cad",
+                    "size": "260.7 KB",
+                    "sizeBytes": 266953,
+                    "path": "vault/project-3-2/Indiramma Illu/CAD/project 1.dwg",
+                    "relPath": "Indiramma Illu/CAD/project 1.dwg",
+                    "folder": "vault/project-3-2/Indiramma Illu/CAD"
                   }
                 ]
               }
@@ -26593,6 +26625,30 @@
           "path": "vault/project-3-2/rendered_pages/questions_for_viva/page_4.jpg",
           "relPath": "rendered_pages/questions_for_viva/page_4.jpg",
           "folder": "vault/project-3-2/rendered_pages/questions_for_viva"
+        },
+        {
+          "name": "project 1 (Beam Layout)_1LATEST.dwg",
+          "type": "file",
+          "ext": "dwg",
+          "extension": "dwg",
+          "category": "cad",
+          "size": "376.0 KB",
+          "sizeBytes": 384990,
+          "path": "vault/project-3-2/Indiramma Illu/CAD/project 1 (Beam Layout)_1LATEST.dwg",
+          "relPath": "Indiramma Illu/CAD/project 1 (Beam Layout)_1LATEST.dwg",
+          "folder": "vault/project-3-2/Indiramma Illu/CAD"
+        },
+        {
+          "name": "project 1.dwg",
+          "type": "file",
+          "ext": "dwg",
+          "extension": "dwg",
+          "category": "cad",
+          "size": "260.7 KB",
+          "sizeBytes": 266953,
+          "path": "vault/project-3-2/Indiramma Illu/CAD/project 1.dwg",
+          "relPath": "Indiramma Illu/CAD/project 1.dwg",
+          "folder": "vault/project-3-2/Indiramma Illu/CAD"
         }
       ]
     }
