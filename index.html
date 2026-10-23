@@ -1665,28 +1665,27 @@
 
 
 
-        #profileImg {
-
+        .photo-frame-picture {
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             width: 100%;
-
             height: 100%;
-
-            object-fit: cover;
-
             z-index: 1;
+            display: block;
+        }
 
+        #profileImg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
             opacity: 1;
-
             filter: drop-shadow(0px 0px 10px rgba(0,0,0,1)) drop-shadow(0px 10px 20px rgba(255,215,0,0.15));
-
             will-change: transform;
-
         }
 
 
@@ -7906,7 +7905,10 @@
 
                         <div class="photo-hud-corner br"></div>
 
-                        <img id="profileImg" src="profile.png" alt="SA Rahman">
+                        <picture class="photo-frame-picture">
+                            <source srcset="profile.webp?v=20261023_v10" type="image/webp">
+                            <img id="profileImg" src="profile.png?v=20261023_v10" alt="SA Rahman" fetchpriority="high" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried=\'1\';this.src=\'profile.png?retry=\'+Date.now();}">
+                        </picture>
 
                         <div class="photo-scan-laser" id="photoScanLaser"></div>
 
