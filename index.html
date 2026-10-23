@@ -2097,9 +2097,9 @@
 
         /* Luxury Dark Glass Timeline Card */
         .timeline-card {
-            background: rgba(14, 23, 40, 0.78);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(10, 18, 30, 0.70);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 215, 0, 0.22);
             border-radius: 18px;
             padding: 26px 30px;
@@ -9728,8 +9728,8 @@
 
             const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
             const count = isMobile 
-                ? 24 
-                : Math.min(85, Math.max(45, Math.floor((bgW * bgH) / 15000)));
+                ? 36 
+                : Math.min(120, Math.max(70, Math.floor((bgW * bgH) / 11000)));
 
             bgParticles = [];
 
@@ -9757,7 +9757,7 @@
 
         function recordActivity() {
             lastActivityTime = performance.now();
-            if (!bgAnimationId && typeof animateBgWeb === 'function' && document.hasFocus() && !document.hidden) {
+            if (!bgAnimationId && typeof animateBgWeb === 'function' && !document.hidden) {
                 const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
                 if (!isModalActive) {
                     bgAnimationId = requestAnimationFrame(animateBgWeb);
@@ -9779,7 +9779,10 @@
 
 
 
-        window.addEventListener('mouseout', () => { 
+        // CRITICAL FIX: Use document 'mouseleave' instead of window 'mouseout'.
+        // 'mouseout' bubbles from every single internal DOM element boundary (chips, badges, cards in timeline),
+        // instantly clearing bgMouse coordinates when moving over any card. 'mouseleave' on document only fires when cursor leaves viewport!
+        document.addEventListener('mouseleave', () => { 
 
             bgMouse.x = null; 
 
@@ -9818,13 +9821,13 @@
 
         function animateBgWeb(timestamp) {
 
-            // Thermal & Battery Saver 1: STOP loop entirely if window lost focus or tab hidden
-            if (!document.hasFocus() || document.hidden) {
+            // Continuous Starlight Web: Only pause when browser tab is hidden/minimized
+            if (document.hidden) {
                 bgAnimationId = null;
                 return;
             }
 
-            // Thermal & GPU Saver 2: Halt canvas loop completely if 3D viewer or any modal is open
+            // Thermal & GPU Saver: Halt canvas loop completely if 3D viewer or any modal is open
             const isModalActive = document.querySelector('.staad-modal-backdrop.active, #staad3dModal.active, #vaultModal.active, #docModal.active');
             if (isModalActive) {
                 bgAnimationId = null;
@@ -10094,7 +10097,7 @@
 
                 }
 
-                bgCtx.strokeStyle = 'rgba(255, 215, 0, 0.28)';
+                bgCtx.strokeStyle = 'rgba(255, 215, 0, 0.38)';
 
                 bgCtx.stroke();
 
@@ -10124,7 +10127,7 @@
 
                 }
 
-                bgCtx.strokeStyle = 'rgba(255, 215, 0, 0.10)';
+                bgCtx.strokeStyle = 'rgba(255, 215, 0, 0.18)';
                 bgCtx.stroke();
             }
             } // End of !isMobileDevice desktop check
@@ -10160,7 +10163,7 @@
 
             document.documentElement.classList.remove('window-paused');
 
-            if (!bgAnimationId && typeof animateBgWeb === 'function' && document.hasFocus() && !document.hidden) {
+            if (!bgAnimationId && typeof animateBgWeb === 'function' && !document.hidden) {
 
                 bgAnimationId = requestAnimationFrame(animateBgWeb);
 
@@ -10170,12 +10173,7 @@
 
 
 
-        window.addEventListener('blur', freezeAllAnimations, { passive: true });
-
-        window.addEventListener('focus', unfreezeAllAnimations, { passive: true });
-
-        window.addEventListener('scroll', unfreezeAllAnimations, { passive: true });
-
+        // Only pause when tab is genuinely hidden
         document.addEventListener('visibilitychange', function() {
 
             if (document.hidden) freezeAllAnimations();
@@ -10183,6 +10181,10 @@
             else unfreezeAllAnimations();
 
         }, { passive: true });
+
+        window.addEventListener('scroll', unfreezeAllAnimations, { passive: true });
+
+        window.addEventListener('focus', unfreezeAllAnimations, { passive: true });
 
 
 
@@ -11324,13 +11326,14 @@
 
 
 
-            const target = e.target;
+            const target = (e.target instanceof Element) ? e.target : (e.target && e.target.parentElement instanceof Element ? e.target.parentElement : null);
+            if (!target) return;
 
 
 
             // If over an iframe (like the PDF viewer), let native browser cursor operate without interference
 
-            const inIframe = target && (target.tagName === 'IFRAME' || target.closest('iframe') || target.closest('#pdfStage') || target.closest('#docModal') || target.closest('.doc-modal'));
+            const inIframe = target && typeof target.closest === 'function' && (target.tagName === 'IFRAME' || target.closest('iframe') || target.closest('#pdfStage') || target.closest('#docModal') || target.closest('.doc-modal'));
 
             if (inIframe) {
 
