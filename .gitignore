@@ -13,6 +13,10 @@ launch_demo.bat
 launch_portfolio.bat
 sync_vault.py
 
+# Generated local transcripts and documentation
+Conversation_Summary_and_Transcript*.pdf
+conversation_transcript.html
+
 # Ignore unreferenced large CAD/RCDC binary files
 vault/project-4-1/RCDC/BEAMS @ MUMTY LEVEL/MASTER DESIGN DRAWINGS.dxf
 *.rcdx
