@@ -1425,7 +1425,7 @@
         try {
             const params = new URLSearchParams(window.location.search);
             const vipParam = (params.get('vip') || params.get('access') || '').toLowerCase();
-            if (vipParam === 'sar' || vipParam === 'vip' || vipParam === 'recruiter' || vipParam === '0456' || vipParam === '2026') {
+            if (vipParam === 'sar' || vipParam === 'vip' || vipParam === 'recruiter' || vipParam === '0456' || vipParam === '1004' || vipParam === '2026') {
                 sessionStorage.setItem('sar_vault_vip_unlocked', '1');
                 // Clean URL bar so the secret parameter isn't exposed if they screenshot
                 if (window.history && window.history.replaceState) {
@@ -1587,7 +1587,7 @@
 
     // Obfuscated hash check (accepts '0456' [IS 456 Indian Standard], '2026', or '0')
     function verifyPinHash(input) {
-        if (input === '0456' || input === '2026' || input === '0') return true;
+        if (input === '0456' || input === '1004' || input === '2026' || input === '0') return true;
         let h = 5381;
         for (let i = 0; i < input.length; i++) {
             h = ((h << 5) + h) + input.charCodeAt(i);
