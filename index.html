@@ -3302,12 +3302,28 @@
             font-style: italic;
             font-weight: 600;
             color: #f1f5f9;
-            line-height: 1.65;
+            line-height: 1.72;
             margin: 0 0 14px 0;
             position: relative;
             z-index: 2;
-            text-align: justify !important;
-            text-justify: inter-word !important;
+            text-align: left;
+            text-wrap: balance;
+        }
+
+        .quote-line-1,
+        .quote-line-2 {
+            display: block;
+        }
+
+        @media (max-width: 820px) {
+            .quote-line-1,
+            .quote-line-2 {
+                display: inline;
+            }
+            .quote-main-text {
+                font-size: 0.96rem;
+                line-height: 1.6;
+            }
         }
 
         .quote-attribution-footer {
@@ -8863,7 +8879,8 @@
                     </div>
 
                     <blockquote class="quote-main-text">
-                        &ldquo;Every beam carries a burden, every column stands with conviction, and every joint transfers trust. Structural engineering is where science meets human safety.&rdquo;
+                        <span class="quote-line-1">&ldquo;Every beam carries a burden, every column stands with conviction, and every joint transfers trust.</span>
+                        <span class="quote-line-2">Structural engineering is where science meets human safety.&rdquo;</span>
                     </blockquote>
 
                     <div class="quote-attribution-footer">
