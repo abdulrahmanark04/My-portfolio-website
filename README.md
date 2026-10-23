@@ -97,10 +97,10 @@ Following the **Ponytail** minimalist engineering methodology, this repository i
 
 ## 📬 Contact & Professional Inquiries
 
-- **Email**: [abdulrahmansyednawaz@gmail.com](mailto:abdulrahmansyednawaz@gmail.com)
-- **WhatsApp**: [+91 76718 10738](https://wa.me/917671810738)
+- **Email**: [abdulrahman.ark04@gmail.com](mailto:abdulrahman.ark04@gmail.com)
+- **WhatsApp**: [+91 90145 48214](https://wa.me/919014548214)
 - **Location**: Mahabubnagar, Telangana, India
-- **LinkedIn**: [Syed Abdul Rahman](https://www.linkedin.com/in/syed-abdul-rahman-599187373)
+- **LinkedIn**: [Syed Abdul Rahman](https://www.linkedin.com/in/syedabdulrahman07/)
 
 ---
 
