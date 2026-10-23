@@ -4682,7 +4682,6 @@
         dirLight3.castShadow = false;
         scene.add(dirLight3);
 
-        freezeStaticMatrices(scene);
 
         // 6. Realistic Architectural 3D Simulation Model (Lazy-loaded on first demand in staadViewerSetAnalysisMode)
         // architecturalModel is instantiated when Realistic 3D mode is activated.
@@ -4781,28 +4780,33 @@
     function setCameraView(view) {
         if (!camera) return;
         currentView = view || 'iso';
-        const dist = (analysisMode === 'realistic') ? 36 : 32;
-        const targetY = (analysisMode === 'realistic') ? 7.2 : 6.0;
+        const isReal = (analysisMode === 'realistic');
+        const dist = isReal ? 25.5 : 25;
+        const targetY = isReal ? 6.2 : 6.0;
 
         switch (view) {
             case 'front': // Front (South) looking North (+Z to -Z)
-                camera.position.set(0, targetY, dist);
+                camera.position.set(0, targetY, isReal ? 25.5 : dist);
                 break;
             case 'rear': // Rear (North) looking South (-Z to +Z)
-                camera.position.set(0, targetY, -dist);
+                camera.position.set(0, targetY, isReal ? -25.5 : -dist);
                 break;
             case 'left': // Left (West) looking East (-X to +X)
-                camera.position.set(-dist, targetY, 0);
+                camera.position.set(isReal ? -26.5 : -dist, targetY, 0);
                 break;
             case 'right': // Right (East) looking West (+X to -X)
-                camera.position.set(dist, targetY, 0);
+                camera.position.set(isReal ? 26.5 : dist, targetY, 0);
                 break;
             case 'top': // Top (Plan) looking down (+Y down)
-                camera.position.set(0.001, dist + 8, 0);
+                camera.position.set(0.001, (isReal ? 28 : dist + 8), 0);
                 break;
             case 'iso':
             default:
-                camera.position.set(24, 22, 26);
+                if (isReal) {
+                    camera.position.set(19, 16, 22);
+                } else {
+                    camera.position.set(20, 18, 22);
+                }
                 break;
         }
 
@@ -5886,7 +5890,7 @@
         // Power efficiency: If tab is hidden/backgrounded or modal closed, halt loop completely
         if (typeof document !== 'undefined') {
             const modal = document.getElementById('staad3dModal');
-            if (document.hidden || !document.hasFocus() || (modal && !modal.classList.contains('active'))) {
+            if (document.hidden || (modal && !modal.classList.contains('active'))) {
                 animId = null;
                 return;
             }
@@ -6023,6 +6027,17 @@
             const btn = document.getElementById('btnMode' + m);
             if (btn) btn.classList.toggle('active', analysisMode.toLowerCase() === m.toLowerCase());
         });
+
+        // Auto-dismiss 2D elevation bent banner and clear grid filter when switching to 3D realistic mode
+        if (analysisMode === 'realistic') {
+            if (activeGridFilter) {
+                activeGridFilter = null;
+                document.querySelectorAll('.grid-line').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.grid-bubble').forEach(el => el.classList.remove('active'));
+            }
+            const elevBanner = document.getElementById('staadElevationBanner');
+            if (elevBanner) elevBanner.classList.remove('active');
+        }
 
         // Update banners
         const rccBanner = document.getElementById('staadRccBanner');
@@ -6408,6 +6423,9 @@
         if (btn) {
             btn.style.borderColor = autoRotate ? '#ffd700' : '';
             btn.style.color = autoRotate ? '#ffd700' : '';
+        }
+        if (autoRotate) {
+            requestRender(60);
         }
     };
 

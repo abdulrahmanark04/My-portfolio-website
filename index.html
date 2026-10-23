@@ -11090,15 +11090,15 @@
 
             <div class="vault-sec-header">
 
-                <div class="vault-sec-icon-wrap">
+                <div class="vault-sec-icon-wrap" style="background: rgba(255, 215, 0, 0.12); border-color: rgba(255, 215, 0, 0.35); color: #ffd700;">
 
-                    <i class="fas fa-shield-halved"></i>
+                    <i class="fas fa-lock"></i>
 
                 </div>
 
-                <h3>Project Asset Verification</h3>
+                <h3>Engineering Asset Protection</h3>
 
-                <p>Protected Open-Source Academic Archive. Enter the security passcode (Hint: 0) to authorize download.</p>
+                <p>Raw editable CAD, STAAD.Pro &amp; Excel source files require VIP session access. Enter VIP PIN or request instant authorization below.</p>
 
             </div>
 
@@ -11175,6 +11175,18 @@
                         <i class="fas fa-download"></i> Authorize & Download
 
                     </button>
+
+                </div>
+
+                <div class="vault-sec-vip-prompt" style="margin-top: 14px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px;">
+
+                    <span style="font-size: 0.78rem; color: #94a3b8; display: block; margin-bottom: 6px;">Are you a recruiter, client, or senior engineer?</span>
+
+                    <a href="https://wa.me/919014548214?text=Hi%20Syed%20Abdul%20Rahman%2C%20I%20am%20reviewing%20your%20structural%20portfolio%20and%20would%20like%20the%20VIP%20PIN%20to%20access%20the%20raw%20CAD%20and%20STAAD%20source%20files." target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: #25d366; background: rgba(37, 211, 102, 0.12); border: 1px solid rgba(37, 211, 102, 0.35); padding: 7px 16px; border-radius: 9999px; text-decoration: none; transition: all 0.2s ease;">
+
+                        <i class="fab fa-whatsapp" style="font-size: 0.95rem;"></i> Request Instant VIP Access via WhatsApp
+
+                    </a>
 
                 </div>
 
@@ -11599,24 +11611,7 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
                 }, { passive: true });
             });
 
-            // Pause off-screen infinite CSS animations to drop background GPU/CPU draw calls to zero
-            if ('IntersectionObserver' in window) {
-                const animPauseObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const state = entry.isIntersecting ? 'running' : 'paused';
-                        entry.target.style.animationPlayState = state;
-                        entry.target.querySelectorAll('*').forEach(child => {
-                            if (getComputedStyle(child).animationName !== 'none') {
-                                child.style.animationPlayState = state;
-                            }
-                        });
-                    });
-                }, { rootMargin: '100px' });
 
-                document.querySelectorAll('.tracer-card-container, .photo-stage-wrapper, .hero-status-capsule, .featured-badge-live').forEach(el => {
-                    animPauseObserver.observe(el);
-                });
-            }
         }
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initCardSpotlights);
@@ -11703,10 +11698,10 @@ if (new URLSearchParams(window.location.search).get('open3d') === '1') {
                     <i class="fas fa-phone-alt"></i>
                     <span>Direct Call</span>
                 </a>
-                <a href="resume.html" target="_blank" class="popover-action-btn btn-resume" title="View Official Resume PDF">
+                <button type="button" class="popover-action-btn btn-resume" onclick="openDoc('resume.html'); const pop=document.getElementById('quickConnectPopover'); if(pop) pop.classList.remove('open');" title="View Official Resume PDF" style="background: none; border: none; cursor: pointer; font-family: inherit; text-align: center;">
                     <i class="fas fa-file-invoice"></i>
                     <span>Resume PDF</span>
-                </a>
+                </button>
                 <a href="mailto:abdulrahman.ark04@gmail.com" class="popover-action-btn btn-mail" title="Send Email">
                     <i class="fas fa-envelope"></i>
                     <span>Send Email</span>

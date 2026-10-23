@@ -5639,15 +5639,15 @@ window.VAULT_MANIFESTS = {
                   "folder": "vault/project-4-1/RCDC/STAIRCASE"
                 },
                 {
-                  "name": "STANCASE DESIGN.pdf",
+                  "name": "STAIRCASE DESIGN.pdf",
                   "type": "file",
                   "ext": "pdf",
                   "extension": "pdf",
                   "category": "pdf",
                   "size": "12.9 KB",
                   "sizeBytes": 13194,
-                  "path": "vault/project-4-1/RCDC/STAIRCASE/STANCASE DESIGN.pdf",
-                  "relPath": "RCDC/STAIRCASE/STANCASE DESIGN.pdf",
+                  "path": "vault/project-4-1/RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
+                  "relPath": "RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
                   "folder": "vault/project-4-1/RCDC/STAIRCASE"
                 }
               ]
@@ -6027,39 +6027,39 @@ window.VAULT_MANIFESTS = {
                   "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
                 },
                 {
-                  "name": "SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+                  "name": "SLAB DESIGN SUMMARY @FLOOR 1.pdf",
                   "type": "file",
                   "ext": "pdf",
                   "extension": "pdf",
                   "category": "pdf",
                   "size": "171.0 KB",
                   "sizeBytes": 175149,
-                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
-                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
+                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
                   "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
                 },
                 {
-                  "name": "SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+                  "name": "SLAB DESIGN SUMMARY @FLOOR 2.pdf",
                   "type": "file",
                   "ext": "pdf",
                   "extension": "pdf",
                   "category": "pdf",
                   "size": "170.8 KB",
                   "sizeBytes": 174926,
-                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
-                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
+                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
                   "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
                 },
                 {
-                  "name": "SLAB DESIGN SUMMERY @MR.pdf",
+                  "name": "SLAB DESIGN SUMMARY @MR.pdf",
                   "type": "file",
                   "ext": "pdf",
                   "extension": "pdf",
                   "category": "pdf",
                   "size": "170.3 KB",
                   "sizeBytes": 174394,
-                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
-                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
+                  "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
+                  "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
                   "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
                 },
                 {
@@ -11054,15 +11054,15 @@ window.VAULT_MANIFESTS = {
         "folder": "vault/project-4-1/RCDC/STAIRCASE"
       },
       {
-        "name": "STANCASE DESIGN.pdf",
+        "name": "STAIRCASE DESIGN.pdf",
         "type": "file",
         "ext": "pdf",
         "extension": "pdf",
         "category": "pdf",
         "size": "12.9 KB",
         "sizeBytes": 13194,
-        "path": "vault/project-4-1/RCDC/STAIRCASE/STANCASE DESIGN.pdf",
-        "relPath": "RCDC/STAIRCASE/STANCASE DESIGN.pdf",
+        "path": "vault/project-4-1/RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
+        "relPath": "RCDC/STAIRCASE/STAIRCASE DESIGN.pdf",
         "folder": "vault/project-4-1/RCDC/STAIRCASE"
       },
       {
@@ -11402,39 +11402,39 @@ window.VAULT_MANIFESTS = {
         "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
       },
       {
-        "name": "SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+        "name": "SLAB DESIGN SUMMARY @FLOOR 1.pdf",
         "type": "file",
         "ext": "pdf",
         "extension": "pdf",
         "category": "pdf",
         "size": "171.0 KB",
         "sizeBytes": 175149,
-        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
-        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf",
+        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
+        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf",
         "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
       },
       {
-        "name": "SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+        "name": "SLAB DESIGN SUMMARY @FLOOR 2.pdf",
         "type": "file",
         "ext": "pdf",
         "extension": "pdf",
         "category": "pdf",
         "size": "170.8 KB",
         "sizeBytes": 174926,
-        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
-        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf",
+        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
+        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf",
         "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
       },
       {
-        "name": "SLAB DESIGN SUMMERY @MR.pdf",
+        "name": "SLAB DESIGN SUMMARY @MR.pdf",
         "type": "file",
         "ext": "pdf",
         "extension": "pdf",
         "category": "pdf",
         "size": "170.3 KB",
         "sizeBytes": 174394,
-        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
-        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf",
+        "path": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
+        "relPath": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf",
         "folder": "vault/project-4-1/RCDC DESIGN SUMMARY/SLAB DESIGN"
       },
       {

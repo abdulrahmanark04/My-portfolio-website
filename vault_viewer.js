@@ -1414,13 +1414,88 @@
     }
 
     // ==========================================
-    // 9. SECURITY PASSCODE DIALER MODAL
+    // 9. SMART VIP & SESSION-MEMORY SECURITY ENGINE
     // ==========================================
     let secDownloadTarget = { path: '', name: '' };
     let secCurrentPin = '';
     let secKeydownHandler = null;
 
+    // 1. Check URL for Recruiter VIP Magic Link (?vip=sar or ?access=vip or ?access=0456)
+    (function checkVipUrlAccess() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const vipParam = (params.get('vip') || params.get('access') || '').toLowerCase();
+            if (vipParam === 'sar' || vipParam === 'vip' || vipParam === 'recruiter' || vipParam === '0456' || vipParam === '2026') {
+                sessionStorage.setItem('sar_vault_vip_unlocked', '1');
+                // Clean URL bar so the secret parameter isn't exposed if they screenshot
+                if (window.history && window.history.replaceState) {
+                    params.delete('vip');
+                    params.delete('access');
+                    const newQuery = params.toString();
+                    const cleanUrl = window.location.pathname + (newQuery ? '?' + newQuery : '') + window.location.hash;
+                    window.history.replaceState({}, document.title, cleanUrl);
+                }
+            }
+        } catch (e) {}
+    })();
+
+    function isVaultSessionUnlocked() {
+        try {
+            return sessionStorage.getItem('sar_vault_vip_unlocked') === '1';
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function isPublicReadOnlyFile(filePath, fileName) {
+        const name = (fileName || filePath || '').toLowerCase();
+        // PDFs and images have title blocks & watermarks — let seniors & recruiters download in 1 click!
+        return name.endsWith('.pdf') || name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.webp');
+    }
+
+    async function executeDirectDownload(targetPath, targetName) {
+        let downloaded = false;
+        try {
+            const encodedPath = encodeURI(targetPath);
+            const resp = await fetch(encodedPath);
+            if (resp.ok) {
+                const blob = await resp.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.style.display = 'none';
+                link.href = blobUrl;
+                link.setAttribute('download', targetName || 'download');
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(() => {
+                    window.URL.revokeObjectURL(blobUrl);
+                    link.remove();
+                }, 2000);
+                downloaded = true;
+            }
+        } catch (fetchErr) {
+            console.warn('Direct blob download fallback to standard link', fetchErr);
+        }
+
+        if (!downloaded) {
+            const link = document.createElement('a');
+            link.style.display = 'none';
+            link.href = encodeURI(targetPath);
+            link.setAttribute('download', targetName || 'download');
+            link.setAttribute('target', '_blank');
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(() => link.remove(), 1000);
+        }
+    }
+
     window.vaultTriggerSecureDownload = function (filePath, fileName) {
+        // Bypass modal if: (A) It's a PDF/Image print, OR (B) User is already VIP/Session-Unlocked!
+        if (isPublicReadOnlyFile(filePath, fileName) || isVaultSessionUnlocked()) {
+            executeDirectDownload(filePath, fileName);
+            return;
+        }
+
         secDownloadTarget = { path: filePath, name: fileName };
         secCurrentPin = '';
 
@@ -1432,7 +1507,7 @@
         if (nameEl) nameEl.textContent = fileName || 'project_asset';
         if (pinEl) {
             pinEl.className = 'vault-sec-pin-display';
-            pinEl.innerHTML = '<span class="vault-sec-pin-placeholder">Enter Passcode</span>';
+            pinEl.innerHTML = '<span class="vault-sec-pin-placeholder">Enter VIP PIN</span>';
             pinEl.style.borderColor = '';
             pinEl.style.color = '';
         }
@@ -1445,7 +1520,6 @@
             modal.classList.add('active');
         }
 
-        // Bind keyboard listener once
         if (!secKeydownHandler) {
             secKeydownHandler = function (e) {
                 const secModal = document.getElementById('vaultSecurityModal');
@@ -1471,9 +1545,7 @@
 
     window.vaultCloseSecurityModal = function () {
         const modal = document.getElementById('vaultSecurityModal');
-        if (modal) {
-            modal.classList.remove('active');
-        }
+        if (modal) modal.classList.remove('active');
         secCurrentPin = '';
     };
 
@@ -1503,11 +1575,11 @@
         if (!pinEl) return;
 
         if (secCurrentPin.length === 0) {
-            pinEl.innerHTML = '<span class="vault-sec-pin-placeholder">Enter Passcode</span>';
+            pinEl.innerHTML = '<span class="vault-sec-pin-placeholder">Enter VIP PIN</span>';
             pinEl.classList.remove('focus');
         } else {
             pinEl.classList.add('focus');
-            pinEl.innerHTML = secCurrentPin.split('').map(d => `<span style="display:inline-block; margin:0 4px; font-family: monospace;">${d}</span>`).join('');
+            pinEl.innerHTML = secCurrentPin.split('').map(() => '<span style="display:inline-block; margin:0 4px; font-family: monospace;">&bull;</span>').join('');
         }
     }
 
@@ -1535,62 +1607,38 @@
         }
     };
 
+    // Obfuscated hash check (accepts '0456' [IS 456 Indian Standard], '2026', or '0')
+    function verifyPinHash(input) {
+        if (input === '0456' || input === '2026' || input === '0') return true;
+        let h = 5381;
+        for (let i = 0; i < input.length; i++) {
+            h = ((h << 5) + h) + input.charCodeAt(i);
+        }
+        return h === 2088257012 || h === 2088324431 || h === 177621;
+    }
+
     window.vaultVerifyPasscode = async function () {
         const pinEl = document.getElementById('vaultSecPinDisplay');
         const errEl = document.getElementById('vaultSecErrorMsg');
 
-        if (secCurrentPin === '0') {
-            // SUCCESS - Authorized
+        if (verifyPinHash(secCurrentPin)) {
+            // SUCCESS - Authorized! Unlock session memory so user never has to re-type PIN
+            try {
+                sessionStorage.setItem('sar_vault_vip_unlocked', '1');
+            } catch (e) {}
+
             if (pinEl) {
                 pinEl.style.borderColor = '#22c55e';
                 pinEl.style.color = '#22c55e';
-                pinEl.innerHTML = '<i class="fas fa-check-circle" style="color:#22c55e; margin-right:6px;"></i> Verified';
+                pinEl.innerHTML = '<i class="fas fa-check-circle" style="color:#22c55e; margin-right:6px;"></i> VIP Access Granted';
             }
             if (errEl) {
                 errEl.style.display = 'block';
                 errEl.style.color = '#22c55e';
-                errEl.innerHTML = '<i class="fas fa-circle-check"></i> Security Passcode Accepted! Downloading...';
+                errEl.innerHTML = '<i class="fas fa-circle-check"></i> VIP Passcode Verified! Downloading asset...';
             }
 
-            const targetPath = secDownloadTarget.path;
-            const targetName = secDownloadTarget.name || 'download';
-
-            // High-reliability dual method download:
-            // 1. Fetch as Blob & use ObjectURL (forces direct file download in all modern browsers)
-            let downloaded = false;
-            try {
-                const encodedPath = encodeURI(targetPath);
-                const resp = await fetch(encodedPath);
-                if (resp.ok) {
-                    const blob = await resp.blob();
-                    const blobUrl = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.style.display = 'none';
-                    link.href = blobUrl;
-                    link.setAttribute('download', targetName);
-                    document.body.appendChild(link);
-                    link.click();
-                    setTimeout(() => {
-                        window.URL.revokeObjectURL(blobUrl);
-                        link.remove();
-                    }, 2000);
-                    downloaded = true;
-                }
-            } catch (fetchErr) {
-                console.warn('Direct blob download fallback to standard link', fetchErr);
-            }
-
-            // 2. Direct anchor fallback if Blob fetch was blocked or failed
-            if (!downloaded) {
-                const link = document.createElement('a');
-                link.style.display = 'none';
-                link.href = encodeURI(targetPath);
-                link.setAttribute('download', targetName);
-                link.setAttribute('target', '_blank');
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(() => link.remove(), 1000);
-            }
+            executeDirectDownload(secDownloadTarget.path, secDownloadTarget.name);
 
             // Auto-close modal after brief delay
             setTimeout(() => {
@@ -1609,7 +1657,7 @@
                 pinEl.style.borderColor = '#ef4444';
                 pinEl.style.color = '#ef4444';
                 setTimeout(() => {
-                    if (pinEl && secCurrentPin !== '0') {
+                    if (pinEl && !verifyPinHash(secCurrentPin)) {
                         pinEl.style.borderColor = '';
                         pinEl.style.color = '';
                     }
@@ -1618,11 +1666,10 @@
             if (errEl) {
                 errEl.style.display = 'block';
                 errEl.style.color = '#f87171';
-                errEl.innerHTML = '<i class="fas fa-circle-xmark"></i> Access Denied: Invalid security passcode.';
+                errEl.innerHTML = '<i class="fas fa-circle-xmark"></i> Access Denied: Invalid VIP Passcode. Enter IS Code (0456) or request access via WhatsApp below.';
             }
         }
     };
-
     // Close when clicking modal backdrop outside dialog
     document.addEventListener('click', function (e) {
         const modal = document.getElementById('vaultSecurityModal');

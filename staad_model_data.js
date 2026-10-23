@@ -8376,7 +8376,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S2",
@@ -8401,7 +8401,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S3",
@@ -8426,7 +8426,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S4",
@@ -8451,7 +8451,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S5",
@@ -8476,7 +8476,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S6",
@@ -8501,7 +8501,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S7",
@@ -8526,7 +8526,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S8",
@@ -8551,7 +8551,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S9",
@@ -8576,7 +8576,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S10",
@@ -8601,7 +8601,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S11",
@@ -8626,7 +8626,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "ground-S12",
@@ -8651,7 +8651,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 1.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 1.pdf"
     },
     {
       "id": "first-S1",
@@ -8676,7 +8676,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S2",
@@ -8701,7 +8701,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S3",
@@ -8726,7 +8726,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S4",
@@ -8751,7 +8751,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S5",
@@ -8776,7 +8776,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S6",
@@ -8801,7 +8801,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S7",
@@ -8826,7 +8826,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S8",
@@ -8851,7 +8851,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S9",
@@ -8876,7 +8876,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S10",
@@ -8901,7 +8901,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S11",
@@ -8926,7 +8926,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "first-S12",
@@ -8951,7 +8951,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @FLOOR 2.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @FLOOR 2.pdf"
     },
     {
       "id": "second-S1",
@@ -8976,7 +8976,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S2",
@@ -9001,7 +9001,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S3",
@@ -9026,7 +9026,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S4",
@@ -9051,7 +9051,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S5",
@@ -9076,7 +9076,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S6",
@@ -9101,7 +9101,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S7",
@@ -9126,7 +9126,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S8",
@@ -9151,7 +9151,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S9",
@@ -9176,7 +9176,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S10",
@@ -9201,7 +9201,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S11",
@@ -9226,7 +9226,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     },
     {
       "id": "second-S12",
@@ -9251,7 +9251,7 @@ window.STAAD_MODEL_DATA = {
       "steel": "Fe 550 (fy = 550 N/mm\u00b2)",
       "clearCover": "20 mm",
       "status": "PASS (IS 456 Limit State Design)",
-      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMERY @MR.pdf"
+      "pdfRef": "RCDC DESIGN SUMMARY/SLAB DESIGN/SLAB DESIGN SUMMARY @MR.pdf"
     }
   ]
 };
